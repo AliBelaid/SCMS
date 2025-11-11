@@ -1,0 +1,235 @@
+<div class="file-upload-container" style="margin-top: 70px;">
+  <app-shared-header></app-shared-header>
+  <!-- Centered Home Logo -->
+  <div class="home-logo-center">
+    <img src="assets/images/logos/home.png" alt="Home Logo" class="home-logo">
+    <h1 class="home-title">{{ 'DOCUMENT_SYSTEM.DOCUMENT_UPLOAD' | translate }}</h1>
+    <p class="home-subtitle">{{ 'DOCUMENT_SYSTEM.DOCUMENT_UPLOAD_SYSTEM' | translate }}</p>
+  </div>
+
+  <!-- Header Section -->
+  <div class="upload-header">
+    <div class="header-content">
+      <div class="title-section">
+        <h1>{{ 'DOCUMENT_SYSTEM.DOCUMENT_UPLOAD' | translate }}</h1>
+        <p>{{ 'UPLOAD_AREA.DROP_FILES_HERE' | translate }} {{ 'UPLOAD_AREA.OR_BROWSE' | translate }}</p>
+      </div>
+      <div class="user-info">
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+          <button 
+            mat-button 
+            color="primary" 
+            (click)="navigateToFiles()" 
+            class="nav-btn modern-button"
+            [matTooltip]="'VIEW_FILES' | translate">
+            <mat-icon>folder</mat-icon>
+            {{ 'VIEW_FILES' | translate }}
+          </button>
+          <button 
+            mat-button 
+            color="accent" 
+            (click)="navigateToAdmin()" 
+            class="nav-btn modern-button"
+            [matTooltip]="'MANAGE_USERS' | translate">
+            <mat-icon>admin_panel_settings</mat-icon>
+            {{ 'MANAGE_USERS' | translate }}
+          </button>
+        </div>
+        
+        <span class="user-name">{{ currentUser?.description }}</span>
+        <button mat-button color="primary" (click)="testAuthentication()" class="test-auth-btn modern-button">
+          <mat-icon>security</mat-icon>
+          {{ 'TESTING.TEST_AUTHENTICATION' | translate }}
+        </button>
+        <button mat-button color="accent" (click)="debugDocuments()" class="debug-btn modern-button">
+          <mat-icon>bug_report</mat-icon>
+          {{ 'TESTING.DEBUG' | translate }}
+        </button>
+        <button mat-button color="warn" (click)="createTestDocument()" class="test-doc-btn modern-button">
+          <mat-icon>add</mat-icon>
+          {{ 'TESTING.CREATE_TEST_DOCUMENT' | translate }}
+        </button>
+        <button mat-icon-button (click)="logout()" class="logout-btn">
+          <mat-icon>logout</mat-icon>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Upload Area -->
+  <div class="upload-main">
+    <!-- Drag & Drop Zone -->
+    <div 
+      #dropZone
+      class="drop-zone upload-area-enhanced"
+      [class.drag-over]="isDragOver"
+      [class.has-files]="uploadFiles.length > 0"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      (click)="openFileBrowser()">
+      
+      <div class="drop-zone-content">
+        <div class="upload-icon-container">
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+        </div>
+        
+        <div class="upload-text">
+          <h2>{{ 'UPLOAD_AREA.DROP_FILES_HERE' | translate }}</h2>
+          <p>{{ 'UPLOAD_AREA.OR' | translate }} <span class="browse-link">{{ 'UPLOAD_AREA.BROWSE_FILES' | translate }}</span></p>
+          <p class="upload-hint">{{ 'UPLOAD_AREA.MAX_FILE_SIZE' | translate }}: 300 {{ 'UPLOAD_AREA.MB' | translate }}</p>
+        </div>
+        
+        <div class="supported-formats">
+          <span class="format-label">{{ 'UPLOAD_AREA.SUPPORTED_FORMATS' | translate }}:</span>
+          <div class="format-badges">
+            <span class="format-badge pdf">PDF</span>
+            <span class="format-badge word">DOC</span>
+            <span class="format-badge excel">XLS</span>
+            <span class="format-badge image">IMG</span>
+            <span class="format-badge audio">AUDIO</span>
+            <span class="format-badge video">VIDEO</span>
+            <span class="format-badge text">TEXT</span>
+            <span class="format-badge archive">ZIP</span>
+            <span class="format-badge unknown">ALL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden File Input -->
+    <input 
+      #fileInput
+      type="file" 
+      multiple 
+      (change)="onFileSelected($event)"
+      style="display: none;">
+
+    <!-- File List -->
+    <div *ngIf="uploadFiles.length > 0" class="file-list-container">
+      <div class="file-list-header">
+        <div class="file-count">
+          <mat-icon>folder</mat-icon>
+          <span>{{ uploadFiles.length }} {{ 'FILES_SELECTED' | translate }}</span>
+        </div>
+        <button 
+          mat-button 
+          color="warn" 
+          (click)="clearAllFiles()"
+          [disabled]="isUploading"
+          class="clear-btn modern-button">
+          <mat-icon>clear_all</mat-icon>
+          {{ 'CLEAR_ALL' | translate }}
+        </button>
+      </div>
+
+      <div class="file-grid">
+        <div 
+          *ngFor="let uploadFile of uploadFiles; let i = index" 
+          class="file-card file-card-enhanced"
+          [ngClass]="{'uploading': uploadFile.status === 'uploading', 'completed': uploadFile.status === 'completed'}">
+          
+          <div class="file-card-header">
+                            <div class="file-icon-wrapper" [ngClass]="'type-' + uploadFile.fileType">
+                  <img src="assets/images/logos/img1.png" alt="File Icon" class="file-icon"   style="  width: 50px;">
+                </div>
+            
+            <div class="file-status">
+              <mat-icon *ngIf="uploadFile.status === 'pending'" class="status-icon pending">schedule</mat-icon>
+              <mat-spinner *ngIf="uploadFile.status === 'uploading'" diameter="20" class="status-icon uploading"></mat-spinner>
+              <mat-icon *ngIf="uploadFile.status === 'completed'" class="status-icon completed">check_circle</mat-icon>
+            </div>
+          </div>
+
+          <div class="file-card-content">
+            <h4 class="file-name" [matTooltip]="uploadFile.fileName">
+              {{ uploadFile.fileName }}
+            </h4>
+            <p class="file-size">{{ (uploadFile.file.size / 1024).toFixed(1) }} كيلوبايت</p>
+            
+            <div *ngIf="uploadFile.status === 'uploading'" class="upload-progress progress-enhanced">
+              <mat-progress-bar 
+                mode="determinate" 
+                [value]="uploadFile.progress"
+                class="progress-bar">
+              </mat-progress-bar>
+              <span class="progress-text">{{ uploadFile.progress.toFixed(0) }}%</span>
+            </div>
+          </div>
+
+          <div class="file-card-actions">
+            <button 
+              *ngIf="uploadFile.status === 'pending'"
+              mat-icon-button 
+              color="warn" 
+              (click)="removeFile(i)"
+              [disabled]="isUploading"
+              class="remove-btn">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Permission Settings -->
+    <div *ngIf="uploadFiles.length > 0" class="permission-section">
+      <div class="section-header">
+        <h3>{{ 'PERMISSIONS.SETTINGS' | translate }}</h3>
+        <p>{{ 'PERMISSIONS.CONFIGURE_ACCESS' | translate }}</p>
+      </div>
+      
+      <form [formGroup]="uploadForm" class="permission-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>{{ 'PERMISSIONS.EXCLUDED_USERS' | translate }}</label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="excludedUsers" multiple [placeholder]="'PERMISSIONS.SELECT_USERS_TO_EXCLUDE' | translate">
+                <mat-option *ngFor="let user of users" [value]="user.code">
+                  <div class="user-option">
+                    <span class="user-code">{{ user.code }}</span>
+                    <span class="user-desc">{{ user.description }}</span>
+                  </div>
+                </mat-option>
+              </mat-select>
+              <mat-hint>{{ 'PERMISSIONS.DEFAULT_ACCESS_HINT' | translate }}</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button 
+            mat-flat-button 
+            color="primary" 
+            type="button"
+            (click)="onUpload()"
+            [disabled]="uploadFiles.length === 0 || isUploading"
+            class="upload-btn modern-button">
+            <mat-icon *ngIf="!isUploading">cloud_upload</mat-icon>
+            <mat-spinner *ngIf="isUploading" diameter="20"></mat-spinner>
+            <span>{{ isUploading ? ('UPLOADING' | translate) : ('UPLOAD_FILES' | translate) }}</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <mat-card class="footer-card enhanced-card">
+    <mat-card-content>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/images/logos/img1.png" alt="System Logo" class="footer-logo-img">
+        </div>
+        <div class="footer-text">
+          <h3 class="footer-title">{{ 'DOCUMENT_SYSTEM.TITLE' | translate }}</h3>
+          <p class="footer-subtitle">{{ 'DOCUMENT_SYSTEM.SUBTITLE' | translate }}</p>
+          <p class="footer-developer">{{ 'FOOTER.DEVELOPED_BY' | translate }} <strong>{{ 'FOOTER.TECHNICAL_COMMITTEE' | translate }}</strong></p>
+          <p class="footer-year">{{ 'FOOTER.YEAR' | translate }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> 

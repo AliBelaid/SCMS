@@ -1,0 +1,178 @@
+[
+    {
+      "Suggested": null,
+      "ID": "I",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"I\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EI\u003C/span\u003E\nCertain infectious and parasitic diseases\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "II",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"II\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EII\u003C/span\u003E\nNeoplasms\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "III",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"III\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EIII\u003C/span\u003E\nDiseases of the blood and blood-forming organs and certain disorders involving the immune mechanism\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "IV",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"IV\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EIV\u003C/span\u003E\nEndocrine, nutritional and metabolic diseases\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "V",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"V\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EV\u003C/span\u003E\nMental and behavioural disorders\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "VI",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"VI\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EVI\u003C/span\u003E\nDiseases of the nervous system\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "VII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"VII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EVII\u003C/span\u003E\nDiseases of the eye and adnexa\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "VIII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"VIII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EVIII\u003C/span\u003E\nDiseases of the ear and mastoid process\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "IX",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"IX\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EIX\u003C/span\u003E\nDiseases of the circulatory system\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "X",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"X\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EX\u003C/span\u003E\nDiseases of the respiratory system\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XI",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XI\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXI\u003C/span\u003E\nDiseases of the digestive system\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXII\u003C/span\u003E\nDiseases of the skin and subcutaneous tissue\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XIII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XIII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXIII\u003C/span\u003E\nDiseases of the musculoskeletal system and connective tissue\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XIV",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XIV\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXIV\u003C/span\u003E\nDiseases of the genitourinary system\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XV",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XV\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXV\u003C/span\u003E\nPregnancy, childbirth and the puerperium\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XVI",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XVI\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXVI\u003C/span\u003E\nCertain conditions originating in the perinatal period\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XVII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XVII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXVII\u003C/span\u003E\nCongenital malformations, deformations and chromosomal abnormalities\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XVIII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XVIII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXVIII\u003C/span\u003E\nSymptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XIX",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XIX\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXIX\u003C/span\u003E\nInjury, poisoning and certain other consequences of external causes\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XX",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XX\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXX\u003C/span\u003E\nExternal causes of morbidity and mortality\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XXI",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XXI\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXXI\u003C/span\u003E\nFactors influencing health status and contact with health services\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    },
+    {
+      "Suggested": null,
+      "ID": "XXII",
+      "html": "\n\n\n\u003Ca \n   class=\"ygtvlabel  \" \n      data-id=\"XXII\"\u003E\n\n    \n\n        \u003Cspan class=\"icode \"\u003EXXII\u003C/span\u003E\nCodes for special purposes\n\n\n\n\u003C/a\u003E&nbsp;\n\n",
+      "isLeaf": false,
+      "isAdoptedChild": false,
+      "averageDepth": 0
+    }
+  ]

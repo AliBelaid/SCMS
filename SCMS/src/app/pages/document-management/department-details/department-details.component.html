@@ -1,0 +1,49 @@
+<ng-container *ngIf="department$ | async as department; else loading">
+  <section class="department-details">
+    <header class="header">
+      <div>
+        <h1>{{ department.nameAr }}</h1>
+        <p>الرمز: <span>{{ department.code }}</span></p>
+      </div>
+      <span class="status" [class.inactive]="!department.isActive">
+        {{ department.isActive ? 'نشطة' : 'متوقفة' }}
+      </span>
+    </header>
+
+    <article class="card">
+      <h2>الوصف</h2>
+      <p>{{ department.description || 'لا يوجد وصف متاح.' }}</p>
+    </article>
+
+    <article class="card">
+      <h2>المواضيع ({{ department.subjects.length }})</h2>
+      <ul>
+        <li *ngFor="let subject of department.subjects">
+          <div>
+            <strong>{{ subject.code }}</strong>
+            <span>{{ subject.nameAr }}</span>
+          </div>
+          <div class="meta">
+            <span>الوارد: {{ subject.incomingPrefix }}</span>
+            <span>الصادر: {{ subject.outgoingPrefix }}</span>
+            <span [class.inactive]="!subject.isActive">
+              {{ subject.isActive ? 'نشط' : 'متوقف' }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <footer class="actions">
+      <a [routerLink]="['/departments/edit', department.id]" class="primary">تعديل الإدارة</a>
+      <a routerLink="/departments" class="secondary">العودة للقائمة</a>
+    </footer>
+  </section>
+</ng-container>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>جاري تحميل تفاصيل الإدارة...</p>
+  </div>
+</ng-template>
+

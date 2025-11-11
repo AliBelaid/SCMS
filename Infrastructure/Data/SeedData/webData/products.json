@@ -1,0 +1,255 @@
+[{
+      
+    "title": "trim dress",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "nike",
+   
+    "category": "Women",
+    "price": 145,
+    "sale": true,
+    "discount": "40",
+    "stock": 5,
+    "new": true,
+    "tags": [
+        "new",
+        "s",
+        "m",
+        "yellow",
+        "white",
+        "pink",
+        "nike"
+    ] ,
+    "images": [{
+
+            "alt": "yellow",
+            "src": "assets/images/product/fashion/39.jpg"
+            
+        },
+        {
+
+            "alt": "white",
+            "src": "assets/images/product/fashion/6.jpg"
+           
+        },
+        {
+          
+            "alt": "pink",
+            "src": "assets/images/product/fashion/25.jpg" 
+        }
+    ]
+}, {
+   
+    "title": "belted dress",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "zara",
+     "category": "Women",
+    "price": 185,
+    "sale": false,
+    "discount": "40",
+    "stock": 2,
+    "new": false,
+    "tags": [
+        "s",
+        "m",
+        "l",
+        "olive",
+        "navy",
+        "red",
+        "zara"
+    ] ,
+    "images": [{
+           
+            "alt": "olive",
+            "src": "assets/images/product/fashion/3.jpg" 
+        },
+        {
+          
+            "alt": "navy",
+            "src": "assets/images/product/fashion/4.jpg" 
+        },
+        {
+          
+            "alt": "pink",
+            "src": "assets/images/product/fashion/5.jpg" 
+        },
+        {
+            
+            "alt": "pink",
+            "src": "assets/images/product/fashion/15.jpg" 
+        }
+    ]
+}, {
+    
+    "title": "fitted dress",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "denim",
+    
+    "category": "Women",
+    "price": 174,
+    "sale": false,
+    "discount": "40",
+    "stock": 0,
+    "new": true,
+    "tags": [
+        "denim",
+        "l",
+        "m",
+        "white",
+        "black"
+    ] ,
+    "images": [{
+         
+            "alt": "white",
+            "src": "assets/images/product/fashion/1.jpg"
+        },
+        {
+           
+            "alt": "white",
+            "src": "assets/images/product/fashion/2.jpg"
+        }
+    ]
+}, {
+    
+    "title": "belted top",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "madame",
+  
+    "category": "Women",
+    "price": 98,
+    "sale": false,
+    "discount": "50",
+    "stock": 10,
+    "new": true,
+    "tags": [
+        "s",
+        "l",
+        "white",
+        "skyblue",
+        "madame"
+    ],
+     
+    "images": [{
+           
+            "alt": "white",
+            "src": "assets/images/product/fashion/8.jpg" 
+        },
+        {
+      
+            "alt": "skyblue",
+            "src": "assets/images/product/fashion/7.jpg" 
+        }
+    ]
+}, {
+  
+    "title": "waist dress",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "biba",
+   
+    "category": "Women",
+    "price": 230,
+    "sale": true,
+    "discount": "20",
+    "stock": 4,
+    "new": true,
+    "tags": [
+        "m",
+        "l",
+        "green",
+        "black",
+        "biba"
+    ],
+     
+    "images": [{
+            
+            "alt": "green",
+            "src": "assets/images/product/fashion/9.jpg" 
+        },
+        {
+          
+            "alt": "black",
+            "src": "assets/images/product/fashion/10.jpg" 
+        }
+    ]
+}, {
+  
+    "title": "crop top",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "max",
+ 
+    "category": "Women",
+    "price": 121,
+    "sale": false,
+    "discount": "40",
+    "stock": 30,
+    "new": true,
+    "tags": [
+        "new",
+        "s",
+        "m",
+        "olive",
+        "gray",
+        "red",
+        "max"
+    ] ,
+    "images": [{
+             
+            "alt": "olive",
+            "src": "assets/images/product/fashion/11.jpg" 
+        },
+        {
+            
+            "alt": "gray",
+            "src": "assets/images/product/fashion/12.jpg" 
+        },
+        {
+         
+            "alt": "red",
+            "src": "assets/images/product/fashion/22.jpg" 
+        }
+    ]
+}, {
+    
+    "title": "sleeveless dress",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+    "type": "fashion",
+    "brand": "biba",
+   
+    "category": "Women",
+    "price": 290,
+    "sale": true,
+    "discount": "10",
+    "stock": 15,
+    "new": true,
+    "tags": [
+        "s",
+        "m",
+        "pink",
+        "white",
+        "black",
+        "biba"
+    ],
+    
+    "images": [{
+            
+            "alt": "pink",
+            "src": "assets/images/product/fashion/13.jpg" 
+        },
+        {
+      
+            "alt": "white",
+            "src": "assets/images/product/fashion/8.jpg" 
+        },
+        {
+         
+            "alt": "black",
+            "src": "assets/images/product/fashion/15.jpg" 
+        }
+    ]
+}
+]

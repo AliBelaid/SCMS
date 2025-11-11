@@ -1,0 +1,157 @@
+ 
+    [
+      {
+        "Id": 11,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 12,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 14,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 15,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 16,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 17,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 1
+      },
+      {
+        "Id": 6,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 2
+      },
+      {
+        "Id": 7,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 2
+      },
+      {
+        "Id": 31,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 2
+      },
+      {
+        "Id": 32,
+        "Name": "V4 UR9000",
+        "EOM": "2024Q2",
+        "EOP": "TBD",
+        "EOS": "2025Q2",
+        "Vendor": 1,
+        "TelecomType": 2
+      },
+      {
+        "Id": 1,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+      {
+        "Id": 2,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+      {
+        "Id": 3,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+      {
+        "Id": 4,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+      {
+        "Id": 5,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+      {
+        "Id": 8,
+        "Name": "BSC6910GU",
+        "EOM": "31/Dec/25",
+        "EOP": "30/Jun/26",
+        "EOS": "31/Dec/30",
+        "Vendor": 2,
+        "TelecomType": 3
+      },
+
+      { "Id": 9,
+        "Name": "BSC6900",
+        "EOM": "30/Jun/17",
+        "EOP": "31/Dec/17",
+        "EOS": "31/Dec/22",
+        "Vendor": 2,
+        "TelecomType": 1
+      }
+    ]
+    

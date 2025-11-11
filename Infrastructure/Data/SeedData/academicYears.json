@@ -1,0 +1,26 @@
+[   
+  
+{
+    
+  "AcademicYearName": "2020-2021",
+  "Year": "2020-2021",
+  "StartDate": "2020-09-01",
+  "EndDate": "2021-06-30"
+},
+{
+    
+        "AcademicYearName": "2021-2022",
+        "Year": "2021-2022",
+        "StartDate": "2021-09-01",
+        "EndDate": "2022-06-30"
+      },
+      {
+    
+        "AcademicYearName": "2022-2023",
+        "Year": "2022-2023",
+        "StartDate": "2022-09-01",
+        "EndDate": "2023-06-30"
+      }
+    
+  
+      ]

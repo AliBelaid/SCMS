@@ -1,0 +1,100 @@
+<section class="department-form">
+  <header class="page-header">
+    <h1>
+      {{ mode() === 'edit' ? 'تعديل الإدارة' : 'إنشاء إدارة جديدة' }}
+    </h1>
+    <p>قم بإدارة بيانات الإدارة والمواضيع التابعة لها.</p>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="code">رمز الإدارة</label>
+        <input id="code" type="text" formControlName="code" placeholder="مثال: HR" />
+      </div>
+
+      <div class="field">
+        <label for="nameAr">الاسم بالعربية</label>
+        <input id="nameAr" type="text" formControlName="nameAr" />
+      </div>
+
+      <div class="field">
+        <label for="nameEn">الاسم بالإنجليزية</label>
+        <input id="nameEn" type="text" formControlName="nameEn" />
+      </div>
+
+      <div class="field description">
+        <label for="description">الوصف</label>
+        <textarea id="description" rows="3" formControlName="description"></textarea>
+      </div>
+
+      <div class="field toggle">
+        <label>
+          <input type="checkbox" formControlName="isActive" />
+          الإدارة نشطة
+        </label>
+      </div>
+    </div>
+
+    <section class="subjects">
+      <header>
+        <h2>المواضيع</h2>
+        <button type="button" (click)="addSubject()">إضافة موضوع</button>
+      </header>
+
+      <div
+        class="subject-card"
+        *ngFor="let subject of subjectsArray.controls; index as i"
+        [formGroupName]="i"
+      >
+        <div class="subject-grid">
+          <div class="field">
+            <label>رمز الموضوع</label>
+            <input type="text" formControlName="code" placeholder="مثال: REC" />
+          </div>
+          <div class="field">
+            <label>الاسم بالعربية</label>
+            <input type="text" formControlName="nameAr" />
+          </div>
+          <div class="field">
+            <label>الاسم بالإنجليزية</label>
+            <input type="text" formControlName="nameEn" />
+          </div>
+          <div class="field">
+            <label>رمز الوارد</label>
+            <input type="text" formControlName="incomingPrefix" placeholder="مثال: REC-IN" />
+          </div>
+          <div class="field">
+            <label>رمز الصادر</label>
+            <input type="text" formControlName="outgoingPrefix" placeholder="مثال: REC-OUT" />
+          </div>
+          <div class="field">
+            <label>تاريخ الإنشاء</label>
+            <input type="date" formControlName="createdAt" />
+          </div>
+          <div class="field toggle">
+            <label>
+              <input type="checkbox" formControlName="isActive" />
+              موضوع نشط
+            </label>
+          </div>
+        </div>
+        <button type="button" class="remove" (click)="removeSubject(i)" *ngIf="subjectsArray.length > 1">
+          إزالة الموضوع
+        </button>
+      </div>
+    </section>
+
+    <footer class="form-actions">
+      <button type="submit" [disabled]="isSaving()">
+        {{ mode() === 'edit' ? 'تحديث الإدارة' : 'حفظ الإدارة' }}
+      </button>
+      <a routerLink="/departments" class="link">إلغاء</a>
+    </footer>
+
+    <p class="feedback" *ngIf="submissionMessage() as message">
+      {{ message }}
+    </p>
+  </form>
+</section>
+

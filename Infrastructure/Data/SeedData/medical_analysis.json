@@ -1,0 +1,116 @@
+{
+  "MedicalAnalyses": [
+      {
+          "Category": "تحاليل الفحص الشامل",
+          "Analyses": [
+              "وظائف الكبد SGOT",
+              "SGPT",
+              "وظائف الكلى Urea",
+              "Creatinine",
+              "صورة دم CBC",
+              "سكر صائم FBS",
+              "سرعة ترسيب ESR",
+              "املاح النقرس Uric Acid",
+              "تحليل بول Urine Analysis",
+              "دهنيات الدم كاملة Lipid profile",
+              "تحاليل مرض السكر"
+          ]
+      },
+      {
+          "Category": "سكر صائم FBS",
+          "Analyses": [
+              "سكر بعد الاكل 2hrPP",
+              "الهيموجلوبين السكرى HBA1C",
+              "منحنى السكر Glucose curve",
+              "الميكروالبيومينوريا Microalbuminuria"
+          ]
+      },
+      {
+          "Category": "دهنيات الدم",
+          "Analyses": [
+              "كوليستيرول",
+              "الدهون الثلاثية",
+              "كوليستيرول منخفض الكثافة",
+              "كوليستيرول مرتفع الكثافة"
+          ]
+      },
+      {
+          "Category": "تحاليل وظائف الكبد",
+          "Analyses": [
+              "Bilirubin (Total)",
+              "Direct",
+              "ALT (SGPT)",
+              "AST (SGOT)",
+              "PT",
+              "Albumin",
+              "GGT",
+              "Total Protein",
+              "Alkaline Phosphatase"
+          ]
+      },
+      {
+          "Category": "تحاليل وظائف الكلى",
+          "Analyses": [
+              "Creatinine",
+              "Urea",
+              "Uric acid",
+              "Urine analysis",
+              "Sodium and Potassium"
+          ]
+      },
+      {
+          "Category": "تحاليل سيولة الدم",
+          "Analyses": [
+              "سرعة النزف Bleeding time (BT)",
+              "سرعة التجلط Clotting time (CT)",
+              "سيولة الدم Prothrombin time (PT)",
+              "تخسر الدم Partial Thromboplastin Time (PTT)",
+              "عدد الصفائح Platelets count",
+              "مستوى الفيبرينوجين Fibrinogen Level",
+              "مستوى Fibrinogen Degradation Products"
+          ]
+      },
+      {
+          "Category": "امراض الدم",
+          "Analyses": [
+              "صورة الدم Complete Blood Count (CBC)",
+              "الخلايا الشبكية Retix count",
+              "الفصل الكهربائى للهيموجلوبين Hb Electrophoresis",
+              "كومب مباشر Direct Coomb`s",
+              "كومب غير مباشر Indirect Coomb`s (or Rh Antibodies)",
+              "فصيلة الدم Blood Group & Rh",
+              "انيميا الفول Glucose 6 phosphate dehydrogenase (G6PD)"
+          ]
+      },
+      {
+          "Category": "الهرمونات",
+          "Analyses": [
+              "هورمونات العقم للسيدات",
+              "هورمونات العقم للرجال",
+              "هورمونات الغدة الدرقية",
+              "هورمونات الغدة الجوار درقية",
+              "هورمونات الغدة الفوق كلوية",
+              "هورمونات مختلفة ومتنوعة"
+          ]
+      },
+      {
+          "Category": "تحاليل التورش للسيدات (TORCH IGg & Igm)",
+          "Analyses": [
+              "Toxoplasma",
+              "Rubella",
+              "Cytomegalo Virus",
+              "Herpes I & II"
+          ]
+      },
+      {
+          "Category": "تحاليل الباثولوجي",
+          "Analyses": [
+              "عينات مأخوذة من انسجة بالجسم وتحتاج الى فحصها للتأكد من عدم وجود اورام بها (Biopsy)",
+              "سوائل مسحوبة من الجسم وتحتاج الى فحصها للتأكـــد من عـــــدم وجــــود أورام بهـــا (Cytology)",
+              "شرائح مرسلة للفحص من عنق الرحم (PAPsmear)",
+              "شـــرائح مرسلـــة وقــد تــم فــحصهــا سابقـــا مـــن طبيب آخــــر ومطلـــوب رأى المعمـــل فيهـــــا (Consultation)",
+              "شرائــــح مرســـلة غير مصبوغـة أو بلوكات شمــع ومطلـــوب صبغات مناعــية لخلايــا الاورام (Immunohistochemistry)"
+          ]
+      }
+  ]
+}

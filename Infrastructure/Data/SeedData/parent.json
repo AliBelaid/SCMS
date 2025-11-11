@@ -1,0 +1,58 @@
+  
+   [ {
+        "id": 1,
+        "name": "John Smith",
+        "birth_Date": "1970-01-01T00:00:00Z",
+        "phone_no": "123456789",
+        "email": "john.smith@example.com",
+        "last_login": "2022-04-17T08:00:00Z",
+        "addressParent": {
+          "id": 1,
+          "description": "123 Main St",
+          "street": "123 Main St",
+          "city": {
+            "id": 1,
+            "name": "New York"
+          }
+        },
+        "isBlocked": false,
+        "children": [
+          {
+            "id": 1,
+            "name": "Emma Smith",
+            "brithOfDay": "2005-01-01T00:00:00Z",
+            "academicYear": "2023",
+            "grade": {
+              "id": 1,
+              "name": "Grade 6",
+              "stage_name": "Elementary",
+              "curriculum_name": "American",
+              "fees": 5000,
+              "feesEveryStage": 1000,
+              "stage": 1
+            },
+            "gender": 1,
+            "isAvitve": true
+          },
+          {
+            "id": 2,
+            "name": "Adam Smith",
+            "brithOfDay": "2008-01-01T00:00:00Z",
+            "academicYear": "2023",
+            "grade": {
+              "id": 1,
+              "name": "Grade 6",
+              "stage_name": "Elementary",
+              "curriculum_name": "American",
+              "fees": 5000,
+              "feesEveryStage": 1000,
+              "stage": 1
+            },
+            "gender": 0,
+            "isAvitve": true
+          }
+        ],
+        "isAvitve": true
+      }
+        ]
+  

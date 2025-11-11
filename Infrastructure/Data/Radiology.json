@@ -1,0 +1,501 @@
+[
+  {
+    "CategoryName": "Radiology",
+    "Description": "Medical imaging services",
+    "DisplayOrder": 1,
+    "Icon": "fa-solid fa-x-ray",
+    "AllowChildren": true,
+    "IsParent": true,   
+    "Children": [
+    
+ 
+  {
+    "CategoryName": "CT Scan",
+    "Description": "Computed Tomography Scan services",
+    "DisplayOrder": 1,
+    "Icon": "fa-solid fa-laptop-medical",
+    "AllowChildren": false,
+    "ParentName": "Radiology",
+    "Services": [
+      {
+        "Name": "Brain CT Scan",
+        "Description": "Brain Computed Tomography Scan",
+        "Price": 150,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Cervical CT Scan",
+        "Description": "Cervical Spine Computed Tomography Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Knee CT Scan",
+        "Description": "Knee joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Hip CT Scan",
+        "Description": "Hip joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Plain Chest CT Scan",
+        "Description": "Plain chest CT Scan",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Pelvis CT Scan",
+        "Description": "Pelvis CT Scan",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "HRCT Scan",
+        "Description": "High Resolution CT Scan",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Abdomen & Pelvis CT Scan",
+        "Description": "Abdomen and Pelvis CT Scan",
+        "Price": 350,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Lumber CT Scan",
+        "Description": "Lumbar spine CT Scan",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "PNS CT Scan",
+        "Description": "Paranasal sinuses CT Scan",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Contrast CT Scan",
+        "Description": "CT Scan with contrast medium",
+        "Price": 200,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Contrast High Urea CT Scan",
+        "Description": "CT Scan with high urea contrast",
+        "Price": 350,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Coronary CT Scan",
+        "Description": "Coronary artery CT Scan",
+        "Price": 700,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Liver Volumetry CT Scan",
+        "Description": "Liver volume measurement CT Scan",
+        "Price": 800,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Bone Density CT Scan",
+        "Description": "Bone density measurement CT Scan",
+        "Price": 120,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Pulmonary Angio CT Scan",
+        "Description": "Pulmonary angiography CT Scan",
+        "Price": 450,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Lower Limb Angio CT Scan",
+        "Description": "Lower limb angiography CT Scan",
+        "Price": 450,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Temporal Bone CT Scan",
+        "Description": "Temporal Bone CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Chest, Abdomen and Pelvis CT Scan",
+        "Description": "Comprehensive CT Scan of chest, abdomen and pelvis",
+        "Price": 550,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Oncology CT Scan",
+        "Description": "CT Scan for oncology patients",
+        "Price": 450,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Breast Biopsy CT Scan",
+        "Description": "CT Scan guided breast biopsy",
+        "Price": 800,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "CT Scan Guided Biopsy",
+        "Description": "Biopsy procedure guided by CT Scan",
+        "Price": 1000,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "CT Scan Guided Drainage",
+        "Description": "Drainage procedure guided by CT Scan",
+        "Price": 1600,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Carotid Angiography CT Scan",
+        "Description": "CT angiography of carotid arteries",
+        "Price": 450,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Orbit CT Scan",
+        "Description": "CT Scan of the orbit",
+        "Price": 250,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Face CT Scan",
+        "Description": "CT Scan of the face",
+        "Price": 300,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "3D CT Reconstruction",
+        "Description": "3D reconstruction from CT Scan data",
+        "Price": 80,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Bone Window CT Scan",
+        "Description": "CT Scan with bone window settings",
+        "Price": 80,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Knee CT Scan",
+        "Description": "Knee joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Ankle CT Scan",
+        "Description": "Ankle joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Foot CT Scan",
+        "Description": "Foot CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Elbow CT Scan",
+        "Description": "Elbow joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Wrist CT Scan",
+        "Description": "Wrist joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Hand CT Scan",
+        "Description": "Hand CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Shoulder CT Scan",
+        "Description": "Shoulder joint CT Scan",
+        "Price": 240,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      },
+      {
+        "Name": "Topogram (Scout) CT Scan",
+        "Description": "CT Scan topogram/scout image",
+        "Price": 100,
+        "DoctorPercentage": 12,
+        "TechnicianPercentage": 10
+      }
+    ]
+  },
+  {
+    "CategoryName": "X-Ray",
+    "Description": "X-Ray imaging services",
+    "DisplayOrder": 2,
+    "Icon": "fa-solid fa-x-ray",
+    "AllowChildren": false,
+    "ParentName": "Radiology",
+    "Services": [
+      {
+        "Name": "One View X-Ray",
+        "Description": "Single view X-Ray examination",
+        "Price": 40,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Spine AP & Lat X-Ray",
+        "Description": "Spine Anterior-Posterior and Lateral X-Ray",
+        "Price": 80,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Printing Films",
+        "Description": "X-Ray film printing service",
+        "Price": 15,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Knee X-Ray",
+        "Description": "Knee joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Hip X-Ray",
+        "Description": "Hip joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Plain Chest X-Ray",
+        "Description": "Standard chest X-Ray examination",
+        "Price": 250,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Pelvis X-Ray",
+        "Description": "Pelvic X-Ray examination",
+        "Price": 250,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Lumber X-Ray",
+        "Description": "Lumbar spine X-Ray examination",
+        "Price": 250,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "PNS X-Ray",
+        "Description": "Paranasal sinuses X-Ray examination",
+        "Price": 250,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Contrast X-Ray",
+        "Description": "X-Ray with contrast medium",
+        "Price": 200,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Contrast High Urea X-Ray",
+        "Description": "X-Ray with high urea contrast",
+        "Price": 350,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Coronary X-Ray",
+        "Description": "Coronary artery X-Ray examination",
+        "Price": 700,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Liver Volumetry X-Ray",
+        "Description": "Liver volume measurement X-Ray",
+        "Price": 800,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Bone Density X-Ray",
+        "Description": "Bone density measurement X-Ray",
+        "Price": 120,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Pulmonary Angio X-Ray",
+        "Description": "Pulmonary angiography X-Ray",
+        "Price": 450,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Lower Limb Angio X-Ray",
+        "Description": "Lower limb angiography X-Ray",
+        "Price": 450,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Ankle X-Ray",
+        "Description": "Ankle joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Foot X-Ray",
+        "Description": "Foot X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Elbow X-Ray",
+        "Description": "Elbow joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Wrist X-Ray",
+        "Description": "Wrist joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Hand X-Ray",
+        "Description": "Hand X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      },
+      {
+        "Name": "Shoulder X-Ray",
+        "Description": "Shoulder joint X-Ray examination",
+        "Price": 240,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 20
+      }
+    ]
+  },
+  {
+    "CategoryName": "Ultrasound",
+    "Description": "Ultrasound imaging services",
+    "DisplayOrder": 3,
+    "Icon": "fa-solid fa-wave-square",
+    "AllowChildren": false,
+    "ParentName": "Radiology",
+    "Services": [
+      {
+        "Name": "Ultrasound",
+        "Description": "Standard ultrasound examination",
+        "Price": 100,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 50
+      },
+      {
+        "Name": "Doppler Ultrasound",
+        "Description": "Doppler ultrasound examination",
+        "Price": 140,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 50
+      },
+      {
+        "Name": "Soft Tissue Ultrasound",
+        "Description": "Soft tissue ultrasound examination",
+        "Price": 80,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 50
+      },
+      {
+        "Name": "Guided Biopsy (including needle)",
+        "Description": "Ultrasound guided biopsy procedure",
+        "Price": 700,
+        "DoctorPercentage": 0,
+        "TechnicianPercentage": 50
+      }
+    ]
+  },
+  {
+    "CategoryName": "Reports",
+    "Description": "Diagnostic reports services",
+    "DisplayOrder": 4,
+    "Icon": "fa-solid fa-file-medical",
+    "AllowChildren": false,
+    "ParentName": "Radiology",
+    "Services": [
+      {
+        "Name": "External Report",
+        "Description": "External diagnostic report",
+        "Price": 80,
+        "DoctorPercentage": 70,
+        "TechnicianPercentage": 0
+      },
+      {
+        "Name": "Angioreport (including films)",
+        "Description": "Angiography report including films",
+        "Price": 160,
+        "DoctorPercentage": 70,
+        "TechnicianPercentage": 0
+      }
+    ]
+  }
+]}
+]

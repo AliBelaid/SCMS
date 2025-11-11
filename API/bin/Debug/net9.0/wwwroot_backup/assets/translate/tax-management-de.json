@@ -1,0 +1,72 @@
+{
+  "TAX_MANAGEMENT": "Steuerverwaltung",
+  "TAX_FILINGS": "Steuererklärungen",
+  "CLIENTS": "Mandanten",
+  "DOCUMENTS": "Dokumente",
+  
+  "FOLDER_MANAGEMENT": {
+    "TITLE": "Ordnerverwaltung",
+    "CREATE_FOLDER_TYPE": "Ordnertyp erstellen",
+    "EDIT_FOLDER_TYPE": "Ordnertyp bearbeiten",
+    "DELETE_FOLDER_TYPE": "Ordnertyp löschen",
+    "FOLDER_TYPE_NAME": "Name des Ordnertyps",
+    "FOLDER_TYPE_ICON": "Symbol des Ordnertyps",
+    "FOLDER_TYPE_DESCRIPTION": "Beschreibung des Ordnertyps",
+    "FOLDER_TYPE_REQUIRED": "Erforderlicher Ordner",
+    "DEFAULT_ACCESS": "Standardzugriff",
+    "TAX_DOCUMENT_TYPES": "Steuertypen",
+    "FOLDER_TYPES": "Ordnertypen",
+    "CREATE_CLIENT_FOLDER": "Mandantenordner erstellen",
+    "MANAGE_FOLDER_TEMPLATES": "Ordnervorlagen verwalten"
+  },
+
+  "DOCUMENT_UPLOAD": {
+    "TITLE": "Dokumente hochladen",
+    "DROP_FILES": "Dateien hier ablegen oder klicken zum Auswählen",
+    "SELECT_FILES": "Dateien auswählen",
+    "MAX_SIZE": "Maximale Dateigröße: 20MB",
+    "ALLOWED_TYPES": "Erlaubte Dateitypen: PDF, DOCX, XLSX, JPG, PNG",
+    "UPLOAD_PROGRESS": "Fortschritt beim Hochladen",
+    "UPLOADING": "Wird hochgeladen...",
+    "UPLOAD_COMPLETE": "Hochladen abgeschlossen",
+    "UPLOAD_ERROR": "Fehler beim Hochladen",
+    "FILE_TOO_LARGE": "Datei zu groß",
+    "INVALID_TYPE": "Ungültiger Dateityp",
+    "SUBMIT_FOR_REVIEW": "Zur Steuerprüfung einreichen",
+    "ADD_COMMENT": "Kommentar hinzufügen",
+    "COMMENTS": "Kommentare",
+    "ADD_TO_FOLDER": "Zum Ordner hinzufügen",
+    "SELECT_FOLDER": "Ordner auswählen"
+  },
+
+  "CLIENT_DASHBOARD": {
+    "WELCOME": "Willkommen zu Ihrem Steuerkonto",
+    "PENDING_DOCUMENTS": "Ausstehende Dokumente",
+    "COMPLETED_DOCUMENTS": "Abgeschlossene Dokumente",
+    "REQUEST_REVIEW": "Prüfung beantragen",
+    "UPLOAD_DOCUMENTS": "Dokumente hochladen",
+    "RECENT_ACTIVITY": "Letzte Aktivitäten",
+    "TAX_CALENDAR": "Steuerkalender",
+    "UPCOMING_DEADLINES": "Bevorstehende Fristen",
+    "NEW_NOTIFICATIONS": "Neue Benachrichtigungen",
+    "VIEW_ALL_DOCUMENTS": "Alle Dokumente anzeigen",
+    "VIEW_ALL_NOTIFICATIONS": "Alle Benachrichtigungen anzeigen",
+    "TAX_REVIEW_STATUS": "Status der Steuerprüfung",
+    "FILE_STATUS": "Dateistatus"
+  },
+
+  "TAX_REVIEW": {
+    "TITLE": "Steuerprüfung",
+    "STATUS": "Status",
+    "SUBMITTED_BY": "Eingereicht von",
+    "SUBMISSION_DATE": "Datum der Einreichung",
+    "ASSIGNED_TO": "Zugewiesen an",
+    "REVIEW_COMMENTS": "Prüfungskommentare",
+    "ADD_COMMENT": "Kommentar hinzufügen",
+    "MARK_AS_COMPLETE": "Als abgeschlossen markieren",
+    "REJECT": "Ablehnen",
+    "REQUEST_MORE_INFO": "Weitere Informationen anfordern",
+    "RESUBMIT": "Erneut einreichen",
+    "DOWNLOAD_REPORT": "Bericht herunterladen"
+  }
+} 

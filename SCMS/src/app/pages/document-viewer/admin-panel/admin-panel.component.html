@@ -1,0 +1,66 @@
+<div class="admin-panel" style="margin-top: 70px;">
+  <app-shared-header></app-shared-header>
+
+  <div class="admin-content">
+    <!-- Sidebar Navigation -->
+    <nav class="admin-sidebar">
+      <div class="sidebar-header">
+        <mat-icon class="sidebar-logo">admin_panel_settings</mat-icon>
+        <h2>{{ 'ADMIN_PANEL' | translate }}</h2>
+      </div>
+
+      <div class="nav-items">
+        <a mat-list-item routerLink="/admin/upload" routerLinkActive="active" class="nav-item">
+          <div class="nav-item-content">
+            <div class="icon-wrapper">
+              <mat-icon>upload</mat-icon>
+            </div>
+            <div class="nav-text">
+              <span class="nav-title">{{ 'ADMIN_FEATURES.UPLOAD_DOCUMENTS' | translate }}</span>
+              <span class="nav-subtitle">{{ 'ADMIN_FEATURES.UPLOAD_MANAGE_PERMISSIONS' | translate }}</span>
+            </div>
+          </div>
+          <mat-icon class="nav-arrow">chevron_right</mat-icon>
+        </a>
+        
+        <a mat-list-item routerLink="/admin/users" routerLinkActive="active" class="nav-item">
+          <div class="nav-item-content">
+            <div class="icon-wrapper">
+              <mat-icon>people</mat-icon>
+            </div>
+            <div class="nav-text">
+              <span class="nav-title">{{ 'ADMIN_FEATURES.MANAGE_USERS' | translate }}</span>
+              <span class="nav-subtitle">{{ 'ADMIN_FEATURES.MANAGE_SYSTEM_USERS' | translate }}</span>
+            </div>
+          </div>
+          <mat-icon class="nav-arrow">chevron_right</mat-icon>
+        </a>
+        
+        <a mat-list-item routerLink="/files" routerLinkActive="active" class="nav-item">
+          <div class="nav-item-content">
+            <div class="icon-wrapper">
+              <mat-icon>folder</mat-icon>
+            </div>
+            <div class="nav-text">
+              <span class="nav-title">{{ 'ADMIN_FEATURES.VIEW_DOCUMENTS' | translate }}</span>
+              <span class="nav-subtitle">{{ 'ADMIN_FEATURES.BROWSE_MANAGE_DOCUMENTS' | translate }}</span>
+            </div>
+          </div>
+          <mat-icon class="nav-arrow">chevron_right</mat-icon>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="quick-stats">
+          <mat-icon>info_outline</mat-icon>
+          <span>System Status: Active</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

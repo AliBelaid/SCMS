@@ -1,0 +1,93 @@
+[
+    {
+      "PatientName": "أحمد",
+      "MedicalConditions": [
+        {
+          "Name": "السكري",
+          "Description": "حالة مزمنة تؤثر على كيفية تحويل الجسم للطعام إلى طاقة.",
+          "DiagnosisDate": "2019-03-15"
+        }
+      ],
+      "MedicalRecords": [
+        {
+          "DateOfVisit": "2021-04-20",
+          "Diagnosis": "السكري",
+          "TreatmentDescription": "وصف الإنسولين وتعديل نظام الغذائي.",
+          "Doctor": "د. سامر"
+        }
+      ]
+    },
+    {
+      "PatientName": "ليلى",
+      "MedicalConditions": [
+        {
+          "Name": "فقر الدم",
+          "Description": "حالة تنجم عن نقص في عدد خلايا الدم الحمراء الصحية.",
+          "DiagnosisDate": "2020-05-22"
+        }
+      ],
+      "MedicalRecords": [
+        {
+          "DateOfVisit": "2020-06-10",
+          "Diagnosis": "فقر الدم",
+          "TreatmentDescription": "تناول مكملات الحديد وتغييرات في النظام الغذائي.",
+          "Doctor": "د. منى"
+        }
+      ]
+    },
+    {
+      "PatientName": "محمود",
+      "MedicalConditions": [
+        {
+          "Name": "ارتفاع ضغط الدم",
+          "Description": "حالة صحية تؤثر على الشرايين وقد تؤدي إلى مشاكل صحية خطيرة.",
+          "DiagnosisDate": "2018-11-30"
+        }
+      ],
+      "MedicalRecords": [
+        {
+          "DateOfVisit": "2019-01-15",
+          "Diagnosis": "ارتفاع ضغط الدم",
+          "TreatmentDescription": "وصف أدوية لضبط ضغط الدم وتوصيات لنمط حياة صحي.",
+          "Doctor": "د. خالد"
+        }
+      ]
+    },
+    {
+      "PatientName": "سارة",
+      "MedicalConditions": [
+        {
+          "Name": "الربو",
+          "Description": "حالة التهابية مزمنة في مجاري الهواء تؤدي إلى صعوبة في التنفس.",
+          "DiagnosisDate": "2017-08-14"
+        }
+      ],
+      "MedicalRecords": [
+        {
+          "DateOfVisit": "2017-09-10",
+          "Diagnosis": "الربو",
+          "TreatmentDescription": "استخدام بخاخات الستيرويد والابتعاد عن محفزات الربو.",
+          "Doctor": "د. لينا"
+        }
+      ]
+    },
+    {
+      "PatientName": "يوسف",
+      "MedicalConditions": [
+        {
+          "Name": "القولون العصبي",
+          "Description": "اضطراب في وظائف الأمعاء يؤدي إلى آلام في البطن وتغير في عادات الإخراج.",
+          "DiagnosisDate": "2021-01-20"
+        }
+      ],
+      "MedicalRecords": [
+        {
+          "DateOfVisit": "2021-02-25",
+          "Diagnosis": "القولون العصبي",
+          "TreatmentDescription": "تغييرات في النظام الغذائي واستخدام أدوية لتخفيف الأعراض.",
+          "Doctor": "د. نور"
+        }
+      ]
+    }
+  ]
+  

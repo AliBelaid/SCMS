@@ -1,0 +1,46 @@
+                  <td>
+                                                <h2 class="table-avatar">
+                                                    <a class="avatar" routerLink="/layout/employees/employeeprofile"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
+                                                    <a routerLink="/layout/employees/employeeprofile">John Doe</a>
+                                                </h2>
+                                            </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td>
+                                                <div class="half-day">
+                                                    <span class="first-off"><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></span> 
+                                                    <span class="first-off"><i class="fas fa-times text-danger"></i></span>
+                                                </div>
+                                            </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td>
+                                                <div class="half-day">
+                                                    <span class="first-off"><i class="fas fa-times text-danger"></i></span> 
+                                                    <span class="first-off"><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></span>
+                                                </div>
+                                            </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><i class="fas fa-times text-danger"></i> </td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>
+                                            <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#attendance_info"><i class="fa fa-check text-success"></i></a></td>

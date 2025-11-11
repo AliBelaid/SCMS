@@ -1,0 +1,70 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <div class="d-flex justify-content-between align-items-baseline m-b-30">
+      <mat-card-title class="f-s-18">Product Sales</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <apx-chart [series]="productsalesChart.series" [chart]="productsalesChart.chart" [colors]="productsalesChart.colors"
+      [dataLabels]="productsalesChart.dataLabels" [legend]="productsalesChart.legend"
+      [tooltip]="productsalesChart.tooltip" [plotOptions]="productsalesChart.plotOptions"
+      [grid]="productsalesChart.grid" [xaxis]="productsalesChart.xaxis" [yaxis]="productsalesChart.yaxis"
+      [labels]="productsalesChart.labels" [stroke]="productsalesChart.stroke"></apx-chart>
+
+    <div class="m-t-12 m-b-24 text-center">
+      <span
+        class="bg-light-success f-s-12 f-w-500 p-x-12 p-y-4 rounded-pill text-success d-inline-flex align-items-center gap-2">
+        <img src="assets/images/svgs/icon-bolt.svg" class="img-fluid" alt="MDash-img" />
+        Best Seller
+      </span>
+    </div>
+    <div class="d-flex align-items-center justify-content-center gap-12 p-b-24 b-b-1 m-t-24">
+      <div class="row w-100">
+        <div class="col-6 p-x-0">
+          <div class="d-flex align-items-center gap-8 m-b-12">
+            <span class="circle-shape bg-primary rounded-pill"></span>
+            <h6 class="f-s-14 f-w-400 lh-sm">36% Modernize</h6>
+          </div>
+        </div>
+        <div class="col-6 p-x-0">
+          <div class="d-flex align-items-center gap-8 m-b-12">
+            <span class="circle-shape bg-success rounded-pill"></span>
+            <h6 class="f-s-14 f-w-400 lh-sm">7% Spike</h6>
+          </div>
+        </div>
+        <div class="col-6 p-x-0">
+          <div class="d-flex align-items-center gap-8 m-b-12">
+            <span class="circle-shape bg-secondary rounded-pill"></span>
+            <h6 class="f-s-14 f-w-400 lh-sm">22% Ample</h6>
+          </div>
+        </div>
+        <div class="col-6 p-x-0">
+          <div class="d-flex align-items-center gap-8 m-b-12">
+            <span class="circle-shape bg-error rounded-pill"></span>
+            <h6 class="f-s-14 f-w-400 lh-sm">31% MDash</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="f-s-12 text-center text-muted f-w-500 p-x-24 p-t-30">This is overview of the sales happened this month for
+      the material website</p>
+  </mat-card-content>
+</mat-card>

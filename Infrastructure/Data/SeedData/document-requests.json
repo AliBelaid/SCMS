@@ -1,0 +1,74 @@
+[
+  {
+    "title": "W-2 Form Required",
+    "description": "Please upload your W-2 form for the 2024 tax year from your employer",
+    "requestDate": "2024-01-10T09:00:00Z",
+    "dueDate": "2024-01-25T17:00:00Z",
+    "status": "Completed",
+    "priority": "High",
+    "notes": "Document received and processed successfully",
+    "clientId": 1,
+    "accountantId": 1,
+    "folderTypeId": 1
+  },
+  {
+    "title": "Business Receipts Collection",
+    "description": "Please provide all business expense receipts for Q1 2024",
+    "requestDate": "2024-01-15T11:30:00Z",
+    "dueDate": "2024-02-15T17:00:00Z",
+    "status": "In Progress",
+    "priority": "Medium",
+    "notes": "Client has submitted partial documentation, awaiting remaining receipts",
+    "clientId": 2,
+    "accountantId": 1,
+    "folderTypeId": 2
+  },
+  {
+    "title": "Income Statement Verification",
+    "description": "Verify and upload your 2024 annual income statement",
+    "requestDate": "2024-02-01T08:45:00Z",
+    "dueDate": "2024-02-20T17:00:00Z",
+    "status": "Pending",
+    "priority": "Medium",
+    "notes": "Request sent to client, awaiting response",
+    "clientId": 3,
+    "accountantId": 2,
+    "folderTypeId": 1
+  },
+  {
+    "title": "Medical Expense Documentation",
+    "description": "Submit medical expense receipts and insurance statements for deduction purposes",
+    "requestDate": "2024-02-05T14:20:00Z",
+    "dueDate": "2024-02-25T17:00:00Z",
+    "status": "Completed",
+    "priority": "Low",
+    "notes": "All medical expenses documented and approved for deduction",
+    "clientId": 1,
+    "accountantId": 2,
+    "folderTypeId": 3
+  },
+  {
+    "title": "Business License Upload",
+    "description": "Please upload a copy of your current business license and registration documents",
+    "requestDate": "2024-02-10T10:15:00Z",
+    "dueDate": "2024-02-28T17:00:00Z",
+    "status": "Completed",
+    "priority": "High",
+    "notes": "Business license uploaded and verified. Documents archived.",
+    "clientId": 2,
+    "accountantId": 1,
+    "folderTypeId": 2
+  },
+  {
+    "title": "Property Tax Documents",
+    "description": "Submit property tax statements and mortgage interest documentation",
+    "requestDate": "2024-02-20T13:30:00Z",
+    "dueDate": "2024-03-15T17:00:00Z",
+    "status": "Open",
+    "priority": "Medium",
+    "notes": "Request created, waiting for client to upload documents",
+    "clientId": 3,
+    "accountantId": 2,
+    "folderTypeId": 1
+  }
+] 

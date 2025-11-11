@@ -1,0 +1,86 @@
+<ng-container *ngIf="dashboardStats as stats; else loadingState">
+  <app-shared-header></app-shared-header>
+  <div class="dashboard" *ngIf="!isLoading; else loadingState">
+    <section class="header">
+      <h1>لوحة تحكم المعاملات</h1>
+      <p>عرض سريع لإحصائيات المعاملات الواردة والصادرة.</p>
+      <div class="actions">
+        <button class="action-btn" type="button" (click)="navigateTo('/orders/create')">
+          إنشاء معاملة جديدة
+        </button>
+        <button class="action-btn" type="button" (click)="navigateToIncoming()">
+          المعاملات الواردة
+        </button>
+        <button class="action-btn" type="button" (click)="navigateToOutgoing()">
+          المعاملات الصادرة
+        </button>
+        <button class="action-btn" type="button" (click)="navigateToDepartments()">
+          إدارة الإدارات
+        </button>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat">
+        <h2>إجمالي المعاملات</h2>
+        <span>{{ stats.totalOrders }}</span>
+      </article>
+      <article class="stat">
+        <h2>وارد</h2>
+        <span>{{ stats.incomingOrders }}</span>
+      </article>
+      <article class="stat">
+        <h2>صادر</h2>
+        <span>{{ stats.outgoingOrders }}</span>
+      </article>
+      <article class="stat">
+        <h2>قيد الانتظار</h2>
+        <span>{{ stats.pendingOrders }}</span>
+      </article>
+      <article class="stat">
+        <h2>مكتملة</h2>
+        <span>{{ stats.completedOrders }}</span>
+      </article>
+    </section>
+
+    <section class="lists">
+      <div class="card">
+        <h3>المعاملات الحديثة</h3>
+        <ul>
+          <li *ngFor="let order of stats.recentOrders">
+            <span class="ref">{{ order.referenceNumber }}</span>
+            <span class="title">{{ order.title }}</span>
+            <span class="status">{{ statusLabels[order.status] }}</span>
+          </li>
+        </ul>
+        <p *ngIf="!stats.recentOrders.length">لا توجد معاملات حديثة.</p>
+      </div>
+      <div class="card">
+        <h3>حسب الإدارة</h3>
+        <ul>
+          <li *ngFor="let item of stats.ordersByDepartment">
+            <span>{{ item.department }}</span>
+            <span>{{ item.count }}</span>
+          </li>
+        </ul>
+        <p *ngIf="!stats.ordersByDepartment.length">لا توجد بيانات للإدارات.</p>
+      </div>
+      <div class="card">
+        <h3>حسب الموضوع</h3>
+        <ul>
+          <li *ngFor="let item of stats.ordersBySubject">
+            <span>{{ item.subject }}</span>
+            <span>{{ item.count }}</span>
+          </li>
+        </ul>
+        <p *ngIf="!stats.ordersBySubject.length">لا توجد بيانات للمواضيع.</p>
+      </div>
+    </section>
+  </div>
+</ng-container>
+
+<ng-template #loadingState>
+  <div class="loading">
+    <p>جاري تحميل البيانات...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,125 @@
+[
+    {
+        "UserName": "Dr.Jehed",
+        "Gender": "male",
+        "DateOfBirth": "1965-04-15",
+        "KnownAs":"دكتور جهاد",
+        "Created": "2020-02-01",
+        "LastActive": "2020-04-15",
+        "Introduction": "Experienced Cardiologist committed to providing exceptional care to patients with cardiovascular diseases. Passionate about research in heart health and preventive care.",
+        "City": "San Francisco",
+        "Country": "USA",
+        "Photos": [
+            {
+                "Url": "https://randomuser.me/api/portraits/men/55.jpg",
+                "IsMain": true
+            }
+        ], "Specialization": "Cardiology",
+            "YearsOfExperience": 20,
+            "HospitalAffiliation": "San Francisco General Hospital",       
+        "Email": "drjones@hospital.com",
+        "PhoneNumber": "+15551234567"
+    },
+    {
+        "UserName": "Dr.Huies",
+        "Gender": "دكتور حسين",
+        "DateOfBirth": "1975-08-30",
+        "KnownAs": "Dr. Smith",
+        "Created": "2020-03-10",
+        "LastActive": "2020-05-05",
+        "Introduction": "Dedicated Pediatrician with over 15 years of experience in child care. Specializes in treating conditions of infants, children, and adolescents, providing both preventive health maintenance and medical care.",
+        "City": "New York",
+        "Country": "USA",
+        "Photos": [
+            {
+                "Url": "https://randomuser.me/api/portraits/women/60.jpg",
+                "IsMain": true
+            }
+        ],
+   
+     
+            "Specialization": "Pediatrics",
+            "YearsOfExperience": 15,
+            "HospitalAffiliation": "Mount Sinai Hospital"
+         ,
+        "Email": "drsmith@hospital.com",
+        "PhoneNumber": "+15557654321"
+    },
+    {
+        "UserName": "Dr.Zied",
+        
+        "Gender": "male",
+        "DateOfBirth": "1972-11-22",
+        "KnownAs":  "دكتور زياد",
+        "Created": "2020-01-15",
+        "LastActive": "2020-04-22",
+        "Introduction": "Renowned Neurologist with a focus on adult and pediatric neurology. Expert in the latest treatments for neurological disorders.",
+        "City": "Los Angeles",
+        "Country": "USA",
+        "Photos": [
+          
+            {
+                "Url": "https://randomuser.me/api/portraits/men/22.jpg",
+                "IsMain": true
+            }
+        ],
+   
+       
+            "Specialization": "Neurology",
+            "YearsOfExperience": 18,
+            "HospitalAffiliation": "UCLA Medical Center"
+        ,
+        "Email": "drlee@hospital.com",
+        "PhoneNumber": "+15559876543"
+    },
+    {
+        "UserName": "Dr.Kalied",
+        "Gender": "female",
+        "DateOfBirth": "1980-05-05",
+        "KnownAs": "دكتور خالد",
+        "Created": "2020-06-01",
+        "LastActive": "2020-06-30",
+        "Introduction": "Expert Dermatologist specializing in skin cancer treatment and cosmetic dermatology. Committed to excellence in patient care and education.",
+        "City": "Chicago",
+        "Country": "USA",
+        "Photos": [
+            {
+                "Url": "https://randomuser.me/api/portraits/women/34.jpg",
+                "IsMain": true
+            }
+        ],
+   
+     
+            "Specialization": "Dermatology",
+            "YearsOfExperience": 10,
+            "HospitalAffiliation": "Northwestern Memorial Hospital"
+        ,
+        "Email": "drgreen@hospital.com",
+        "PhoneNumber": "+15552345678"
+    },
+    {
+        "UserName": "Dr.Amin",
+        "Gender": "male",
+        "DateOfBirth": "1985-09-09",
+        "KnownAs":  "دكتور ايمن",
+        "Created": "2020-07-20",
+        "LastActive": "2020-08-15",
+        "Introduction": "Distinguished Oncologist with a focus on breast and lung cancer. Dedicated to providing innovative treatments and compassionate care.",
+        "City": "Miami",
+        "Country": "USA",
+        "Photos": [
+            {
+                "Url": "https://randomuser.me/api/portraits/men/45.jpg",
+                "IsMain": true
+            }
+        ],
+   
+        
+            "Specialization": "Oncology",
+            "YearsOfExperience": 12,
+            "HospitalAffiliation": "Miami Cancer Institute"
+        ,
+        "Email": "drmartinez@hospital.com",
+        "PhoneNumber": "+15553216547"
+    }
+]

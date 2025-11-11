@@ -1,0 +1,39 @@
+<section class="departments-list">
+  <header class="page-header">
+    <div>
+      <h1>الإدارات</h1>
+      <p>إدارة الإدارات والمواضيع التابعة لها.</p>
+    </div>
+    <a routerLink="/departments/create" class="primary-btn">إدارة جديدة</a>
+  </header>
+
+  <div class="grid" *ngIf="departments$ | async as departments; else loading">
+    <article class="card" *ngFor="let department of departments">
+      <div class="card-header">
+        <span class="code">{{ department.code }}</span>
+        <span class="status" [class.inactive]="!department.isActive">
+          {{ department.isActive ? 'نشطة' : 'متوقفة' }}
+        </span>
+      </div>
+      <h2>{{ department.nameAr }}</h2>
+      <p>{{ department.description || 'لا يوجد وصف' }}</p>
+      <span class="subjects-count">
+        المواضيع: {{ department.subjects.length }}
+      </span>
+      <footer>
+        <a [routerLink]="['/departments/details', department.id]">التفاصيل</a>
+        <a [routerLink]="['/departments/edit', department.id]">تعديل</a>
+      </footer>
+    </article>
+    <div class="empty" *ngIf="departments.length === 0">
+      <p>لم يتم إضافة إدارات بعد.</p>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>جاري تحميل الإدارات...</p>
+  </div>
+</ng-template>
+

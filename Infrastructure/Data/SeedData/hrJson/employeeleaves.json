@@ -1,0 +1,86 @@
+[
+      {
+        "id": 1,
+         "employeeId": 1,
+        "designationId":1,
+        "leaveType": "Casual Leave",
+        "from": "08-03-2019",
+        "to": "09-04-2019",
+        "noofDays": "2 days",
+        "remainleaves": "12",
+        "reason": "Going   Hospital",
+        "status": "New"
+      },
+      {
+        "id": 2,
+         "employeeId": 7,
+        "designationId":1,
+        "leaveType": "LOP",
+        "from": "24-02-2019",
+        "to": "25-02-2019",
+        "noofDays": "2 days",
+        "remainleaves": "4",
+        "reason": "Personnal",
+        "status": "Approved"
+      },
+      {
+        "id": 3,
+         "employeeId": 6,
+        "designationId":2,
+        "leaveType": "Paternity Leave",
+        "from": "13-02-2019",
+        "to": "17-02-2019",
+        "noofDays": "5 days",
+        "remainleaves": "10",
+        "reason": "Personnal",
+        "status": "Declined"
+      },
+      {
+        "id": 4,
+         "employeeId": 6,
+        "designationId":1,
+        "leaveType": "Paternity Leave",
+        "from": "13-02-2019",
+        "to": "17-02-2019",
+        "noofDays": "5 days",
+        "remainleaves": "6",
+        "reason": "Medical leave",
+        "status": "Declined"
+      },
+      {
+        "id": 5,
+         "employeeId": 5,
+        "designationId":3,
+        "leaveType": "Casual Leave",
+        "from": "13-02-2019",
+        "to": "17-02-2019",
+        "noofDays": "5 days",
+        "remainleaves": "7",
+        "reason": "Going  Hospital",
+        "status": "Approved"
+      },
+      {
+        "id": 6,
+         "employeeId": 6,
+        "designationId":1,
+        "leaveType": "Paternity Leave",
+        "from": "13-02-2019",
+        "to": "17-02-2019",
+        "noofDays": "5 days",
+        "remainleaves": "6",
+        "reason": "Medical leave",
+        "status": "Declined"
+      },
+      {
+        "id": 7,
+         "employeeId": 7,
+        "designationId":1,
+        "leaveType": "LOP",
+        "from": "13-02-2019",
+        "to": "17-02-2019",
+        "noofDays": "2 days",
+        "remainleaves": "4",
+        "reason": "Personnal",
+        "status": "Approved"
+      }
+    ]

@@ -1,0 +1,155 @@
+ 
+    [
+        {
+            "UserName": "Lisa",
+            "FirstName": "Lisa",
+            "LastName": "Taylor",
+            "Email": "lisa.taylor@example.com",
+            "PhoneNumber": "+12345678901",
+            "Gender": "female",
+            "DateOfBirth": "1956-07-22",
+            "KnownAs": "Lisa",
+            "Created": "2020-06-24",
+            "LastActive": "2020-06-21",
+            "Introduction": "Sunt esse aliqua ullamco in incididunt consequat commodo. Nisi ad esse elit ipsum commodo fugiat est ad. Incididunt nostrud incididunt nostrud sit excepteur occaecat.\r\n",
+            "City": "Greenbush",
+            "Country": "Martinique",
+            "Photos": [
+                {
+                    "Url": "https://randomuser.me/api/portraits/women/54.jpg",
+                    "IsMain": true
+                }
+            ]
+   
+        },
+        {
+            "UserName": "Karen",
+            "FirstName": "Karen",
+            "LastName": "Wells",
+            "Email": "karen.wells@example.com",
+            "PhoneNumber": "+12345678902",
+                "Gender": "female",
+                "DateOfBirth": "1995-10-12",
+                "KnownAs": "Karen",
+                "Created": "2019-12-09",
+                "LastActive": "2020-05-06",
+                "Introduction": "Laborum dolore aliquip voluptate sunt cupidatat fugiat. Aliqua cillum deserunt do sunt ullamco aute Lorem nisi irure velit esse excepteur ex qui. Aliquip cupidatat officia ullamco duis veniam quis elit dolore nisi proident exercitation id cillum ullamco. In exercitation aliqua commodo veniam culpa duis commodo mollit et sint culpa.\r\n",
+                "City": "Celeryville",
+                "Country": "Grenada",
+                "Photos": [
+                    {
+                        "Url": "https://randomuser.me/api/portraits/women/50.jpg",
+                        "IsMain": true
+                    }
+                ]
+       
+         
+            },
+            {
+                "UserName": "Margo",
+        "FirstName": "Margo",
+        "LastName": "Bennett",
+        "Email": "margo.bennett@example.com",
+        "PhoneNumber": "+12345678903",
+                "Gender": "female",
+                "DateOfBirth": "1959-01-24",
+                "KnownAs": "Margo",
+                "Created": "2019-08-10",
+                "LastActive": "2020-05-12",
+                "Introduction": "Dolor ut mollit sunt fugiat magna do eu et aliqua. Dolor consectetur reprehenderit irure non adipisicing ad irure sint id amet reprehenderit esse consectetur ex. Nisi sunt minim amet dolore eiusmod occaecat commodo nostrud tempor dolore velit. Fugiat labore duis nulla do officia voluptate ullamco. Velit ex ullamco cillum amet qui anim et ullamco adipisicing fugiat exercitation aliqua. Consectetur et do labore enim aliqua occaecat.\r\n",
+                "City": "Rosewood",
+                "Country": "Svalbard and Jan Mayen Islands",
+                "Photos": [
+                    {
+                        "Url": "https://randomuser.me/api/portraits/women/14.jpg",
+                        "IsMain": true
+                    }
+                ]
+       
+              },
+           
+                {
+                    "UserName": "JohnDoe",
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Email": "john.doe@example.com",
+                    "PhoneNumber": "+12345678904",
+                    "Gender": "male",
+                    "DateOfBirth": "1980-05-15",
+                    "KnownAs": "John",
+                    "Created": "2020-01-20",
+                    "LastActive": "2020-05-05",
+                    "Introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n",
+                    "City": "Springfield",
+                    "Country": "USA",
+                    "Photos": [
+                        {
+                            "Url": "https://randomuser.me/api/portraits/men/1.jpg",
+                            "IsMain": true
+                        }
+                    ],
+                    "userType": 0,
+                    "Patient":{"MedicalConditions": [
+                        {
+                            "Name": "Gastroesophageal Reflux Disease (GERD)",
+                            "Description": "A long-term condition where stomach contents come back up into the esophagus resulting in either symptoms or complications.",
+                            "Date": "2019-08-12"
+                        },
+                        {
+                            "Name": "Chronic Sinusitis",
+                            "Description": "A common condition in which the cavities around nasal passages (sinuses) become inflamed and swollen for at least 12 weeks, despite treatment attempts.",
+                            "Date": "2018-11-10"
+                        },
+                        {
+                            "Name": "Gout",
+                            "Description": "A form of arthritis characterized by severe pain, redness, and tenderness in joints, often the joint at the base of the big toe.",
+                            "Date": "2017-06-24"
+                        }
+                    ]
+                }},
+                {
+                    "UserName": "AlexRider",
+                    "FirstName": "Alex",
+                    "LastName": "Rider",
+                    "Email": "alex.rider@example.com",
+                    "PhoneNumber": "+12345678905",
+                    "Gender": "male",
+                    "DateOfBirth": "1992-03-22",
+                    "KnownAs": "Alex",
+                    "Created": "2019-10-05",
+                    "LastActive": "2020-04-04",
+                    "Introduction": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n",
+                    "City": "New York",
+                    "Country": "USA",
+                    "Photos": [
+                        {
+                            "Url": "https://randomuser.me/api/portraits/men/2.jpg",
+                            "IsMain": true
+                        }
+                    ] 
+              
+                },
+                {
+                    "UserName": "MikeSmith",
+                    "FirstName": "Mike",
+                    "LastName": "Smith",
+                    "Email": "mike.smith@example.com",
+                    "PhoneNumber": "+12345678906",
+                    "Gender": "male",
+                    "DateOfBirth": "1975-11-30",
+                    "KnownAs": "Mike",
+                    "Created": "2020-03-11",
+                    "LastActive": "2020-05-10",
+                    "Introduction": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n",
+                    "City": "Los Angeles",
+                    "Country": "USA",
+                    "Photos": [
+                        {
+                            "Url": "https://randomuser.me/api/portraits/men/3.jpg",
+                            "IsMain": true
+                        }
+                    ] }
+                
+            
+         ]
+        

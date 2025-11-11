@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSiteOrderPayment" targetNamespace="http://tempuri.org/dsSiteOrderPayment.xsd" xmlns:mstns="http://tempuri.org/dsSiteOrderPayment.xsd" xmlns="http://tempuri.org/dsSiteOrderPayment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSiteOrderPayment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsSiteOrderPayment" msprop:Generator_DataSetName="dsSiteOrderPayment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsSiteOrderPayment" msprop:Generator_RowEvHandlerName="dsSiteOrderPaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="dsSiteOrderPaymentRowDeleted" msprop:Generator_RowDeletingName="dsSiteOrderPaymentRowDeleting" msprop:Generator_RowEvArgName="dsSiteOrderPaymentRowChangeEvent" msprop:Generator_TablePropName="_dsSiteOrderPayment" msprop:Generator_RowChangedName="dsSiteOrderPaymentRowChanged" msprop:Generator_RowChangingName="dsSiteOrderPaymentRowChanging" msprop:Generator_TableClassName="dsSiteOrderPaymentDataTable" msprop:Generator_RowClassName="dsSiteOrderPaymentRow" msprop:Generator_TableVarName="tabledsSiteOrderPayment" msprop:Generator_UserTableName="dsSiteOrderPayment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="startDate" msdata:DataType="System.DateTimeOffset" msprop:Generator_ColumnPropNameInRow="startDate" msprop:Generator_ColumnPropNameInTable="startDateColumn" msprop:Generator_ColumnVarNameInTable="columnstartDate" msprop:Generator_UserColumnName="startDate" type="xs:anyType" minOccurs="0" />
+              <xs:element name="endDate" msdata:DataType="System.DateTimeOffset" msprop:Generator_ColumnPropNameInRow="endDate" msprop:Generator_ColumnPropNameInTable="endDateColumn" msprop:Generator_ColumnVarNameInTable="columnendDate" msprop:Generator_UserColumnName="endDate" type="xs:anyType" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_UserColumnName="amount" type="xs:double" minOccurs="0" />
+              <xs:element name="paymentCode" msprop:Generator_ColumnPropNameInRow="paymentCode" msprop:Generator_ColumnPropNameInTable="paymentCodeColumn" msprop:Generator_ColumnVarNameInTable="columnpaymentCode" msprop:Generator_UserColumnName="paymentCode" type="xs:string" minOccurs="0" />
+              <xs:element name="siteName" msprop:Generator_ColumnPropNameInRow="siteName" msprop:Generator_ColumnPropNameInTable="siteNameColumn" msprop:Generator_ColumnVarNameInTable="columnsiteName" msprop:Generator_UserColumnName="siteName" type="xs:string" minOccurs="0" />
+              <xs:element name="contractType" msprop:Generator_ColumnPropNameInRow="contractType" msprop:Generator_ColumnPropNameInTable="contractTypeColumn" msprop:Generator_ColumnVarNameInTable="columncontractType" msprop:Generator_UserColumnName="contractType" type="xs:string" minOccurs="0" />
+              <xs:element name="notes" msprop:Generator_ColumnPropNameInRow="notes" msprop:Generator_ColumnPropNameInTable="notesColumn" msprop:Generator_ColumnVarNameInTable="columnnotes" msprop:Generator_UserColumnName="notes" type="xs:string" minOccurs="0" />
+              <xs:element name="paymentDate" msdata:DataType="System.DateTimeOffset" msprop:Generator_ColumnPropNameInRow="paymentDate" msprop:Generator_ColumnPropNameInTable="paymentDateColumn" msprop:Generator_ColumnVarNameInTable="columnpaymentDate" msprop:Generator_UserColumnName="paymentDate" type="xs:anyType" minOccurs="0" />
+              <xs:element name="cheekBank" msprop:Generator_ColumnPropNameInRow="cheekBank" msprop:Generator_ColumnPropNameInTable="cheekBankColumn" msprop:Generator_ColumnVarNameInTable="columncheekBank" msprop:Generator_UserColumnName="cheekBank" type="xs:string" minOccurs="0" />
+              <xs:element name="OwnerName" msprop:Generator_ColumnPropNameInRow="OwnerName" msprop:Generator_ColumnPropNameInTable="OwnerNameColumn" msprop:Generator_ColumnVarNameInTable="columnOwnerName" msprop:Generator_UserColumnName="OwnerName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

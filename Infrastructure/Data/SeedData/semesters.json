@@ -1,0 +1,37 @@
+[
+  {
+  "SemesterName": "First Semester",
+  "AcademicYearId": 1,
+  "GradeId": 1,
+  "Fees": 630,
+  "FeesEveryStage": 200
+  },
+  {
+  "SemesterName": "Second Semester",
+  "AcademicYearId": 2,
+  "GradeId": 1,
+  "Fees": 800,
+  "FeesEveryStage": 250
+  },
+  {
+    "SemesterName": "Second Semester",
+    "AcademicYearId": 2,
+    "GradeId":2,
+    "Fees": 930,
+    "FeesEveryStage": 250
+    },
+  {
+  "SemesterName": "First Semester",
+  "AcademicYearId": 3,
+  "GradeId": 1,
+  "Fees": 1400,
+  "FeesEveryStage": 300
+  },
+  {
+  "SemesterName": "Second Semester",
+  "AcademicYearId": 3,
+  "GradeId": 2,
+  "Fees": 1800,
+  "FeesEveryStage": 350
+  }
+  ]

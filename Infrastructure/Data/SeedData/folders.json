@@ -1,0 +1,80 @@
+[
+  {
+    "folderName": "Tax Year 2024 - John Doe",
+    "description": "Tax documents for John Doe - 2024",
+    "createdAt": "2024-01-15T09:00:00Z",
+    "isActive": true,
+    "isClosed": false,
+    "closedAt": null,
+    "isBackedUp": false,
+    "lastBackupAt": null,
+    "backupPath": null,
+    "clientId": 1,
+    "folderTypeId": 1
+  },
+  {
+    "folderName": "Business Receipts 2024 - Ahmed Corp",
+    "description": "All business expense receipts for Ahmed Corporation",
+    "createdAt": "2024-01-20T10:30:00Z",
+    "isActive": true,
+    "isClosed": false,
+    "closedAt": null,
+    "isBackedUp": true,
+    "lastBackupAt": "2024-02-15T14:20:00Z",
+    "backupPath": "/backups/folder_2_20240215.zip",
+    "clientId": 2,
+    "folderTypeId": 2
+  },
+  {
+    "folderName": "Income Documentation - Sarah Ltd",
+    "description": "Income statements and salary documentation",
+    "createdAt": "2024-02-01T11:00:00Z",
+    "isActive": true,
+    "isClosed": false,
+    "closedAt": null,
+    "isBackedUp": false,
+    "lastBackupAt": null,
+    "backupPath": null,
+    "clientId": 3,
+    "folderTypeId": 3
+  },
+  {
+    "folderName": "Deductions 2024 - Mark Smith",
+    "description": "Tax-deductible expenses and documentation",
+    "createdAt": "2024-02-10T13:45:00Z",
+    "isActive": true,
+    "isClosed": false,
+    "closedAt": null,
+    "isBackedUp": false,
+    "lastBackupAt": null,
+    "backupPath": null,
+    "clientId": 1,
+    "folderTypeId": 4
+  },
+  {
+    "folderName": "Business License - Tech Innovations",
+    "description": "Business registration and licensing documents",
+    "createdAt": "2024-02-15T08:30:00Z",
+    "isActive": true,
+    "isClosed": true,
+    "closedAt": "2024-03-01T16:00:00Z",
+    "isBackedUp": true,
+    "lastBackupAt": "2024-03-01T16:05:00Z",
+    "backupPath": "/backups/folder_5_20240301.zip",
+    "clientId": 4,
+    "folderTypeId": 5
+  },
+  {
+    "folderName": "Property Records - Downtown Office",
+    "description": "Commercial property documentation and leases",
+    "createdAt": "2024-03-01T12:00:00Z",
+    "isActive": true,
+    "isClosed": false,
+    "closedAt": null,
+    "isBackedUp": false,
+    "lastBackupAt": null,
+    "backupPath": null,
+    "clientId": 2,
+    "folderTypeId": 8
+  }
+] 

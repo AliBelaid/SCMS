@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Document Upload Complete",
+    "message": "Your W-2 form has been successfully uploaded and is ready for review.",
+    "type": "success",
+    "isRead": false,
+    "createdAt": "2024-01-15T09:30:00Z",
+    "userId": 1,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "Action Required: Missing Documents",
+    "message": "Please upload your business expense receipts for Q1 2024. Due date: February 15, 2024.",
+    "type": "warning",
+    "isRead": false,
+    "createdAt": "2024-02-01T10:00:00Z",
+    "userId": 2,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "Tax Review Completed",
+    "message": "Your tax documents have been reviewed and approved. No further action required.",
+    "type": "info",
+    "isRead": true,
+    "createdAt": "2024-02-06T14:30:00Z",
+    "userId": 1,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "Document Validation Failed",
+    "message": "The uploaded payroll report requires additional documentation. Please contact your accountant.",
+    "type": "error",
+    "isRead": false,
+    "createdAt": "2024-02-12T16:15:00Z",
+    "userId": 3,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "Backup Completed",
+    "message": "Your business documents have been successfully backed up to secure storage.",
+    "type": "success",
+    "isRead": true,
+    "createdAt": "2024-02-15T14:45:00Z",
+    "userId": 2,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "New Document Request",
+    "message": "A new document request has been created for medical expense receipts.",
+    "type": "info",
+    "isRead": false,
+    "createdAt": "2024-02-18T11:20:00Z",
+    "userId": 1,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "Folder Archived",
+    "message": "Business registration folder has been successfully archived and is no longer active.",
+    "type": "info",
+    "isRead": false,
+    "createdAt": "2024-03-01T16:30:00Z",
+    "userId": 3,
+    "folderId": null,
+    "folderTypeId": null
+  },
+  {
+    "title": "System Maintenance",
+    "message": "The tax file management system will undergo maintenance on March 15th from 2:00 AM to 4:00 AM.",
+    "type": "warning",
+    "isRead": false,
+    "createdAt": "2024-03-05T09:00:00Z",
+    "userId": 1,
+    "folderId": null,
+    "folderTypeId": null
+  }
+] 

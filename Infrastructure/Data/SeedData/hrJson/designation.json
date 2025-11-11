@@ -1,0 +1,47 @@
+  [
+      {
+       
+        "DesignationName": "Web Designer",
+        "DepartmentsId": 1
+      },
+      {
+        
+        "DesignationName": "Web Developer",
+       "DepartmentsId": 1
+      },
+      {
+       
+        "DesignationName": "Android Developer",
+       "DepartmentsId": 2
+      },
+      {
+        
+        "DesignationName": "IOS Developer",
+        "DepartmentsId": 2
+      },
+      {
+       
+        "DesignationName": "UI Designer",
+         "DepartmentsId": 2
+      },
+      {
+       
+        "DesignationName": "IT Technician",
+         "DepartmentsId": 2
+      },
+      {
+       
+        "DesignationName": "Product Manager",
+        "DepartmentsId": 2
+      },
+      {
+       
+        "DesignationName": "SEO Analyst",
+        "DepartmentsId": 2
+      },
+      {
+      
+        "DesignationName": "Front End Designer",
+         "DepartmentsId": 1
+      }
+    ]

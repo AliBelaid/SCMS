@@ -1,0 +1,67 @@
+<mat-card class="cardWithShadow">
+    <mat-card-content>
+        <div class="row">
+            <div class="col-lg-8 b-r-1">
+                <div class="d-sm-flex m-b-24 justify-content-between align-items-start">
+                    <div class="mb-4 mb-sm-0">
+                        <h5 class="f-s-14 f-w-300">Overall Balance</h5>
+                        <h2 class="f-s-30 lh-lg m-b-4">$2,538,942</h2>
+                        <div class="d-flex align-items-center gap-4">
+                            <span
+                                class="bg-light-success f-s-12 f-w-500 p-x-10 p-y-4 gap-4 lh-sm rounded-pill text-success d-flex align-items-center">
+                                <i class="iconify f-s-16 text-success" data-icon="solar:alt-arrow-down-bold"></i>
+                                16.3%
+                            </span>
+                            <p class="f-s-12 text-muted m-y-0 f-w-500">last 12 months</p>
+                        </div>
+                    </div>
+                    <div class="theme-tab d-flex align-items-center justify-content-center">
+                        <ul class="mat-mdc-tab-header list-unstyled m-0 d-flex align-items-center">
+                            <li><a [ngClass]="tabtitle==='orders' ? 'active-class' : ''"
+                                    class="mat-mdc-tab f-s-12" href="javascript:void(0)" 
+                                    (click)="handleTab('orders')">Orders</a></li>
+                            <li><a [ngClass]="tabtitle!=='orders'? 'active-class' : ''"
+                                    class="mat-mdc-tab f-s-12" href="javascript:void(0)"
+                                    (click)="handleTab('expenses')">Income</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @if (tabtitle==="orders") {
+                <apx-chart [series]="overallbalanceChart.series" [dataLabels]="overallbalanceChart.dataLabels"
+                    [chart]="overallbalanceChart.chart" [legend]="overallbalanceChart.legend"
+                    [colors]="overallbalanceChart.colors" [grid]="overallbalanceChart.grid"
+                    [fill]="overallbalanceChart.fill" [stroke]="overallbalanceChart.stroke"
+                    [tooltip]="overallbalanceChart.tooltip" [markers]="overallbalanceChart.markers"
+                    [xaxis]="overallbalanceChart.xaxis" [responsive]="overallbalanceChart.responsive"
+                    [yaxis]="overallbalanceChart.yaxis"></apx-chart>
+
+                } @else {
+                <apx-chart [series]="expensesChart.series" [dataLabels]="expensesChart.dataLabels"
+                    [chart]="expensesChart.chart" [legend]="expensesChart.legend" [colors]="expensesChart.colors"
+                    [grid]="expensesChart.grid" [fill]="expensesChart.fill" [stroke]="expensesChart.stroke"
+                    [tooltip]="expensesChart.tooltip" [markers]="expensesChart.markers" [xaxis]="expensesChart.xaxis"
+                    [responsive]="expensesChart.responsive" [yaxis]="expensesChart.yaxis"
+                    [plotOptions]="expensesChart.plotOptions" [responsive]="expensesChart.responsive"></apx-chart>
+                }
+            </div>
+            <div class="col-lg-4">
+                <ul class="list-unstyled m-0">
+                    @for(stat of stats; track stat.color) {
+                    <li class="bg-light p-x-16 p-y-18 rounded-8 hstack gap-12 m-b-8">
+                        <div class="d-flex align-items-center gap-12">
+                            <span
+                                class="text-{{ stat.color }} bg-light-{{ stat.color }} rounded-circle-shape p-x-16 p-y-8 rounded-pill d-flex align-items-center justify-content-center">
+                                <i class="iconify f-s-24" [attr.data-icon]="stat.icon"></i>
+                            </span>
+                            <div>
+                                <p class="text-muted m-y-0 f-s-12 f-w-500">{{ stat.subtitle }}</p>
+                                <h6 class="f-s-14 lh-sm">{{ stat.title }}</h6>
+                            </div>
+                        </div>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

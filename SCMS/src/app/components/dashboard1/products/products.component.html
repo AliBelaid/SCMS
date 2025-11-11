@@ -1,0 +1,22 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <div class="d-flex justify-content-between align-items-baseline">
+      <div>
+        <mat-card-title class="m-b-4 f-s-16">Products</mat-card-title>
+        <mat-card-subtitle>Last 7 days</mat-card-subtitle>
+      </div>
+      <div>
+        <mat-card-title class="m-b-4 f-s-16 text-right">432</mat-card-title>
+        <span class="bg-light-success f-s-12 f-w-500 p-x-10 p-y-4 rounded-pill text-success">+26.5%</span>
+      </div>
+    </div>
+
+    <div class="m-y-16">
+      <apx-chart [series]="productsChart.series" [chart]="productsChart.chart" [colors]="productsChart.colors"
+        [dataLabels]="productsChart.dataLabels" [legend]="productsChart.legend" [tooltip]="productsChart.tooltip"
+        [plotOptions]="productsChart.plotOptions" [grid]="productsChart.grid" [xaxis]="productsChart.xaxis"
+        [yaxis]="productsChart.yaxis" [stroke]="productsChart.stroke"></apx-chart>
+    </div>
+    <p class="f-s-12 text-muted f-w-500 text-center m-t-0">Profit more than last month</p>
+  </mat-card-content>
+</mat-card>

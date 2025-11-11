@@ -1,0 +1,5658 @@
+[
+ 
+ {
+  "SiteName": "BWLD001",
+  "OwnerName": "صلاح الدين امعمر محمد البقار ",
+  "AddressName": "بنى وليد-حى الزيتونة"
+ },
+ {
+  "SiteName": "BWLD002",
+  "OwnerName": "الصغير على مفتاح الهمالى",
+  "AddressName": "بنى وليد-الظهره"
+ },
+ {
+  "SiteName": "BWLD003",
+  "OwnerName": "عبد الرحيم موسى احمد بحر ",
+  "AddressName": "بنى وليد-محلة الخرمانى شهداء دينار "
+ },
+ {
+  "SiteName": "BWLD005",
+  "OwnerName": "مجمع بنى وليد الصناعى",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "BWLD007",
+  "OwnerName": "ورثه\/غيث احمد عبد الهادى",
+  "AddressName": "بنى وليد-شهداء دينار "
+ },
+ {
+  "SiteName": "BWLD008",
+  "OwnerName": "رياض امحمد على الجدك",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "BWLD010",
+  "OwnerName": "امحمد عبد الرحمان امحمد",
+  "AddressName": "بنى وليد-الظهره"
+ },
+ {
+  "SiteName": "BWLD011",
+  "OwnerName": "عمر محمد على مشرى",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "BWLD013",
+  "OwnerName": "عثمان يونس مصباح الصغير ",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "BWLD015",
+  "OwnerName": "حسين معمر رحيل المختار",
+  "AddressName": "بنى وليد-الظهره"
+ },
+ {
+  "SiteName": "BWLD017",
+  "OwnerName": "علاء الدين سالم الفيتورى ",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "BWLD018",
+  "OwnerName": "بلعيد محمد عبد الرحمان",
+  "AddressName": "بنى وليد-محلة الزيتونه"
+ },
+ {
+  "SiteName": "BWLD019",
+  "OwnerName": "ادريس محمد فرحات",
+  "AddressName": "بنى وليد-محلة البلدية"
+ },
+ {
+  "SiteName": "BWLD020",
+  "OwnerName": "احمد البارونى محمد مطروا",
+  "AddressName": "بنى وليد-محلة ابوعمود"
+ },
+ {
+  "SiteName": "BWLD021",
+  "OwnerName": "إسماعيل على عبد الهادى حسين",
+  "AddressName": "بنى وليد-الظهره"
+ },
+ {
+  "SiteName": "BWLD022",
+  "OwnerName": "الطاهر احمد محمد العجيل ",
+  "AddressName": "بنى وليد-البيضاء "
+ },
+ {
+  "SiteName": "BWLD023",
+  "OwnerName": "حمزة مصباح محمد",
+  "AddressName": "بنى وليد -الظهره"
+ },
+ {
+  "SiteName": "BWLD029",
+  "OwnerName": "حسين أبو قرين فرج",
+  "AddressName": "بنى وليد-محلة أبو راوى "
+ },
+ {
+  "SiteName": "BWLD032",
+  "OwnerName": "خليل ادريس خليل الطبولى ",
+  "AddressName": "بنى وليد-محلة الساعدي"
+ },
+ {
+  "SiteName": "BWRD_R1",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "BWRD002",
+  "OwnerName": "احمد عمران إبراهيم",
+  "AddressName": "بنى وليد-المردوم"
+ },
+ {
+  "SiteName": "BWRD003",
+  "OwnerName": "ورثه\/فرج سليمان فرج",
+  "AddressName": "بنى وليد-المردوم"
+ },
+ {
+  "SiteName": "BWRD009",
+  "OwnerName": "غيث محجوب احميد",
+  "AddressName": "بنى وليد-المردوم"
+ },
+ {
+  "SiteName": "GDMS002",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRMZ002",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYF001",
+  "OwnerName": "بلقاسم سالم أبو عائشه ",
+  "AddressName": "الجبل الغربى القواليش بالقرب من مدرسة بطومة الشيخ "
+ },
+ {
+  "SiteName": "GRYN024",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN006",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN008",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN020",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN_R9",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN01",
+  "OwnerName": "صالحة عبد السلام العربى المصرى",
+  "AddressName": "غريان-تغسات"
+ },
+ {
+  "SiteName": "GRYN010",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN02",
+  "OwnerName": "ورثه\/صلاح إبراهيم ضو كريم",
+  "AddressName": "غريان-الاصابعة"
+ },
+ {
+  "SiteName": "GRYN03",
+  "OwnerName": "عبد المطلب ادريس عمر",
+  "AddressName": "غريان بن خليفه"
+ },
+ {
+  "SiteName": "GRYN035",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN039",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN04",
+  "OwnerName": "ورثه \/عبد الحميد عبد الله سالم مرقات",
+  "AddressName": "غريان - القواسم"
+ },
+ {
+  "SiteName": "GRYN05",
+  "OwnerName": "عبد الله احمد الدغيس",
+  "AddressName": "غريان المدينه"
+ },
+ {
+  "SiteName": "GRYN07",
+  "OwnerName": "سالم محمد عمار ميلاد",
+  "AddressName": "غريان -القواسم"
+ },
+ {
+  "SiteName": "GRYN12",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GRYN13",
+  "OwnerName": "ورثه\/عاشور خليفة الشريف",
+  "AddressName": "غريان-السقايف بالقرب من جامع السقايف"
+ },
+ {
+  "SiteName": "GRYN14",
+  "OwnerName": "خالد إبراهيم على شلهوب ",
+  "AddressName": "تغسات -غريان "
+ },
+ {
+  "SiteName": "GRYN15",
+  "OwnerName": "عبد السلام محمد عبد السلام",
+  "AddressName": "غريان-بنى نصير "
+ },
+ {
+  "SiteName": "GRYN16",
+  "OwnerName": "فهمى مفتاح فتحى واسعد فتحى ارحومة",
+  "AddressName": "غريان- تغسات -بالقرب من المعهد الصناعى وكلية القانون "
+ },
+ {
+  "SiteName": "GRYN17",
+  "OwnerName": "المبروك عاشور الفيض المجراب",
+  "AddressName": "غريان -محلة النصر -بالقرب من مخازن الادوية"
+ },
+ {
+  "SiteName": "GRYN18",
+  "OwnerName": "عمر المهدى عمر مولود",
+  "AddressName": "الاصابعة -غريان "
+ },
+ {
+  "SiteName": "GRYN19",
+  "OwnerName": "المبروك مفتاح المبروك ",
+  "AddressName": "غريان - القواسم"
+ },
+ {
+  "SiteName": "GRYN21",
+  "OwnerName": "محمد الفيتورى محمد المصرى ",
+  "AddressName": "غريان -تغسات "
+ },
+ {
+  "SiteName": "GRYN22",
+  "OwnerName": "عامر رمضان محمد ميلود",
+  "AddressName": "غريان تغسات "
+ },
+ {
+  "SiteName": "GRYN25",
+  "OwnerName": "إبراهيم أبو بكر سالم",
+  "AddressName": "ابيار مجى -ترهونه"
+ },
+ {
+  "SiteName": "GRYN26",
+  "OwnerName": "إبراهيم أبو العيد عمر الأبيض",
+  "AddressName": "غريان -القواسم"
+ },
+ {
+  "SiteName": "GRYN29",
+  "OwnerName": "رمضان محمد امحمد",
+  "AddressName": "غريان -اسبيعة "
+ },
+ {
+  "SiteName": "GRYN30",
+  "OwnerName": "عز الدين المبروك ميلود عاشور",
+  "AddressName": "غريان -القواسم "
+ },
+ {
+  "SiteName": "GRYN33",
+  "OwnerName": "محمد على اعبيد وعاشور بلقاسم مصباح عبيد",
+  "AddressName": "الاصبعة-منطقة أولاد ادريس"
+ },
+ {
+  "SiteName": "GRYN34",
+  "OwnerName": "مفتاح حميد صالح",
+  "AddressName": "غريان-بن خليفة"
+ },
+ {
+  "SiteName": "IND010",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "JADU001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "JADU002",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "JADU003",
+  "OwnerName": "سالم على عمرو دورو",
+  "AddressName": "جادو-الجمارى-بالقرب من مدرسة البارونى"
+ },
+ {
+  "SiteName": "JADU004",
+  "OwnerName": "ورثه\/أبو القاسم امحمد الضبع",
+  "AddressName": "جادو-ناحية تمزده بالقرب من المستوصف"
+ },
+ {
+  "SiteName": "JADU005",
+  "OwnerName": "يعقوب على السيفاو",
+  "AddressName": "جادو-مزغورة"
+ },
+ {
+  "SiteName": "JADU006",
+  "OwnerName": "موسى على صالح سعيد",
+  "AddressName": "جادو -المحلة الغربية -ويفات "
+ },
+ {
+  "SiteName": "MIS052",
+  "OwnerName": "ورثه\/سلطان عبد الله أبو سديرة",
+  "AddressName": "محلة الكرارين \/طمينة."
+ },
+ {
+  "SiteName": "MIS081",
+  "OwnerName": "احمد منصور بخاخ",
+  "AddressName": "زليتن"
+ },
+ {
+  "SiteName": "MIS115",
+  "OwnerName": "بشير مفتاح الدغدوغ",
+  "AddressName": "زليتن"
+ },
+ {
+  "SiteName": "MZBK003",
+  "OwnerName": "حسن محمد على عبد الرحمان",
+  "AddressName": "الجبل الغربى -قرية أبو الغرب بالقرب من المستوصف"
+ },
+ {
+  "SiteName": "MZBK006",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "MZBW004",
+  "OwnerName": "مكتب مصلحة الأملاك العامه",
+  "AddressName": "شعبيه غريان "
+ },
+ {
+  "SiteName": "MZBW006",
+  "OwnerName": "بلدية الزنتان ",
+  "AddressName": "مدينة الزنتان "
+ },
+ {
+  "SiteName": "MZBW007",
+  "OwnerName": "ميلاد وسعد وبوضى احمد البكوش",
+  "AddressName": "بنى وليد"
+ },
+ {
+  "SiteName": "NLGD003",
+  "OwnerName": "مدير مكتب الأملاك العامه -غدامس",
+  "AddressName": "غدامس"
+ },
+ {
+  "SiteName": "NLUT002",
+  "OwnerName": "جمعية أصدقاء البيئه والتراث ",
+  "AddressName": "شعبية نالوت"
+ },
+ {
+  "SiteName": "NLUT005",
+  "OwnerName": "امحمد عمر امحمد عسكر ",
+  "AddressName": "نالوت- زفزف"
+ },
+ {
+  "SiteName": "NLUT006",
+  "OwnerName": "ورثه\/محمد على خليفة عسكر",
+  "AddressName": "نالوت"
+ },
+ {
+  "SiteName": "NLUT009",
+  "OwnerName": "احمد مسعود سعيد المقدمى ",
+  "AddressName": "نالوت-سيدى خليفة -بالقرب من جامع النور"
+ },
+ {
+  "SiteName": "NLUT011",
+  "OwnerName": "عادل مسعود يحى الخمائسى",
+  "AddressName": "شعبية نالوت"
+ },
+ {
+  "SiteName": "NTRD005",
+  "OwnerName": "على عبد الله عاشور ",
+  "AddressName": "وزان-على بعد اقل من كيلو متر من البوابة الليبيه التونسيه "
+ },
+ {
+  "SiteName": "TNRD_R1",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TNRD002",
+  "OwnerName": "فرج مفتاح على الفيل ",
+  "AddressName": "ترهونة-القصيعه"
+ },
+ {
+  "SiteName": "TNRD003",
+  "OwnerName": "صالح سالم سليم أولاد احمد",
+  "AddressName": "مسلاته-البركات"
+ },
+ {
+  "SiteName": "TRBW001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRGR001",
+  "OwnerName": "مصطفى جمعة سالم القدافى ",
+  "AddressName": "العربان-سوق الاتنين"
+ },
+ {
+  "SiteName": "TRGR002",
+  "OwnerName": "محمد امحمد سالم",
+  "AddressName": "غريان-أولاد بريك"
+ },
+ {
+  "SiteName": "TRGR003",
+  "OwnerName": "محمد على فرج",
+  "AddressName": "محلة غوط الريح- شعبية غريان"
+ },
+ {
+  "SiteName": "TRGR004",
+  "OwnerName": "عاشور فرحات محمد العكرمى ",
+  "AddressName": "قماطة -العربان البيضاء "
+ },
+ {
+  "SiteName": "TRHN002",
+  "OwnerName": "محمد جمعة امحمد الفرجانى ",
+  "AddressName": "ترهونه-الصيد"
+ },
+ {
+  "SiteName": "TRHN003",
+  "OwnerName": "عبد السلام سلامة جاب الله سلامة ",
+  "AddressName": "ترهونه- طريق الخضراء بالقرب من جامع شهداء العقيلة"
+ },
+ {
+  "SiteName": "TRHN004",
+  "OwnerName": "فرج المهدى محمد محمد",
+  "AddressName": "ترهونه-البلدية"
+ },
+ {
+  "SiteName": "TRHN005",
+  "OwnerName": "مصلحه الأملاك العامه بشعبيه ترهونه",
+  "AddressName": "ترهونه"
+ },
+ {
+  "SiteName": "TRHN006",
+  "OwnerName": "على محمد المختار ",
+  "AddressName": "شعبية ترهونه"
+ },
+ {
+  "SiteName": "TRHN007",
+  "OwnerName": "ورثه\/محمد عبد الكريم الحمرونى",
+  "AddressName": "ترهونه-المدينة"
+ },
+ {
+  "SiteName": "TRHN008",
+  "OwnerName": "ورثه\/المرغنى محمد احمد هدية",
+  "AddressName": "ترهونه-صلاح الدين بالقرب من كلية الاداب"
+ },
+ {
+  "SiteName": "TRHN009",
+  "OwnerName": "محمد محمد المغربى",
+  "AddressName": "ترهونة-البويرات"
+ },
+ {
+  "SiteName": "TRHN010",
+  "OwnerName": "سالم عمران العربى ",
+  "AddressName": "ترهونةالمدينة-عمارات الضمان"
+ },
+ {
+  "SiteName": "TRHN011",
+  "OwnerName": "ورثه\/الصغير محمد ضو ",
+  "AddressName": "ترهونة- المدينة"
+ },
+ {
+  "SiteName": "TRHN012",
+  "OwnerName": "سالم فرج على عبد الحفيظ",
+  "AddressName": "ترهونة"
+ },
+ {
+  "SiteName": "TRHN013",
+  "OwnerName": "فرج أبو بكر الصغير ",
+  "AddressName": "ترهونة-المدينه"
+ },
+ {
+  "SiteName": "TRHN016",
+  "OwnerName": "ورثه-عبد الولى عبد السلام عبد المولى ",
+  "AddressName": "ابيار مجى -ترهونة"
+ },
+ {
+  "SiteName": "TRHN017",
+  "OwnerName": "صلاح الدين عبد الحميد محمد",
+  "AddressName": "ترهونة"
+ },
+ {
+  "SiteName": "TRHN018",
+  "OwnerName": "ميلاد احمد ميلاد",
+  "AddressName": "ترهونة"
+ },
+ {
+  "SiteName": "TRHN020",
+  "OwnerName": "فرج على محمد جمعه",
+  "AddressName": "ترهونة-محلة الشرشاره"
+ },
+ {
+  "SiteName": "TRHN021",
+  "OwnerName": "الكبير التمتام الكبير ",
+  "AddressName": "ترهونة-الخضراء"
+ },
+ {
+  "SiteName": "TRHN022",
+  "OwnerName": "عبد السلام محمد على بالنور ",
+  "AddressName": "ترهونة- الخضراء"
+ },
+ {
+  "SiteName": "TRHN023",
+  "OwnerName": "البشير محمد محمد قصودة",
+  "AddressName": "شعبية ترهونة"
+ },
+ {
+  "SiteName": "TRHN024",
+  "OwnerName": "المبروك أبو بكر على ",
+  "AddressName": "ترهونة-الشرشاره"
+ },
+ {
+  "SiteName": "TRHN025",
+  "OwnerName": "ورثه\/عطا الله العمارى على ",
+  "AddressName": "ترهونة-محلة سيدى احميد"
+ },
+ {
+  "SiteName": "TRHN026",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "يجب ذكر AddressName"
+ },
+ {
+  "SiteName": "TRHN027",
+  "OwnerName": "ورثه\/عبد السلام غيث عبد السلام",
+  "AddressName": "ترهونة-محلة الخضراء"
+ },
+ {
+  "SiteName": "TRHN032",
+  "OwnerName": "مصباح المبروك محمد الفرجانى ",
+  "AddressName": "ترهونة-سوق الجمعه"
+ },
+ {
+  "SiteName": "TRHN041",
+  "OwnerName": "يوسف عبد النبى على احمد",
+  "AddressName": "ترهونة-فم ملغه"
+ },
+ {
+  "SiteName": "TRHN042",
+  "OwnerName": "ورثه\/ميلاد عطيه أبو رزيزة",
+  "AddressName": "ترهونة- الطرشان"
+ },
+ {
+  "SiteName": "TRHN043",
+  "OwnerName": "ورثه\/سالم الهادى سعيد اسويسى سعيد",
+  "AddressName": "ترهونة-ترغلات"
+ },
+ {
+  "SiteName": "TRHN044",
+  "OwnerName": "احمد على فرحات عبد النبى ",
+  "AddressName": "ترهونة-سوق الخميس"
+ },
+ {
+  "SiteName": "TRHN045",
+  "OwnerName": "امحمد أبو عائشه محمد امطير",
+  "AddressName": "ترهونة-الفرجان"
+ },
+ {
+  "SiteName": "TRHN046",
+  "OwnerName": "صالحين محمد سالم محفوظ",
+  "AddressName": "ترهونة-محلة أولاد "
+ },
+ {
+  "SiteName": "TRHN047",
+  "OwnerName": "محمد مفتاح الكراتى ",
+  "AddressName": "مسلاته-الشعافيين"
+ },
+ {
+  "SiteName": "TRHN048",
+  "OwnerName": "المبروك مفتاح مسعود",
+  "AddressName": "ترهونة-العوامرة "
+ },
+ {
+  "SiteName": "TRI351",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI001",
+  "OwnerName": "مصلحة الاثار \/ متحف ليبيا ",
+  "AddressName": "طرابلس"
+ },
+ {
+  "SiteName": "TRI002",
+  "OwnerName": "سكان عمارة (24)",
+  "AddressName": " زاوية الدهماني\/ 'طرابلس"
+ },
+ {
+  "SiteName": "TRI003",
+  "OwnerName": "سكان عمارة (25)",
+  "AddressName": "زاوية الدهمانى\/ طرابلس "
+ },
+ {
+  "SiteName": "TRI005",
+  "OwnerName": "ورثة محمد حميدة المصري ",
+  "AddressName": "شارع النصر طرابلس نادي الوحدة الرياضي  "
+ },
+ {
+  "SiteName": "TRI006",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI007",
+  "OwnerName": "مدرسة محمدمحمود بن عثمان ",
+  "AddressName": "النوفللين - قرب معهد الموسيقي "
+ },
+ {
+  "SiteName": "TRI008",
+  "OwnerName": "المعهد العالي لاعداد المعلمين ",
+  "AddressName": "جامعه الفاتح "
+ },
+ {
+  "SiteName": "TRI009",
+  "OwnerName": "منزل المقطوف علي المجدوب",
+  "AddressName": "قرقارش - خلف السفارة اليبانية "
+ },
+ {
+  "SiteName": "TRI010",
+  "OwnerName": "محمد محمد العماري",
+  "AddressName": "طرابلس - شارع الجمهورية"
+ },
+ {
+  "SiteName": "TRI011",
+  "OwnerName": "مدرسة الفجر الجديد للعلوم الهندسية",
+  "AddressName": "طرابلس - فشلوم "
+ },
+ {
+  "SiteName": "TRI013",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI014",
+  "OwnerName": "مدرسة الجيل الثائر",
+  "AddressName": "طرابلس - باب بن غشير "
+ },
+ {
+  "SiteName": "TRI015",
+  "OwnerName": "مدرسة شهداء أبو مليانه ",
+  "AddressName": "طرابلس - أبو مليانه "
+ },
+ {
+  "SiteName": "TRI019",
+  "OwnerName": "مدرسة شباب الفاتح لتعليم الأساسي ",
+  "AddressName": "طرابلس - أبوسليم "
+ },
+ {
+  "SiteName": "TRI021",
+  "OwnerName": "مدرسة طربلس  المركزية ",
+  "AddressName": "شارغ جمال عبدالناصر متفرغ من شارع عمر المختار  "
+ },
+ {
+  "SiteName": "TRI022",
+  "OwnerName": "مدرسة الجمهورية  للتعليم الأساسي ",
+  "AddressName": "باب العزيزية "
+ },
+ {
+  "SiteName": "TRI023",
+  "OwnerName": "عبد السلام الكاسح",
+  "AddressName": "غوط الشعال قرب جامع النصر "
+ },
+ {
+  "SiteName": "TRI025",
+  "OwnerName": "مصرف الوحدة دات العماد",
+  "AddressName": "طرابس-  برج دات العماد "
+ },
+ {
+  "SiteName": "TRI026",
+  "OwnerName": "أبو القاسم خليفةامحمد ",
+  "AddressName": "طرابلس عمارة رقم 4 امام مجمع دات العماد"
+ },
+ {
+  "SiteName": "TRI027",
+  "OwnerName": "مدرسة طرابلس الثانوية ",
+  "AddressName": " طرابلس باب العزيزية "
+ },
+ {
+  "SiteName": "TRI028",
+  "OwnerName": "مبروكة محمدخليفة ",
+  "AddressName": "غوط الشعال - سوق القادسية "
+ },
+ {
+  "SiteName": "TRI029",
+  "OwnerName": "مدرسة خمسة أكتوبر ",
+  "AddressName": "طرابلس - حي الاندلس"
+ },
+ {
+  "SiteName": "TRI030",
+  "OwnerName": "صالح الدين ميلاد الترهوني",
+  "AddressName": "طرابلس - حي الاندلس قرب مصرف الأمان "
+ },
+ {
+  "SiteName": "TRI031",
+  "OwnerName": "شركة طرابلس للتسويق ",
+  "AddressName": "طرابلس - دات العماد البرج  4"
+ },
+ {
+  "SiteName": "TRI032",
+  "OwnerName": "المركز المتوسط للمهن الشاملة ",
+  "AddressName": "طرابلس - غوط الشعال "
+ },
+ {
+  "SiteName": "TRI033",
+  "OwnerName": "الشركة العامة للتبغ ",
+  "AddressName": "طرابلس - قرجي "
+ },
+ {
+  "SiteName": "TRI034",
+  "OwnerName": "الجامعة المفتوحة",
+  "AddressName": "جنزور - شهداء سيدي عبد الجليل"
+ },
+ {
+  "SiteName": "TRI035",
+  "OwnerName": "الطالب الثائر لتعليم الأساسي ",
+  "AddressName": "جنزور الشرقية "
+ },
+ {
+  "SiteName": "TRI036",
+  "OwnerName": "معهد السلام الفني المتوسط للمهن الشاملة",
+  "AddressName": "طرابلس - قرطبة الجديدة "
+ },
+ {
+  "SiteName": "TRI037",
+  "OwnerName": "مدرسة جنزور لعلوم الحياة ",
+  "AddressName": "جنزور "
+ },
+ {
+  "SiteName": "TRI038",
+  "OwnerName": "مبني المجلس الوطنى للاستمار العقارية ",
+  "AddressName": "جنزور - انجيلا "
+ },
+ {
+  "SiteName": "TRI040",
+  "OwnerName": "امنة محمد المبروك ",
+  "AddressName": "طرابلس - السوانى "
+ },
+ {
+  "SiteName": "TRI041",
+  "OwnerName": "بلدية سوانى بن ادم  شعبان عبد الله سويسي",
+  "AddressName": "السوانى - بن ادم قرب شركة الكهرباء ( مبني اداري)"
+ },
+ {
+  "SiteName": "TRI043",
+  "OwnerName": "مدرسة شهداء الشط للتعليم الأساسي ",
+  "AddressName": "طرابلس سوق الجمعة"
+ },
+ {
+  "SiteName": "TRI044",
+  "OwnerName": "مدرسة بن الفرات للتعليم الثانوي ",
+  "AddressName": "طرابلس سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI045",
+  "OwnerName": "شركة الزحف الأخضر ",
+  "AddressName": "طرابلس عين زارة "
+ },
+ {
+  "SiteName": "TRI046",
+  "OwnerName": "مدرسة العرب للتعليم الاساسيى ",
+  "AddressName": "طرابلس عين زارة "
+ },
+ {
+  "SiteName": "TRI047",
+  "OwnerName": "مدرسة شهداء الحرية للتعليم الأساسي ",
+  "AddressName": "تاجوراء \/ ابي الأشهر "
+ },
+ {
+  "SiteName": "TRI049",
+  "OwnerName": "مركز البحوث الصناعية ",
+  "AddressName": "طرابلس - تاجوراء "
+ },
+ {
+  "SiteName": "TRI050",
+  "OwnerName": "مدرسة على النفاتي للتعليم الأساسي ",
+  "AddressName": "شعبية تاجوراء والنواحى الأربع "
+ },
+ {
+  "SiteName": "TRI051",
+  "OwnerName": "مدرسة النصر للتعليم الأساسي ",
+  "AddressName": "شعبية تاجوراء والنواحى الأربع "
+ },
+ {
+  "SiteName": "TRI052",
+  "OwnerName": "مدرسة التضامن لتعليم الاساسي",
+  "AddressName": "شعبية 2 مارس - طرابلس "
+ },
+ {
+  "SiteName": "TRI053",
+  "OwnerName": "مدرسة أبودر الغفار للتعليم العالي والمتوسط",
+  "AddressName": "شعبية الكرامة - طرابلس "
+ },
+ {
+  "SiteName": "TRI054",
+  "OwnerName": "المركز العالي لاعداد المدربين ",
+  "AddressName": "طرابلس - طريق المطار "
+ },
+ {
+  "SiteName": "TRI055",
+  "OwnerName": "مدرسة عبد الرحمن الداخل للتعليم الأساسي ",
+  "AddressName": "طرابلس - حى الاندلس بجوار جامع الأمين "
+ },
+ {
+  "SiteName": "TRI056",
+  "OwnerName": "مدرسة الزهور للتعليم الأساسي ",
+  "AddressName": "طرابلس - عين زارة "
+ },
+ {
+  "SiteName": "TRI057",
+  "OwnerName": "فوزي صالح عبد السلام الكحيلي",
+  "AddressName": "تاجوراء \/ الوادي الغربي"
+ },
+ {
+  "SiteName": "TRI058",
+  "OwnerName": "مدرسة جابر بن حيان للتعليم الأساسي ",
+  "AddressName": "تاجوراء الجنوبي  بالقرب من مسجد نجم الدين "
+ },
+ {
+  "SiteName": "TRI059",
+  "OwnerName": "مدرسة خالد بن الوليد للتعليم الأساسي والمتوسط ",
+  "AddressName": "طرابلس - عين زارة الجنوبي "
+ },
+ {
+  "SiteName": "TRI061",
+  "OwnerName": "مدرسة جبير للتعليم الأساسي ",
+  "AddressName": "طابلس - الجي الجامعى"
+ },
+ {
+  "SiteName": "TRI062",
+  "OwnerName": "ادريس بلقاسم سعيد المزوغى",
+  "AddressName": "طرابلس - سوق الجمعة"
+ },
+ {
+  "SiteName": "TRI063",
+  "OwnerName": "ورثة المبروك امحمد عون ",
+  "AddressName": "قصر بن غشير - قرب من مسجد العوانين "
+ },
+ {
+  "SiteName": "TRI064",
+  "OwnerName": "الهيئة العامة للاوقاف والشون االاسلامية ",
+  "AddressName": "مدينة العزيزية"
+ },
+ {
+  "SiteName": "TRI066",
+  "OwnerName": "صلاح الدين محمد الهمالي القدافي ",
+  "AddressName": "طرابلس - طريق المطار "
+ },
+ {
+  "SiteName": "TRI067",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI068",
+  "OwnerName": "حسين جمعة المزوغي ",
+  "AddressName": "وادي الربيع "
+ },
+ {
+  "SiteName": "TRI070",
+  "OwnerName": "مستشفى طب الفضاء والاعماق \/معيتيقة",
+  "AddressName": "طرابلس \/ معيتيقة"
+ },
+ {
+  "SiteName": "TRI071",
+  "OwnerName": "السيد\/توفيق فهمي خالد",
+  "AddressName": "الغيران \/ جنزور"
+ },
+ {
+  "SiteName": "TRI072",
+  "OwnerName": "السيد\/ امحمد على امحمد قنور",
+  "AddressName": "طرابلس \/تاجوراء الجنوبي"
+ },
+ {
+  "SiteName": "TRI073",
+  "OwnerName": "مدرسة شهداء ابوروين للتعليم الأساسي ",
+  "AddressName": "جنزور شعبية الجفارة"
+ },
+ {
+  "SiteName": "TRI076",
+  "OwnerName": "الملف غير موجود",
+  "AddressName": "NULL"
+ },
+ {
+  "SiteName": "TRI077",
+  "OwnerName": "السيد \/ مفتاح المبروك كرنافة",
+  "AddressName": "طرابلس \/ القرية السياحية قرقارش"
+ },
+ {
+  "SiteName": "TRI079",
+  "OwnerName": "السيد  \/ الهادي عمر غيت ",
+  "AddressName": "الحي السكني طريق المطار "
+ },
+ {
+  "SiteName": "TRI081",
+  "OwnerName": "السيد \/ ابشينة عبدالعزيز عبدالسلام",
+  "AddressName": "طرابلس محلة السرايا الخضراء"
+ },
+ {
+  "SiteName": "TRI082",
+  "OwnerName": "مدرسة الاحرار للتعليم الاساسي ",
+  "AddressName": "طرابلس الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI084",
+  "OwnerName": "مدرسة جيل التحدي \/ فجر عروس البحر حاليآ",
+  "AddressName": "طرابلس \/باب بن غشير "
+ },
+ {
+  "SiteName": "TRI085",
+  "OwnerName": "السيد \/ محمد حسين الخراز",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI086",
+  "OwnerName": "السيد \/ محمد رمضان الطوير ",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI088",
+  "OwnerName": "السيد\/إبراهيم مصباح مسعود العباني ",
+  "AddressName": "العزيزية \/ الساعدية"
+ },
+ {
+  "SiteName": "TRI090",
+  "OwnerName": "مدرسة موسى بن نصير ",
+  "AddressName": "طرابلس \/ حي الاندلس"
+ },
+ {
+  "SiteName": "TRI091",
+  "OwnerName": "السيد\/ محمود دوزان -امين اللجنة الشعبية",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI092",
+  "OwnerName": "مدرسة عصر الجماهير ",
+  "AddressName": "طرابلس \/ حي الاندلس"
+ },
+ {
+  "SiteName": "TRI095",
+  "OwnerName": "السيد \/ عبدالله مفتاح علي احمد",
+  "AddressName": "طرابلس \/ الحي الصناعي"
+ },
+ {
+  "SiteName": "TRI096",
+  "OwnerName": "مدرسة العصماء للعلوم الهندسية ",
+  "AddressName": "طرابلس \/ عين زارة"
+ },
+ {
+  "SiteName": "TRI097",
+  "OwnerName": "المركز العالي للمهن الإدارية والمالية ",
+  "AddressName": "طرابلس \/ قرقارش"
+ },
+ {
+  "SiteName": "TRI098",
+  "OwnerName": "المعهد العالي للمهن الشاملة ",
+  "AddressName": "طرابلس \/ الجرابة"
+ },
+ {
+  "SiteName": "TRI099",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "يجب ذكر AddressName"
+ },
+ {
+  "SiteName": "TRI1000",
+  "OwnerName": "مستشفى طرابلس المركزى",
+  "AddressName": "طرابلس\/شارع الزاويه"
+ },
+ {
+  "SiteName": "TRI1001",
+  "OwnerName": "ورثه\/صالح حدود الحمرونى",
+  "AddressName": "طرابلس\/راس حسن"
+ },
+ {
+  "SiteName": "TRI1002",
+  "OwnerName": "خدوجه الفيتورى جروش",
+  "AddressName": "شارع جمال عبد الناصر\/مقابل مقبره منيذر"
+ },
+ {
+  "SiteName": "TRI1003",
+  "OwnerName": "غيث محمد سالم ميلاد",
+  "AddressName": "عين زاره\/بجوار مقبره السدره"
+ },
+ {
+  "SiteName": "TRI1004",
+  "OwnerName": "احمد عبد السلام محمد الفلانى",
+  "AddressName": "السراج\/خلف معسكر 7ابريل"
+ },
+ {
+  "SiteName": "TRI1005",
+  "OwnerName": "مفتاح محمد مفتاح الديب",
+  "AddressName": "السراج\/شارع الكنيسه"
+ },
+ {
+  "SiteName": "TRI1006",
+  "OwnerName": "مفتاح على محمد دغيم",
+  "AddressName": "السياحيه\/خلف شيا ابن غرسه"
+ },
+ {
+  "SiteName": "TRI1007",
+  "OwnerName": "شركه الخدمات العامه \/طرابلس",
+  "AddressName": "الدريبى\/بالقرب من مسجد الشهداء"
+ },
+ {
+  "SiteName": "TRI1008",
+  "OwnerName": "احمد البوش محمد التومى",
+  "AddressName": "طرابلس\/الكرامه\/حى المهندسين"
+ },
+ {
+  "SiteName": "TRI1009",
+  "OwnerName": "المنجى عبد السلام محمد الرماش",
+  "AddressName": "الدريبى\/مقابل الدعوه الاسلاميه"
+ },
+ {
+  "SiteName": "TRI101",
+  "OwnerName": "مدرسة طارق بن زياد",
+  "AddressName": "طرابلس \/ حي الاندلس"
+ },
+ {
+  "SiteName": "TRI1010",
+  "OwnerName": "سالم جمعه سالم الجربى",
+  "AddressName": "حى السلام\/خلف بوابه الجبس"
+ },
+ {
+  "SiteName": "TRI1011",
+  "OwnerName": "إبراهيم على حسن البهيليل",
+  "AddressName": "طرابلس\/المشروع\/خلف رابش ابوسليم"
+ },
+ {
+  "SiteName": "TRI1012",
+  "OwnerName": "عادل على سعد المزوغى",
+  "AddressName": "صلاح الدين\/بالقرب من جزيره الشريف"
+ },
+ {
+  "SiteName": "TRI1013",
+  "OwnerName": "احمد ابوبكر على الحرارى",
+  "AddressName": "مشروع الهضبه\/خلف شركه ريبسون النفطيه"
+ },
+ {
+  "SiteName": "TRI1014",
+  "OwnerName": "محمد على خليفه الشيارى",
+  "AddressName": "ابوسليم\/خلف السجن"
+ },
+ {
+  "SiteName": "TRI1015",
+  "OwnerName": "محمود محمد بالاشهر\/نائب",
+  "AddressName": "مشروع الهضبه\/خلف مسجد الحسن والحسين"
+ },
+ {
+  "SiteName": "TRI1016",
+  "OwnerName": "إبراهيم محمد الطاهر الجرارى\/نائب",
+  "AddressName": "أبو سليم\/ولى العهد"
+ },
+ {
+  "SiteName": "TRI1017",
+  "OwnerName": "محمد الهادى محمد جبران",
+  "AddressName": "أبو سليم\/شارع ولى العهد"
+ },
+ {
+  "SiteName": "TRI1018",
+  "OwnerName": "محمد محمد على بن صابر",
+  "AddressName": "الدريبى\/مقابل مدرسه سيف الأول "
+ },
+ {
+  "SiteName": "TRI1019",
+  "OwnerName": "وليد على موسى الجبو ",
+  "AddressName": "الفرناج\/ بالقرب من عمارات المركز الطبي"
+ },
+ {
+  "SiteName": "TRI102",
+  "OwnerName": "مدرسة حي الاتار \/ التصدي سابقآ",
+  "AddressName": "طرابلس \/ حي الاندلس"
+ },
+ {
+  "SiteName": "TRI1020",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1021",
+  "OwnerName": "إبراهيم الهادى عمر العلاقى",
+  "AddressName": "طرابلس\/المنصوره"
+ },
+ {
+  "SiteName": "TRI1022",
+  "OwnerName": "رضوان ميلود سعد بن بركه",
+  "AddressName": "طريق السور\/بالقرب من مسجد الهونى"
+ },
+ {
+  "SiteName": "TRI1023",
+  "OwnerName": "عادل على محمد الخريف",
+  "AddressName": "طرابلس\/ فشلوم"
+ },
+ {
+  "SiteName": "TRI1024",
+  "OwnerName": "يوسف ميلاد إبراهيم أبو حميره",
+  "AddressName": "طرابلس\/حى الاندلس"
+ },
+ {
+  "SiteName": "TRI1025",
+  "OwnerName": "الشركه العامه للمياه  والصرف الصحى",
+  "AddressName": "طرابلس\/جامع الصقع "
+ },
+ {
+  "SiteName": "TRI1026",
+  "OwnerName": "عماره رقم4 عين زاره الجنوبى",
+  "AddressName": "عين زاره\/بالقرب من مسجد الانوار"
+ },
+ {
+  "SiteName": "TRI1027",
+  "OwnerName": "معتوق على عمار أبو شنانه ",
+  "AddressName": "طرابلس\/الجبس\/بجنب المدرسه الدوليه"
+ },
+ {
+  "SiteName": "TRI1028",
+  "OwnerName": "لجنه حى الزهور طريق المطار ",
+  "AddressName": "طرابلس\/طريق المطار "
+ },
+ {
+  "SiteName": "TRI1029",
+  "OwnerName": "اسامه بشير الأمين بلعيد",
+  "AddressName": "جنزور\/انجيله"
+ },
+ {
+  "SiteName": "TRI103",
+  "OwnerName": "السيد\/ سعد امحمد سعد مسعود",
+  "AddressName": "طرابلس \/ السياحية "
+ },
+ {
+  "SiteName": "TRI1032",
+  "OwnerName": "عبد المجيد رجب عمر الرمالى ",
+  "AddressName": "طرابلس\/جنزور"
+ },
+ {
+  "SiteName": "TRI1033",
+  "OwnerName": "مصطفى على مفتاح الزليطنى",
+  "AddressName": "طرابلس\/قريه صالح"
+ },
+ {
+  "SiteName": "TRI1034",
+  "OwnerName": "سكان عماره بجنزور الشرقيه",
+  "AddressName": "جنزور\/بالقرب من صاله الملكه"
+ },
+ {
+  "SiteName": "TRI1035",
+  "OwnerName": "شعبان رمضان المشاط كلش ",
+  "AddressName": "طرابلس\/جنزور الشرقيه"
+ },
+ {
+  "SiteName": "TRI1037",
+  "OwnerName": "الاكاديميه الليبيه (معهد تنميه الموارد البشريه)",
+  "AddressName": "جنزور الطريق الساحلى "
+ },
+ {
+  "SiteName": "TRI1038",
+  "OwnerName": "خديجه أبو جعفر المرغنى السويح ",
+  "AddressName": "طرابلس\/جنزور"
+ },
+ {
+  "SiteName": "TRI1039",
+  "OwnerName": "إسماعيل رمضان إبراهيم جبوع ",
+  "AddressName": "طرابلس\/جنزور "
+ },
+ {
+  "SiteName": "TRI1040",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1041",
+  "OwnerName": "مصطفى على محمد عريبى ",
+  "AddressName": "جنزور الغربيه مقابل مدرسه فجر عروس البحر"
+ },
+ {
+  "SiteName": "TRI1042",
+  "OwnerName": "معز المبروك الصويعى أبو زيان ",
+  "AddressName": "جنزور زاويه اعموره"
+ },
+ {
+  "SiteName": "TRI1045",
+  "OwnerName": "محمد عبد السلام سعيد العباسى ",
+  "AddressName": "عين زاره\/بالقرب من مدرسه عبد المنعم رياض"
+ },
+ {
+  "SiteName": "TRI1046",
+  "OwnerName": "محمد محمد بشير الشريف",
+  "AddressName": "تاجوراء \/بئر العالم"
+ },
+ {
+  "SiteName": "TRI1047",
+  "OwnerName": "ورثه\/نورى على عراب",
+  "AddressName": "تاجوراء\/الوادى الشرقى "
+ },
+ {
+  "SiteName": "TRI1048",
+  "OwnerName": "رمضان الطاهر عثمان",
+  "AddressName": "تاجوراء\/الحميديه"
+ },
+ {
+  "SiteName": "TRI1049",
+  "OwnerName": "محمد على سعيد التاجورى ",
+  "AddressName": "تاجوراء\/الحميديه"
+ },
+ {
+  "SiteName": "TRI105",
+  "OwnerName": "مدرسة القبس للتعليم الأساسي ",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI1050",
+  "OwnerName": "جمال محمود ميلاد مسعود",
+  "AddressName": "تاجوراء\/الحميديه "
+ },
+ {
+  "SiteName": "TRI1051",
+  "OwnerName": "مدرسه تاجوراء المركزيه",
+  "AddressName": "تاجوراء\/قرب مسجد الكنادره"
+ },
+ {
+  "SiteName": "TRI1052",
+  "OwnerName": "عصام على الصادق عمران ",
+  "AddressName": "تاجوراء\/الحميديه"
+ },
+ {
+  "SiteName": "TRI1053",
+  "OwnerName": "محمد على عبد السلام التركى ",
+  "AddressName": "تاجوراء\/بجوار مقبره الاندلسى "
+ },
+ {
+  "SiteName": "TRI1054",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1055",
+  "OwnerName": "نورى محمد عبد العزيز الحجاجى ",
+  "AddressName": "عراده\/بالقرب من مسجد القرقابه"
+ },
+ {
+  "SiteName": "TRI1056",
+  "OwnerName": "سعاد الصادق محمد الناجح",
+  "AddressName": "تاجوراء\/ عين زاره "
+ },
+ {
+  "SiteName": "TRI1057",
+  "OwnerName": "ثريا محمد موسى الغول ",
+  "AddressName": "طريق المشتل\/بالقرب من مسجد الرساله"
+ },
+ {
+  "SiteName": "TRI1058",
+  "OwnerName": "هديه عبد السلام عبد الله عمر ",
+  "AddressName": "تاجوراء\/السبابيل"
+ },
+ {
+  "SiteName": "TRI1059",
+  "OwnerName": "رمضان الهادى محمد الكموشى",
+  "AddressName": "تاجوراء\/غوط الرمان"
+ },
+ {
+  "SiteName": "TRI106",
+  "OwnerName": "مدرسة الأنصار للتعليم الأساسي",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI1060",
+  "OwnerName": "إبراهيم محمد سالم البصير",
+  "AddressName": "تاجوراء\/بئر الاسطى ميلاد "
+ },
+ {
+  "SiteName": "TRI1061",
+  "OwnerName": "مصطفى محمد البكوش",
+  "AddressName": "تاجوراء\/البيفى"
+ },
+ {
+  "SiteName": "TRI1062",
+  "OwnerName": "ابوبكر محمد الفيتورى النعمى",
+  "AddressName": "عين زاره\/خلف مسجد  القرقنى"
+ },
+ {
+  "SiteName": "TRI1063",
+  "OwnerName": "محمد إبراهيم على البوزيدى",
+  "AddressName": "عين زاره\/بئر الاسطى ميلاد"
+ },
+ {
+  "SiteName": "TRI1064",
+  "OwnerName": "عبد الله عياد على الصابرى",
+  "AddressName": "محله الفتح\/ بالقرب من مسجد الحباشه"
+ },
+ {
+  "SiteName": "TRI1065",
+  "OwnerName": "صلاح معمر محمد الفرجانى",
+  "AddressName": "تاجوراء\/ عين زاره "
+ },
+ {
+  "SiteName": "TRI1066",
+  "OwnerName": "عميد طيار \/خيرى احمد السيفاو قايد",
+  "AddressName": "طرابلس\/ قاعده طرابلس الجويه"
+ },
+ {
+  "SiteName": "TRI1067",
+  "OwnerName": "عبد الرحمان محمد احمد بن الحاج",
+  "AddressName": "عراده\/ بالقرب من محطه وقود عراده"
+ },
+ {
+  "SiteName": "TRI1068",
+  "OwnerName": "رشيد مفتاح محمد الدنقور",
+  "AddressName": "ترهونه\/ فم ملغه"
+ },
+ {
+  "SiteName": "TRI1069",
+  "OwnerName": "احمد أبو بكر حسين القنوش \/نائب",
+  "AddressName": "تاجوراء\/الدخله "
+ },
+ {
+  "SiteName": "TRI107",
+  "OwnerName": "جامعة الفاتح \/ كلية العلوم",
+  "AddressName": "طرابلس \/ جامعة الفاتح"
+ },
+ {
+  "SiteName": "TRI1070",
+  "OwnerName": "محمد ابوبكر على ونيس",
+  "AddressName": "تاجوراء\/بالقرب من مقبره الحومه"
+ },
+ {
+  "SiteName": "TRI1071",
+  "OwnerName": "عبد الحفيظ محمد الطاهر ادريس",
+  "AddressName": "تاجوراء\/خلف عمارات البحوث"
+ },
+ {
+  "SiteName": "TRI1072",
+  "OwnerName": "صبرى الطاهر احمد الخالقى ",
+  "AddressName": "تاجوراء\/الحميديه\/قرب مسجد الفاروق"
+ },
+ {
+  "SiteName": "TRI1073",
+  "OwnerName": "جميله محمد الفلاح",
+  "AddressName": "البيفى\/مقابل سوق الاسره"
+ },
+ {
+  "SiteName": "TRI1074",
+  "OwnerName": "حسن رمضان العجيلى سويسى",
+  "AddressName": "سوق الجمعه\/بجنب مسجد الكيلانى"
+ },
+ {
+  "SiteName": "TRI1075",
+  "OwnerName": "مليتشى محميد إسماعيل إسماعيل",
+  "AddressName": "عين زاره السبعه\/ خلف وزاره الشؤون الاجتماعيه"
+ },
+ {
+  "SiteName": "TRI1076",
+  "OwnerName": "عبد الحكيم محمد المصرى ",
+  "AddressName": "عين زاره\/بالقرب من شركه المياه والصرف الصحى"
+ },
+ {
+  "SiteName": "TRI1077",
+  "OwnerName": "محمود عبد السلام محمود أبو عائشه",
+  "AddressName": "عين زاره\/طريق الشوك"
+ },
+ {
+  "SiteName": "TRI1078",
+  "OwnerName": "احمد العيادى النفاتى",
+  "AddressName": "تاجوراء\/بئر الاسطى ميلاد "
+ },
+ {
+  "SiteName": "TRI1081",
+  "OwnerName": "فتح الله عبد الله محمد الرطب",
+  "AddressName": "تاوراء\/عين زاره\/ بالقرب من مسجد سيدى يونس"
+ },
+ {
+  "SiteName": "TRI1082",
+  "OwnerName": "بشير على بشير البوزيدى",
+  "AddressName": "عين زاره\/الجدادعه"
+ },
+ {
+  "SiteName": "TRI1083",
+  "OwnerName": "فوزيه إبراهيم على الزطرينى",
+  "AddressName": "تاجوراء\/بئر الاسطى ميلاد "
+ },
+ {
+  "SiteName": "TRI1084",
+  "OwnerName": "مسعوده الصغير منصور الزطرينى",
+  "AddressName": "بئر الاسطى ميلاد\/اربع شوارع الكهرباء"
+ },
+ {
+  "SiteName": "TRI1090",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1091",
+  "OwnerName": "إبراهيم عياد عبد الله حسن",
+  "AddressName": "الغرارت\/بجوار مسجد فلاقه"
+ },
+ {
+  "SiteName": "TRI1092",
+  "OwnerName": "خالد المبروك عبد السلام دهب",
+  "AddressName": "سوق الجمعه\/ بالقرب من مسجد غزوه بدر"
+ },
+ {
+  "SiteName": "TRI1093",
+  "OwnerName": "إبراهيم الصغير محمد الجلاصى",
+  "AddressName": "الفرناج\/ بالقرب من عمارات المركز الطبي"
+ },
+ {
+  "SiteName": "TRI1094",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1095",
+  "OwnerName": "الطاهر عبد السلام دعاب",
+  "AddressName": "عراده\/بالقرب من مسجد التركى"
+ },
+ {
+  "SiteName": "TRI1096",
+  "OwnerName": "فاضل الهادى على لسود",
+  "AddressName": "سوق الجمعه\/طريق 11 يونيو"
+ },
+ {
+  "SiteName": "TRI1097",
+  "OwnerName": "حمدى مفتاح محمد جوان",
+  "AddressName": "الغرارات\/بالقرب من مسجد التوبه"
+ },
+ {
+  "SiteName": "TRI1108",
+  "OwnerName": "الصيد عبد العاطى احمد عبد السلام ",
+  "AddressName": "ترهونه\/فم ملغه\/السقى"
+ },
+ {
+  "SiteName": "TRI111",
+  "OwnerName": "السيد\/عبدالقادر سالم مادي",
+  "AddressName": "طرابلس \/ زناتة "
+ },
+ {
+  "SiteName": "TRI1110",
+  "OwnerName": "كمال امحمد رمضان المرغنى",
+  "AddressName": "الهضبه\/الكيزه"
+ },
+ {
+  "SiteName": "TRI1111",
+  "OwnerName": "إبراهيم رجب النائض كريم",
+  "AddressName": "السراج"
+ },
+ {
+  "SiteName": "TRI1112",
+  "OwnerName": "محمد محمد عبد الله عاشور \/نائب",
+  "AddressName": "السوانى\/الاشاره الضوئيه الرمله"
+ },
+ {
+  "SiteName": "TRI1114",
+  "OwnerName": "البشير خليفه سعيد خليفه",
+  "AddressName": "السراج\/خله الفاندى\/بالقرب من مسجد التقوى"
+ },
+ {
+  "SiteName": "TRI1115",
+  "OwnerName": "بشير على رمضان دويه",
+  "AddressName": "سوق الجمعه\/الحارات "
+ },
+ {
+  "SiteName": "TRI1116",
+  "OwnerName": "احمد جمعه ابوبكر بنعمه",
+  "AddressName": "سوق الجمعه\/شارع 24 رمضان"
+ },
+ {
+  "SiteName": "TRI1117",
+  "OwnerName": "طارق محمد جمعه أبو سعيده",
+  "AddressName": "السبعه\/بجانب مدرسه محمد البلوق"
+ },
+ {
+  "SiteName": "TRI1118",
+  "OwnerName": "الصادق عبد اللطيف عمران أبو شكيوه",
+  "AddressName": "سوق الجمعه\/خلف مطار معيتقه"
+ },
+ {
+  "SiteName": "TRI1119",
+  "OwnerName": "سالم إبراهيم الصديق علوان ",
+  "AddressName": "شط الهنشير\/بجوار مدرسه بشير الاسطى"
+ },
+ {
+  "SiteName": "TRI1120",
+  "OwnerName": "عبد المجيد محمد على النحيبه ",
+  "AddressName": "بئر الاسطى ميلاد \/طريق السلع "
+ },
+ {
+  "SiteName": "TRI1121",
+  "OwnerName": "سالم سالم الشيخ الدردورى",
+  "AddressName": "عين زاره\/بالقرب من مسجد الصحابه "
+ },
+ {
+  "SiteName": "TRI1122",
+  "OwnerName": "البدرى مفتاح رمضان بن لاغه ",
+  "AddressName": "البيفى\/طريق البينيه"
+ },
+ {
+  "SiteName": "TRI1123",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1124",
+  "OwnerName": "لطفى محمد العاشق محمد عثمان ",
+  "AddressName": "تاجوراء\/سيرتى"
+ },
+ {
+  "SiteName": "TRI1125",
+  "OwnerName": "كمال عبد السلام على بن مفتاح",
+  "AddressName": "وادى الربيع"
+ },
+ {
+  "SiteName": "TRI1127",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI1128",
+  "OwnerName": "ربيع منصور سالم عبد الله ",
+  "AddressName": "غوط الشعال\/شارع 9"
+ },
+ {
+  "SiteName": "TRI1129",
+  "OwnerName": "عبد الحكيم اللطيف محمد اللطيف",
+  "AddressName": "الفرجان\/اربع شوارع فاطمه الزهراء"
+ },
+ {
+  "SiteName": "TRI113",
+  "OwnerName": "المسيرة الكبرى \/عمارة البلدية سابقا",
+  "AddressName": "طرابلس\/ شارع الصريم"
+ },
+ {
+  "SiteName": "TRI1130",
+  "OwnerName": "السودانى  عبد الحميد الفاسى عبد الحميد ",
+  "AddressName": "الدريبى\/بالقرب من سوق سليمان خاطر "
+ },
+ {
+  "SiteName": "TRI1131",
+  "OwnerName": "سكان عماره رقم 9 بزاويه الدهمانى (خبراء الروس)",
+  "AddressName": "زاويه الدهمانى"
+ },
+ {
+  "SiteName": "TRI1133",
+  "OwnerName": "محمود مفتاح ميلاد الدوفانى ",
+  "AddressName": "أبو سليم\/الهضبه بالقرب من مدرسه السلام"
+ },
+ {
+  "SiteName": "TRI1134",
+  "OwnerName": "امحمد على محمد السائح ",
+  "AddressName": "أبو سليم\/ خلف مسجد الحاراتى "
+ },
+ {
+  "SiteName": "TRI1135",
+  "OwnerName": "ناجى محمد  رحومه سعد",
+  "AddressName": "أبو سليم\/مشروع الهضبه"
+ },
+ {
+  "SiteName": "TRI1136",
+  "OwnerName": "محمد مفتاح محمد المعرفى",
+  "AddressName": "تاجوراء\/بئر الاسطى ميلاد "
+ },
+ {
+  "SiteName": "TRI1137",
+  "OwnerName": "سكان عماره جنزور الشرقيه ",
+  "AddressName": "جنزور الشرقيه\/السراج\/ طريق المواشى"
+ },
+ {
+  "SiteName": "TRI114",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "يجب ذكر AddressName"
+ },
+ {
+  "SiteName": "TRI115",
+  "OwnerName": "السيد\/ إبراهيم محمد شكوكة ",
+  "AddressName": "طرابلس \/ المنشية "
+ },
+ {
+  "SiteName": "TRI116",
+  "OwnerName": "السيد \/ عبدالرزاق جمعة بوخريص",
+  "AddressName": "طرابلس \/ الهضبة"
+ },
+ {
+  "SiteName": "TRI117",
+  "OwnerName": "تانوية شهيدة الواجب التخصصية ",
+  "AddressName": "طرابلس \/ المنشية "
+ },
+ {
+  "SiteName": "TRI118",
+  "OwnerName": "السيد \/ مصباح هويدي عمر اهويدي ",
+  "AddressName": "طرابلس \/ بوسليم "
+ },
+ {
+  "SiteName": "TRI120",
+  "OwnerName": "مدرسة عمر المختار للتعليم المتوسط",
+  "AddressName": "طرابلس \/ بوسليم"
+ },
+ {
+  "SiteName": "TRI121",
+  "OwnerName": "السيد \/ عبدالرزاق عبدالسلام البشتي",
+  "AddressName": "طرابلس \/ شارع الزاوية"
+ },
+ {
+  "SiteName": "TRI122",
+  "OwnerName": "مدرسة الإخلاص للتعليم الأساسي",
+  "AddressName": "طرابلس \/  الحي الجامعي"
+ },
+ {
+  "SiteName": "TRI125",
+  "OwnerName": "مركز سوق الجمعة المتوسط الصناعي",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI126",
+  "OwnerName": "السيد\/ حسين ميلاد عمر الرويمي",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI127",
+  "OwnerName": "مدرسة الانطلاق للتعليم الأساسي",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI128",
+  "OwnerName": "السيد \/ الهادى مختار احمد الزغداني ",
+  "AddressName": "طرابلس \/ محلة الفتح"
+ },
+ {
+  "SiteName": "TRI129",
+  "OwnerName": "السيد \/ يوسف رمضان العجيلي",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI130",
+  "OwnerName": "مدرسة الامل الأخضر التانوية",
+  "AddressName": "طرابلس \/ تاجوراء"
+ },
+ {
+  "SiteName": "TRI131",
+  "OwnerName": "مدرسة صرخة الحرية ",
+  "AddressName": "طرابلس \/ باب العزيزية "
+ },
+ {
+  "SiteName": "TRI132",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI133",
+  "OwnerName": "مدرسة نجية طوير\/ عبدالرحمن الكواكبي حاليا  ",
+  "AddressName": "طرابلس \/ المنشية"
+ },
+ {
+  "SiteName": "TRI134",
+  "OwnerName": "مدرسة ميلاد ابوعلي ",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI137",
+  "OwnerName": "السيد \/ خليفة علي المحروق",
+  "AddressName": "طرابلس \/ قرجي"
+ },
+ {
+  "SiteName": "TRI138",
+  "OwnerName": "السيد\/ الفازع علي عتيق فريفر ",
+  "AddressName": "طرابلس \/ الحي الصناعي"
+ },
+ {
+  "SiteName": "TRI139",
+  "OwnerName": "مدرسة درع الفاتح التخصصية",
+  "AddressName": "طرابلس \/ حي الاندلس "
+ },
+ {
+  "SiteName": "TRI140",
+  "OwnerName": "مدرسة  فجر السلام ",
+  "AddressName": "طرابلس-  حس الاندلس (مبنى تعليمي )"
+ },
+ {
+  "SiteName": "TRI143",
+  "OwnerName": "السياحية بالقرب من مسجد القادسية ",
+  "AddressName": "هيثم عبد السلام أبو السعود (سطح مبنى)"
+ },
+ {
+  "SiteName": "TRI144",
+  "OwnerName": "ورثة سعد إبراهيم سويسي ةةرثة مفتح سويسي ",
+  "AddressName": "جنزور - تقاطع الدوادي "
+ },
+ {
+  "SiteName": "TRI145",
+  "OwnerName": "صلاح الدين محمد الفاندي ",
+  "AddressName": "جنزور الشرقية "
+ },
+ {
+  "SiteName": "TRI146",
+  "OwnerName": "عبد الكبير محمد سالم الحراري ",
+  "AddressName": "السوانى محلة النجيلة الشمالية "
+ },
+ {
+  "SiteName": "TRI155",
+  "OwnerName": "أبو القاسم على خليفة الفايح ",
+  "AddressName": "طرابلس شعبية الكرامة "
+ },
+ {
+  "SiteName": "TRI161",
+  "OwnerName": "مدرسة نهاوند للتليم الأساسي",
+  "AddressName": "طرابلس - غوط الشعال "
+ },
+ {
+  "SiteName": "TRI162",
+  "OwnerName": "سعدون محمد علي اقريشين ",
+  "AddressName": "طرابلس - حى دمشق"
+ },
+ {
+  "SiteName": "TRI163",
+  "OwnerName": "مدرسة شمس المعرفة للتعليم الثانوي",
+  "AddressName": "طرابلس - أبو سليم "
+ },
+ {
+  "SiteName": "TRI165",
+  "OwnerName": "مدرسة الانتصار للتعليم الأساسي ",
+  "AddressName": "طرابلس - باب غكارة "
+ },
+ {
+  "SiteName": "TRI166",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI167",
+  "OwnerName": "محمد وعياد  عاشور زغطوط ",
+  "AddressName": "طرابلس - غوط الشعال - سطح منزل"
+ },
+ {
+  "SiteName": "TRI168",
+  "OwnerName": "مدرسة براعم النصر للتعليم الأساسي",
+  "AddressName": "طرابلس باب بن غشير "
+ },
+ {
+  "SiteName": "TRI169",
+  "OwnerName": "مدرسة الفالوجا للتعليم الأساسي ",
+  "AddressName": "طرابلس الغيران"
+ },
+ {
+  "SiteName": "TRI170",
+  "OwnerName": "محمد عبد الرحمن الهونى",
+  "AddressName": "طرابلس -الهضبة البدري ( سطح منزل)"
+ },
+ {
+  "SiteName": "TRI171",
+  "OwnerName": "المبروك عمر هزقل",
+  "AddressName": "قرجي الجنوبي -حى الكرامة (سطح منزل)"
+ },
+ {
+  "SiteName": "TRI174",
+  "OwnerName": "مدرسة اليرموك للتعليم الأساسي",
+  "AddressName": "جنزور الوسطي شعبية الجفارة "
+ },
+ {
+  "SiteName": "TRI175",
+  "OwnerName": "مدرسة التحدى للتعليم الأساسي",
+  "AddressName": "طرابلس - سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI176",
+  "OwnerName": "مركز أحمد شوقي للمهن الميكانيكيةوالكهربائية",
+  "AddressName": "سيدي المصري \/ عمارات الهضبة الشرقية "
+ },
+ {
+  "SiteName": "TRI177",
+  "OwnerName": "مدرسة راية الإسلام للتعليم الأساسي ",
+  "AddressName": "عين زارة الجنوبي - بالقرب من مسجد بن قصيعة"
+ },
+ {
+  "SiteName": "TRI178",
+  "OwnerName": "ناجي على عبد الله المهدوي",
+  "AddressName": "عين زارة الجنوبي - قطعة ارض "
+ },
+ {
+  "SiteName": "TRI179",
+  "OwnerName": "نادي الفروسية قصر بن غشير",
+  "AddressName": "تاجوراء والنواحي الأربعة -قصر بن غشير "
+ },
+ {
+  "SiteName": "TRI180",
+  "OwnerName": "مدرسة الوطن العربي للتعليم الأساسي",
+  "AddressName": "جنزور شعبية الجفارة "
+ },
+ {
+  "SiteName": "TRI181",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "يجب ذكر AddressName"
+ },
+ {
+  "SiteName": "TRI183",
+  "OwnerName": "مدرسة الوحدة العربية ",
+  "AddressName": "طرابلس - السياحية "
+ },
+ {
+  "SiteName": "TRI184",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "يجب ذكر AddressName"
+ },
+ {
+  "SiteName": "TRI186",
+  "OwnerName": "محمد احمد سالم ",
+  "AddressName": "جنزور - سيدي عبد الجليل"
+ },
+ {
+  "SiteName": "TRI187",
+  "OwnerName": "مدرسة بيت الحكمة للتعايم الأساسي",
+  "AddressName": "جنزور شهداء عبد الجليل "
+ },
+ {
+  "SiteName": "TRI188",
+  "OwnerName": "نزيهة عبد السلام أبو عجيلة ",
+  "AddressName": "طرابلس - الهضبة الخضراء "
+ },
+ {
+  "SiteName": "TRI189",
+  "OwnerName": "عتيقة محمد الشيبانى ",
+  "AddressName": "طرابلس- مشروع الهضبة "
+ },
+ {
+  "SiteName": "TRI190",
+  "OwnerName": "مدرسة أحمد كارة للتغليم الأساسي ",
+  "AddressName": "طرابلس - سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI191",
+  "OwnerName": "مدرسة عقبة بن نافع ",
+  "AddressName": "تاجوراء - بالاشهر "
+ },
+ {
+  "SiteName": "TRI192",
+  "OwnerName": "نور الدين قنيدي",
+  "AddressName": "جنزور - محلة سيدي عبد اللطيف "
+ },
+ {
+  "SiteName": "TRI193",
+  "OwnerName": "مدرسة الفنون والصنائع",
+  "AddressName": "طرابلس-شارع اول سبتمبر "
+ },
+ {
+  "SiteName": "TRI194",
+  "OwnerName": "الشركة العامة للكهرباء ",
+  "AddressName": "بمبنى الشركة العامة للكهرباء- الفلاح"
+ },
+ {
+  "SiteName": "TRI196",
+  "OwnerName": "مركز أبو سليم  للمهن الميكانيكية والكهربائية",
+  "AddressName": "طرابلس-أبو سليم "
+ },
+ {
+  "SiteName": "TRI198",
+  "OwnerName": "هدية مفتاح هدية ",
+  "AddressName": "طرابلس - الحى الجامع"
+ },
+ {
+  "SiteName": "TRI199",
+  "OwnerName": "ورثة مفتاح برنوص عمارة ",
+  "AddressName": "طرابلس - ابوسليم "
+ },
+ {
+  "SiteName": "TRI200",
+  "OwnerName": "مدرسة السيدة زينب للتعليم الأساسي ",
+  "AddressName": "طرابلس - أبو سليم "
+ },
+ {
+  "SiteName": "TRI201",
+  "OwnerName": "مدرسة الفاروق للتعليم الأساسي",
+  "AddressName": "طرابلس - الهضبة "
+ },
+ {
+  "SiteName": "TRI202",
+  "OwnerName": "مدرسة شمس المعرفة الثانوية للبنات ",
+  "AddressName": "طرابلس - قرقارش"
+ },
+ {
+  "SiteName": "TRI203",
+  "OwnerName": "موسى سعيد  امحمد قرادة ",
+  "AddressName": "طرابلس - قرقارش بالقرب من حى الاثار "
+ },
+ {
+  "SiteName": "TRI204",
+  "OwnerName": " مدرسة صياد العلوم الهندسية ",
+  "AddressName": "الصياد شعبية الجفارة "
+ },
+ {
+  "SiteName": "TRI205",
+  "OwnerName": "محمد بلقاسم ميدان ",
+  "AddressName": "طرابلس- جنزور "
+ },
+ {
+  "SiteName": "TRI208",
+  "OwnerName": "عادل سالم محمود ",
+  "AddressName": "جنزور - سهل جفارة "
+ },
+ {
+  "SiteName": "TRI209",
+  "OwnerName": "محمد صالح سعيد محمد ",
+  "AddressName": "طرابلس - الدريبي "
+ },
+ {
+  "SiteName": "TRI210",
+  "OwnerName": "السيد\/ عبدالسلام امحمد محمد عمارة",
+  "AddressName": "طرابلس \/ الحي الصناعي "
+ },
+ {
+  "SiteName": "TRI213",
+  "OwnerName": "السيد\/ الصادق محمد علي شنيبة",
+  "AddressName": "طرابلس \/ المنشية"
+ },
+ {
+  "SiteName": "TRI214",
+  "OwnerName": "مدرسة جيل الجماهيرية",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI215",
+  "OwnerName": "السيد\/محمد صالح دوزان",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI216",
+  "OwnerName": "مدرسة\/ احفاد المجاهدين ",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI218",
+  "OwnerName": "مدرسة جامع الطاهر",
+  "AddressName": "طرابلس \/ حي دمشق"
+ },
+ {
+  "SiteName": "TRI219",
+  "OwnerName": "السيد\/محمد خليفة رحيم",
+  "AddressName": "طرابلس \/ الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI220",
+  "OwnerName": "السيد\/ زائد محمد إبراهيم ابوعايشة",
+  "AddressName": "طرابلس \/ الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI221",
+  "OwnerName": "السيد\/ جمعة محمد البوزيدي",
+  "AddressName": "طرابلس \/ الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI222",
+  "OwnerName": "السيد\/ سالم ضو البوزيدي ",
+  "AddressName": "طرابلس \/ الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI223",
+  "OwnerName": "السيد\/ رمضان احمد  الشين- محمداحمد الشين ",
+  "AddressName": "طرابلس \/ الكرامة"
+ },
+ {
+  "SiteName": "TRI224",
+  "OwnerName": "السيد \/ علي احمد أبو النوايل ",
+  "AddressName": "جزيرة السريع-غوط الشعال"
+ },
+ {
+  "SiteName": "TRI226",
+  "OwnerName": "مدرسة\/اشبيلية للتعليم الأساسي ",
+  "AddressName": "طرابلس \/ غوط الشعال "
+ },
+ {
+  "SiteName": "TRI229",
+  "OwnerName": "السيد\/ علي محمد المصري ",
+  "AddressName": "طرابلس \/ ابومليانة "
+ },
+ {
+  "SiteName": "TRI230",
+  "OwnerName": "تانوية\/  امعيتيقة للتعليم المتوسط",
+  "AddressName": "طرابلس \/ باب العزيزية "
+ },
+ {
+  "SiteName": "TRI231",
+  "OwnerName": "السيد\/ محمد ابوبكر بلقاسم",
+  "AddressName": "طرابلس \/ شارع الجمهورية"
+ },
+ {
+  "SiteName": "TRI233",
+  "OwnerName": "مدرسة\/ عمار ضوء",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI235",
+  "OwnerName": "السيد\/ صالح فرج الديب",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI236",
+  "OwnerName": "كلية الزراعة ",
+  "AddressName": "طرابلس \/ جامعة الفاتح"
+ },
+ {
+  "SiteName": "TRI237",
+  "OwnerName": "السيد\/ عزالدين المهدي ابورقبة ",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI238",
+  "OwnerName": "مدرسة \/ التورة العربية ",
+  "AddressName": "طرابلس \/ سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI240",
+  "OwnerName": "السيد سالم مفتاح الولوال",
+  "AddressName": "طرابلس \/ بوسليم"
+ },
+ {
+  "SiteName": "TRI241",
+  "OwnerName": "المركز الصحي غوط الديس",
+  "AddressName": "طرابلس \/غوط الديس"
+ },
+ {
+  "SiteName": "TRI242",
+  "OwnerName": "السيد \/ الهادى عمر الهليب ",
+  "AddressName": "طرابلس محلة الفتح"
+ },
+ {
+  "SiteName": "TRI244",
+  "OwnerName": "السيد\/ العاشق عبدالسلام غرس الله",
+  "AddressName": "الجفارة\/ سواني بن ادم"
+ },
+ {
+  "SiteName": "TRI245",
+  "OwnerName": "السيد\/ رشيد محمد الرزيقي ",
+  "AddressName": "الجفارة\/ سواني بن ادم"
+ },
+ {
+  "SiteName": "TRI247",
+  "OwnerName": "السيد \/ علي محمد عبدالسلام",
+  "AddressName": "الجفارة\/ سواني بن ادم"
+ },
+ {
+  "SiteName": "TRI249",
+  "OwnerName": "السيد\/ ميلود الحكيمي بن نائل",
+  "AddressName": "الجفارة\/ الكريمة"
+ },
+ {
+  "SiteName": "TRI251",
+  "OwnerName": "المختار الهادي عمر يحي ",
+  "AddressName": "جفارة - سوانى بن ادم بجوار مسجد النو ر"
+ },
+ {
+  "SiteName": "TRI252",
+  "OwnerName": "ورثة محمد سالم البراح ",
+  "AddressName": "قصر بن غشير - بالقرب من صيدلية الشفاء "
+ },
+ {
+  "SiteName": "TRI253",
+  "OwnerName": "ورثة مسعود الفرجانى الخنفاس",
+  "AddressName": "محلة العمايم - السوانى "
+ },
+ {
+  "SiteName": "TRI254",
+  "OwnerName": "ميلاد غيث القدافى",
+  "AddressName": "طرابلس - السوانى"
+ },
+ {
+  "SiteName": "TRI255",
+  "OwnerName": "يونس عبد الله راشد ",
+  "AddressName": "طرابلس- محلة خلة الفرجان "
+ },
+ {
+  "SiteName": "TRI256",
+  "OwnerName": "محمد مختار الجقندي",
+  "AddressName": "طرابلس- قصر بن غشير"
+ },
+ {
+  "SiteName": "TRI257",
+  "OwnerName": "ورثة رمضان معتوق أبو شهيوة ",
+  "AddressName": "طرابلس- قصر بن غشير"
+ },
+ {
+  "SiteName": "TRI258",
+  "OwnerName": "ورثة الصيد مصباح امبشة ",
+  "AddressName": "محلة العوانين  قصر بن غشير قرب التدريب المهني"
+ },
+ {
+  "SiteName": "TRI260",
+  "OwnerName": "ورثة المبروك سالم أبو نقاب ",
+  "AddressName": "طرابلس  - الدعوة الإسلامية "
+ },
+ {
+  "SiteName": "TRI261",
+  "OwnerName": "مسعود عبد الصمد مسعود",
+  "AddressName": "طرابلس - طريق المطار "
+ },
+ {
+  "SiteName": "TRI264",
+  "OwnerName": "إبراهيم صالح عمار ابوشاح ",
+  "AddressName": "جنزور الشرقية "
+ },
+ {
+  "SiteName": "TRI265",
+  "OwnerName": "ميلود حسنى الحجاجي ",
+  "AddressName": "الصيلد - جنزور - قرب مدرسة بلقيس"
+ },
+ {
+  "SiteName": "TRI267",
+  "OwnerName": "ربيع نصر أبو عكيد ",
+  "AddressName": "طرابلس جنزور - الشرقية "
+ },
+ {
+  "SiteName": "TRI268",
+  "OwnerName": "وسام مصطفى عجاج",
+  "AddressName": "طرابلس - الغيران "
+ },
+ {
+  "SiteName": "TRI269",
+  "OwnerName": "بلعيد أبو عجيلة أبو قرين ",
+  "AddressName": "محلة الوسط \/ انجيلة "
+ },
+ {
+  "SiteName": "TRI270",
+  "OwnerName": "منصور عمر سلام ",
+  "AddressName": "مشروع الهضبة الزراعى "
+ },
+ {
+  "SiteName": "TRI272",
+  "OwnerName": "نوربة محمد صالح الغناى ",
+  "AddressName": "عين زارة - قرب النصب التدكاري "
+ },
+ {
+  "SiteName": "TRI274",
+  "OwnerName": "نوري محمد الطلعي ",
+  "AddressName": "تاجوراء - الوادي الشرقي "
+ },
+ {
+  "SiteName": "TRI275",
+  "OwnerName": "ورثة خليفة المبروك خشيبة ",
+  "AddressName": "طرابلس - تاجوراء "
+ },
+ {
+  "SiteName": "TRI276",
+  "OwnerName": "عثمان امحمد عبد السلام طروش",
+  "AddressName": "تاجوراء - الحميدية "
+ },
+ {
+  "SiteName": "TRI277",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI278",
+  "OwnerName": "إدارة مشروع النهر الصناعي الحساونة ",
+  "AddressName": "سهل الجفارة - الحساونة"
+ },
+ {
+  "SiteName": "TRI279",
+  "OwnerName": "ورثة أبو عجيلة ميلاد الشتيوي",
+  "AddressName": "طرابلس- تاجوراء "
+ },
+ {
+  "SiteName": "TRI280",
+  "OwnerName": "نور الدين محمد أبوبكر حمودة",
+  "AddressName": "محلة تاجوراء الجنوبي "
+ },
+ {
+  "SiteName": "TRI281",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI282",
+  "OwnerName": "حسين سالم القبايلي",
+  "AddressName": "عين زارة الجنوبي "
+ },
+ {
+  "SiteName": "TRI283",
+  "OwnerName": "بشير محمد اندير ",
+  "AddressName": "تاجوراء الوادي الشرقي "
+ },
+ {
+  "SiteName": "TRI286",
+  "OwnerName": "نادي سيدي سليم للفروسية ",
+  "AddressName": "طريق المطار -قرب خزنات النفط"
+ },
+ {
+  "SiteName": "TRI287",
+  "OwnerName": "على عبد الكريم الغزيوي ",
+  "AddressName": "محلة قصر بن غشير - والنواحى الأربعة"
+ },
+ {
+  "SiteName": "TRI288",
+  "OwnerName": "خبرية عبد الله الفيرس ",
+  "AddressName": "محلة بئر التوتة -قصر بن غشير "
+ },
+ {
+  "SiteName": "TRI290",
+  "OwnerName": "عبد الهاشمي الزرقاني ",
+  "AddressName": "تاجوراء الحميدية- جامع سيدي غانم "
+ },
+ {
+  "SiteName": "TRI291",
+  "OwnerName": "احمد السائح امحمد الحناشي",
+  "AddressName": "جنزور - شهداء عبد الجليل "
+ },
+ {
+  "SiteName": "TRI292",
+  "OwnerName": "عامر محمد مصباح جابر ",
+  "AddressName": "طرابلس - سوانى بن ادم "
+ },
+ {
+  "SiteName": "TRI293",
+  "OwnerName": "عبد الرزاق عمر خلف الله ",
+  "AddressName": "تاجوراء - غوط الرمان "
+ },
+ {
+  "SiteName": "TRI294",
+  "OwnerName": "الشارف خليفة السعداوي",
+  "AddressName": "تاجوراء النواحى الأربعة - قرب جامع فطرة "
+ },
+ {
+  "SiteName": "TRI295",
+  "OwnerName": "عياد محمد اللافى ",
+  "AddressName": "قصر بن غشير - محلة العوانيين "
+ },
+ {
+  "SiteName": "TRI296",
+  "OwnerName": "عمران رمضان الشطى",
+  "AddressName": "طريق المطار - سيدي سليم "
+ },
+ {
+  "SiteName": "TRI297",
+  "OwnerName": "إبراهيم ضو عمران الفرجاني ",
+  "AddressName": "طرابلس - عين زارة الجنوبي "
+ },
+ {
+  "SiteName": "TRI299",
+  "OwnerName": "عائشة بنور الشريف",
+  "AddressName": "سيدي خليفة -  تاجوراء و النواحى الأربعة "
+ },
+ {
+  "SiteName": "TRI303",
+  "OwnerName": "عبد الرزاق جمعة خلفونى",
+  "AddressName": "طرابلس - تاجوراء "
+ },
+ {
+  "SiteName": "TRI304",
+  "OwnerName": "إبراهيم المبروك رمضان الترهونى",
+  "AddressName": "جنزور -  قرب نادي اليرموك "
+ },
+ {
+  "SiteName": "TRI305",
+  "OwnerName": "شركة البريقة لتسويق النفط",
+  "AddressName": "مستودع الفاتح النفطي - طريق المطار "
+ },
+ {
+  "SiteName": "TRI306",
+  "OwnerName": "رجب سليمان امحمد قجم ",
+  "AddressName": "تاجوراء يئر الاسطى ميلاد قرب محة الوقود"
+ },
+ {
+  "SiteName": "TRI307",
+  "OwnerName": "صندوق الضمان الاجتماعى",
+  "AddressName": "تاجوراء - قرب من مصنع المقطورات "
+ },
+ {
+  "SiteName": "TRI308",
+  "OwnerName": "عبد المولى محموج زغبية ",
+  "AddressName": "محلة الوادي الشرقي قرب مصنع السخانات تاجوراء  "
+ },
+ {
+  "SiteName": "TRI311",
+  "OwnerName": "عامر على التير ",
+  "AddressName": "محلة الحشان- جنزور شعبية الجفارة "
+ },
+ {
+  "SiteName": "TRI316",
+  "OwnerName": "صالح إبراهيم الطويري ",
+  "AddressName": "محلة ابي الأشهر - شعبية تاجوراء المركز "
+ },
+ {
+  "SiteName": "TRI317",
+  "OwnerName": "حمد محمد سالم بن سعود ",
+  "AddressName": "طرابلس - سوق الجمعة "
+ },
+ {
+  "SiteName": "TRI318",
+  "OwnerName": "مصطفى فرج على ادريز ",
+  "AddressName": "طرابلس جنزور الغيران "
+ },
+ {
+  "SiteName": "TRI319",
+  "OwnerName": "امراجع عليوة على",
+  "AddressName": "طرابلس قرب مدرسة الحارثى المساكن الشعبية "
+ },
+ {
+  "SiteName": "TRI320",
+  "OwnerName": "على الازهري منير",
+  "AddressName": "عين زارة قرب مركز العلاج الطبيعي "
+ },
+ {
+  "SiteName": "TRI321",
+  "OwnerName": "مركز البحوث للدراسات التقنية - فرع اللحام ",
+  "AddressName": "طريق الشط العثمانية - تاجوراء "
+ },
+ {
+  "SiteName": "TRI323",
+  "OwnerName": "ليلي الطاهر عاشور ",
+  "AddressName": "شط اسبان - تاجوراء - خلف السوق الشعبي "
+ },
+ {
+  "SiteName": "TRI324",
+  "OwnerName": "عاشور أعمار الزيانى ",
+  "AddressName": "قصر بن غشير - النواحى الأربعة"
+ },
+ {
+  "SiteName": "TRI326",
+  "OwnerName": "محمد الطاهر أبو نعجة",
+  "AddressName": "طرابلس - عين زارة "
+ },
+ {
+  "SiteName": "TRI327",
+  "OwnerName": "علي عبد السلام أبو شوفة",
+  "AddressName": "سوق الجمعة - محلة الحارث "
+ },
+ {
+  "SiteName": "TRI328",
+  "OwnerName": "المبروك منصور عبد الله ",
+  "AddressName": "الصياد قرب نادي الفروسية "
+ },
+ {
+  "SiteName": "TRI329",
+  "OwnerName": "ورثة مفتاح ميلاد المجدوب ",
+  "AddressName": "عين زارة الشمالي -  "
+ },
+ {
+  "SiteName": "TRI332",
+  "OwnerName": "فرج عامر الديب ",
+  "AddressName": "طرابلس - تاجوراء "
+ },
+ {
+  "SiteName": "TRI334",
+  "OwnerName": "إبراهيم محمد القفز ",
+  "AddressName": "قصر بن غشير محلة ردود الزاوية قرب ميدان الفروسية "
+ },
+ {
+  "SiteName": "TRI336",
+  "OwnerName": "نوري مفتاح شاقور ",
+  "AddressName": "عين زارة الجنوبي - القبايلية "
+ },
+ {
+  "SiteName": "TRI350",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI352",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI353",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI354",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI356",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI357",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI358",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI362",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI363",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI364",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI365",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI367",
+  "OwnerName": "هشام مسعود الغربى ",
+  "AddressName": "اسبيعة بالقرب من معهد السلامة "
+ },
+ {
+  "SiteName": "TRI368",
+  "OwnerName": "مكتب الهيئة العامه للاوقاف وشئون الزكاة بشعبية المرقب ",
+  "AddressName": "مسلاتة -زاوية السماح بجوار مدرسة العيادى الثانوية"
+ },
+ {
+  "SiteName": "TRI369",
+  "OwnerName": "ورثه- محمد على الزيانى ",
+  "AddressName": "العطايا-القره بوللى بالقرب من مدرسة العطايا"
+ },
+ {
+  "SiteName": "TRI370",
+  "OwnerName": "محمد الشريف حسين قليص",
+  "AddressName": "مسلاتة"
+ },
+ {
+  "SiteName": "TRI371",
+  "OwnerName": "عبد السلام على خلف الله",
+  "AddressName": "مسلاتة"
+ },
+ {
+  "SiteName": "TRI372",
+  "OwnerName": "الصديق احمد بالنور ",
+  "AddressName": "محلة سيلين-بجوار فندق النقازة"
+ },
+ {
+  "SiteName": "TRI373",
+  "OwnerName": "فتحى العيادى أبو غنيمة",
+  "AddressName": "القره بوللى -القويعة"
+ },
+ {
+  "SiteName": "TRI375",
+  "OwnerName": "عمار عمران عبد السلام",
+  "AddressName": "منطقة سوق الاحد مقابل محطة وقود مسرب الغزاية"
+ },
+ {
+  "SiteName": "TRI376",
+  "OwnerName": "رجب أبو راوى عمار ",
+  "AddressName": "ترهونة- مرغنة الخريجى"
+ },
+ {
+  "SiteName": "TRI377",
+  "OwnerName": "بشير محمد الخالقى ",
+  "AddressName": "شعبية ترهونة مسلاتة "
+ },
+ {
+  "SiteName": "TRI378",
+  "OwnerName": "محمد سعد شلبى سحبون",
+  "AddressName": "محلة العزيزية-شعبية الجفارة"
+ },
+ {
+  "SiteName": "TRI379",
+  "OwnerName": "المبروك حمودة البكوش ",
+  "AddressName": "تاجوراء-اسبيعة"
+ },
+ {
+  "SiteName": "TRI381",
+  "OwnerName": "ورثه\/السائح محمد السائح",
+  "AddressName": "سيدى السائح"
+ },
+ {
+  "SiteName": "TRI382",
+  "OwnerName": "أبو عرقوب محمد أبو شحاتة",
+  "AddressName": "محلة المرازيق-شعبية تاجوراء"
+ },
+ {
+  "SiteName": "TRI383",
+  "OwnerName": "ورثه\/محمد الداهش محمد الداهش",
+  "AddressName": "الجفارة- محلة الناصرية-قرب محطة وقود الجمال"
+ },
+ {
+  "SiteName": "TRI384",
+  "OwnerName": "ورثه\/ احمد على عثمان",
+  "AddressName": "الجفارة- الناصرية"
+ },
+ {
+  "SiteName": "TRI385",
+  "OwnerName": "سالم عمر البلعزى",
+  "AddressName": "جفارة-العامرية"
+ },
+ {
+  "SiteName": "TRI386",
+  "OwnerName": "ورثه\/امحمد عبد الله الشتيوى ",
+  "AddressName": "الجفارة- الناصرية الشرقية"
+ },
+ {
+  "SiteName": "TRI387",
+  "OwnerName": "مدرسة سوق الخميس امسيحل للتعليم الاساسى",
+  "AddressName": "مؤتمر سوق الخميس امسيحل"
+ },
+ {
+  "SiteName": "TRI388",
+  "OwnerName": "عمران عبد السلام محمد السويح",
+  "AddressName": "محلة السياح الشمالية-بشعبية ترهونه"
+ },
+ {
+  "SiteName": "TRI389",
+  "OwnerName": "ورثه\/عبد اللطيف جمعه عياد",
+  "AddressName": "السوانى-بالقرب من مدرسة البارونية "
+ },
+ {
+  "SiteName": "TRI390",
+  "OwnerName": " مصطفى ميلود أبو حلالة",
+  "AddressName": "شعبية الجفارة"
+ },
+ {
+  "SiteName": "TRI391",
+  "OwnerName": "الصادق مسعود عطية",
+  "AddressName": "الجفارة-العامرية محلة اليرموك"
+ },
+ {
+  "SiteName": "TRI392",
+  "OwnerName": "عبد الكريم الهادى الصويعى عون",
+  "AddressName": "جفارة الزهراء بالقرب من الجمعية الاستهلاكيه"
+ },
+ {
+  "SiteName": "TRI393",
+  "OwnerName": "ورثه\/هدية محمد أبو كليش ",
+  "AddressName": "سيدى السائح-شعبية تاجوراء"
+ },
+ {
+  "SiteName": "TRI394",
+  "OwnerName": "فرج مختار حشاد",
+  "AddressName": "تاجوراء-النواحى الأربع"
+ },
+ {
+  "SiteName": "TRI395",
+  "OwnerName": "عبد الله المبروك غومة",
+  "AddressName": "تاجوراء"
+ },
+ {
+  "SiteName": "TRI396",
+  "OwnerName": "محمد مفتاح صالح الزيانى",
+  "AddressName": "شعبية ترهونة مسلاتة "
+ },
+ {
+  "SiteName": "TRI398",
+  "OwnerName": "محمود عبد السلام محمد حران",
+  "AddressName": "القره بوللى -الشرقية"
+ },
+ {
+  "SiteName": "TRI399",
+  "OwnerName": "رجب معمر على التومى ",
+  "AddressName": "القربوللى-العطايا"
+ },
+ {
+  "SiteName": "TRI400",
+  "OwnerName": "الطاهر محمد الطاهر بلوط",
+  "AddressName": "القرة بوللى الشرقية "
+ },
+ {
+  "SiteName": "TRI401",
+  "OwnerName": "سالم مفتاح اصليل",
+  "AddressName": "شعبية المرقب "
+ },
+ {
+  "SiteName": "TRI402",
+  "OwnerName": "محمد على محمد الاحتر ",
+  "AddressName": "شعبية المرقب "
+ },
+ {
+  "SiteName": "TRI403",
+  "OwnerName": "محمد سالم جمعة  أبو سعدة",
+  "AddressName": "محلة غنيمة -مزرعة بن طاهر "
+ },
+ {
+  "SiteName": "TRI405",
+  "OwnerName": "عمار عبد الله كرشود",
+  "AddressName": "شعبية ترهونه مسلاته"
+ },
+ {
+  "SiteName": "TRI406",
+  "OwnerName": "ورثه\/امحمد محمد خليفة شديد",
+  "AddressName": "طرابلس- قصر بن غشير "
+ },
+ {
+  "SiteName": "TRI407",
+  "OwnerName": "الصديق خليفة الزرزور",
+  "AddressName": "قصر بن غشير "
+ },
+ {
+  "SiteName": "TRI408",
+  "OwnerName": "محمد على محمد الترهونى",
+  "AddressName": "ترهونة-سوق الاحد"
+ },
+ {
+  "SiteName": "TRI409",
+  "OwnerName": "فؤاد الهادى جمعة أبو قليله",
+  "AddressName": "تاجوراء-الوادى الشرقى "
+ },
+ {
+  "SiteName": "TRI410",
+  "OwnerName": "سالم جبران مصطفى شيتاو",
+  "AddressName": "محلة المسيد مسلم-القصبات "
+ },
+ {
+  "SiteName": "TRI411",
+  "OwnerName": "على معتوق محمد الرفاعى ",
+  "AddressName": "الخمس-سيلين"
+ },
+ {
+  "SiteName": "TRI412",
+  "OwnerName": "خيرية على محمد المزعوق ",
+  "AddressName": "المؤتمر الشعبى الاساسى شهداء عين زارة الجنوبى "
+ },
+ {
+  "SiteName": "TRI413",
+  "OwnerName": "محمد عبد الله مصطفى بن الحاج",
+  "AddressName": "المدينة القديمة بالقرب من بوابة الميناء الرئيسيه"
+ },
+ {
+  "SiteName": "TRI417",
+  "OwnerName": "مصباح الضاوى الدحداح ونورية  محمد النجار ",
+  "AddressName": "الحشان -سوق الجمعه "
+ },
+ {
+  "SiteName": "TRI418",
+  "OwnerName": "عبد الله ميلاد ضو المقرى ",
+  "AddressName": "طرابلس- حى دمشق "
+ },
+ {
+  "SiteName": "TRI420",
+  "OwnerName": "رجب حسين معتوق هرام",
+  "AddressName": "تاجوراء -الحميدية "
+ },
+ {
+  "SiteName": "TRI423",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI425",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI426",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI427",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI428",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI429",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI430",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI431",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI432",
+  "OwnerName": "محمد عثمان الحسناوي",
+  "AddressName": "طرابلس -عين زارة "
+ },
+ {
+  "SiteName": "TRI433",
+  "OwnerName": "محمد احمد الشتيوي ",
+  "AddressName": "طرابلس الهضبة الخضراء"
+ },
+ {
+  "SiteName": "TRI435",
+  "OwnerName": "محمد هيب على صهيب ",
+  "AddressName": "ابي سليم بالقرب من مسجد طارق بن زياد"
+ },
+ {
+  "SiteName": "TRI436",
+  "OwnerName": "فاطمة محمد عريبي وابناؤها ",
+  "AddressName": "جنزور الشرقية - قرب مسجد سيدي أبو صاع "
+ },
+ {
+  "SiteName": "TRI438",
+  "OwnerName": "عريبي ساسي عريبي الاسطى ",
+  "AddressName": "طرابلس - الحي الصناعى "
+ },
+ {
+  "SiteName": "TRI440",
+  "OwnerName": "الهادي جمعة البوش",
+  "AddressName": "صياد مقابل الاكاديمية البحرية "
+ },
+ {
+  "SiteName": "TRI464",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI471",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI483",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI489",
+  "OwnerName": "على احمد القابسي ",
+  "AddressName": "النوفلين - طرابلس "
+ },
+ {
+  "SiteName": "TRI501",
+  "OwnerName": "محمد ابراهيم ناجى",
+  "AddressName": "سوق الخميس -ق ب مدرسة هنشير عريف "
+ },
+ {
+  "SiteName": "TRI502",
+  "OwnerName": "على مصباح الشارف ",
+  "AddressName": "ترهونة - أولاد علي "
+ },
+ {
+  "SiteName": "TRI503",
+  "OwnerName": "محمد احمد قرفب ",
+  "AddressName": "اسبيعة -منطقة بئر فريوان"
+ },
+ {
+  "SiteName": "TRI504",
+  "OwnerName": "ورثة ميلاد خليفة النعمي",
+  "AddressName": "سوق الخميس امسيحل- الحي الصناعي  "
+ },
+ {
+  "SiteName": "TRI505",
+  "OwnerName": "عبد الله محمد صالح ",
+  "AddressName": "سوق الخميس امسيحل - قرب مصنع الاسمنت "
+ },
+ {
+  "SiteName": "TRI510",
+  "OwnerName": "محمد الفرجاني جبران ",
+  "AddressName": "سوق الخميس العواتة بالقرب من الامن الشعبي "
+ },
+ {
+  "SiteName": "TRI512",
+  "OwnerName": "ميلاد الشارف صابر ",
+  "AddressName": "اسبيعة محلة أولاد مرغم بجوار جامع الصنوبر "
+ },
+ {
+  "SiteName": "TRI514",
+  "OwnerName": "على عبد السلام بن نجمة ",
+  "AddressName": "اسبيعة محلة أولاد مرغم "
+ },
+ {
+  "SiteName": "TRI515",
+  "OwnerName": "بشير محمد ابوبكر",
+  "AddressName": "السبيعة الهيرة  "
+ },
+ {
+  "SiteName": "TRI516",
+  "OwnerName": "عائشة البوراوي الأخضر ",
+  "AddressName": "السبيعة الهيرة بالقرب من جامع أولاد احمد "
+ },
+ {
+  "SiteName": "TRI518",
+  "OwnerName": "محمد على مازوز",
+  "AddressName": "ككلة جوار سد وادى زرات "
+ },
+ {
+  "SiteName": "TRI520",
+  "OwnerName": "شركة الخدمات الفنية ",
+  "AddressName": "غريان - الرابطة - المجمع الصناعي "
+ },
+ {
+  "SiteName": "TRI521",
+  "OwnerName": "عمر محمد الشعلالي ",
+  "AddressName": "بئر ترفاس - الزاوية "
+ },
+ {
+  "SiteName": "TRI522",
+  "OwnerName": "عبيد محمد كريم ",
+  "AddressName": "بئر الغنم "
+ },
+ {
+  "SiteName": "TRI524",
+  "OwnerName": "عطية زائد السلة ",
+  "AddressName": "ترهونة - بجوار بوابة ملغة "
+ },
+ {
+  "SiteName": "TRI525",
+  "OwnerName": "الشيباني بلقاسم المحروق",
+  "AddressName": "شلغودة "
+ },
+ {
+  "SiteName": "TRI526",
+  "OwnerName": "خالد العجيلي على سعد",
+  "AddressName": "الرابطة - وادي الحى "
+ },
+ {
+  "SiteName": "TRI528",
+  "OwnerName": "عائشة على مسعود ",
+  "AddressName": "غريان- العامرية "
+ },
+ {
+  "SiteName": "TRI529",
+  "OwnerName": "عمر الصادق الرابطى",
+  "AddressName": "غريان - الرابطة - مشروع وادي الحى"
+ },
+ {
+  "SiteName": "TRI530",
+  "OwnerName": "عبد الله محمد قشوط ",
+  "AddressName": "الرابطة - وادي الحى "
+ },
+ {
+  "SiteName": "TRI532",
+  "OwnerName": "ورثة ميلود معتوق رزق",
+  "AddressName": "غريان- القواسم"
+ },
+ {
+  "SiteName": "TRI533",
+  "OwnerName": "تشاركية بئر الغنم لدواجن ",
+  "AddressName": "الزاوية - بئر الغنم "
+ },
+ {
+  "SiteName": "TRI534",
+  "OwnerName": "المهدي خليفة شرارة ",
+  "AddressName": "اسبيعة أولاد  مرغم"
+ },
+ {
+  "SiteName": "TRI535",
+  "OwnerName": "البشير امحمد عمر الطوير",
+  "AddressName": "الزاوية قرية ناصر "
+ },
+ {
+  "SiteName": "TRI536",
+  "OwnerName": "على عبد الله علي احمد ",
+  "AddressName": "الرابطة الشرقية قرب مسجد القدس "
+ },
+ {
+  "SiteName": "TRI539",
+  "OwnerName": "ورثة يونس شنبر ",
+  "AddressName": "غريان - مشروع أبو شيبة "
+ },
+ {
+  "SiteName": "TRI540",
+  "OwnerName": "عبد السلام سليم الخمري ",
+  "AddressName": "مسلاتة- منطقة الخمرى- قرب جامع الخمري "
+ },
+ {
+  "SiteName": "TRI541",
+  "OwnerName": "زائد امحمد جمعة التومي ",
+  "AddressName": "لبدة - الخمس "
+ },
+ {
+  "SiteName": "TRI542",
+  "OwnerName": "ورثة محمد الفورتى",
+  "AddressName": "الزهرة - منطقة الجليدة "
+ },
+ {
+  "SiteName": "TRI543",
+  "OwnerName": "خيري سالم ابوزيد ",
+  "AddressName": "تاجوراء - وادي الربيع "
+ },
+ {
+  "SiteName": "TRI544",
+  "OwnerName": "رقية محمد مروان",
+  "AddressName": "تاجوراء- الزطارئة "
+ },
+ {
+  "SiteName": "TRI545",
+  "OwnerName": "ورثة محمد سالم المرابط ",
+  "AddressName": "سيدي السايح - محلة أولاد أبو عائشة "
+ },
+ {
+  "SiteName": "TRI546",
+  "OwnerName": "ونيس على إبراهيم بلوط",
+  "AddressName": "القربوللي - الكرارة"
+ },
+ {
+  "SiteName": "TRI547",
+  "OwnerName": "عبد الله محمد نتفة ",
+  "AddressName": "القربوللي - قرب مصيف فم الوادي "
+ },
+ {
+  "SiteName": "TRI548",
+  "OwnerName": "عبد الله فرج الصغير ",
+  "AddressName": "مسلاتة- قرية الكرارتة "
+ },
+ {
+  "SiteName": "TRI549",
+  "OwnerName": "مريم ميلود محمج البرطاع ",
+  "AddressName": "غريان- المثانين "
+ },
+ {
+  "SiteName": "TRI550",
+  "OwnerName": "احمد محمد رمضان ",
+  "AddressName": "الرابطة -  قرب مسجد الحى الغربي "
+ },
+ {
+  "SiteName": "TRI553",
+  "OwnerName": "عبد الحفيظ أبوبكر الرشدي ",
+  "AddressName": "طرابلس - باب العزيزية"
+ },
+ {
+  "SiteName": "TRI555",
+  "OwnerName": "عبد الله محمد حرود",
+  "AddressName": "طرابلس - الهضبة الخضراء "
+ },
+ {
+  "SiteName": "TRI561",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI563",
+  "OwnerName": "الهادي على عمار المرغنى ",
+  "AddressName": "عين زارة الفرناج قرب شركة المطاحن"
+ },
+ {
+  "SiteName": "TRI564",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI567",
+  "OwnerName": "جمعية الدعوة الإسلامية ",
+  "AddressName": "بوابة الجبس - الدعوة الإسلامية "
+ },
+ {
+  "SiteName": "TRI569",
+  "OwnerName": "ورثة ونيس محمد الورفلي ",
+  "AddressName": "النوفلين -طرابلس "
+ },
+ {
+  "SiteName": "TRI570",
+  "OwnerName": "المقطوف محمد المبروك ",
+  "AddressName": "جنزور الشرقية - قرب محكمة جنزور "
+ },
+ {
+  "SiteName": "TRI572",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI573",
+  "OwnerName": "عبد السلام حسن صليل ",
+  "AddressName": "قصر خيار - سيدي عمير "
+ },
+ {
+  "SiteName": "TRI574",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI575",
+  "OwnerName": "نجيب محمد فرحات ",
+  "AddressName": "الخمس - غنيمة "
+ },
+ {
+  "SiteName": "TRI577",
+  "OwnerName": "جمعة احم مفتاح ابوشينة ",
+  "AddressName": "الزاوية قرب ثانوية شهداء امداكم "
+ },
+ {
+  "SiteName": "TRI578",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI582",
+  "OwnerName": "ورثة عياد محمد بلعيد ابوقفة ",
+  "AddressName": "جنزور -صياد قرب معسكر بلال "
+ },
+ {
+  "SiteName": "TRI583",
+  "OwnerName": "رمضان الهادي أبو عجيلة ",
+  "AddressName": "الزاوية اللاحلاحية قرب مسجد خنفيقيس "
+ },
+ {
+  "SiteName": "TRI586",
+  "OwnerName": "حسين على الشيبانى",
+  "AddressName": "شارع النصر - خلف مبنى شركة فيبا للعمليات "
+ },
+ {
+  "SiteName": "TRI592",
+  "OwnerName": "فاضل المحجوب عمر الطشاشي ",
+  "AddressName": "شارع بالخير زنقة صبراتة بجوار مطحنة البرازيل "
+ },
+ {
+  "SiteName": "TRI595",
+  "OwnerName": "على خليفة محمد الحداد",
+  "AddressName": "أبو سليم -محلة الانعتاق قرب مدرسة جالوت "
+ },
+ {
+  "SiteName": "TRI596",
+  "OwnerName": "الطاهر على سليني ",
+  "AddressName": "حى دمشق بجوار مدرسة حى دمشق "
+ },
+ {
+  "SiteName": "TRI597",
+  "OwnerName": "الهادي عمار محمد",
+  "AddressName": "الهضبة - الحداد قرب مدرسة الوفاء "
+ },
+ {
+  "SiteName": "TRI601",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI602",
+  "OwnerName": "سالم حسين محمد ادقيج",
+  "AddressName": "سوق الجمعة  محلة الجلاء قرب مدرسة فلسطين "
+ },
+ {
+  "SiteName": "TRI604",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI606",
+  "OwnerName": "كامل العربي محمد عبد النور ",
+  "AddressName": "سوق الجمعة -طريق11 يونيو "
+ },
+ {
+  "SiteName": "TRI608",
+  "OwnerName": "ورثة احمد ونيس",
+  "AddressName": "طرابلس الهضبة الشرقية "
+ },
+ {
+  "SiteName": "TRI609",
+  "OwnerName": "جامعة الفاتح",
+  "AddressName": "جامعة الفاتح خلف مبنى البلازمة "
+ },
+ {
+  "SiteName": "TRI610",
+  "OwnerName": "جامعة الفاتح",
+  "AddressName": "جامعة الفاتح قرب مبنى الهندسة "
+ },
+ {
+  "SiteName": "TRI611",
+  "OwnerName": "فريال مصطفى الرايس",
+  "AddressName": "بن عاشور - قرب جامع الصقع سوق افريقيا"
+ },
+ {
+  "SiteName": "TRI612",
+  "OwnerName": "جمال عبد الناصر المحجوب",
+  "AddressName": "راس حسن مقابل  الصيدلية المركزية "
+ },
+ {
+  "SiteName": "TRI613",
+  "OwnerName": "خليفة إبراهيم بن طاهر ",
+  "AddressName": "راس خلف شركة المدار "
+ },
+ {
+  "SiteName": "TRI617",
+  "OwnerName": "عمارة 29 بزاوية الدهمانى ",
+  "AddressName": "زاوية الدهمانى "
+ },
+ {
+  "SiteName": "TRI618",
+  "OwnerName": "فوزي الهاشمي النابولي ",
+  "AddressName": "أبو ستة قرب النادي الرياضي "
+ },
+ {
+  "SiteName": "TRI620",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI622",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI623",
+  "OwnerName": "إبراهيم محمد طنيش ",
+  "AddressName": "قرقارش قرب من مدرسة الحياة "
+ },
+ {
+  "SiteName": "TRI624",
+  "OwnerName": "عارف محمد عامر ارحيم",
+  "AddressName": "غوط الشعال  خلف مصحة المشروب"
+ },
+ {
+  "SiteName": "TRI627",
+  "OwnerName": "ورثة عثمان حسن عباس ",
+  "AddressName": "غوط الشعال بالقرب من بريد غوط الشعال "
+ },
+ {
+  "SiteName": "TRI628",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI629",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI631",
+  "OwnerName": "ورثة مصطغى احمدالاشتر ",
+  "AddressName": "طرابلس - جنزور "
+ },
+ {
+  "SiteName": "TRI633",
+  "OwnerName": "عبد السلام أبو عجيلة أبو السعود ",
+  "AddressName": "السياحية قرب محمد النفط "
+ },
+ {
+  "SiteName": "TRI634",
+  "OwnerName": "عمارة رقم 847 \/ كمال المسعودي ",
+  "AddressName": "جنزور - شهداء عبد الجليل "
+ },
+ {
+  "SiteName": "TRI635",
+  "OwnerName": "عمر محمد المرغنى ",
+  "AddressName": "جنزور محلة السوق قرب جامع  أبو جعفر "
+ },
+ {
+  "SiteName": "TRI637",
+  "OwnerName": "ممد ادريس فضل",
+  "AddressName": "كلية التقنية الهندسية - جنزور "
+ },
+ {
+  "SiteName": "TRI639",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI642",
+  "OwnerName": "مفتاح احمد شقلوف",
+  "AddressName": "قرب مستشفى ابن النفيس قرب مسجد الفرقان "
+ },
+ {
+  "SiteName": "TRI643",
+  "OwnerName": "طارق عثمان على محمد ",
+  "AddressName": "طرابلس - صلاح الدين - قرب مستشفى السكر "
+ },
+ {
+  "SiteName": "TRI644",
+  "OwnerName": "الطاهر رجب شنيبة ",
+  "AddressName": "مشروع الهضبة الخضراء مقابل رابش بوسليم"
+ },
+ {
+  "SiteName": "TRI645",
+  "OwnerName": "المختار المبروك محمد يعيد ",
+  "AddressName": "ابوسليم مقابل الحى الدبلوماسي "
+ },
+ {
+  "SiteName": "TRI646",
+  "OwnerName": "عويدات إبراهيم عويدات ",
+  "AddressName": "الحي الدبلوماسي"
+ },
+ {
+  "SiteName": "TRI647",
+  "OwnerName": "جمعة محمد محفوظ",
+  "AddressName": "صلاح الدين  الحي الزراعى بالقرب من الامن العام "
+ },
+ {
+  "SiteName": "TRI648",
+  "OwnerName": "مبروك احمد بلعيد",
+  "AddressName": "عين زارة الجنوبي تقسيم جمعة المرغنى "
+ },
+ {
+  "SiteName": "TRI651",
+  "OwnerName": "عبد اللطيف احمد ابوشيبة ",
+  "AddressName": "جنزور - سيدي عبد اللطيف قرب جسر 17"
+ },
+ {
+  "SiteName": "TRI652",
+  "OwnerName": "سناء ضو على الاسطى ",
+  "AddressName": "السهل الأخضر - الحشان "
+ },
+ {
+  "SiteName": "TRI653",
+  "OwnerName": "عبد الكريم عبدالرحمن الكريم ابوعيسى ",
+  "AddressName": "جنزور "
+ },
+ {
+  "SiteName": "TRI654",
+  "OwnerName": "الطاهر  البهلول الصويعي ",
+  "AddressName": "الزهراءمنطقة السهلة قرب كلية الزراعة "
+ },
+ {
+  "SiteName": "TRI655",
+  "OwnerName": "خبري الهادي سعود",
+  "AddressName": "الوانى - محلة  خويلد - قرب مسجد بن سعود"
+ },
+ {
+  "SiteName": "TRI656",
+  "OwnerName": "ونيس محمد قدارة ",
+  "AddressName": "السوانى الكريمية شارع دبي "
+ },
+ {
+  "SiteName": "TRI657",
+  "OwnerName": "جمعة على مسعود التكيران ",
+  "AddressName": "صبراتة - النهضة - محلة سيدي معروف "
+ },
+ {
+  "SiteName": "TRI658",
+  "OwnerName": "وليد عمران النجمى أبو حلى ",
+  "AddressName": "الزهراء قرب من مدرسة سيناء للتعليم الأساسي "
+ },
+ {
+  "SiteName": "TRI659",
+  "OwnerName": "فرج منور سعد الغزوي",
+  "AddressName": "العزيزية غوط أبو ساق قرب جامع الثغار"
+ },
+ {
+  "SiteName": "TRI660",
+  "OwnerName": "الصادق خليفة عامر ",
+  "AddressName": "انجيلة خلف مسجد الخلفاء الراشدين "
+ },
+ {
+  "SiteName": "TRI661",
+  "OwnerName": "ورثة مصباح سالم الكالح ",
+  "AddressName": "الكريمية امام مدرسة غبيدة ابن الجراح"
+ },
+ {
+  "SiteName": "TRI662",
+  "OwnerName": "معمر غنشور القماطي ",
+  "AddressName": "السوانى - النجيلة قرب مدرسة الانتصار "
+ },
+ {
+  "SiteName": "TRI663",
+  "OwnerName": "عبد السلام فرج الهدار ",
+  "AddressName": "خلة الفرجان قرب محطة الوقود "
+ },
+ {
+  "SiteName": "TRI664",
+  "OwnerName": "عمار عمران أبو شهيوة ",
+  "AddressName": "قصر بن غشير - الجفارة"
+ },
+ {
+  "SiteName": "TRI665",
+  "OwnerName": "عبد القادر أحمد التميمى ",
+  "AddressName": "قصر بن غشير قرب جامع السدرة "
+ },
+ {
+  "SiteName": "TRI667",
+  "OwnerName": "المبروك مسعود المزوغى ",
+  "AddressName": "قصر بن غشير - بئر التوتة"
+ },
+ {
+  "SiteName": "TRI669",
+  "OwnerName": "الزرقاني حسن الأزرق ",
+  "AddressName": "عين زارة الجنوبي - طريق الابيار "
+ },
+ {
+  "SiteName": "TRI670",
+  "OwnerName": "ورثة خليفة الغزيوي ",
+  "AddressName": "تاجوراء الجنوبي قرب مسجد فطرة"
+ },
+ {
+  "SiteName": "TRI671",
+  "OwnerName": "عبد السلام محمد محمد ابوزيد",
+  "AddressName": "عين زارة - القبايلية "
+ },
+ {
+  "SiteName": "TRI672",
+  "OwnerName": "اميرة صالح بلعيد وشركائها \/بلعيد صالح بلعيد",
+  "AddressName": "عين زارة - قرب مشروع الموز"
+ },
+ {
+  "SiteName": "TRI673",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI674",
+  "OwnerName": "امحمد محمد الاسطى",
+  "AddressName": "شهداء عين زاره بالقرب من جامع بن حموده"
+ },
+ {
+  "SiteName": "TRI675",
+  "OwnerName": "نصر الدين الهادى الصادق محمد",
+  "AddressName": "عين زاره الجنوبى خلف معسكر اليرموك"
+ },
+ {
+  "SiteName": "TRI676",
+  "OwnerName": "على احميده على عاشور",
+  "AddressName": "عين زاره بئر الاسطى ميلاد"
+ },
+ {
+  "SiteName": "TRI678",
+  "OwnerName": "محمود الطاهر الفيتورى",
+  "AddressName": "تاجوراء محله عقبه بن نافع"
+ },
+ {
+  "SiteName": "TRI680",
+  "OwnerName": "سالم على سلامه التومى",
+  "AddressName": "تاجوراء بالقرب من جامع عمر بن الخطاب"
+ },
+ {
+  "SiteName": "TRI681",
+  "OwnerName": "فيتورى أبو عجيله محمد خرشوفه",
+  "AddressName": "تاجوراء خلف محطه البنزين الحى الصناعى"
+ },
+ {
+  "SiteName": "TRI682",
+  "OwnerName": "محمد سليمان أبو الميدة",
+  "AddressName": "تاجوراء الحميديه بالقرب من مدرسه الحميديه"
+ },
+ {
+  "SiteName": "TRI683",
+  "OwnerName": "محمد العربى عبد السلام هرام",
+  "AddressName": "تاجوراء بالقرب من مستشفى القلب"
+ },
+ {
+  "SiteName": "TRI684",
+  "OwnerName": "عبد الرحمان احمد جديان",
+  "AddressName": "تاجوراء الحميديه مؤتمر عقبه بن نافع"
+ },
+ {
+  "SiteName": "TRI685",
+  "OwnerName": "محمد عبد الوهاب محمد الزطرينى",
+  "AddressName": "تاجوراء بالقرب من الاشاره الضوئيه بطريق الفتح"
+ },
+ {
+  "SiteName": "TRI686",
+  "OwnerName": "خليل محمد خلف الله",
+  "AddressName": "ترهونه سوق الاحد"
+ },
+ {
+  "SiteName": "TRI687",
+  "OwnerName": "الجيلانى حسين سعد أبو سنينه",
+  "AddressName": "القره بوللى المؤتمر الشعبى الاساسى الرواجح"
+ },
+ {
+  "SiteName": "TRI688",
+  "OwnerName": "محمد ميلاد سالم بن مسعود",
+  "AddressName": "قصر الاخيار\/ العلوص "
+ },
+ {
+  "SiteName": "TRI689",
+  "OwnerName": "مصباح على إبراهيم الفرجانى",
+  "AddressName": "القره بوللى مركز المدينه "
+ },
+ {
+  "SiteName": "TRI690",
+  "OwnerName": "محمد بشير محمد شاكونه",
+  "AddressName": "قصر الاخيار الغربيه"
+ },
+ {
+  "SiteName": "TRI691",
+  "OwnerName": "عبد العاطى فرج اوحيده",
+  "AddressName": "الجفاره\/سيدى السائح\/بالقرب من مدرسه فوناس"
+ },
+ {
+  "SiteName": "TRI692",
+  "OwnerName": "محمد رمضان غيث اللبو",
+  "AddressName": "سيدى السائح بئر دياب"
+ },
+ {
+  "SiteName": "TRI693",
+  "OwnerName": "حسين محمد على عبد الصمد",
+  "AddressName": "مؤتمرالعلوص شارع بسيس "
+ },
+ {
+  "SiteName": "TRI694",
+  "OwnerName": "ورثه معتوق ميلاد سعود",
+  "AddressName": "مسلاته المدينه محله البواعيش "
+ },
+ {
+  "SiteName": "TRI695",
+  "OwnerName": "أبو عبد الله عمر عبد الله المجدوب",
+  "AddressName": "طريق المطار حى الانتصار \/"
+ },
+ {
+  "SiteName": "TRI696",
+  "OwnerName": "امانه المؤتمر الشعبى الاساسى أبو سليم المركز",
+  "AddressName": "ابوسليم بالقرب من مستشفى الحوادث"
+ },
+ {
+  "SiteName": "TRI697",
+  "OwnerName": "المبروك رمضان المبروك\/امحمد على عباس",
+  "AddressName": "ابوسليم بالقرب من مدرسه الزهراء"
+ },
+ {
+  "SiteName": "TRI698",
+  "OwnerName": "ورثه صالح ضو صحه",
+  "AddressName": "الجفاره \/الزهراء"
+ },
+ {
+  "SiteName": "TRI699",
+  "OwnerName": "خيري مسعود احمد",
+  "AddressName": "العاميريه \/"
+ },
+ {
+  "SiteName": "TRI700",
+  "OwnerName": "ورثه على محمد المجدوبى",
+  "AddressName": "قصر بن غشير\/ سوق السبت"
+ },
+ {
+  "SiteName": "TRI701",
+  "OwnerName": "محمد عياد احمد المزوغى",
+  "AddressName": "المرقب\/ فم ملغه"
+ },
+ {
+  "SiteName": "TRI702",
+  "OwnerName": "الهادى الهمالى محمد الأزرق",
+  "AddressName": "قصر بن غشير \/الطرش\/"
+ },
+ {
+  "SiteName": "TRI703",
+  "OwnerName": "رمضان ابوبكر إبراهيم الهمالى",
+  "AddressName": "قصر بن غشير \/سوق السبت"
+ },
+ {
+  "SiteName": "TRI704",
+  "OwnerName": "عياد مخلوف مصباح الورفلى",
+  "AddressName": "العزيزيه\/الساعديه"
+ },
+ {
+  "SiteName": "TRI705",
+  "OwnerName": "خليفه عياد سالم غريبي",
+  "AddressName": "العزيزيه\/الساعديه الشرقيه "
+ },
+ {
+  "SiteName": "TRI706",
+  "OwnerName": "أبو حراره الصادق احمد القناص",
+  "AddressName": "الزاويه قريه ناصر"
+ },
+ {
+  "SiteName": "TRI707",
+  "OwnerName": "الفلاح سالم عمر اطلوبه",
+  "AddressName": "الزاويه الجنوبى محله بئر شعيب"
+ },
+ {
+  "SiteName": "TRI708",
+  "OwnerName": "رمضان سعد أبو القاسم",
+  "AddressName": "الزاويه قريه ناصر"
+ },
+ {
+  "SiteName": "TRI709",
+  "OwnerName": "الطاهر على الطاهر صوله",
+  "AddressName": "اسبيعه\/محله بن عطيه"
+ },
+ {
+  "SiteName": "TRI710",
+  "OwnerName": "جمعه أبو القاسم عبد الله",
+  "AddressName": "منطقه الهيره بالقرب من الكسارات"
+ },
+ {
+  "SiteName": "TRI711",
+  "OwnerName": "محمد جمعه خليفه كشلاف",
+  "AddressName": "الجبل الغربى القواسم بالقرب من سد وادى غان"
+ },
+ {
+  "SiteName": "TRI712",
+  "OwnerName": "يونس إبراهيم يونس سالم",
+  "AddressName": "العزيزيه محله بئر الجديد "
+ },
+ {
+  "SiteName": "TRI713",
+  "OwnerName": "ورثه محمد سالم ميلاد اشبيطه",
+  "AddressName": "طرابلس \/كشلاف"
+ },
+ {
+  "SiteName": "TRI714",
+  "OwnerName": "شركه اداره المنشآت والمرافق الشبابيه ",
+  "AddressName": "قرجى \/المدينه المنوره"
+ },
+ {
+  "SiteName": "TRI715",
+  "OwnerName": "ورثه على امحمد الكميشى",
+  "AddressName": "قرقارش بالقرب من البريد"
+ },
+ {
+  "SiteName": "TRI717",
+  "OwnerName": "مدرسه حاسى مسعود",
+  "AddressName": "مؤتمر باب عكاره بالقرب من جامع الرحمه"
+ },
+ {
+  "SiteName": "TRI722",
+  "OwnerName": "صالح سالم المزوغى",
+  "AddressName": "طرابلس \/عين زاره"
+ },
+ {
+  "SiteName": "TRI723",
+  "OwnerName": "محمد عمران جراده",
+  "AddressName": "قرجى بالقرب من مصرف ليبيا المركزى "
+ },
+ {
+  "SiteName": "TRI725",
+  "OwnerName": "صندوق الرعايه الاجتماعيه بمصلحه الجمارك",
+  "AddressName": "طرابلس بالقرب من فندق الودان "
+ },
+ {
+  "SiteName": "TRI727",
+  "OwnerName": "ورثه ميلود عثمان عريبى ",
+  "AddressName": "طرابلس\/ الدريبى "
+ },
+ {
+  "SiteName": "TRI728",
+  "OwnerName": "خالد مسعود خليفه جمعه ",
+  "AddressName": "طرابلس -الدريبى "
+ },
+ {
+  "SiteName": "TRI729",
+  "OwnerName": "عريبى على عريبى كرش",
+  "AddressName": "طرابلس- الدريبى"
+ },
+ {
+  "SiteName": "TRI730",
+  "OwnerName": "ورثه\/على المبروك أبو شعيرة ",
+  "AddressName": "طرابلس -الرياضية "
+ },
+ {
+  "SiteName": "TRI732",
+  "OwnerName": "الساده\/خالد ومحمد ورشيد وورثه\/ يوسف على مفتاح شادى",
+  "AddressName": "سوق الجمعه-طريق 16"
+ },
+ {
+  "SiteName": "TRI733",
+  "OwnerName": "ورثه عبد السلام ميلاد الزواغى ",
+  "AddressName": "سوق الجمعه- الحشان بالقرب من مسجد القصر "
+ },
+ {
+  "SiteName": "TRI734",
+  "OwnerName": "البهلول عمران دحيم",
+  "AddressName": "سوق الجمعه -محلة النصر بالقرب من جامع دحيم"
+ },
+ {
+  "SiteName": "TRI735",
+  "OwnerName": "محمد منصور محمد الحافى ",
+  "AddressName": ".سوق الجمعه- بالقرب من مسجد القريو "
+ },
+ {
+  "SiteName": "TRI736",
+  "OwnerName": "احمد سالم الحبيشى ",
+  "AddressName": "سوق الجمعه -محلة الفتح"
+ },
+ {
+  "SiteName": "TRI737",
+  "OwnerName": "فيصل عمار على أبو رزيزه",
+  "AddressName": "طرابلس-عين زارة الجنوبى "
+ },
+ {
+  "SiteName": "TRI738",
+  "OwnerName": "احمد المبروك منصور عبد الغنى ",
+  "AddressName": "طرابلس-شهداء عين زارة "
+ },
+ {
+  "SiteName": "TRI739",
+  "OwnerName": "محمود محمد على بن كافو ",
+  "AddressName": "تاجوراء-ابى الأشهر "
+ },
+ {
+  "SiteName": "TRI740",
+  "OwnerName": "عبد الغنى محمد كريمة ",
+  "AddressName": "سوق الجمعه-محلة الفتح "
+ },
+ {
+  "SiteName": "TRI742",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI743",
+  "OwnerName": "محمود رجب الغناى ",
+  "AddressName": "سوق الجمعه-بالقرب من جامع عرعارة"
+ },
+ {
+  "SiteName": "TRI745",
+  "OwnerName": "عبد الحميد إبراهيم صالح إبراهيم ",
+  "AddressName": "شهداء تاجوراء -بالقرب من مسجد حمزه "
+ },
+ {
+  "SiteName": "TRI746",
+  "OwnerName": "على عجيلى جفائرى ",
+  "AddressName": "طريق الشوك بالقرب من مركز طرابلس الطبي "
+ },
+ {
+  "SiteName": "TRI747",
+  "OwnerName": "ورثه\/جمعه الصويعى ",
+  "AddressName": "شهدا ء عين زارة "
+ },
+ {
+  "SiteName": "TRI748",
+  "OwnerName": "على محيصن منصور بن سعود ",
+  "AddressName": "طرابلس-عين زارة الجنوبى "
+ },
+ {
+  "SiteName": "TRI750",
+  "OwnerName": "محمد محمد عبد الجليل ",
+  "AddressName": "القره بوللى\/القويعه"
+ },
+ {
+  "SiteName": "TRI751",
+  "OwnerName": "جمعه إبراهيم التركى",
+  "AddressName": "القره بوللى \/العطايا"
+ },
+ {
+  "SiteName": "TRI753",
+  "OwnerName": "سعد على محمد ميلاد",
+  "AddressName": "قصر الاخيار \/طريق الساحل"
+ },
+ {
+  "SiteName": "TRI754",
+  "OwnerName": "امحمد رمضان على شوبار",
+  "AddressName": "العلوص\/مصيف بسيس"
+ },
+ {
+  "SiteName": "TRI756",
+  "OwnerName": "القريه العائليه بجنزور",
+  "AddressName": "القريه العائليه بجنزور"
+ },
+ {
+  "SiteName": "TRI757",
+  "OwnerName": "على مفتاح مصباح الطبيب",
+  "AddressName": "القره بوللى\/محله القويعه"
+ },
+ {
+  "SiteName": "TRI758",
+  "OwnerName": "شركه الاستثمار الوطنى \/العقيد على الهاشمى جمعه ",
+  "AddressName": "مبنى شركه الاستثمار الوطنى"
+ },
+ {
+  "SiteName": "TRI759",
+  "OwnerName": "محمد ميلاد عقل السلامى",
+  "AddressName": "قصر بن غشير فندق الشريف"
+ },
+ {
+  "SiteName": "TRI760",
+  "OwnerName": "سليمان الفرجانى ميلاد صالح\/وريث ",
+  "AddressName": "جنزور الشرقيه"
+ },
+ {
+  "SiteName": "TRI766",
+  "OwnerName": "ورثه\/ ميلود على أبو خشيم ",
+  "AddressName": "العزيزيه \/بئر الجديد"
+ },
+ {
+  "SiteName": "TRI767",
+  "OwnerName": "لطفى مختار العالم ",
+  "AddressName": "مسلاته\/أولاد العالم"
+ },
+ {
+  "SiteName": "TRI769",
+  "OwnerName": "مصباح عبد السلام محمد أبو الاجراس",
+  "AddressName": "مسلاته"
+ },
+ {
+  "SiteName": "TRI770",
+  "OwnerName": "عبد الغنى ميلود احمد البنانى ",
+  "AddressName": "العزيزيه محله البئر الجديد"
+ },
+ {
+  "SiteName": "TRI771",
+  "OwnerName": "حافظ مختار سالم عاشور ",
+  "AddressName": "قصر بن غشير \/محله العونين"
+ },
+ {
+  "SiteName": "TRI773",
+  "OwnerName": "محمود محمد سالم ارحومه",
+  "AddressName": "الزهراء المدينه"
+ },
+ {
+  "SiteName": "TRI774",
+  "OwnerName": "عبد النبى رحومه باب الله الطوباشى",
+  "AddressName": "مسلاته\/ قصر الجديد قريه قريم"
+ },
+ {
+  "SiteName": "TRI776",
+  "OwnerName": "عبد الرحمان ابوبكر حامد حامد",
+  "AddressName": "الخمس\/بالقرب من جامع احمد الرفاعى "
+ },
+ {
+  "SiteName": "TRI777",
+  "OwnerName": "جمعه والفازع حسين الشريدى",
+  "AddressName": "القربوللى\/منطقه الشريدات "
+ },
+ {
+  "SiteName": "TRI778",
+  "OwnerName": "على وعبد السلام ومحمد وصالح الهمالى على قصوده ",
+  "AddressName": "ترهونه\/العبانات محله اعبوره "
+ },
+ {
+  "SiteName": "TRI779",
+  "OwnerName": "معمر بلعيد سالم احمد",
+  "AddressName": "مصراته\/ الغيران منطقه السكت البحريه"
+ },
+ {
+  "SiteName": "TRI780",
+  "OwnerName": "ميلاد محمد حسين حويج",
+  "AddressName": "قصر الاخيار \/العلوص"
+ },
+ {
+  "SiteName": "TRI782",
+  "OwnerName": "مصطفى إبراهيم عبد الله الميحاط",
+  "AddressName": "العزيزيه\/ منطقه بن انجيم"
+ },
+ {
+  "SiteName": "TRI783",
+  "OwnerName": "محمد على حميده عون",
+  "AddressName": "القره بوللى\/بالقرب من مسجد الصحابه"
+ },
+ {
+  "SiteName": "TRI784",
+  "OwnerName": "العارف سالم على الأحمر",
+  "AddressName": "سوق الخميس\/محله سيدى جابر"
+ },
+ {
+  "SiteName": "TRI786",
+  "OwnerName": "سراج محمد مختار الغول\/نائب عن اخوته",
+  "AddressName": "قصر بن غشير \/الحمرونيه"
+ },
+ {
+  "SiteName": "TRI788",
+  "OwnerName": "مفتاح رمضان على رمضان الحويدق",
+  "AddressName": "القره بوللى\/العطايا "
+ },
+ {
+  "SiteName": "TRI789",
+  "OwnerName": "احمد سالم محمد عبد السلام",
+  "AddressName": "قصر الاخيار\/الحواتم "
+ },
+ {
+  "SiteName": "TRI790",
+  "OwnerName": "سالم منصور سالم عبد الصادق",
+  "AddressName": "مسلاته"
+ },
+ {
+  "SiteName": "TRI791",
+  "OwnerName": "احمد يوسف القندى",
+  "AddressName": "مسلاته\/القصبات "
+ },
+ {
+  "SiteName": "TRI792",
+  "OwnerName": "مختار على مختار نويرات",
+  "AddressName": "مسلاته\/ محله الوحده العربيه"
+ },
+ {
+  "SiteName": "TRI793",
+  "OwnerName": "حسين جمعه رحال",
+  "AddressName": "سيدى السائح\/الرحاحله "
+ },
+ {
+  "SiteName": "TRI794",
+  "OwnerName": "محمد عبد السلام على شهران",
+  "AddressName": "القره بوللى\/الرواجح"
+ },
+ {
+  "SiteName": "TRI795",
+  "OwnerName": "ورثه ارحومه بشير اللافى",
+  "AddressName": "سوق الخميس امسيحل "
+ },
+ {
+  "SiteName": "TRI798",
+  "OwnerName": "ورثه\/محمد على محمد الهوارى ",
+  "AddressName": "القربوللى\/محله الرواجح"
+ },
+ {
+  "SiteName": "TRI799",
+  "OwnerName": "سالم محمد المبروك ضو",
+  "AddressName": "ترهونه\/سوق الجمعه "
+ },
+ {
+  "SiteName": "TRI806",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI808",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI809",
+  "OwnerName": "مراقبة المرافق \/طرابلس",
+  "AddressName": "طرابلس \/ الفلاح"
+ },
+ {
+  "SiteName": "TRI812",
+  "OwnerName": "ورثه إبراهيم العجيلي الشريف الوكيل عبدالباسط إبراهيم الشريف",
+  "AddressName": "طرابلس \/ طريق المطار"
+ },
+ {
+  "SiteName": "TRI813",
+  "OwnerName": "وليد ميلود مسعود اللافي ",
+  "AddressName": "قصر بن غشبر "
+ },
+ {
+  "SiteName": "TRI815",
+  "OwnerName": "ضؤ المرغني رمضان العكاري",
+  "AddressName": "طرابلس \/ سيدي حسين"
+ },
+ {
+  "SiteName": "TRI816",
+  "OwnerName": "أبوالقاسم امحمد علي لسود",
+  "AddressName": "طرابلس \/ الكرامة"
+ },
+ {
+  "SiteName": "TRI817",
+  "OwnerName": "ابراهيم ابوالقاسم حسن حسين",
+  "AddressName": "طرابلس \/ الكرامة"
+ },
+ {
+  "SiteName": "TRI818",
+  "OwnerName": "عبدالوهاب نوري الهادي الرمالي",
+  "AddressName": "طرابلس \/ جنزور"
+ },
+ {
+  "SiteName": "TRI819",
+  "OwnerName": "إبراهيم عمر عبدالله الذوادي",
+  "AddressName": "جنزور \/ صياد"
+ },
+ {
+  "SiteName": "TRI821",
+  "OwnerName": "احمد عمار النقراش",
+  "AddressName": "طرابلس \/ تاجوراء"
+ },
+ {
+  "SiteName": "TRI822",
+  "OwnerName": "سعد أبوعائشة سعد أبوعائشة",
+  "AddressName": "طرابلس \/ تاجوراء"
+ },
+ {
+  "SiteName": "TRI823",
+  "OwnerName": "ميلود  العتري وعبدالواحد العتري وورثه عصام  العتري \/ ميلود محمد العتري",
+  "AddressName": "طرابلس \/ السواني"
+ },
+ {
+  "SiteName": "TRI825",
+  "OwnerName": "إسماعيل علي عمر لطفية",
+  "AddressName": "طرابلس \/الدريبي"
+ },
+ {
+  "SiteName": "TRI826",
+  "OwnerName": "الصادق محمد الصادق بن ناجي",
+  "AddressName": "تاجوراء \/ وادي الربيع"
+ },
+ {
+  "SiteName": "TRI827",
+  "OwnerName": "محمد احمد محمد العجيلي",
+  "AddressName": "تاجوراء \/ الوادي الشرقي "
+ },
+ {
+  "SiteName": "TRI831",
+  "OwnerName": "مختار فرج ابوزيد افحيج",
+  "AddressName": "طرابلس \/ عين زارة "
+ },
+ {
+  "SiteName": "TRI832",
+  "OwnerName": "مختار معتوق معتوق عطية",
+  "AddressName": "طرابلس عين زارة"
+ },
+ {
+  "SiteName": "TRI833",
+  "OwnerName": "صالح مولود أبوبكر سالم",
+  "AddressName": "طرابلس \/ جنزور"
+ },
+ {
+  "SiteName": "TRI834",
+  "OwnerName": "علي ضو أحمد خليفة",
+  "AddressName": "طرابلس \/ جنزور"
+ },
+ {
+  "SiteName": "TRI838",
+  "OwnerName": "ابوشعفة احمد عبدالله عبدالصمد",
+  "AddressName": "مسلاته \/ الشعافيين"
+ },
+ {
+  "SiteName": "TRI840",
+  "OwnerName": "الملعب الليبي الرياضي \/ نادي حي الاكواخ سابقا",
+  "AddressName": "طرابلس  \/ حي الاكواخ سابقا"
+ },
+ {
+  "SiteName": "TRI842",
+  "OwnerName": "حسني علي محمد الزوبيطي",
+  "AddressName": "طرابلس \/ طريق المطار"
+ },
+ {
+  "SiteName": "TRI843",
+  "OwnerName": "شعبان ضو خليفة منصور",
+  "AddressName": "طرابلس \/ السواني"
+ },
+ {
+  "SiteName": "TRI846",
+  "OwnerName": "صالح عبدالسلام المزوغي ",
+  "AddressName": "طرابلس \/ السراج"
+ },
+ {
+  "SiteName": "TRI847",
+  "OwnerName": "الشريف محمد سليمان العماري",
+  "AddressName": "قصر الاخيار \/ العماريين"
+ },
+ {
+  "SiteName": "TRI848",
+  "OwnerName": "عبدالسلام احمد محمد هندر \/ خالد عبدالسلام احمد هندر",
+  "AddressName": "مسلاته \/ الغرارات"
+ },
+ {
+  "SiteName": "TRI850",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI853",
+  "OwnerName": "إبراهيم محمد عبد السلام الشيبانى ",
+  "AddressName": "الخمس\/غنيمه "
+ },
+ {
+  "SiteName": "TRI855",
+  "OwnerName": "ورثه محمد المختار النعاس صالح",
+  "AddressName": "طرابلس\/زناته"
+ },
+ {
+  "SiteName": "TRI856",
+  "OwnerName": "الدهمانى جمعه الدهمانى",
+  "AddressName": "طرابلس\/زناته"
+ },
+ {
+  "SiteName": "TRI858",
+  "OwnerName": "ورثه\/ عبد السلام محمد المبروك نصر",
+  "AddressName": "أبو هريده بالقرب من مقر القياده"
+ },
+ {
+  "SiteName": "TRI859",
+  "OwnerName": "جمعه محمد عبد الله إبراهيم المختار",
+  "AddressName": "سوق الجمعه\/عراده محله الحارات"
+ },
+ {
+  "SiteName": "TRI860",
+  "OwnerName": "سعد المبروك على الطبال",
+  "AddressName": "سوق الجمعه\/الترسانه"
+ },
+ {
+  "SiteName": "TRI862",
+  "OwnerName": "وسام احمد المبروك الجابرى",
+  "AddressName": "سوق الجمعه\/بالقرب من جامع بيت المال"
+ },
+ {
+  "SiteName": "TRI863",
+  "OwnerName": "خالد أبو شعاله النائب",
+  "AddressName": "طرابلس\/بن عاشور"
+ },
+ {
+  "SiteName": "TRI866",
+  "OwnerName": "محمد فرج سالم البوعيشى",
+  "AddressName": "السراج \/فندق التوغار"
+ },
+ {
+  "SiteName": "TRI867",
+  "OwnerName": "احمد رجب احمد بن طاهر",
+  "AddressName": "النوفليين \/توتات بن جابر"
+ },
+ {
+  "SiteName": "TRI868",
+  "OwnerName": "فتحى مسعود مفتاح الحصين",
+  "AddressName": "قصر الاخيار \/الثمانيين"
+ },
+ {
+  "SiteName": "TRI869",
+  "OwnerName": "بنور صالح سالم الشهبونى",
+  "AddressName": "القره بوللى\/منطقه الشهابنه"
+ },
+ {
+  "SiteName": "TRI873",
+  "OwnerName": "على مؤمن على العبانى",
+  "AddressName": "طريق المطار \/بالقرب من حديقه الاحياء البريه"
+ },
+ {
+  "SiteName": "TRI875",
+  "OwnerName": "ورثه حسين على إسماعيل السويحلى",
+  "AddressName": "جنزور الشرقيه"
+ },
+ {
+  "SiteName": "TRI876",
+  "OwnerName": "سعاد سليمان المبروك أبو القاسم",
+  "AddressName": "جنزور الشرقيه"
+ },
+ {
+  "SiteName": "TRI877",
+  "OwnerName": "نصر عبد السلام محمد كشير",
+  "AddressName": "ابونواس \/قرقارش"
+ },
+ {
+  "SiteName": "TRI878",
+  "OwnerName": "أبو عجيله على محمد على",
+  "AddressName": "قرجى بالفرب من الشارع الغربى"
+ },
+ {
+  "SiteName": "TRI879",
+  "OwnerName": "عبد الباسط احمد المودى \/نائب",
+  "AddressName": "عين زاره الجنوبى بالقرب ن مسجد الصحابه"
+ },
+ {
+  "SiteName": "TRI880",
+  "OwnerName": "مدرسه بن عاشور للتعليم الاساسى",
+  "AddressName": "بن عاشور\/بالقرب من مدرسه الطلائع التقدم"
+ },
+ {
+  "SiteName": "TRI881",
+  "OwnerName": "غيث عجاج امحمد عجاج",
+  "AddressName": "الهضبه الخضراء\/خلف الكليه العسكريه"
+ },
+ {
+  "SiteName": "TRI882",
+  "OwnerName": "عبد الله المهدى المبروك ابوشاح",
+  "AddressName": "أبو سليم\/محله صلاح الدين"
+ },
+ {
+  "SiteName": "TRI883",
+  "OwnerName": "خليل محمود خليل كريمه",
+  "AddressName": "الفلاح\/قريه الساعدى"
+ },
+ {
+  "SiteName": "TRI884",
+  "OwnerName": "احمد المختار على الشبو",
+  "AddressName": "سوق الجمعه\/بالقرب من مستوصف عراده"
+ },
+ {
+  "SiteName": "TRI886",
+  "OwnerName": "ورثه\/حسين محمد جمعه أبو عقرب",
+  "AddressName": "طرابلس\/سوق الجمعه"
+ },
+ {
+  "SiteName": "TRI887",
+  "OwnerName": "عبد السلام محمد أبو عون",
+  "AddressName": "زناته\/الطريق الجديده بعد كوبرى السريع"
+ },
+ {
+  "SiteName": "TRI890",
+  "OwnerName": "الهيئه العامه للتضامن الاجتماعى ",
+  "AddressName": "طرابلس\/سيدى المصرى"
+ },
+ {
+  "SiteName": "TRI891",
+  "OwnerName": "إبراهيم حسين بقر",
+  "AddressName": "اسبيعه\/بالقرب من جامع الصحابه"
+ },
+ {
+  "SiteName": "TRI892",
+  "OwnerName": "الفيتورى عمار السودنى",
+  "AddressName": "الكريميه"
+ },
+ {
+  "SiteName": "TRI893",
+  "OwnerName": "فتحى احمد حميده الأحمر",
+  "AddressName": "الكريميه\/بالقرب من مدرسه العروبه"
+ },
+ {
+  "SiteName": "TRI894",
+  "OwnerName": "عبد المولى خليفه الهادى انبيص",
+  "AddressName": "السبيعه\/محله بن عطيه"
+ },
+ {
+  "SiteName": "TRI896",
+  "OwnerName": "عبد الحميد رمضان انبيه",
+  "AddressName": "سوق الجمعه\/العمروص"
+ },
+ {
+  "SiteName": "TRI897",
+  "OwnerName": "مفتاح ابوبكر أبو حليقه",
+  "AddressName": "عراده\/بالقرب من جامع عموش"
+ },
+ {
+  "SiteName": "TRI898",
+  "OwnerName": "فيصل على احمد الزروق",
+  "AddressName": "طريق المطار\/الاحياء البريه"
+ },
+ {
+  "SiteName": "TRI899",
+  "OwnerName": "لطيفه محمد شعبان الحافى \/نائبه",
+  "AddressName": "شهداء الشط والنوفليين"
+ },
+ {
+  "SiteName": "TRI900",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI901",
+  "OwnerName": "فتحى حسين عبد الحفيظ خلف الله ",
+  "AddressName": "تاجوراء كوبرى الطاقه"
+ },
+ {
+  "SiteName": "TRI902",
+  "OwnerName": "عبد السلام على سالم الحداد ",
+  "AddressName": "العوانين\/تاجوراء"
+ },
+ {
+  "SiteName": "TRI903",
+  "OwnerName": "سكان عماره بن دخيل ",
+  "AddressName": "حى دمشق\/بجوار قصور الضيافه"
+ },
+ {
+  "SiteName": "TRI904",
+  "OwnerName": "حسام البشير محمد بلعيد",
+  "AddressName": "الظهره"
+ },
+ {
+  "SiteName": "TRI905",
+  "OwnerName": "محمود سالم عمار محمد ",
+  "AddressName": "عين زاره الجنوبى"
+ },
+ {
+  "SiteName": "TRI907",
+  "OwnerName": "مصطفى فرج سليمان التائب ",
+  "AddressName": "خله الفرجان\/بالقرب من معسكر اليرموك "
+ },
+ {
+  "SiteName": "TRI908",
+  "OwnerName": "حمزه عطيه رمضان الوليد ",
+  "AddressName": "صلاح الدين\/خله الفرجان "
+ },
+ {
+  "SiteName": "TRI909",
+  "OwnerName": "عبد السلام ومفتاح صالح  وريث",
+  "AddressName": "عين زاره \/الحى الدبلوماسي "
+ },
+ {
+  "SiteName": "TRI910",
+  "OwnerName": "امنه اعمار امحمد ضو ",
+  "AddressName": "عين زاره\/الباعيش بالقرب من جامع حمزه "
+ },
+ {
+  "SiteName": "TRI912",
+  "OwnerName": "أبو القاسم الهادى العربى ",
+  "AddressName": "عين زاره الجنوبى \/محله فطره"
+ },
+ {
+  "SiteName": "TRI913",
+  "OwnerName": "محمد مبروك مسعود العالم ",
+  "AddressName": "عين زاره \/الكهرباء"
+ },
+ {
+  "SiteName": "TRI914",
+  "OwnerName": "على محمد الفرجانى ",
+  "AddressName": "عين زاره الكحيلى "
+ },
+ {
+  "SiteName": "TRI916",
+  "OwnerName": "منصور محمد منصور الديب ",
+  "AddressName": "عين زاره الجنوبى\/بجانب مسجد الشهيد"
+ },
+ {
+  "SiteName": "TRI917",
+  "OwnerName": "مصطفى سالم البشير عامر",
+  "AddressName": "قصر خيار\/الرصيفه\/منطقه سيدى عمير"
+ },
+ {
+  "SiteName": "TRI918",
+  "OwnerName": "المهدى امحمد عبد الله الكوحه",
+  "AddressName": "الخمس\/غنيمه\/أولاد مرابط"
+ },
+ {
+  "SiteName": "TRI919",
+  "OwnerName": "شركه جرمه لاعمال التوكيلات الملاحيه والشحن والتفريغ ",
+  "AddressName": "زاويه الدهمانى"
+ },
+ {
+  "SiteName": "TRI922",
+  "OwnerName": "شركه النجمه البيضاء للمقاولات والاستثمار العقارى ",
+  "AddressName": "حى الاندلس"
+ },
+ {
+  "SiteName": "TRI923",
+  "OwnerName": "ناصر محمد مفتاح الشبه",
+  "AddressName": "أبو سليم \/حى الانتصار"
+ },
+ {
+  "SiteName": "TRI924",
+  "OwnerName": "عبد الله مختار صالحين الزطرينى ",
+  "AddressName": "تاجوراء\/بالقرب من الاربعه شوارع الكهرباء"
+ },
+ {
+  "SiteName": "TRI925",
+  "OwnerName": "رمضان على محمد الكموشى",
+  "AddressName": "تاجوراء بئر الاسطى ميلاد"
+ },
+ {
+  "SiteName": "TRI926",
+  "OwnerName": "مصطفى محمد غيث",
+  "AddressName": "جنزور بالقرب من جامع جعفر بن ابى طالب"
+ },
+ {
+  "SiteName": "TRI930",
+  "OwnerName": "المختار الطاهر المختار الغول",
+  "AddressName": "عين زاره\/ السبعه"
+ },
+ {
+  "SiteName": "TRI931",
+  "OwnerName": "مدرسه جوهره طرابلس للتعليم الاساسى",
+  "AddressName": "الهضبه الشرقيه"
+ },
+ {
+  "SiteName": "TRI932",
+  "OwnerName": "ورثه\/محمد فوزى امحمد الليتيم",
+  "AddressName": "حى الاندلس"
+ },
+ {
+  "SiteName": "TRI933",
+  "OwnerName": "ورثه \/مصطفى بشير زقلام ",
+  "AddressName": "باب بن غشير \/حى المجاهدين "
+ },
+ {
+  "SiteName": "TRI934",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI935",
+  "OwnerName": "هيثم سالم على الميشو",
+  "AddressName": "سوق الجمعه\/الحارات "
+ },
+ {
+  "SiteName": "TRI937",
+  "OwnerName": "الهادى بشير حرب",
+  "AddressName": "عين زاره \/الباعيش"
+ },
+ {
+  "SiteName": "TRI939",
+  "OwnerName": "فؤاد محمد الخمرى",
+  "AddressName": "مسلاته\/السوق"
+ },
+ {
+  "SiteName": "TRI940",
+  "OwnerName": "محمود مصطفى احمد الزليطنى ",
+  "AddressName": "طريق المطار\/خلف خزانات النفط"
+ },
+ {
+  "SiteName": "TRI942",
+  "OwnerName": "مصطفى عبد السلام محمد انديشه",
+  "AddressName": "طرابلس\/عين زاره"
+ },
+ {
+  "SiteName": "TRI943",
+  "OwnerName": "حاتم محمد أبو زويته\/نائب",
+  "AddressName": "عين زاره بالقرب من الاربعه شوارع زويته"
+ },
+ {
+  "SiteName": "TRI946",
+  "OwnerName": "طهيره إبراهيم قرجى",
+  "AddressName": "بن عاشور الجرابه"
+ },
+ {
+  "SiteName": "TRI947",
+  "OwnerName": "نجيب الصادق عبد الله الدرباق ",
+  "AddressName": "طرابلس\/فشلوم"
+ },
+ {
+  "SiteName": "TRI948",
+  "OwnerName": "صالح محمد عبد الحميد القمودى ",
+  "AddressName": "تاجوراء"
+ },
+ {
+  "SiteName": "TRI950",
+  "OwnerName": "مصلحه أملاك الدوله ",
+  "AddressName": "طرابلس\/ميدان الجزائر "
+ },
+ {
+  "SiteName": "TRI952",
+  "OwnerName": "اشرف ابوبكر محمود باشاغا ",
+  "AddressName": "جنزور الشرقيه"
+ },
+ {
+  "SiteName": "TRI953",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI954",
+  "OwnerName": "محمد المزوغى إبراهيم محمد المعمرى",
+  "AddressName": "تاجوراء\/الوادى الغربى"
+ },
+ {
+  "SiteName": "TRI955",
+  "OwnerName": "عماره الاستقلال رقم(1) بسوق التلاثاء الجنوبى",
+  "AddressName": "طرابلس\/عمر المختار"
+ },
+ {
+  "SiteName": "TRI956",
+  "OwnerName": "رجب ابوبكر صالح المدنينى",
+  "AddressName": "السراج\/محله الكرامه"
+ },
+ {
+  "SiteName": "TRI957",
+  "OwnerName": "عبد السلام محمد على فرنانه",
+  "AddressName": "جنزور\/السراج"
+ },
+ {
+  "SiteName": "TRI958",
+  "OwnerName": "عبد المنعم عبد الرزاق محمد ريحان",
+  "AddressName": "شارع الجمهوريه\/خلف مبنى الرقابه"
+ },
+ {
+  "SiteName": "TRI960",
+  "OwnerName": "صالحه رمضان عبد الله تنتوش",
+  "AddressName": "منطقه النجيله الغربيه"
+ },
+ {
+  "SiteName": "TRI961",
+  "OwnerName": "عبد الله الحرارى احمد",
+  "AddressName": "طرابلس\/الحشان بالقرب من اربعه شوارع المخازن"
+ },
+ {
+  "SiteName": "TRI962",
+  "OwnerName": "سالم المبروك صالح الرابطى",
+  "AddressName": "عين زاره \/بعد صاله الهناءللمناسبات"
+ },
+ {
+  "SiteName": "TRI963",
+  "OwnerName": "أبو شيبه اعمورى أبو شينه الشائبى",
+  "AddressName": "طرابلس\/قريه صالح"
+ },
+ {
+  "SiteName": "TRI964",
+  "OwnerName": "عبد الله سالم العبيدى",
+  "AddressName": "طرابلس\/ابوسليم"
+ },
+ {
+  "SiteName": "TRI966",
+  "OwnerName": "اسامه أبو عجيله محمد ابريك",
+  "AddressName": "السوانى\/بالقرب من جامع خله السعادى"
+ },
+ {
+  "SiteName": "TRI968",
+  "OwnerName": "وليد عبد الجليل محمود فتروش",
+  "AddressName": "جنزور\/طريق انجيله "
+ },
+ {
+  "SiteName": "TRI969",
+  "OwnerName": "ناصر على احمد أبو غمجه ",
+  "AddressName": "قصر بن غشير\/محله المطار"
+ },
+ {
+  "SiteName": "TRI970",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI971",
+  "OwnerName": "احمد على معمر اللطيف",
+  "AddressName": "جنزور\/صياد\/بالقرب من مسجد أبو بكر الصديق"
+ },
+ {
+  "SiteName": "TRI972",
+  "OwnerName": "ناجى ميلاد حسين الصغير",
+  "AddressName": "طرابلس\/مشروع الهضبه"
+ },
+ {
+  "SiteName": "TRI974",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI975",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI976",
+  "OwnerName": "رمضان محمد عبد السلام الترهونى",
+  "AddressName": "المنصوره\/بالقرب من مصرف الأمان"
+ },
+ {
+  "SiteName": "TRI990",
+  "OwnerName": "سعيد يوسف سليمان أيوب",
+  "AddressName": "طرابلس\/غوط الشعال\/بالقرب من مصحه دار الشفاء"
+ },
+ {
+  "SiteName": "TRI991",
+  "OwnerName": "إبراهيم على سعد سليمان \/نائب",
+  "AddressName": "طرابلس\/السراج الشرقيه"
+ },
+ {
+  "SiteName": "TRI992",
+  "OwnerName": "عمار صالح دردور",
+  "AddressName": "قرقارش\/قرب مدرسه قرقارش المركزيه"
+ },
+ {
+  "SiteName": "TRI993",
+  "OwnerName": "عبد الحكيم  عبد المجيد محمد العائب",
+  "AddressName": "طرابلس\/سيدى خليفه"
+ },
+ {
+  "SiteName": "TRI995",
+  "OwnerName": "باسم محمد نصر الفيرس",
+  "AddressName": "بن عاشور\/خلف شارع الجرابه"
+ },
+ {
+  "SiteName": "TRI997",
+  "OwnerName": "مصلحه أملاك الدوله ",
+  "AddressName": "ابوسليم"
+ },
+ {
+  "SiteName": "TRI998",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI999",
+  "OwnerName": "محمد زهير محمد العافار",
+  "AddressName": "النوفليين\/قرب مدرسه النوفليين"
+ },
+ {
+  "SiteName": "YFNL_R3",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "YFNL_R4",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "YFNL002",
+  "OwnerName": "المركز الصحى شكشوك",
+  "AddressName": "المركز الصحى شكشوك-شعبية يفرن"
+ },
+ {
+  "SiteName": "YFNL009",
+  "OwnerName": "المبروك محمد سليمان وخليفة وإسماعيل محمد سليمان",
+  "AddressName": "المؤتمر الشعبى الاساسى -الزنتان -شعبية يفرن"
+ },
+ {
+  "SiteName": "YFNL010",
+  "OwnerName": "على الكيال احنين العترى",
+  "AddressName": "نالوت-بدر"
+ },
+ {
+  "SiteName": "YFNL013",
+  "OwnerName": "يوسف محمد يوسف التومى ",
+  "AddressName": "الرحيبات-منطقة السلامات "
+ },
+ {
+  "SiteName": "YFNL021",
+  "OwnerName": "مكتب مصلحة الأملاك العامه بشعبية نالوت ",
+  "AddressName": "نالوت"
+ },
+ {
+  "SiteName": "YFNL022",
+  "OwnerName": "صندوق الخدمات بطمزين",
+  "AddressName": "جبل نفوسة-طمزين"
+ },
+ {
+  "SiteName": "YFNL023",
+  "OwnerName": "سالم سعد عيسى ",
+  "AddressName": "الرجبان-"
+ },
+ {
+  "SiteName": "YFNL046",
+  "OwnerName": "على أبو القاسم الجديع",
+  "AddressName": "الزنتان -الخشة"
+ },
+ {
+  "SiteName": "YFRN009",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "YFRN001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "YFRN002",
+  "OwnerName": "المجلس المحلى يفرن ",
+  "AddressName": "يفرن المدينه-يفرن"
+ },
+ {
+  "SiteName": "YFRN003",
+  "OwnerName": "خالد امحمد عيسى ",
+  "AddressName": "محلة القلعة الجديدة "
+ },
+ {
+  "SiteName": "YFRN005",
+  "OwnerName": "مركز الدفاع الشعبى يفرن",
+  "AddressName": "شعبية يفرن"
+ },
+ {
+  "SiteName": "YFRN006",
+  "OwnerName": "عمر محمد مسعود عرقوب",
+  "AddressName": "يفرن- ام الجرسان "
+ },
+ {
+  "SiteName": "YFRN007",
+  "OwnerName": "على امحمد بلقاسم كافو",
+  "AddressName": "يفرن"
+ },
+ {
+  "SiteName": "YFRN008",
+  "OwnerName": "على خليفة محمد جلبان",
+  "AddressName": "محلة الوسط -منطقة الرياينه "
+ },
+ {
+  "SiteName": "YFRN010",
+  "OwnerName": "يونس أبو القاسم محمد",
+  "AddressName": "يفرن"
+ },
+ {
+  "SiteName": "YFRN011",
+  "OwnerName": "ورثه المرحوم\/احمد عبد الله عيسى هرماس ",
+  "AddressName": "شعبية يفرن"
+ },
+ {
+  "SiteName": "YFRN013",
+  "OwnerName": "حسن بلقاسم محمد",
+  "AddressName": "المؤتمر الشعبى الاساسى الرياينه"
+ },
+ {
+  "SiteName": "YFRN014",
+  "OwnerName": "ورثه\/محمد عبد الله الاريقط",
+  "AddressName": "شعبية يفرن"
+ },
+ {
+  "SiteName": "YFRN017",
+  "OwnerName": "عبد الله احمد خليفة المدنى",
+  "AddressName": "الرجبان -قصر الحاج"
+ },
+ {
+  "SiteName": "YFRN019",
+  "OwnerName": "عامر احمد أبو القاسم",
+  "AddressName": "القلعة -بجانب المجلس المحلى القلعة "
+ },
+ {
+  "SiteName": "YFRN021",
+  "OwnerName": "محمد مصباح محمد الشوشين",
+  "AddressName": "يفرن-الجبل الغربى"
+ },
+ {
+  "SiteName": "YFRN022",
+  "OwnerName": "محمد على فرج ",
+  "AddressName": "غريان-محلة غوط الريح"
+ },
+ {
+  "SiteName": "YFRN023",
+  "OwnerName": "أبو القاسم محمد امحمد",
+  "AddressName": "يفرن -الخلائفة"
+ },
+ {
+  "SiteName": "YFRN024",
+  "OwnerName": "محمد امحمد احمد",
+  "AddressName": "شعبية يفرن"
+ },
+ {
+  "SiteName": "YFRN026",
+  "OwnerName": "ورثه\/رجب التومى يوسف محمد",
+  "AddressName": "ككلة -أولاد سعيد "
+ },
+ {
+  "SiteName": "YFRN028",
+  "OwnerName": "خليفة امحمد جلوال",
+  "AddressName": "القلعة-قرب قرية سيلين"
+ },
+ {
+  "SiteName": "YFRN_R2",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ZAW001",
+  "OwnerName": "مدرسه جوددائم للعلوم الهندسيه والطبيه والاقتصاديه",
+  "AddressName": "جوددائم"
+ },
+ {
+  "SiteName": "ZAW002",
+  "OwnerName": "مدرسه الزاويه الجنوبيه بنين للتعليم الاساسى والمتوسط",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW004",
+  "OwnerName": "مدرسه كردمين للتعليم الاساسى ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW005",
+  "OwnerName": "مدرسه الوحده للتعليم المتوسط ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW006",
+  "OwnerName": "مدرسه صرمان التانويه للعلوم الاساسيه",
+  "AddressName": "صرمان"
+ },
+ {
+  "SiteName": "ZAW007",
+  "OwnerName": "المعهد العالى للمهن الشامله \/الزاويه",
+  "AddressName": "الزاويه\/ضى الهلال "
+ },
+ {
+  "SiteName": "ZAW008",
+  "OwnerName": "محمد بشير محمد مصطفى الغدامسى",
+  "AddressName": "الزاويه\/منطقه جوددائم"
+ },
+ {
+  "SiteName": "ZAW009",
+  "OwnerName": "جامعه صبراته",
+  "AddressName": "كليه القانون\/صرمان"
+ },
+ {
+  "SiteName": "ZAW011",
+  "OwnerName": "الشركه الغربيه لاستراد السيارات وقطع الغيار",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW012",
+  "OwnerName": "ورثه\/محمد المشهور الشريف",
+  "AddressName": "أبو غلاشه (سابقا)\/الزاويه"
+ },
+ {
+  "SiteName": "ZAW016",
+  "OwnerName": "مدرسه المنار للتعليم الاساسى",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW017",
+  "OwnerName": "مدرسه عمر بن عبد العزيز للتعليم الاساسى ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW018",
+  "OwnerName": "مدرسه الكتاب الأخضر ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW019",
+  "OwnerName": "مركز المراقبه المرئيه ",
+  "AddressName": "شركه الزاويه لتكرير النفط"
+ },
+ {
+  "SiteName": "ZAW024",
+  "OwnerName": "المعهد العالى للمهن الفندقيه  والسياحيه زواره",
+  "AddressName": "زواره\/طريق سيدى سعيد"
+ },
+ {
+  "SiteName": "ZAW026",
+  "OwnerName": "هيئه السيطره اداره الاستخبارات النقاط الخمس",
+  "AddressName": "الخمس"
+ },
+ {
+  "SiteName": "ZAW027",
+  "OwnerName": "الهادى محمد الشنوك",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW028",
+  "OwnerName": "مدرسه المجاهد عبد الحميد الصغير ",
+  "AddressName": "منطقه ضى الهلال\/الزاويه"
+ },
+ {
+  "SiteName": "ZAW031",
+  "OwnerName": "اداره الاستخبارات العسكريه الغربيه ",
+  "AddressName": "راس اجدير"
+ },
+ {
+  "SiteName": "ZAW034",
+  "OwnerName": "مدرسه عمر بن يحى للتعليم الاساسى ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW036",
+  "OwnerName": "عبد العزيز العربى بعيشو ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW039",
+  "OwnerName": "مدرسه جمال عبد الناصر ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW040",
+  "OwnerName": "مدرسه ضى الهلال للتعليم الاساسى ",
+  "AddressName": "منطقه ضى الهلال "
+ },
+ {
+  "SiteName": "ZAW042",
+  "OwnerName": "مدرسه أسماء بنت ابى بكر الصديق للتعليم الاساسى ",
+  "AddressName": "منطقه شهداء الزاويه\/شعبيه الزاويه"
+ },
+ {
+  "SiteName": "ZAW045",
+  "OwnerName": "مدرسه محمد كامل مصطفى ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW047",
+  "OwnerName": "يجب ذكر المالك ",
+  "AddressName": "الزاويه\/بئر معمر"
+ },
+ {
+  "SiteName": "ZAW051",
+  "OwnerName": "فرج على امساهل",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW052",
+  "OwnerName": "مدرسه السابع من أكتوبر للتعليم الاساسى والمتوسط ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW054",
+  "OwnerName": "مدرسه الكرامه للتعليم الاساسى",
+  "AddressName": "الزاويه\/الحرشه"
+ },
+ {
+  "SiteName": "ZAW055",
+  "OwnerName": "مدرسه الحرشه التخصصيه لعلوم الحياه المشتركه",
+  "AddressName": "الزاويه\/الحرشه"
+ },
+ {
+  "SiteName": "ZAW058",
+  "OwnerName": "أبو القاسم على امحمد المريمى",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW060",
+  "OwnerName": "مصطفى امحمد العائب",
+  "AddressName": "جود دائم"
+ },
+ {
+  "SiteName": "ZAW061",
+  "OwnerName": "ورثه\/احمد عبد الله الشقمان ",
+  "AddressName": "شعبيه الجفاره\/الزهراء الغربيه"
+ },
+ {
+  "SiteName": "ZAW062",
+  "OwnerName": "مولود احمد أبو حربة",
+  "AddressName": "الزاويه\/بالقرب من المركز الصحى بئر معمر"
+ },
+ {
+  "SiteName": "ZAW063",
+  "OwnerName": "عبد المطلب احمد ابوبكر الصالح",
+  "AddressName": "الزاويه\/طريق بن يوسف"
+ },
+ {
+  "SiteName": "ZAW064",
+  "OwnerName": "حسين مولود محمد قريميدة",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW065",
+  "OwnerName": "امحمد سلطان عمار",
+  "AddressName": "محله بئر ترفاس\/شعبيه الزاويه"
+ },
+ {
+  "SiteName": "ZAW066",
+  "OwnerName": "على سالم أبو القاسم جدير",
+  "AddressName": "الزاويه\/بئر ترفاس"
+ },
+ {
+  "SiteName": "ZAW067",
+  "OwnerName": "مدرسه اسامه بن زيد للتعليم الاساسى والمتوسط",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW068",
+  "OwnerName": "البشتى ميلود سالم بشينه",
+  "AddressName": "الزاويه\/بئر ترفاس"
+ },
+ {
+  "SiteName": "ZAW070",
+  "OwnerName": "زاكى محمد حسين خضر ",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW071",
+  "OwnerName": "إبراهيم رمضان الشاوش",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW074",
+  "OwnerName": "ورثه\/ارحومه عبد الله القديرى",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW082",
+  "OwnerName": "ورثه\/أبو القاسم خليفه سالم البوعيشى",
+  "AddressName": "الزاويه\/جوددائم"
+ },
+ {
+  "SiteName": "ZAW085",
+  "OwnerName": "خيرى محمد حسين",
+  "AddressName": "الزاويه\/المعمورة"
+ },
+ {
+  "SiteName": "ZAW088",
+  "OwnerName": "مدرسه ثورة الحجارة",
+  "AddressName": "المؤتمر الشعبى الاساسى الصابريه المركز \/شعبيه الزاويه"
+ },
+ {
+  "SiteName": "ZAW089",
+  "OwnerName": "مدرسه أبو عيسى الشماليه للتعليم الاساسى ",
+  "AddressName": "المؤتمر الشعبى الاساسى ابى عيسى\/شعبيه صبراته صرمان"
+ },
+ {
+  "SiteName": "ZAW090",
+  "OwnerName": "الصغير احمد حسن حمزه",
+  "AddressName": "شارع الضمان\/الزاويه"
+ },
+ {
+  "SiteName": "ZAW091",
+  "OwnerName": "خليفه العربى الزويك",
+  "AddressName": "الزاويه\/الطريق الساحلى "
+ },
+ {
+  "SiteName": "ZAW092",
+  "OwnerName": "عبد الرزاق الفيتورى محمد المقطوف",
+  "AddressName": "الزاويه\/شارع القرضابيه"
+ },
+ {
+  "SiteName": "ZAW093",
+  "OwnerName": "مدرسه الجيل الجديد للتعليم الاساسى",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW094",
+  "OwnerName": "مدرسه الامل الثانويه التخصصيه ",
+  "AddressName": "شارع عمر المختار\/الزاويه"
+ },
+ {
+  "SiteName": "ZAW095",
+  "OwnerName": "عبد الله الطاهر عبد الله البوعيشى",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW096",
+  "OwnerName": "امام الطاهر البشير المودى \/نائب",
+  "AddressName": "منطقه المايا\/جفاره"
+ },
+ {
+  "SiteName": "ZAW097",
+  "OwnerName": "مدرسه المعمورة للتعليم الاساسى",
+  "AddressName": "الزاويه\/المعمورة"
+ },
+ {
+  "SiteName": "ZAW098",
+  "OwnerName": "إسماعيل الهادى كريمه",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW099",
+  "OwnerName": "محمد سالم امحمد حماد",
+  "AddressName": "الزاويه"
+ },
+ {
+  "SiteName": "ZAW100",
+  "OwnerName": "على امحمد أبو صوله",
+  "AddressName": "الزاويه\/أبو عيسى"
+ },
+ {
+  "SiteName": "ZAW101",
+  "OwnerName": "ثانويه الماية للعلوم الاجتماعيه",
+  "AddressName": "المؤتمر الشعبى الاساسى المايه بشعبيه الجفارة"
+ },
+ {
+  "SiteName": "ZAW103",
+  "OwnerName": "ايمن عمر محمد عبد الحفيظ",
+  "AddressName": "الزاويه -الطويبية"
+ },
+ {
+  "SiteName": "ZAW106",
+  "OwnerName": "نادى السكة الحديد الرياضى الثقافي الاجتماعى ",
+  "AddressName": "الخمس"
+ },
+ {
+  "SiteName": "ZAW107",
+  "OwnerName": "ياسين عبد العزيز يعلى سلميان",
+  "AddressName": "زواره-منطقه غوط عامر "
+ },
+ {
+  "SiteName": "ZAW108",
+  "OwnerName": "عبد الرحمان المبروك الفيرو",
+  "AddressName": "المؤتمر الشعبى الاساسى محلة زوارة"
+ },
+ {
+  "SiteName": "ZAW110",
+  "OwnerName": "ثانويه العلوم الاساسيه والفنون والاعلام",
+  "AddressName": "المدينه شعبيه صبراته وصرمان"
+ },
+ {
+  "SiteName": "ZAW111",
+  "OwnerName": "معسكر الوحدة",
+  "AddressName": "شعبيه صرمان وصبراته"
+ },
+ {
+  "SiteName": "ZAW112",
+  "OwnerName": "ورثه أبو القاسم احمد أبو دبوس",
+  "AddressName": "صبراته- محله الدحمان"
+ },
+ {
+  "SiteName": "ZAW113",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ZAW122",
+  "OwnerName": "قناة ليبيا الوطنيه",
+  "AddressName": "زلطن"
+ },
+ {
+  "SiteName": "ZAW123",
+  "OwnerName": "ورثه\/عمر أبو القاسم الشيبانى امبيه",
+  "AddressName": "صبراته منطقه عقار (النهضه)"
+ },
+ {
+  "SiteName": "ZAW124",
+  "OwnerName": "أبو القاسم ضو الشعيبى",
+  "AddressName": "زلطن\/قرب مسجد سعيد الخويلدى"
+ },
+ {
+  "SiteName": "ZAW125",
+  "OwnerName": "عيسى السحوبى غالى دغمان ",
+  "AddressName": "زوارة المدينه "
+ },
+ {
+  "SiteName": "ZAW127",
+  "OwnerName": "على مسعود إبراهيم أبو هميله",
+  "AddressName": "رقدالين\/زواره"
+ },
+ {
+  "SiteName": "ZAW128",
+  "OwnerName": "مولود المقطوف المقروس",
+  "AddressName": "رقدالين- بالقرب من مبنى امانة الخزانه بشعبيه النقاط الخمس"
+ },
+ {
+  "SiteName": "ZAW129",
+  "OwnerName": "خليفه عبد الله مفتاح زروق",
+  "AddressName": "محله رقدالين-مؤتمر رقدالين -السبيخه"
+ },
+ {
+  "SiteName": "ZAW130",
+  "OwnerName": "على مسعود محمد",
+  "AddressName": "رقدالين- بالقرب من المساكن الشعبيه"
+ },
+ {
+  "SiteName": "ZAW131",
+  "OwnerName": "سليمان ابى بكر بن عريبى ",
+  "AddressName": "سيدى سعيد بالقرب من مجمع ابى كماش"
+ },
+ {
+  "SiteName": "ZAW132",
+  "OwnerName": "المبروك سالم السويرح وشركاه",
+  "AddressName": "المؤتمر الشعبى الاساسى العجيلات"
+ },
+ {
+  "SiteName": "ZAW133",
+  "OwnerName": "إبراهيم أبو صبيع عمار حرب ",
+  "AddressName": "رقدالين\/محله حمدون"
+ },
+ {
+  "SiteName": "ZAW134",
+  "OwnerName": "ضوء الهادى ضو",
+  "AddressName": "الجميل-بجانب مسجد الدواوة"
+ },
+ {
+  "SiteName": "ZAW135",
+  "OwnerName": "ورثه بشير على المبروك الطيف",
+  "AddressName": "الجميل-بالقرب من مستوصف الجميل"
+ },
+ {
+  "SiteName": "ZAW138",
+  "OwnerName": "فوزى أبو القاسم أبو حميدة النقاز",
+  "AddressName": "الجميل- محله المنشيه خلف كلية الطب"
+ },
+ {
+  "SiteName": "ZAW139",
+  "OwnerName": "احمد أبو زيد يعلى",
+  "AddressName": "زوارة- المنطقه الجنوبيه-بالقرب من المنطقه الصناعية"
+ },
+ {
+  "SiteName": "ZAW140",
+  "OwnerName": "المركز العالى لتقنيات علوم البحار",
+  "AddressName": "زواره بجوار الطريق الدائرى الخارجي"
+ },
+ {
+  "SiteName": "ZAW141",
+  "OwnerName": "المختار بشير السائح",
+  "AddressName": "الجميل-بئر الحلو-بالقرب من مستوصف بئر الحلو"
+ },
+ {
+  "SiteName": "ZAW142",
+  "OwnerName": "نجيب عبد الله النعال",
+  "AddressName": "بالمنقوب قبل بوابة زوارة ب6 كم بجانب مصنع بلاط النعال"
+ },
+ {
+  "SiteName": "ZAW143",
+  "OwnerName": "امحمد محمد أبو بكر السراط",
+  "AddressName": "العجيلات-الشبيكه"
+ },
+ {
+  "SiteName": "ZAW144",
+  "OwnerName": "عطية عبد السلام احمد غولة",
+  "AddressName": "صرمان-طريق بئر عياد"
+ },
+ {
+  "SiteName": "ZAW145",
+  "OwnerName": "عزيزة مصباح عتيرة",
+  "AddressName": "المؤتمر الاساسى الجديده -العجيلات-بالقرب من مدرسه الحرية"
+ },
+ {
+  "SiteName": "ZAW146",
+  "OwnerName": "محمد مصباح امحمد امطير ",
+  "AddressName": "العجيلات"
+ },
+ {
+  "SiteName": "ZAW147",
+  "OwnerName": "ورثه\/محمد وعلى المختار أبو زيان",
+  "AddressName": "العجيلات-بالقرب من مدرسة فاطمه الزهراء"
+ },
+ {
+  "SiteName": "ZAW149",
+  "OwnerName": "عبد السلام احمد الفرجانى عرفة",
+  "AddressName": "العجيلات-الافران"
+ },
+ {
+  "SiteName": "ZAW150",
+  "OwnerName": "امبارك على سعيد",
+  "AddressName": "العجيلات-بالقرب من مصرف العجيلات الاهلى"
+ },
+ {
+  "SiteName": "ZAW151",
+  "OwnerName": "عباس عبد الحفيظ المقرعن",
+  "AddressName": "العجيلات"
+ },
+ {
+  "SiteName": "ZAW152",
+  "OwnerName": "امحمد عبد السلام سويسى",
+  "AddressName": "صبراته-العلاقه"
+ },
+ {
+  "SiteName": "ZAW153",
+  "OwnerName": "اكرم محمود الوحيشى ",
+  "AddressName": "العجيلات-الحمام الرئيسى"
+ },
+ {
+  "SiteName": "ZAW154",
+  "OwnerName": "يوسف محمد الزهانى ابوبكر",
+  "AddressName": "صبراته-تليل"
+ },
+ {
+  "SiteName": "ZAW155",
+  "OwnerName": "احمد شعيب اللويص",
+  "AddressName": "العجيلات-محلة الهنشير قرب مدرسه الانتصار"
+ },
+ {
+  "SiteName": "ZAW156",
+  "OwnerName": "أبناء زواغه - ",
+  "AddressName": "صبراته-الزواغه -بالقرب من مستوصف زواغه "
+ },
+ {
+  "SiteName": "ZAW157",
+  "OwnerName": "خليفه على خليفه الرقيعى",
+  "AddressName": "صرمان -العلالقه بالقرب من مدرسه صقور الفاتح"
+ },
+ {
+  "SiteName": "ZAW158",
+  "OwnerName": "ورثه الطاهر المبروك كريديغ",
+  "AddressName": "صبراته-سيدى معروف"
+ },
+ {
+  "SiteName": "ZAW159",
+  "OwnerName": "عبد السلام مفتاح الصيد",
+  "AddressName": "صبراته-محلة التليل على الطريق الساحلى"
+ },
+ {
+  "SiteName": "ZAW162",
+  "OwnerName": "امحمد مصطفى ميلاد",
+  "AddressName": "صبراته-بالقرب من مركز الصحى بسوق العلالقه"
+ },
+ {
+  "SiteName": "ZAW163",
+  "OwnerName": "نادى الوفاق الرياضى الثقافي الاجتماعى بصبراته",
+  "AddressName": "صبراته المدينه"
+ },
+ {
+  "SiteName": "ZAW164",
+  "OwnerName": "خليفه البشتى أبو القاسم القمودى ",
+  "AddressName": "صبراته- تقسيم الدباشى بالقرب من محطه البنزين بمدخل صبراته"
+ },
+ {
+  "SiteName": "ZAW165",
+  "OwnerName": "أبو القاسم سالم عبد الله دوة ",
+  "AddressName": "الزاويه\/الترفاس\/طريق بئر الغنم "
+ },
+ {
+  "SiteName": "ZAW166",
+  "OwnerName": "لطفى القارصى محمد عبد الله ",
+  "AddressName": "صبراته -دحمان -بالقرب من مدرسه النصر "
+ },
+ {
+  "SiteName": "ZAW167",
+  "OwnerName": "عبد العزيز سعد محمد اجميع",
+  "AddressName": "صرمان المدينه-محلة ام الحشان -بجوار مدرسة النجم الساطع للعلوم الأساسية"
+ },
+ {
+  "SiteName": "ZAW170",
+  "OwnerName": "أبو  عجيلة عبد اللطيف امبيرش",
+  "AddressName": "صرمان المدينه\/محلة ابى الريش\/بجانب مسجد أبو بكر الصديق"
+ },
+ {
+  "SiteName": "ZAW171",
+  "OwnerName": "فرحات عمار الحردودى",
+  "AddressName": "صرمان المدينه\/بالقرب من مدرسة موسى بن نصير"
+ },
+ {
+  "SiteName": "ZAW173",
+  "OwnerName": "مكتب الرياضه ببلدية صرمان ",
+  "AddressName": "صرمان-خلف مستشفى صرمان"
+ },
+ {
+  "SiteName": "ZAW174",
+  "OwnerName": "عبد الله رحومه سعيد",
+  "AddressName": "صرمان المدينه-محلة سيدى مخلوف"
+ },
+ {
+  "SiteName": "ZAW176",
+  "OwnerName": "مبروكه مسعود الحسومى",
+  "AddressName": "صرمان منطقه العواشقبالقرب من مستشفى صرمان"
+ },
+ {
+  "SiteName": "ZAW177",
+  "OwnerName": "العارف الشيبانى إبراهيم",
+  "AddressName": "مؤتمر أبو عيسى -محلة الخضراء- الزاوية "
+ },
+ {
+  "SiteName": "ZAW178",
+  "OwnerName": "على البشير منصور على ",
+  "AddressName": "الزاوية-أبو عيسى -بالقرب من مدرسة القادسية "
+ },
+ {
+  "SiteName": "ZAW179",
+  "OwnerName": "احمد محمد سلامة امحمد ",
+  "AddressName": "أبو عيسى -صرمان "
+ },
+ {
+  "SiteName": "ZAW180",
+  "OwnerName": "عبد السلام على الزوالى ",
+  "AddressName": "أبو عيسى -صرمان "
+ },
+ {
+  "SiteName": "ZAW182",
+  "OwnerName": "أبو عجيلة مصباح الصغير ",
+  "AddressName": "الجميل طرق الوطية"
+ },
+ {
+  "SiteName": "ZAW183",
+  "OwnerName": "ورثه\/الفيتورى سالم المبروك بلاعو",
+  "AddressName": "صبراته-الطويلة"
+ },
+ {
+  "SiteName": "ZAW188",
+  "OwnerName": "فتحى مسعود التومى الربعى",
+  "AddressName": "رقدالين\/طريق العسة كم 9 التومى عون"
+ },
+ {
+  "SiteName": "ZAW192",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ZAW193",
+  "OwnerName": "صندوق الزاد لحمة أولاد أبو زيد",
+  "AddressName": "العجيلات\/بالقرب من مدرسه السلام للتعليم الاساسى"
+ },
+ {
+  "SiteName": "ZAW194",
+  "OwnerName": "سليمان أبو بكر بن عريبى",
+  "AddressName": "زوارة\/طريق سيدى سعيد\/بالقرب من مصنع أبو كماش"
+ },
+ {
+  "SiteName": "ZAW195",
+  "OwnerName": "الكونى عمر فرج",
+  "AddressName": "الهيبيليه\/قصر الوطية وبدر\/بجوار مسجد ومدرسة الهيبيلية"
+ },
+ {
+  "SiteName": "ZAW196",
+  "OwnerName": "احمد عمر محمد نينى",
+  "AddressName": "الطريق الساحلى \/زلطن"
+ },
+ {
+  "SiteName": "ZAW200",
+  "OwnerName": "مصطفى الطاهر امبيرش",
+  "AddressName": "المؤتمر الشعبى صرمان الجنوبى \/طريق بئر عياد "
+ },
+ {
+  "SiteName": "ZAW202",
+  "OwnerName": "على امبية الشعبانى ",
+  "AddressName": "الجميل "
+ },
+ {
+  "SiteName": "ZAW204",
+  "OwnerName": "نصر عبد الله الشعيبى ",
+  "AddressName": "الجميل\/أبو عرادة"
+ },
+ {
+  "SiteName": "ZAW205",
+  "OwnerName": "خليفه نصر بلاعو",
+  "AddressName": "اللجنه الشعبيه للمؤتمر الشعبى الاساسى رقدالين"
+ },
+ {
+  "SiteName": "ZAW206",
+  "OwnerName": "محمد مسعود محمد صكرمة ",
+  "AddressName": "زلطن\/طويلة الغزاله"
+ },
+ {
+  "SiteName": "ZAW207",
+  "OwnerName": "رمضان على صوان",
+  "AddressName": "زوارة\/تجميع ابى كماش"
+ },
+ {
+  "SiteName": "ZAW210",
+  "OwnerName": "مفتاح صالح أبو عجيله زغيب",
+  "AddressName": "الكوارية بالعجيلات"
+ },
+ {
+  "SiteName": "ZAW211",
+  "OwnerName": "موسى عبد العزيز محمد الخويلدى",
+  "AddressName": "العجيلات\/محلة غوط الروضه"
+ },
+ {
+  "SiteName": "ZAW212",
+  "OwnerName": "ارحومه المبروك المشرقى",
+  "AddressName": "العجيلات-محلة الجنانات -طريق مشروع الحبوب "
+ },
+ {
+  "SiteName": "ZAW213",
+  "OwnerName": "ايمن عبد السلام عبد المولى ",
+  "AddressName": "الحرشة-صرمان"
+ },
+ {
+  "SiteName": "ZAW216",
+  "OwnerName": "مركب تليل السياحى",
+  "AddressName": "تليل صبراته     "
+ },
+ {
+  "SiteName": "ZAW219",
+  "OwnerName": "سعد عبد النبى إسماعيل",
+  "AddressName": "شعبيه الجفارة-الماية-بجوار مصرف الصحارى فرع المايه"
+ },
+ {
+  "SiteName": "ZAW221",
+  "OwnerName": "محمد ارحومه الصويعى",
+  "AddressName": "المؤتمر الشعبى الاساسى صرمان المدينه-شعبيه الزاويه"
+ },
+ {
+  "SiteName": "ZAW223",
+  "OwnerName": "الحركه العامه للكشافه والمرشدات",
+  "AddressName": "الزاويه- غابه جوددائم"
+ },
+ {
+  "SiteName": "ZAW224",
+  "OwnerName": "محمد الطاهر محمد الشيخ",
+  "AddressName": "شعبيه الجفاره- المعمورة"
+ },
+ {
+  "SiteName": "ZAW225",
+  "OwnerName": "على المختار محمد الدعوكى",
+  "AddressName": "الزاويه-المايه بجوار المجمع الصحى"
+ },
+ {
+  "SiteName": "ZAW226",
+  "OwnerName": "احمد وعامر محمد القلفاط",
+  "AddressName": "الزاويه-شارع عمر المختار -بالقرب من مقهى الريحان "
+ },
+ {
+  "SiteName": "ZAW227",
+  "OwnerName": "محمد حسن الرميح",
+  "AddressName": "الزاويه-شارع جمال عبد الناصر -بالقرب من مدرسة محمد الزهيوى"
+ },
+ {
+  "SiteName": "ZAW228",
+  "OwnerName": "على رمضان على البشتى ",
+  "AddressName": "محله الولانى شارع النهضه بالقرب من المدرسه المركزيه بشعبيه الزاويه"
+ },
+ {
+  "SiteName": "ZAW229",
+  "OwnerName": "سالم رحومة مسعود قدارة",
+  "AddressName": "الزاويه-محلة الحاج عبيد -بالقرب من مسجد الصحابة"
+ },
+ {
+  "SiteName": "ZAW230",
+  "OwnerName": "امحمد محمد على مهارة",
+  "AddressName": "الزاويه-الطريق الساحلى -بالقرب من مدرسه حى الوحده"
+ },
+ {
+  "SiteName": "ZAW231",
+  "OwnerName": "عبد الكريم احمد مفتاح",
+  "AddressName": "زلطن"
+ },
+ {
+  "SiteName": "ZAW232",
+  "OwnerName": "عياد محمد أبو عجيله بريم",
+  "AddressName": "الزهراء-الفليجات-بالقرب من مدرسه من مدرسه صلاح الدين"
+ },
+ {
+  "SiteName": "ZAW233",
+  "OwnerName": "سليمان الهادى اسويسى الشارف",
+  "AddressName": "صبراته-تليل-مقابل مستشفى صبراته التعليمى وبالقرب من كليه الهندسه"
+ },
+ {
+  "SiteName": "ZAW234",
+  "OwnerName": "عبد الحكيم على محمد الكيش",
+  "AddressName": "العوانين\/تاجوراء"
+ },
+ {
+  "SiteName": "ZAW235",
+  "OwnerName": "نجم الدين على معتوق",
+  "AddressName": "العجيلات-جنان عطية-بالقرب من مسجد سيدى احمد"
+ },
+ {
+  "SiteName": "ZAW236",
+  "OwnerName": "محمد عيسى رمضان المجذوب",
+  "AddressName": "صبراته-راس الديوان بالقرب من مسجد راس الديوان"
+ },
+ {
+  "SiteName": "ZAW237",
+  "OwnerName": "على الصويعى محمد الدباشى ",
+  "AddressName": "صبراته-محلة سوق العلالقه -بالقرب من مدرسه وجده"
+ },
+ {
+  "SiteName": "ZAW238",
+  "OwnerName": "عبد الله مفتاح رحومة الناجح ",
+  "AddressName": "صبراته-محلة سيدى معروف -بالقرب من مدرسه الخطاطبة الثانوية"
+ },
+ {
+  "SiteName": "ZAW239",
+  "OwnerName": "على زائد على زائد",
+  "AddressName": "الزاوية- الصابريه -"
+ },
+ {
+  "SiteName": "ZAW240",
+  "OwnerName": "على سويسى امحمد",
+  "AddressName": "الزاويه- ابى عيسى -بالقرب من مدرسة القطوس للبنات"
+ },
+ {
+  "SiteName": "ZAW241",
+  "OwnerName": "عمران محمد صالح المبروك",
+  "AddressName": "صرمان- محلة العطاف- بالقرب من مركز الرعاية الصحيه"
+ },
+ {
+  "SiteName": "ZAW242",
+  "OwnerName": "مسعود سعد معتوق",
+  "AddressName": "صرمان-طريق المستشفى بالقرب من معهد الكهرباء"
+ },
+ {
+  "SiteName": "ZAW243",
+  "OwnerName": "أبو عجيله الهادى بيترو",
+  "AddressName": "صرمان-أبو عيسى -"
+ },
+ {
+  "SiteName": "ZAW244",
+  "OwnerName": "عبد الله المختار عبد الله",
+  "AddressName": "صرمان-محلة سيدى زكرى -"
+ },
+ {
+  "SiteName": "ZAW245",
+  "OwnerName": "محمد امحمد النويرى ",
+  "AddressName": "صبراته\/محلة سيدى معروف -بالقرب من مسجد طيبة"
+ },
+ {
+  "SiteName": "ZAW246",
+  "OwnerName": "محمد الغالى الطويبى ",
+  "AddressName": "زوارة-قصور الشعيب-"
+ },
+ {
+  "SiteName": "ZAW248",
+  "OwnerName": "سالم خليفه قعوه",
+  "AddressName": "الجميل أبو عرادة-بالقرب من مدرسة 28 مارس الابتدائيه"
+ },
+ {
+  "SiteName": "ZAW250",
+  "OwnerName": "اللجنه الشعبيه للزراعه والثروة الحيوانيه والبحريه ",
+  "AddressName": "العجيلات-المؤتمر الشعبى جنان عطية"
+ },
+ {
+  "SiteName": "ZAW251",
+  "OwnerName": "سعيد أبو عجيله شلغم",
+  "AddressName": "زوارة-محله الجنوبيه"
+ },
+ {
+  "SiteName": "ZAW252",
+  "OwnerName": "حسن على محمد الشعبانى",
+  "AddressName": "الجميل-مقابل مساكن مستشفى الجميل"
+ },
+ {
+  "SiteName": "ZAW253",
+  "OwnerName": "على سالم  عبد العزيز التائب",
+  "AddressName": "الجميل-بئر الحلو"
+ },
+ {
+  "SiteName": "ZAW254",
+  "OwnerName": "ورثه\/مصباح محمد حمس",
+  "AddressName": "العجيلات الجديده-قرب من الجمعيه الزراعيه"
+ },
+ {
+  "SiteName": "ZAW255",
+  "OwnerName": "الصادق سليم زايد النعال ",
+  "AddressName": "زوارة-محلة العطاطشة."
+ },
+ {
+  "SiteName": "ZAW256",
+  "OwnerName": "سالم امحمد الموسى ",
+  "AddressName": "رقدالين-بالقرب من مركز الشرطه رقدالين"
+ },
+ {
+  "SiteName": "ZAW257",
+  "OwnerName": "مصطفى عريبى أبو الشواشى",
+  "AddressName": "رقدالين-منطقه سيدى ميلاد-بالقرب من ضريح سيدى ميلاد"
+ },
+ {
+  "SiteName": "ZAW258",
+  "OwnerName": "المبروك نصر الشحومى",
+  "AddressName": "الجميل-أبو طينة-بالقرب من مسجد حمزة بن عبد المطلب"
+ },
+ {
+  "SiteName": "ZAW260",
+  "OwnerName": "محمد عبد السلام عبد الملك",
+  "AddressName": "صبراته-النهضه -محلة سيدى معروف-"
+ },
+ {
+  "SiteName": "ZAW261",
+  "OwnerName": "عبد الواحد سالم مسعود بارود",
+  "AddressName": "العوانين-تاجوراء"
+ },
+ {
+  "SiteName": "ZAW264",
+  "OwnerName": "ورثه\/احمد أبو عجيله اوشاح",
+  "AddressName": "صبراته-طريق الشط تليل"
+ },
+ {
+  "SiteName": "ZAW265",
+  "OwnerName": "ناصر المهدى التومى",
+  "AddressName": "الزهراء-المعمورة-بالقرب من مدرسة المعمورة"
+ },
+ {
+  "SiteName": "ZAW266",
+  "OwnerName": "الطاهر محمد أبو عزة ",
+  "AddressName": "المايه بالقرب من مصنع الالكترونات"
+ },
+ {
+  "SiteName": "ZAW268",
+  "OwnerName": "فرج ساسى مصباح الحاج",
+  "AddressName": "العجيلات-الغالميه بالقرب من مدرسة التحدى "
+ },
+ {
+  "SiteName": "ZAW269",
+  "OwnerName": "محمد صكوح محمد الصكوح",
+  "AddressName": "العجيلات-خلف مستوصف سونية"
+ },
+ {
+  "SiteName": "ZAW270",
+  "OwnerName": "محمد عمار أبو القاسم الحشانى ",
+  "AddressName": "العجيلات-بن عمير بالقرب من جامع المجدوب "
+ },
+ {
+  "SiteName": "ZAW271",
+  "OwnerName": "على معتوق الو لوال ",
+  "AddressName": "العجيلات-منطقه الجديده نادى المطمر "
+ },
+ {
+  "SiteName": "ZAW272",
+  "OwnerName": "محمد محمد جاب الله الحداد",
+  "AddressName": "الزاوية-أبو عيسى      "
+ },
+ {
+  "SiteName": "ZAW273",
+  "OwnerName": "مصباح احمد إبراهيم الولوال ",
+  "AddressName": "العجيلات الجديده-بجانب مصرف الجمهورية"
+ },
+ {
+  "SiteName": "ZAW274",
+  "OwnerName": "أبو عجيله رمضان محمد التارقى وتركيه على التارقى",
+  "AddressName": "الزاوية-جودائم-بالقرب من مدرسه جوددائم الغربيه"
+ },
+ {
+  "SiteName": "ZAW275",
+  "OwnerName": "خليفه أبو القاسم العكشى",
+  "AddressName": "الزاوية مؤتمر أبو صره بالقرب من مسجد أبو صره"
+ },
+ {
+  "SiteName": "ZAW276",
+  "OwnerName": "سعيد عبد السلام محمد الدريبى ",
+  "AddressName": "العجيلات- محلة الجانات -طريق مشروع الابقار "
+ },
+ {
+  "SiteName": "ZAW278",
+  "OwnerName": "ورثه\/مولود احمد عمر أبو شلاكه ",
+  "AddressName": "الجميل- المنشيه الشرقيه بجوار مدرسة عمر بن الخطاب "
+ },
+ {
+  "SiteName": "ZAW279",
+  "OwnerName": "ورثه \/سعيد احمد سعيد القمى ",
+  "AddressName": "الزاوية- الحرشة- بالقرب من مدرسه الانوار الإعدادية"
+ },
+ {
+  "SiteName": "ZAW280",
+  "OwnerName": "ورثه\/خلف الله احمد سعد المرابط",
+  "AddressName": "الجبل -محلة ام عزيز بالقرب من مدرسة النهر الصناعى "
+ },
+ {
+  "SiteName": "ZAW282",
+  "OwnerName": "علم لاج مرزوق امحمد",
+  "AddressName": "العجيلات-بو سعد-بالقرب من مدرسة التعاون"
+ },
+ {
+  "SiteName": "ZAW283",
+  "OwnerName": "عياد على الشطى امليش",
+  "AddressName": "الزاوية-منطقه بئر بن حسن -بالقرب من مدرسه قرطبه"
+ },
+ {
+  "SiteName": "ZAW284",
+  "OwnerName": "ورثه-ميلود سالم عقارب",
+  "AddressName": "رقدالين-أبو ترفاس"
+ },
+ {
+  "SiteName": "ZAW285",
+  "OwnerName": "ورثه\/فرج عبد الله الحمرونى",
+  "AddressName": "الجميل-منطقة حمده بجوار مدرسة ابى در الغفارى"
+ },
+ {
+  "SiteName": "ZAW286",
+  "OwnerName": "ارحومة سالم ميلاد",
+  "AddressName": "الزاوية-مؤتمر الحرشة الجنوبى منطقة بئر الرتم"
+ },
+ {
+  "SiteName": "ZAW289",
+  "OwnerName": "البشير على محمد الشلفوح",
+  "AddressName": "الزاوية\/الصابرية المركز"
+ },
+ {
+  "SiteName": "ZAW290",
+  "OwnerName": "خالد  المبروك ضو القادرى",
+  "AddressName": "الجميل المركز-بجانب بريد الجميل"
+ },
+ {
+  "SiteName": "ZAW291",
+  "OwnerName": "ورثه\/احمد محمد بلقاسم السفح",
+  "AddressName": "الزاوية-بالقرب من مسجد الحضارة"
+ },
+ {
+  "SiteName": "ZAW292",
+  "OwnerName": "محمد وامحمد رحومة امحمد حماد",
+  "AddressName": "الزاوية-المطرد"
+ },
+ {
+  "SiteName": "ZAW295",
+  "OwnerName": "حليمة محمد بلقاسم الجدى",
+  "AddressName": "صرمان-محلة مخلوف بالقرب من بئر الاحرار"
+ },
+ {
+  "SiteName": "ZAW298",
+  "OwnerName": "المختار حسين على الغدامسى",
+  "AddressName": "الزاوية-بالقرب من مدرسة الزاوية الجنوبية للبنات"
+ },
+ {
+  "SiteName": "ZAW352",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ZNTN005",
+  "OwnerName": "مطار الزنتان الدولى ",
+  "AddressName": "الزنتان- مطار الزنتان "
+ },
+ {
+  "SiteName": "ZNTN006",
+  "OwnerName": "بلدية الزنتان",
+  "AddressName": "الزنتان -بالقرب من مستشفى الحوادث الزنتان "
+ },
+ {
+  "SiteName": "ZNTN007",
+  "OwnerName": "خليفه سعد خليفه اكريميد",
+  "AddressName": "الزنتان -منطقة بخريت"
+ },
+ {
+  "SiteName": "AMRA001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ANWA001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "AWBR009",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "BDAN001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "BRYQ006",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GAR002",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "GBEB001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "JAMH003",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TNRD001",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI463",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "TRI566",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "YFNL004",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ },
+ {
+  "SiteName": "ZAW300",
+  "OwnerName": "#N\/A",
+  "AddressName": "#N\/A"
+ }
+]

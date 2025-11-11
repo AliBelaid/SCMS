@@ -1,0 +1,3242 @@
+[
+ {
+  "Code": "ACTH",
+  "Name": "Adrenocorticotropic Hormone ACTH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PT",
+  "Name": "Prothrombin Time",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "APTT",
+  "Name": "Activated Partial Thromboplastin Time APTT",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "WIDAL",
+  "Name": "Widal Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CBC",
+  "Name": "Complete Blood Count CBC",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CBC\/DLC",
+  "Name": "Complete Blood Count CBC& Differential Leukocyte Count",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AFP",
+  "Name": "Alpha-Fetoprotein Total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALB",
+  "Name": "Albumin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALK\/ALP",
+  "Name": "Alkaline phosphatasesALP",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALT\/GPT",
+  "Name": "Alanine Aminotransferrase ALT",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AMA",
+  "Name": "Anti Mitochondrial Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AMY",
+  "Name": "Serum Amylase",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U.AMY",
+  "Name": "Amylase Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANCAC",
+  "Name": "Anti-Neutrophil Cytoplasmic Ab MPO ANCAc",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANCAP",
+  "Name": "Antiproteinase Ab PR3 ANCAp",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CEN",
+  "Name": "Anti-Centromer Antibodies",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACLA\/G",
+  "Name": "Anti-Cardiolipin IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACLA\/M",
+  "Name": "Anti-Cardiolipin IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACCP",
+  "Name": "Cyclic Citrullinated Peptide CCP Antibody",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AG\/A",
+  "Name": "Anti-Gliadin IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AG\/G",
+  "Name": "Anti-Gliadin IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AJO",
+  "Name": "Anti-JO-1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AMH",
+  "Name": "Anti-Mullerian Hormone AMH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ARNP",
+  "Name": "Anti-U1 RNP Ab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SCL70",
+  "Name": "Anti SCL-70",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASMA",
+  "Name": "Anti Smooth Muscle Antibody",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASSB",
+  "Name": "ANTI- LA SS-B Ab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASSA",
+  "Name": "Anti-Ro SS-A Ab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DSDNA\/G",
+  "Name": "Anti-double Stranded DNA dsDNA IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AEA\/A",
+  "Name": "Anti-Endomysial IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALKM1",
+  "Name": "Anti-Liver Kidney Microsomal Type 1 Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANA",
+  "Name": "Anti Nuclear Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASO",
+  "Name": "Antistreptolysin O Antibodies Titer ASOT",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AST\/GOT",
+  "Name": "Aspartate Aminotransferase AST",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DBILI",
+  "Name": "Bilirubin Direct",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TBILI",
+  "Name": "Bilirubin Total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BT",
+  "Name": "Bleeding Time",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA125",
+  "Name": "Cancer Antigen CA 125",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA15-3",
+  "Name": "Cancer Antigen CA 15-3",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA19-9",
+  "Name": "Cancer Antigen CA 19-9",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA",
+  "Name": "Serum Calcuim",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "S\/CALB",
+  "Name": "Stool Calprotectin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CAR\/TEG",
+  "Name": "Carbamazepine Tegretol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CEA",
+  "Name": "Carcinoembryonic Antigen CEA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CERU",
+  "Name": "Ceruloplasmin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CHOL",
+  "Name": "Cholestrol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SEM C\/S",
+  "Name": "Semen Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CKMB",
+  "Name": "Creatine Phosphokinase Kinase-MB",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CPK",
+  "Name": "Serum Creatine Phosphokinase  CPK",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CMV\/G",
+  "Name": "Cytomegalovirus CMV Antibodies IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CMV\/M",
+  "Name": "Cytomegalovirus CMV Antibodies IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C3",
+  "Name": "Complement C3",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C4",
+  "Name": "Complement C4",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DCT",
+  "Name": "Coombs Test Direct",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "INDCT",
+  "Name": "Coombs Test Indirect",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CORT\/AM",
+  "Name": "Cortisol  AM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CORT\/PM",
+  "Name": "Cortisol PM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CRP",
+  "Name": "C-reactive Protein",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CRE",
+  "Name": "Serum Creatinine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PUS C\/S",
+  "Name": "Pus Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DD",
+  "Name": "D-Dimer",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ESR1",
+  "Name": "Erythrocyte Sedimentation Rate After 1hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "E2",
+  "Name": "Estradiol E2",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FER",
+  "Name": "Serum Ferritin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FIB",
+  "Name": "Fibrinogen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "GGT",
+  "Name": "Gamma-Glutamyl TranspeptidaseGGT",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FBS",
+  "Name": "Glucose Fasting",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HAV\/M",
+  "Name": "Viral Hepatitis A Abs IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "A1C",
+  "Name": "Glycated Hemoglobin HbA1C",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBCAB",
+  "Name": "HBc total antibodies",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AHBE",
+  "Name": "Hepatitis B e Antibodies HBe Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AG\/HBS",
+  "Name": "Hepatitis B surface Antigen HBs Ag",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HDL",
+  "Name": "High-Density lipoprotein HDL Cholesterol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HPG",
+  "Name": "Helicobacter pylori Antibodies IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HPA",
+  "Name": "Helicobacter pylori Antibodies IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HERG",
+  "Name": "Herpes IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HERM",
+  "Name": "Herpes IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HGH",
+  "Name": "Human Growth Hormone hGH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGE",
+  "Name": "IgE total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGA",
+  "Name": "Immunoglobulin A",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGG",
+  "Name": "Immunoglobulin G",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGM",
+  "Name": "Immunoglobulin M",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "INSU",
+  "Name": "Serum Insulin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IRON",
+  "Name": "Serum Iron",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LAC",
+  "Name": "Serum Lactate",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LDH",
+  "Name": "Lactate Dehydrogenase LDH Isoenzymes",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LDL",
+  "Name": "Low-Density lipoprotein LDL Cholesterol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "MG",
+  "Name": "Serum Magnesium Mg",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "17-PROG",
+  "Name": "17-Hydroxy Progesterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PRL",
+  "Name": "Prolactin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "T.P",
+  "Name": "Protein total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SEM R\/E",
+  "Name": "Semen Anlyzer Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ELECTROLYTE",
+  "Name": "Serum Electrolyte",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "NA",
+  "Name": "Serum Sodium",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H.P\/AG",
+  "Name": "Helicobacter Pylori Stool Antigen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FOB",
+  "Name": "Faecal Occult Blood",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "T3",
+  "Name": "Triiodothyronine T3",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "T4",
+  "Name": "Thyroxine T4",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TTGG",
+  "Name": "Tissue Transglutaminase IgG Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TTGA",
+  "Name": "Tissue Transglutaminase IgA Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "UR C\/S",
+  "Name": "Urine Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TG",
+  "Name": "Triglycerides",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CSF C\/S",
+  "Name": "Cerebrospinal Fluid CSF Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TSH",
+  "Name": "Thyroid-Stimulating HormoneTSH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE",
+  "Name": "Serum Urea",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "UA",
+  "Name": "Uric Acid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE-A\/C 24HR",
+  "Name": "Albumin Creatinine Ratio 24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VALP",
+  "Name": "Valproic Acid Depakene",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SYPH\/VDRL",
+  "Name": "Syphilis Antibodies",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B12",
+  "Name": "Vitamin B12",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT D",
+  "Name": "Vitamin D,25-Hydroxycalciferol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "NASAL C\/S",
+  "Name": "Nasal Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "R\/STOOL",
+  "Name": "Stool Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SPUTUM C\/S",
+  "Name": "Culture Sputum",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "UR \/RE",
+  "Name": "Urine Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "R\/E PER",
+  "Name": "Pericardial Fluid EXM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "R\/CSF",
+  "Name": "Succinyladenosine, Cerebrospinal Fluid CSF Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASCITIC FLUID EXM",
+  "Name": "Ascitic Fluid Peritoneal EXM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FT3",
+  "Name": "FT3 Free",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "RBS",
+  "Name": "Glucose Random",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE24",
+  "Name": "Urea in Urine  24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE-A\/C",
+  "Name": "Urine Albumin Creatinine Ratio Random",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U.AMY 24HR",
+  "Name": "Amylase in urine24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACE",
+  "Name": "Angiotensin converting enzyme",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U\/CA",
+  "Name": "Calcium in Urine 24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE-CRE",
+  "Name": "Creatinine in Urine Random",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE.CRE 24HR",
+  "Name": "Creatinine in Urine 24hrs ",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DHE",
+  "Name": "DHEA Sulfate",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "G6PD",
+  "Name": "Glucose 6 Phosphate Dehydrogenase Enzyme",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U\/GLU",
+  "Name": "Glucose in urine 1st morning urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "INSU-RESI",
+  "Name": "HOMA-IR Homeostatic Model Assessment for Insulin Resistance",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "KID-ST",
+  "Name": "Kidney Stone Analysis",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "KOH",
+  "Name": "KOH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "MG24HR",
+  "Name": "Magnesium in Urine  24h",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "P\/BEN-JON",
+  "Name": "Proteinuria Bence-Jones Quantitive",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C-PEP",
+  "Name": "Connecting Peptide C-Peptide",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "STOOL C\/S",
+  "Name": "Stool Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "II F",
+  "Name": "Factor II",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IX F",
+  "Name": "Factor IX",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "X F",
+  "Name": "Factor X",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "XI F",
+  "Name": "Factor XI",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IIX F",
+  "Name": "Factor IIX",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VWF",
+  "Name": "Von Willebrand Factor vWF",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ABS-LY",
+  "Name": "Absolute Lymphcytes Count PBF",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HCV\/PCR",
+  "Name": "HCV RNA Quntititve PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FOL",
+  "Name": "Serum Folate",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COV\/G",
+  "Name": "COVID19 IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COV\/M",
+  "Name": "COVID 19 IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BLOOD C\/S",
+  "Name": "Blood Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "EAR C\/S",
+  "Name": "Ear Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "THRO C\/S",
+  "Name": "Throat Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C\/CYTO",
+  "Name": "Cytology",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HPM",
+  "Name": "Helicobacter pylori Antibodies IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COV\/AG-R",
+  "Name": "COVID19-Rapid Antigen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AFB",
+  "Name": "Acid Fast Bacilli Stain",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ATSH\/REC",
+  "Name": "Anti TSH Recptor Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CYTPCR",
+  "Name": "Cytomegalovirus PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COV\/AG",
+  "Name": "COVID19 PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VITE",
+  "Name": "Vitamin E",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AHBC",
+  "Name": "Hepatitis B Core Antibodies HBc  Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AHBS",
+  "Name": "Hepatitis B surface Antibodies HBs Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "THAV",
+  "Name": "Viral Hepatitis A Abs Total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HIV\/PCR",
+  "Name": "HIV RNA Quntititve PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PCRE",
+  "Name": "Protein Creatinine Ratio",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "RUB\/G",
+  "Name": "Rubella IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TOXO\/G",
+  "Name": "Toxoplasma Gondii Antibodies IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PROTC",
+  "Name": "Protein C",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PROTS",
+  "Name": "Protein S",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C\/PAP",
+  "Name": "Pap Smear",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "REN",
+  "Name": "Serum Renin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FT4",
+  "Name": "FT4 Free",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FSH",
+  "Name": "Follicle-Stimulating Hormone FSH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CL",
+  "Name": "Serum Clouride",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "K",
+  "Name": "Serum Potassium",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LH",
+  "Name": "Luteinizing Hormone LH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SWAB C\/S",
+  "Name": "Swab Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AEA\/G",
+  "Name": "Anti-Endomysial IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "A-TG",
+  "Name": "Anti Thyroglobulin Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VITAMIN B6",
+  "Name": "Vitamin B6",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ENA",
+  "Name": "Extractable Nuclear Ag Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HAV\/G",
+  "Name": "Viral Hepatitis A Abs IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ABL\/M",
+  "Name": "Antiphospho Lipid syndrome IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE-MALB",
+  "Name": "Urine Microalbuminuria",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "V.URE 24 HR",
+  "Name": "Urine Volume24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE-MALB 24",
+  "Name": "Microalbuminuria 24hr urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACHO",
+  "Name": "Acetylcholine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IND-BILI",
+  "Name": "Bilirubin Indirect",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "NH3\/AMM",
+  "Name": "Ammonia Plasma",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AGAD",
+  "Name": "Glutamic Acid Decarboxylase Autoantibody",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ABL\/G",
+  "Name": "Antiphospho Lipid syndrome IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AT III",
+  "Name": "Anti thrombin III",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ARNP70",
+  "Name": "Anti RNP-70",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ARNP\/SM",
+  "Name": "Anti RNP\/sm",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ASM",
+  "Name": "Anti Smith",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "T.BONE\/M",
+  "Name": "Transplant - bone marrow",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CT",
+  "Name": "Clotting Time",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C\/BRON",
+  "Name": "Bronchial Wash",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "R\/PUS",
+  "Name": "Pus Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "EYE C\/S",
+  "Name": "Eye Culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "R\/SWAB",
+  "Name": "Swab Routine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACEN",
+  "Name": "Anti-Centromere Ab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VLDL",
+  "Name": "Very Low-Density lipoprotein LDL Cholesterol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CRP\/L",
+  "Name": "C-Reactive Protein Latex",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DSDNA",
+  "Name": "Anti-double Stranded DNA dsDNA Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DSDNA\/A",
+  "Name": "Anti-double Stranded DNA dsDNA IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DSDNA\/M",
+  "Name": "Anti-double Stranded DNA dsDNA IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SSDNA",
+  "Name": "Anti-Single Stranded DNA ssDNA Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ADH",
+  "Name": "Serum Antidiuretic Hormone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U.ADH",
+  "Name": "Antidiuretic Hormone In Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "S.ALD",
+  "Name": "Serum Aldosterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "UR.ALD",
+  "Name": "Aldosterone In Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "URE.CAT",
+  "Name": "Catecholamines In Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CYC",
+  "Name": "Cyclosporine Level",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DHT",
+  "Name": "Dihydrotestosterone DHT",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "EBV\/M",
+  "Name": "Epstein-Barr Virus EBV Ab IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "EBV\/G",
+  "Name": "Epstein-Barr Virus EBV Ab IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBV\/PCR",
+  "Name": "HBV DNA Quntititve PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LI",
+  "Name": "Serum Lilthum",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "A\/LUPUS",
+  "Name": "Lupus Anticoagulat",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U\/METAN",
+  "Name": "Metanephrines, Fractionated,Urine 24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AMUSK",
+  "Name": "Anti-Musk Antibody Myasthenia Gravis",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "NSE",
+  "Name": "Serum Neuron-specific Enolase NSE",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PRO\/C\/FRE",
+  "Name": "Protine C Franch",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PRO\/S\/FRE",
+  "Name": "Protine S Franch",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "E.PRO",
+  "Name": "Protine Elctrophorisis",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ZO\/VARICEELA",
+  "Name": "Variceela-Zoster Viurs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT A1",
+  "Name": "Vitamin A1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT B1",
+  "Name": "Vitamin B1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT B2",
+  "Name": "Vitamin B2",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT C",
+  "Name": "Vitamin C",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIT E",
+  "Name": "Vitamin E",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/ENDO",
+  "Name": "Endomatrial Biopsy",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/LST",
+  "Name": "Left Soft Tissue Mass",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/MOD",
+  "Name": "Modarate Kidnye Cyst",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/PROB",
+  "Name": "Prostate Biopsy",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/SK",
+  "Name": "Skin Biopsy",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H\/TE",
+  "Name": "Testes Biopsy",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HVS1\/G",
+  "Name": "Herpes Simplex Virus HSV Type1 IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HVS1\/M",
+  "Name": "Herpes Simplex Virus HSV Type1 IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TOXO\/M",
+  "Name": "Toxoplasma Gondii Antibodies IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "RUB\/M",
+  "Name": "Rubella IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ION-CA",
+  "Name": "Ionized Calcium",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "U-CYS",
+  "Name": "Cystine Quantitative Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LE.CELL",
+  "Name": "Antibodies to LE Cell Phenomenon",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "MALA\/\/PBF",
+  "Name": "Malaria PBF",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "META",
+  "Name": "Metanphrines Blood",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VMA-U 24 HR",
+  "Name": "Vanillylmandelic Acid VMA,24hr",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "A\/ASC",
+  "Name": "Ascitic Fluid Peritoneal",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CV\/C LINE",
+  "Name": "Central Venous Catheter CV Line",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C\/DR",
+  "Name": "Drin Effusions",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C\/FNA",
+  "Name": "Fine Needle Aspiration",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "APHOS",
+  "Name": "Acid Phosphates",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "APL\/G",
+  "Name": "Antiphospho lipid Syndrome IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "APL\/M",
+  "Name": "Antiphospho lipid IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AEA",
+  "Name": "Endomysial Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LFT",
+  "Name": "Liver Function Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "APL",
+  "Name": "Antiphospho Lipid Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COAG",
+  "Name": "Coagulation Factors",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANA\/PRO",
+  "Name": "ANA Profil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BRUCELLA",
+  "Name": "Brucella Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CSF\/EX",
+  "Name": "CSF Examination",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PUS\/EX",
+  "Name": "Pus Examination",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "RFT",
+  "Name": "Renal Function Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LIPID PRO",
+  "Name": "Lipid Profil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COOMBS\/SCR",
+  "Name": "CoombsTest Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COV\/SCR",
+  "Name": "COVID19 Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ESR",
+  "Name": "ESR Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ACA\/SCRE",
+  "Name": "Cardiolipin Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "EBV",
+  "Name": "EBV Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COG\/F",
+  "Name": "Anti Coagulat Factors",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TFT",
+  "Name": "Thyroid Function Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HAV",
+  "Name": "Hepatitis A Profil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBV",
+  "Name": "HB Profil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TORCH",
+  "Name": "TORCH Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H.P",
+  "Name": "H.Pylori Screen Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANCA",
+  "Name": "ANCA Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VS BY RAPID",
+  "Name": "Viral Screen By Rapid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TEST",
+  "Name": "Testosterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TROP I",
+  "Name": "Troponin I",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TIBC",
+  "Name": "Tibc",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "SPECIFIC IGE",
+  "Name": "Specific IGE",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "GTT",
+  "Name": "Glucose tolerance test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ZINC",
+  "Name": "Zinc",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "RHF",
+  "Name": "RH Factor",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PREGNANCY TEST",
+  "Name": "Pregnancy Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PTH",
+  "Name": "Parathyroid HormonePTH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PCT",
+  "Name": "Procalcitonin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "MYO",
+  "Name": "Myoglobin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B.G",
+  "Name": "Blood Group",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B.F",
+  "Name": "Blood Film",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TPSA",
+  "Name": "Total Prostate-Specific Antigen TPSA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FPSA",
+  "Name": "Free prostate-specific antigen FPSA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PHOS",
+  "Name": "Phosphorus",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HCV",
+  "Name": "Hepatitis C Antibodies",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HIV",
+  "Name": "HIV Compact",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TNT",
+  "Name": "Troponon T",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "PROG",
+  "Name": "Progesterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HISTOPATHOLOGY SMALL",
+  "Name": "Histopathology Small",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HISTOPATHOLOGY MEDIU",
+  "Name": "Histopathology Medium",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HISTOPATHOLOGY LARGE",
+  "Name": "Histopathology Large",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ABG",
+  "Name": "Arterial Blood Gas",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "WEIL FELIX",
+  "Name": "Weil Felix",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "LIP",
+  "Name": "Lipase",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "VIRAL SCREEN",
+  "Name": "Viral Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IL6",
+  "Name": "Interleukin-6",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALB-URINE",
+  "Name": "Urine Albumin 24h",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "T.P-URIN",
+  "Name": "Total Proten in urine 224",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "DRUG SCREEN",
+  "Name": "Urine Drugs Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BNP",
+  "Name": "NT-proBNP",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "COPPER",
+  "Name": "serum copper",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CERVICAL SMEAR",
+  "Name": "Cervical Smear",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ANTI TPO",
+  "Name": "Anti thyroid peroxidase",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "folic acid",
+  "Name": "folic acid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "cardiac anzaym",
+  "Name": "cardiac anzaym",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "TIP OF ETT",
+  "Name": "TIP ETT C\/S",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Gram Stain",
+  "Name": "C.S.F Gram Stain",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CSF P",
+  "Name": "CSF PROTEIN",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CSF\/G",
+  "Name": "CSF SUGAR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CSF\/CELLS",
+  "Name": "CSF CELLS",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "G.S",
+  "Name": "GRAM STAIN",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FLUID SUGAR",
+  "Name": "FLUID SUGAR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FLUID LDH",
+  "Name": "FLUID LDH",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FLUID ALBUMIN",
+  "Name": "FLUID ALBUMIN",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "FLUID PROTEIN",
+  "Name": "FLUID PROTEIN",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBsAg",
+  "Name": "HBsAG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HCV",
+  "Name": "HCV",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HIV",
+  "Name": "HIV",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "cu",
+  "Name": "copper",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "creatinine cl",
+  "Name": "creatinine clearance",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGF1",
+  "Name": "Like Growth Factor1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amphetamines",
+  "Name": "Amphetamines",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Vitamin D3",
+  "Name": "Dihydroxy Vitamin D3",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Ketosteroids",
+  "Name": "Ketosteroids",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HIAA",
+  "Name": "HIAA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Nucleotidase",
+  "Name": "Nucleotidase",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Paracetamol",
+  "Name": "Acetaminophen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AcetoneScreen",
+  "Name": "AcetoneScreen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Receptor Abs Screen",
+  "Name": "Acetylcholine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Receptor Abs Titer",
+  "Name": "Acetylcholine Receptor Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Factor V Leidin by P",
+  "Name": "Activated Protein C",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Rotavirus",
+  "Name": "Adenovirus",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Adenovirus Ag",
+  "Name": "Adenovirus Ag",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Adenovirus Ag",
+  "Name": "Adenovirus Ag",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Adenovirus IgA",
+  "Name": "Adenovirus IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Adenovirus IgG",
+  "Name": "Adenovirus IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Adenovirus IgM",
+  "Name": "Adenovirus IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Epinephrine",
+  "Name": "Adrenaline",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Noradrenaline",
+  "Name": "Adrenaline",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alanine",
+  "Name": "Alanine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alcohol Ethanol",
+  "Name": "Alcohol Ethanol",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Aldosterone",
+  "Name": "Aldosterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Renin- Ratio",
+  "Name": "Aldosterone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Phosphatase Isoenzes",
+  "Name": "Alkaline",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": " Allergy panel CLA-",
+  "Name": " Allergy panel CLA-30 Food",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Allergy panel CLA-30",
+  "Name": "Allergy panel CLA-30Inhalation",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Allergy Milk Gluten6",
+  "Name": "Allergy Milk Gluten6",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Allergy Drugs10",
+  "Name": "Allergy Drugs10",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AL-STD",
+  "Name": "AL-STD",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alpha Thalassaemia b",
+  "Name": "Alpha Thalassaemia by PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alpha-1-AntitrypsinI",
+  "Name": "Alpha-1-AntitrypsinII",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alpha-1-Antitrypsin",
+  "Name": "Alpha-1-Antitrypsin Genotype by PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Alpha-2-Macroglobuli",
+  "Name": "Alpha-2-Macroglobulin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Aluminum",
+  "Name": "Aluminum",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amikacin",
+  "Name": "Amikacin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amino Acid Chromatog",
+  "Name": "Amino Acid ChromatographyQuantitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amino Acids Chromato",
+  "Name": "Amino Acids ChromatographyQuantitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amyloid",
+  "Name": "Amyloid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Amphetamines",
+  "Name": "Amphetamines",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "cANCAAnti Neutrophi",
+  "Name": "cANCAAnti Neutrophil Cytoplasmic Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "pANCAAnti Neutrophi",
+  "Name": "pANCAAnti Neutrophil Cytoplasmic Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Androstenedione---",
+  "Name": "Androstenedione",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Angiotensin Converti",
+  "Name": "Angiotensin Converting EnzymeACE",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Gland Abs",
+  "Name": "Anti Adrenal Gland Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Annexin V IgG",
+  "Name": "Anti Annexin V IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Annexin V IgM",
+  "Name": "Anti Annexin V IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti B2 Glycoprotein",
+  "Name": "Anti B2 Glycoprotein I IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti B2 Glycoprotein",
+  "Name": "Anti B2 Glycoprotein I IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Cardiolipin IgG",
+  "Name": "Anti Cardiolipin IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Cardiolipin IgM",
+  "Name": "Anti Cardiolipin IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Centromere",
+  "Name": "Anti Centromere",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Diuretic Hormon",
+  "Name": "Anti Diuretic Hormone-ADHVasopressin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "IGF1",
+  "Name": "Insulin Like Growth Factor1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Insulin Abs Ty",
+  "Name": "Anti Insulin Abs Type IDM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Intrinsic Facto",
+  "Name": "Anti Intrinsic Factor Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Islet Cells Abs",
+  "Name": "Anti Islet Cells Abs Type IDM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Keratin Abs",
+  "Name": "Anti Keratin Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti LA\/SS-B",
+  "Name": "Anti LA\/SS-B",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Liver-Kidney Mi",
+  "Name": "Anti Liver-Kidney MicrosomalLKM-1Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Mycobacterinm t",
+  "Name": "Anti Mycobacterinm tuberculosisScreen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Myelin Associat",
+  "Name": "Anti Myelin Associated Glycoprotein Abs Anti MAG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Neuronal Nuclea",
+  "Name": "Anti Neuronal Nuclear Antigens Hu,rI,yo,onma2,Mac2\/ta",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Ovarian Abs",
+  "Name": "Anti Ovarian Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Parietal Cells",
+  "Name": "Anti Parietal Cells Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Phospholipids I",
+  "Name": "Anti Phospholipids IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Phospholipids I",
+  "Name": "Anti Phospholipids IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Pituitary Gland",
+  "Name": "Anti Pituitary Gland Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Platelets Abs",
+  "Name": "Anti Platelets Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Reticulin Abs I",
+  "Name": "Anti Reticulin Abs IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Reticulin Abs I",
+  "Name": "Anti Reticulin Abs IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Reticulin Abs I",
+  "Name": "Anti Reticulin Abs IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Saccharomyces c",
+  "Name": "Anti Saccharomyces cerevisiae IgA ASCA IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Saccharomyces c",
+  "Name": "Anti Saccharomyces cerevisiae IgG ASCA IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Shistosoma Abs",
+  "Name": "Anti Shistosoma Abs Bilharziasis",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Skeletal Muscle",
+  "Name": "Anti Skeletal Muscle Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Skin Abs IgA",
+  "Name": "Anti Skin Abs IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Skin Abs IgG",
+  "Name": "Anti Skin Abs IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Skin Abs IgM",
+  "Name": "Anti Skin Abs IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Smooth Muscle A",
+  "Name": "Anti Smooth Muscle Abs ASMA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Sperm Abs",
+  "Name": "Anti Sperm Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Testicular Abs",
+  "Name": "Anti Testicular Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Thrombin III",
+  "Name": "Anti Thrombin III",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Thyroid Microso",
+  "Name": "Anti Thyroid Microsomal Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Tissue Transglu",
+  "Name": "Anti Tissue Transglutaminase IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti Tissue Transglu",
+  "Name": "Anti Tissue Transglutaminase IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti TuberculosisTB",
+  "Name": "Anti TuberculosisTBAbs Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Apolipoprotein A1",
+  "Name": "Apolipoprotein A1",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Apolipoprotein B",
+  "Name": "Apolipoprotein B",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ApoE Genotyping by P",
+  "Name": "ApoE Genotyping by PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Arginine",
+  "Name": "Arginine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Ash Test For patien",
+  "Name": "Ash Test For patients with metabolic steatosis",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AzathioprineImmuran",
+  "Name": "AzathioprineImmuran",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B2 Mcroglobulin",
+  "Name": "B2 Mcroglobulin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B-Carotene",
+  "Name": "B-Carotene",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B-Cross LapsCTX",
+  "Name": "B-Cross LapsCTX",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B-HCG-Free",
+  "Name": "B-HCG-Free",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Bli salt",
+  "Name": "Bli salt",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B-Islet Cell Abs",
+  "Name": "B-Islet Cell Abs",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "B-Thalassaemia by PC",
+  "Name": "B-Thalassaemia by PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Barbiturates",
+  "Name": "Barbiturates",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BicarbonateCO2",
+  "Name": "BicarbonateCO2",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Biotin Vitamin H",
+  "Name": "Biotin Vitamin H",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Bladder Tumour Marke",
+  "Name": "Bladder Tumour Marker NMP22",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Borrelia burgdorferi",
+  "Name": "Borrelia burgdorferi IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Borrelia burgdorferi",
+  "Name": "Borrelia burgdorferi IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Bromazepam",
+  "Name": "Bromazepam",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Brucella IgG",
+  "Name": "Brucella IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Brucella IgM",
+  "Name": "Brucella IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BTABladder Tumour A",
+  "Name": "BTABladder Tumour Ag Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C1 Esterase Inhibito",
+  "Name": "C1 Esterase Inhibitor-Level",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C2",
+  "Name": "C2",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C3 II",
+  "Name": "C3 II",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "C4 II",
+  "Name": "C4 II",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA72-4",
+  "Name": "CA72-4",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA 50",
+  "Name": "CA 50",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CA 242",
+  "Name": "CA 242",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Calcitonine",
+  "Name": "Calcitonine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Calproticten Qualit",
+  "Name": "Calproticten Qualitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Calproticten Quanti",
+  "Name": "Calproticten Quantitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Candida IgA",
+  "Name": "Candida IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Candida IgG",
+  "Name": "Candida IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Candida IgM",
+  "Name": "Candida IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Cardiovascular Disea",
+  "Name": "Cardiovascular Disease Mutations by PCR12Mutatio",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Carnitine",
+  "Name": "Carnitine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 1a",
+  "Name": "CD 1a",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD2",
+  "Name": "CD 2",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 3",
+  "Name": "CD 3",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 4",
+  "Name": "CD 4",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 5",
+  "Name": "CD 5",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 6",
+  "Name": "CD 6",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 7",
+  "Name": "CD 7",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 8",
+  "Name": "CD 8",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 10",
+  "Name": "CD 10",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "cd11b",
+  "Name": "CD 11b",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 11c",
+  "Name": "CD 11c",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 13",
+  "Name": "CD 13",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD14",
+  "Name": "CD 14",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 15",
+  "Name": "CD 15",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 16",
+  "Name": "CD 16",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 17",
+  "Name": "CD 17",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 18",
+  "Name": "CD 18",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 19",
+  "Name": "CD 19",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CD 20",
+  "Name": "CD 20",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CH 50 Complement He",
+  "Name": "CH 50 Complement Hemolytic",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia pneumonia",
+  "Name": "Chlamydia pneumonia IgA",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia pneumonia",
+  "Name": "Chlamydia pneumonia IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia pneumonia",
+  "Name": "Chlamydia pneumonia IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia trachomati",
+  "Name": "Chlamydia trachomatis IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia trachomati",
+  "Name": "Chlamydia trachomatis IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chlamydia trachomati",
+  "Name": "Chlamydia trachomatis by PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Cholinesterase",
+  "Name": "Cholinesterase",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Chromosomal Study K",
+  "Name": "Chromosomal Study Karyotyping",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Citric Acid",
+  "Name": "Citric Acid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Clostridium Difficil",
+  "Name": "Clostridium Difficile Endotoxin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Clonazepam",
+  "Name": "Clonazepam",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CMV by PCR Qualitat",
+  "Name": "CMV by PCR Qualitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CMV by PCR Quantita",
+  "Name": "CMV by PCR Quantitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Cold Agglutinins",
+  "Name": "Cold Agglutinins",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Copper-Urine",
+  "Name": "Copper-Urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "CoproporphyrinsQuan",
+  "Name": "CoproporphyrinsQuantitative",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Cordirone Amidirone",
+  "Name": "Cordirone Amidirone",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Coronavirus-Quantita",
+  "Name": "Coronavirus-Quantitaive by PCR cov-19",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Rapid",
+  "Name": "Viral Screen",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "BHCG",
+  "Name": "BHCG Titer",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Influenza Rapid",
+  "Name": "Influenza AB Rapid Test",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Influenza",
+  "Name": "Influenza AB Rapid",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "H.V.S",
+  "Name": "vaginal swab culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "vaginal swab culture",
+  "Name": "vaginal swab culture",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "AFB\/SPUTUM",
+  "Name": "Sputum for AFB",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Genexpert for TB",
+  "Name": "Genexpert for TB",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Genexpert TB",
+  "Name": "Genexpert for TB",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة سيولة الدم",
+  "Name": "باقة سيولة الدم",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة العظام ",
+  "Name": "باقة العظام ",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الامان للمرأة",
+  "Name": "باقة الامان للمرأة",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الدهون",
+  "Name": "باقة الدهون",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة العمالة الوافدة ",
+  "Name": "باقة العمالة الوافدة",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الانيميا",
+  "Name": "باقة الانيميا",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة دلائل الأورام",
+  "Name": "باقة دلائل الأورام",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة غسيل الكلى",
+  "Name": "باقة غسيل الكلى",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة النحافة",
+  "Name": "باقة النحافة",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة السمنة",
+  "Name": "باقة السمنة",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة المعدة ",
+  "Name": "باقة المعدة ",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الأمان ",
+  "Name": "باقة الأمان (الفحص الشامل ) لكبار السن",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الأطفال",
+  "Name": "باقة الأطفال",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة مرضى السكري",
+  "Name": "باقة مرضى السكري",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الإنزيمات القلب",
+  "Name": "باقة الإنزيمات القلب",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الامان ",
+  "Name": "باقة الامان (الفحص الشامل ) للشباب",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الشعر",
+  "Name": "باقة الشعر",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "wound swab",
+  "Name": "wound swab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "wound swab",
+  "Name": "wound swab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Transferrin",
+  "Name": "Transferrin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "( Transferrin )",
+  "Name": "Transferrin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Cerrical Swab",
+  "Name": "Cerrical Swab",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBcAb Total",
+  "Name": "HBcAb Total",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBcAb IgM",
+  "Name": "HBcAb IgM",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Anti HBs antibodies",
+  "Name": "Anti HBs antibodies",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Eosinophil",
+  "Name": "Eosinophil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "(Eosinophil)",
+  "Name": "Eosinophil",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة الغدة الدرقية",
+  "Name": "باقة الغدة الدرقية",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Pleural Fluid (PCR)",
+  "Name": "Pleural Fluid Mycobacterium (PCR)",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Pleural Fluid (PCR)",
+  "Name": "Pleural Fluid Mycobacterium PCR",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Reticulocyte Count",
+  "Name": "Reticulocyte Count",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Random Urine for pro",
+  "Name": "Random Urine for protein",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "ALB-URINE",
+  "Name": "Urine albumin",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "باقة التخفيض كشف العام",
+  "Name": "باقة التخفيض كشف العام",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Urine osmolarity",
+  "Name": "Urine osmolarity",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Urine osmolari",
+  "Name": "Urine osmolarity",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Sodium in urine",
+  "Name": "Na in urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "Na in urine",
+  "Name": "Sodium in urine",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "HBc Ag IgG",
+  "Name": "HBc Ag IgG",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ },
+ {
+  "Code": "مختارة مخفضة",
+  "Name": "مختارة مخفضة",
+  "IS_EXIST": true,
+  "MedicalType": 1
+ }
+]

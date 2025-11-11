@@ -1,0 +1,91 @@
+[
+    {
+      "BTSName": "V3 B8018",
+      "EOM": "2012Q4",
+      "EOS": "2020Q4",
+      "LODSP": "2013Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2]
+    },
+    {
+      "BTSName": "V3 B8112",
+      "EOM": "2012Q4",
+      "EOS": "2020Q4",
+      "LODSP": "2013Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2]
+    },
+    {
+      "BTSName": "V4 BS8700(SDR)",
+      "EOM": "2024Q4",
+      "EOS": "2030Q4",
+      "LODSP": "2025Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS8800(SDR)",
+      "EOM": "2024Q4",
+      "EOS": "2030Q4",
+      "LODSP": "2025Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS8900(SDR)",
+      "EOM": "2024Q4",
+      "EOS": "2030Q4",
+      "LODSP": "2025Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS8908(SDR)",
+      "EOM": "2017Q4",
+      "EOS": "2023Q4",
+      "LODSP": "2018Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS8912(SDR)",
+      "EOM": "2016Q4",
+      "EOS": "2022Q4",
+      "LODSP": "2017Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS8922(SDR)",
+      "EOM": "2023Q4",
+      "EOS": "2029Q4",
+      "LODSP": "2024Q4",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "V4 BS9900(ITRAN)-B9200",
+      "EOM": "2027Q2",
+      "EOS": "2027Q2",
+      "LODSP": "2033Q2",
+      "Vendor": 1,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "BTS3900 V100R016C10SPC230",
+      "EOM": "30/Jun/22",
+      "EOS": "30/Jun/23",
+      "LODSP": "31/Dec/23",
+      "Vendor": 2,
+      "TelecomSupport": [0, 1, 2, 3]
+    },
+    {
+      "BTSName": "BTS3900 V100R009C00SPC210",
+      "EOM": "30/Jun/16",
+      "EOS": "30/Jun/17",
+      "LODSP": "31/Dec/17",
+      "Vendor": 2,
+      "TelecomSupport": [0, 1, 2, 3]
+    }
+  ]
+  

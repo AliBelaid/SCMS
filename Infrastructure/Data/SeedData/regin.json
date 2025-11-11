@@ -1,0 +1,26 @@
+[
+  {
+      "id": 1,
+      "regin_name": "شرق ليبيا",
+      "regin_location": "east",
+      "shortName": "EL"
+  },
+  {
+      "id": 2,
+      "regin_name": "وسط ليبيا",
+      "regin_location": "central",
+      "shortName": "CL"
+  },
+  {
+      "id": 3,
+      "regin_name": "غرب ليبيا",
+      "regin_location": "west",
+      "shortName": "WL"
+  },
+  {
+      "id": 4,
+      "regin_name": "جنوب ليبيا",
+      "regin_location": "south",
+      "shortName": "SL"
+  }
+]

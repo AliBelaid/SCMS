@@ -1,0 +1,48 @@
+[{
+  "ParentId": 1,
+  "PaymentItems": [
+    {
+      "StudentId": 1,
+      "Amount": 50.5
+    },
+    {
+      "StudentId": 2,
+      "Amount": 80.25
+    }
+  ],
+  "Amount": 130.75,
+  "PaymentType": 2,
+  "PaymentDate": "2023-04-17T15:30:00Z",
+  "Notes": "Payment for April 2023",
+  
+  "Discount": {
+ 
+    "DiscountName": "Early bird discount",
+    "Percentage": 10,
+    "DisableDiscount": 0
+  }
+ 
+},
+
+{
+  "ParentId": 2,
+  "PaymentItems": [
+    {
+      "StudentId": 3,
+      "Amount": 100.0
+    }
+  ],
+  "Amount": 100.0,
+  "PaymentType": 3,
+  "PaymentDate": "2023-04-18T10:15:00Z",
+  "Notes": "Payment for May 2023",
+ 
+  "Discount": {
+   
+    "DiscountName": "Early bird discount",
+    "Percentage": 10,
+    "DisableDiscount": 0
+  }
+
+}
+]

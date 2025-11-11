@@ -1,0 +1,50 @@
+[
+    {
+        "DoctorId": 1,
+        "SpecialtyId": 1
+    },
+    {
+        "DoctorId": 1,
+        "SpecialtyId": 2
+    },
+    {
+        "DoctorId": 1,
+        "SpecialtyId": 3
+    },
+    {
+        "DoctorId": 2,
+        "SpecialtyId": 4
+    },
+    {
+        "DoctorId": 2,
+        "SpecialtyId": 5
+    },
+    {
+        "DoctorId": 3,
+        "SpecialtyId": 13
+    },
+    {
+        "DoctorId": 3,
+        "SpecialtyId":15
+    },
+    {
+        "DoctorId": 3,
+        "SpecialtyId": 6
+    },
+    {
+        "DoctorId": 4,
+        "SpecialtyId": 7
+    },
+    {
+        "DoctorId": 4,
+        "SpecialtyId": 8
+    },
+    {
+        "DoctorId": 4,
+        "SpecialtyId": 9
+    },
+    {
+        "DoctorId": 4,
+        "SpecialtyId": 16
+    }
+]

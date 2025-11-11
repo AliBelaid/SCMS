@@ -1,0 +1,121 @@
+.departments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    h1 {
+      margin: 0;
+      font-size: 1.75rem;
+      color: #131c43;
+    }
+
+    p {
+      margin: 0.35rem 0 0;
+      color: #5c6086;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #5a5ee5, #7a60ff);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(90, 94, 229, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(90, 94, 229, 0.3);
+      }
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 30px rgba(19, 28, 67, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #2b2f55;
+    }
+
+    p {
+      margin: 0;
+      color: #5c6086;
+      min-height: 48px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .code {
+        background: #f1f4ff;
+        color: #5a5ee5;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .status {
+        font-size: 0.85rem;
+        color: #14b8a6;
+
+        &.inactive {
+          color: #ef4444;
+        }
+      }
+    }
+
+    .subjects-count {
+      font-weight: 600;
+      color: #5a5ee5;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+
+      a {
+        color: #5a5ee5;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #5a5ee5;
+  font-weight: 600;
+}
+

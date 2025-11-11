@@ -1,0 +1,247 @@
+<div class="user-panel-dashboard" style="margin-top: 70px;">
+  <app-shared-header></app-shared-header>
+  
+  <!-- Centered Home Logo -->
+  <div class="home-logo-center">
+    <img src="assets/images/logos/home.png" alt="Home Logo" class="home-logo">
+    <h1 class="home-title">إدارة المستخدمين</h1>
+    <p class="home-subtitle">User Management System</p>
+  </div>
+
+  <mat-card class="cardWithShadow enhanced-card">
+    <mat-card-header>
+      <mat-card-title class="d-flex align-items-center justify-content-between">
+        <span>إدارة المستخدمين</span>
+                 <div class="d-flex align-items-center gap-16">
+           <!-- Navigation Buttons -->
+           <div class="nav-buttons">
+             <button 
+               mat-button 
+               color="primary" 
+               (click)="navigateToFiles()" 
+               class="nav-btn modern-button"
+               matTooltip="عرض الملفات">
+               <mat-icon>folder</mat-icon>
+               عرض الملفات
+             </button>
+             <button 
+               mat-button 
+               color="accent" 
+               (click)="navigateToUpload()" 
+               class="nav-btn modern-button"
+               matTooltip="رفع ملفات جديدة">
+               <mat-icon>cloud_upload</mat-icon>
+               رفع ملفات
+             </button>
+           </div>
+           
+           <button 
+             mat-flat-button 
+             color="primary" 
+             (click)="addUser()"
+             *ngIf="!isAddingUser"
+             class="modern-button">
+             <mat-icon>add</mat-icon>
+             إضافة مستخدم
+           </button>
+         </div>
+      </mat-card-title>
+      <mat-card-subtitle>
+        إدارة مستخدمي النظام وصلاحياتهم
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Add User Form -->
+      <div *ngIf="isAddingUser" class="add-user-form">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmitUser()">
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>رمز المستخدم</mat-label>
+                <input matInput formControlName="code" placeholder="أدخل رمز المستخدم" required>
+                <mat-error *ngIf="userForm.get('code')?.hasError('required')">
+                  رمز المستخدم مطلوب
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>كلمة المرور</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="أدخل كلمة المرور" required>
+                <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+                  كلمة المرور مطلوبة
+                </mat-error>
+                <mat-error *ngIf="userForm.get('password')?.hasError('minlength')">
+                  كلمة المرور يجب أن تكون 6 أحرف على الأقل
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+             <div class="col-md-4">
+               <mat-form-field appearance="outline" class="w-100">
+                 <mat-label>الدولة</mat-label>
+                 <input matInput formControlName="country" placeholder="أدخل الدولة">
+               </mat-form-field>
+             </div>
+
+            <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>الدور</mat-label>
+                <mat-select formControlName="role" required>
+                  <mat-option value="Admin">مدير</mat-option>
+                  <mat-option value="Member">عضو</mat-option>
+                  <mat-option value="Uploader">رافع ملفات</mat-option>
+                </mat-select>
+                <mat-error *ngIf="userForm.get('role')?.hasError('required')">
+                  الدور مطلوب
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>اللغة المفضلة</mat-label>
+                <mat-select formControlName="preferredLanguage" required>
+                  <mat-option value="ar">العربية</mat-option>
+                  <mat-option value="en">English</mat-option>
+                  <mat-option value="fr">Français</mat-option>
+                </mat-select>
+                <mat-error *ngIf="userForm.get('preferredLanguage')?.hasError('required')">
+                  اللغة المفضلة مطلوبة
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button 
+              mat-flat-button 
+              color="primary" 
+              type="submit"
+              [disabled]="!userForm.valid"
+              class="modern-button">
+              إضافة مستخدم
+            </button>
+            <button 
+              mat-stroked-button 
+              type="button"
+              (click)="cancelAddUser()"
+              class="m-l-8 modern-button">
+              إلغاء
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Users Table -->
+      <div class="table-container">
+        <table mat-table [dataSource]="users" class="w-100">
+          <!-- User Code Column -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">رمز المستخدم</th>
+            <td mat-cell *matCellDef="let user">{{ user.code }}</td>
+          </ng-container>
+
+          <!-- Country Column -->
+          <ng-container matColumnDef="country">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">الدولة</th>
+            <td mat-cell *matCellDef="let user">{{ user.country || '-' }}</td>
+          </ng-container>
+
+          <!-- Role Column -->
+          <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">الصلاحية</th>
+            <td mat-cell *matCellDef="let user">
+              <span class="role-badge" [ngClass]="'role-' + user.role.toLowerCase()">
+                {{ user.role | role }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Preferred Language Column -->
+          <ng-container matColumnDef="preferredLanguage">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">اللغة المفضلة</th>
+            <td mat-cell *matCellDef="let user">
+              <span class="language-badge" [ngClass]="'lang-' + user.preferredLanguage">
+                {{ user.preferredLanguage === 'ar' ? 'العربية' : 
+                   user.preferredLanguage === 'en' ? 'English' : 
+                   user.preferredLanguage === 'fr' ? 'Français' : 'العربية' }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="isActive">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">حالة الحساب</th>
+            <td mat-cell *matCellDef="let user">
+              <span class="status-badge" [ngClass]="user.isActive ? 'active' : 'inactive'">
+                {{ user.isActive ? 'نشط' : 'غير نشط' }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="f-w-600">الإجراءات</th>
+            <td mat-cell *matCellDef="let user">
+              <div class="d-flex gap-8">
+                <button 
+                  mat-icon-button 
+                  color="primary" 
+                  (click)="user.isActive ? deactivateUser(user) : activateUser(user)"
+                  matTooltip="{{ user.isActive ? 'إلغاء التفعيل' : 'تفعيل' }} المستخدم">
+                  <mat-icon>{{ user.isActive ? 'block' : 'check_circle' }}</mat-icon>
+                </button>
+                <button 
+                  *ngIf="user.role === 'Member' || user.role === 'Uploader'"
+                  mat-icon-button 
+                  color="warn"
+                  (click)="toggleUploaderRole(user)"
+                  matTooltip="{{ user.role === 'Member' ? 'ترقية إلى رافع ملفات' : 'خفض إلى عضو' }}">
+                  <mat-icon>{{ user.role === 'Member' ? 'upload' : 'download' }}</mat-icon>
+                </button>
+                <button 
+                  mat-icon-button 
+                  color="accent" 
+                  (click)="resetPassword(user)"
+                  matTooltip="إعادة تعيين كلمة المرور">
+                  <mat-icon>lock_reset</mat-icon>
+                </button>
+                <button 
+                  mat-icon-button 
+                  color="warn" 
+                  (click)="deleteUser(user)"
+                  matTooltip="حذف المستخدم"
+                  [disabled]="user.code === currentUser.code">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Footer -->
+  <mat-card class="footer-card enhanced-card">
+    <mat-card-content>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/images/logos/img1.png" alt="System Logo" class="footer-logo-img">
+        </div>
+        <div class="footer-text">
+          <h3 class="footer-title">نظام إدارة المستندات</h3>
+          <p class="footer-subtitle">Document Management System</p>
+          <p class="footer-developer">تم تطوير النظام بواسطة: <strong>اللجنة الفنية العليا 2025-2026 </strong></p>
+          <p class="footer-year">2025-2026</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> 

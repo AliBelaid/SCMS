@@ -1,0 +1,49 @@
+<mat-card class="shadow-none bg-light-primary">
+  <mat-card-content>
+    <div class="d-flex justify-content-between align-items-center m-b-24">
+      <mat-card-title class="m-b-0 f-s-18">Return On Investment</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-30">
+      <div class="d-flex align-items-center b-r-m p-r-30">
+        <div
+          class="bg-light rounded-circle-shape p-x-16 p-y-8 m-r-30 rounded-pill d-flex align-items-center justify-content-center">
+          <i class="iconify f-s-24" data-icon="solar:course-up-line-duotone"></i>
+        </div>
+        <div>
+          <h6 class="mat-subtitle-1 f-s-20">283%</h6>
+          <p class="f-s-14 text-muted m-y-0 f-w-500">ROI</p>
+        </div>
+      </div>
+      <div>
+        <h6 class="mat-subtitle-1 text-primary f-s-14">+24%</h6>
+        <p class="f-s-14 text-muted m-y-0 f-w-500">January</p>
+      </div>
+    </div>
+
+    <apx-chart [series]="returninvestmentChart.series" [chart]="returninvestmentChart.chart"
+      [colors]="returninvestmentChart.colors" [dataLabels]="returninvestmentChart.dataLabels"
+      [legend]="returninvestmentChart.legend" [tooltip]="returninvestmentChart.tooltip"
+      [plotOptions]="returninvestmentChart.plotOptions" [grid]="returninvestmentChart.grid"
+      [xaxis]="returninvestmentChart.xaxis" [yaxis]="returninvestmentChart.yaxis" class="rounded-bars"></apx-chart>
+  </mat-card-content>
+</mat-card>

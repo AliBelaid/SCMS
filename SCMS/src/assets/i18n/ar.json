@@ -1,0 +1,285 @@
+{
+  "COMMON": {
+    "SAVE": "حفظ",
+    "CANCEL": "إلغاء",
+    "DELETE": "حذف",
+    "EDIT": "تعديل",
+    "ADD": "إضافة",
+    "VIEW": "عرض",
+    "SEARCH": "بحث",
+    "FILTER": "تصفية",
+    "ADMIN_PANEL": "لوحة المدير",
+    "ADMIN_PANEL_TITLE": "لوحة المدير",
+    "ADMIN_PANEL_TITLE_DESCRIPTION": "لوحة المدير",
+    "ADMIN_PANEL_TITLE_DESCRIPTION": "لوحة المدير",
+
+    "SORT": "ترتيب",
+    "REFRESH": "تحديث",
+    "UPLOAD": "رفع",
+    "DOWNLOAD": "تحميل",
+    "PRINT": "طباعة",
+    "EXPORT": "تصدير",
+    "EXPORT_ALL": "تصدير الكل",
+    "EXPORT_SELECTED": "تصدير المحدد",
+    "EXPORT_ALL_FILES": "تصدير جميع الملفات",
+    "EXPORT_SELECTED_FILES": "تصدير الملفات المحددة",
+    "EXPORT_ALL_DOCUMENTS": "تصدير جميع المستندات",
+    "EXPORT_SELECTED_DOCUMENTS": "تصدير المستندات المحددة",
+    "EXPORT_ALL_USERS": "تصدير جميع المستخدمين",
+    "EXPORT_SELECTED_USERS": "تصدير المستخدمين المحددة",
+    "IMPORT": "استيراد",
+    "NEXT": "التالي",
+    "PREVIOUS": "السابق",
+    "BACK": "رجوع",
+    "CONFIRM": "تأكيد",
+    "ACTIONS": "الإجراءات",
+    "UPDATE": "تحديث",
+    "CLOSE": "إغلاق",
+    "LOADING": "جاري التحميل...",
+    "NO_RESULTS": "لا توجد نتائج",
+    "SUCCESS": "نجح",
+    "ERROR": "خطأ",
+    "WARNING": "تحذير",
+    "INFO": "معلومات",
+    "SAVE_CHANGES": "حفظ التغييرات",
+    "DISCARD_CHANGES": "إلغاء التغييرات",
+    "YES": "نعم",
+    "NO": "لا",
+    "OK": "موافق",
+    "APPLY": "تطبيق",
+    "FINISH": "إنهاء",
+    "DONE": "تم",
+    "NOTICE": "إشعار",
+    "ACTIVE": "نشط",
+    "INACTIVE": "غير نشط",
+    "APPROVED": "موافق عليه",
+    "PENDING": "في الانتظار",
+    "REJECTED": "مرفوض",
+    "LOW": "منخفض",
+    "MEDIUM": "متوسط",
+    "HIGH": "عالي",
+    "ALL": "الكل",
+    "NONE": "لا شيء",
+    "UNKNOWN": "غير معروف",
+    "COMPLETE": "مكتمل",
+    "INCOMPLETE": "غير مكتمل"
+  },
+
+  "WELCOME": "مرحباً بك",
+  "SECURE_LOGIN": "تسجيل الدخول الآمن",
+  "USER_CODE": "رمز المستخدم",
+  "ENTER_USER_CODE": "أدخل رمز المستخدم",
+  "USER_CODE_REQUIRED": "رمز المستخدم مطلوب",
+  "PASSWORD": "كلمة المرور",
+  "ENTER_PASSWORD": "أدخل كلمة المرور",
+  "PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+  "LOGIN_BUTTON": "تسجيل الدخول",
+  "SECURE_CONNECTION": "اتصال آمن ومشفر",
+
+  "LOGIN": {
+    "TITLE": "نظام عرض المستندات",
+    "SUBTITLE": "Document Viewer System",
+    "SECURE_LOGIN": "تسجيل الدخول الآمن",
+    "USER_CODE": "رمز المستخدم",
+    "ENTER_USER_CODE": "أدخل رمز المستخدم",
+    "USER_CODE_REQUIRED": "رمز المستخدم مطلوب",
+    "PASSWORD": "كلمة المرور",
+    "ENTER_PASSWORD": "أدخل كلمة المرور",
+    "PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+    "LOGIN_BUTTON": "تسجيل الدخول",
+    "DEMO_CREDENTIALS": "بيانات تجريبية:",
+    "ADMIN_LOGIN": "دخول المدير (ADMIN001)",
+    "MEMBER_LOGIN": "دخول العضو (MEMBER001)",
+    "ADMIN_INFO": "المدير: ADMIN001 / Admin123!",
+    "MEMBER_INFO": "العضو: MEMBER001 / Member123! (أو m5ojyr5t)"
+  },
+
+  "DOCUMENT_SYSTEM": {
+    "TITLE": "نظام إدارة المستندات",
+    "SUBTITLE": "Document Management System",
+    "DOCUMENT_LIBRARY": "مكتبة المستندات",
+    "DOCUMENT_VIEWER": "نظام عرض المستندات",
+    "DOCUMENT_UPLOAD": "رفع المستندات",
+    "DOCUMENT_UPLOAD_SYSTEM": "Document Upload System",
+    "ADMIN_PANEL": "نظام إدارة المستندات - لوحة المدير",
+    "ADMIN_PANEL_TITLE": "لوحة المدير"
+  },
+
+  "FILE_MANAGEMENT": "إدارة الملفات",
+  "TABLE_VIEW": "عرض الجدول",
+  "GRID_VIEW": "عرض الشبكة",
+  "FILE_TABLE": "جدول الملفات",
+  "SEARCH_FILES": "البحث في الملفات",
+  "CLEAR_SEARCH": "مسح البحث",
+  "UPLOAD_FILES": "رفع الملفات",
+  "UPLOAD_NEW_FILES": "رفع ملفات جديدة",
+  "NO_SEARCH_RESULTS": "لا توجد نتائج بحث",
+  "TRY_DIFFERENT_SEARCH": "جرب مصطلحات بحث مختلفة",
+  "DOCUMENT_ACCESS": "الوصول إلى المستندات",
+  "FILES_AVAILABLE": "ملف متاح",
+  "NO_FILES_AVAILABLE": "لا توجد ملفات متاحة",
+  "NO_ACCESS_MESSAGE": "ليس لديك صلاحية للوصول إلى أي ملفات في الوقت الحالي.",
+
+  "FILE_MANAGEMENT_SECTION": {
+    "UPLOAD_FILES": "رفع ملفات",
+    "UPLOAD_NEW_FILES": "رفع ملفات جديدة",
+    "VIEW_FILES": "عرض الملفات",
+    "BROWSE_FILES": "تصفح الملفات",
+    "MANAGE_USERS": "إدارة المستخدمين",
+    "USER_MANAGEMENT": "إدارة المستخدمين",
+    "FILES_SELECTED": "ملف محدد",
+    "CLEAR_ALL": "مسح الكل",
+    "FILES_WILL_APPEAR": "ستظهر الملفات هنا بمجرد رفعها ومشاركتها معك."
+  },
+
+  "TABLE_HEADERS": {
+    "FILE_NAME": "اسم الملف",
+    "FILE_SIZE": "حجم الملف",
+    "UPLOAD_DATE": "تاريخ الرفع",
+    "UPLOADED_BY": "رفع بواسطة",
+    "STATUS": "الحالة",
+    "ACTIONS": "الإجراءات"
+  },
+
+  "FILE_STATUS": {
+    "PENDING": "في الانتظار",
+    "UPLOADING": "جاري الرفع",
+    "COMPLETED": "مكتمل",
+    "DOWNLOADING": "جاري التحميل",
+    "AVAILABLE": "متاح",
+    "PROGRESS": "التقدم"
+  },
+
+  "FILE_ACTIONS": {
+    "VIEW_FILE": "عرض الملف",
+    "DOWNLOAD_FILE": "تحميل الملف",
+    "DELETE_FILE": "حذف الملف (متاح للمدير فقط)",
+    "PREVIEW_NOT_AVAILABLE": "معاينة غير متاحة لهذا النوع من الملفات. استخدم التحميل بدلاً من ذلك.",
+    "DOWNLOADING": "جاري التحميل...",
+    "UPLOADING": "جاري الرفع...",
+    "UPLOAD_FILES": "رفع الملفات",
+    "MORE_OPTIONS": "المزيد من الخيارات",
+    "SHARE": "مشاركة",
+    "COPY_LINK": "نسخ الرابط",
+    "FILE_INFO": "معلومات الملف"
+  },
+
+  "FILE_PROPERTIES": {
+    "FILE_NAME": "اسم الملف",
+    "FILE_SIZE": "حجم الملف",
+    "FILE_TYPE": "نوع الملف",
+    "UPLOAD_DATE": "تاريخ الرفع",
+    "UPLOADED_BY": "تم رفعه بواسطة",
+    "FILE_SIZE_KB": "كيلوبايت",
+    "FILE_SIZE_MB": "ميجابايت"
+  },
+
+  "VIEW_FILES": "عرض الملفات",
+  "MANAGE_USERS": "إدارة المستخدمين",
+  "FILES_SELECTED": "ملف محدد",
+  "CLEAR_ALL": "مسح الكل",
+  "UPLOADING": "جاري الرفع...",
+
+  "UPLOAD_AREA": {
+    "DROP_FILES_HERE": "أفلت الملفات هنا",
+    "OR": "أو",
+    "OR_BROWSE": "أو تصفح الملفات",
+    "BROWSE_FILES": "تصفح الملفات",
+    "MAX_FILE_SIZE": "الحد الأقصى لحجم الملف",
+    "MB": "ميجابايت",
+    "SUPPORTED_FORMATS": "الصيغ المدعومة",
+    "FORMAT_PDF": "PDF",
+    "FORMAT_DOC": "DOC",
+    "FORMAT_XLS": "XLS",
+    "FORMAT_IMG": "IMG",
+    "FORMAT_AUDIO": "AUDIO",
+    "FORMAT_VIDEO": "VIDEO",
+    "FORMAT_TEXT": "TEXT",
+    "FORMAT_ARCHIVE": "ZIP",
+    "FORMAT_ALL": "ALL"
+  },
+
+  "PERMISSIONS": {
+    "SETTINGS": "إعدادات الصلاحيات",
+    "CONFIGURE_ACCESS": "تكوين من لا يمكنه الوصول إلى هذه الملفات (اختياري)",
+    "PERMISSION_SETTINGS": "إعدادات الصلاحيات",
+    "PERMISSION_CONFIG": "تكوين من لا يمكنه الوصول إلى هذه الملفات (اختياري)",
+    "EXCLUDED_USERS": "المستخدمون المستبعدون",
+    "SELECT_EXCLUDED_USERS": "اختر المستخدمين لاستبعادهم (اختياري)",
+    "SELECT_USERS_TO_EXCLUDE": "اختر المستخدمين لاستبعادهم (اختياري)",
+    "PERMISSION_HINT": "افتراضياً، يمكن لجميع المستخدمين الوصول إلى الملفات. اختر المستخدمين لاستبعادهم من الوصول.",
+    "DEFAULT_ACCESS_HINT": "افتراضياً، يمكن لجميع المستخدمين الوصول إلى الملفات. اختر المستخدمين لاستبعادهم من الوصول.",
+    "USER_CODE": "رمز المستخدم",
+    "USER_DESCRIPTION": "وصف المستخدم"
+  },
+
+  "ADMIN_FEATURES": {
+    "ADMIN_PANEL": "لوحة المدير",
+    "MANAGE_SYSTEM": "إدارة النظام",
+    "CONTROL_PANEL": "لوحة التحكم",
+    "SYSTEM_MANAGEMENT": "إدارة النظام",
+    "UPLOAD_DOCUMENTS": "رفع المستندات",
+    "UPLOAD_MANAGE_PERMISSIONS": "رفع وإدارة صلاحيات المستندات",
+    "MANAGE_USERS": "إدارة المستخدمين",
+    "MANAGE_SYSTEM_USERS": "إدارة مستخدمي النظام وأدوارهم",
+    "VIEW_DOCUMENTS": "عرض المستندات",
+    "BROWSE_MANAGE_DOCUMENTS": "تصفح وإدارة جميع المستندات",
+    "SYSTEM_STATUS": "حالة النظام",
+    "ACTIVE": "نشط"
+  },
+
+  "TESTING": {
+    "TEST_AUTHENTICATION": "اختبار المصادقة",
+    "DEBUG": "تصحيح",
+    "CREATE_TEST_DOCUMENT": "مستند تجريبي",
+    "TEST_DOCUMENT": "مستند تجريبي"
+  },
+
+  "USER_INTERFACE": {
+    "WELCOME": "مرحباً،",
+    "LOGOUT": "تسجيل الخروج",
+    "LOGOUT_TOOLTIP": "تسجيل الخروج",
+    "USER_INFO": "معلومات المستخدم",
+    "NAVIGATION": "التنقل",
+    "HOME": "الرئيسية",
+    "DASHBOARD": "لوحة التحكم",
+    "SETTINGS": "الإعدادات",
+    "PROFILE": "الملف الشخصي"
+  },
+
+  "TITLE": "نظام إدارة المستندات",
+  "SUBTITLE": "Document Management System",
+
+  "FOOTER": {
+    "DEVELOPED_BY": "تم تطوير النظام بواسطة:",
+    "TECHNICAL_COMMITTEE": "اللجنة الفنية العليا للجهاز المخابرات الليبية",
+    "TECHNICAL_TEAM": "فريق للجنة العليا",
+    "YEAR": "2025-2026"
+  },
+
+  "VALIDATION": {
+    "REQUIRED": "هذا الحقل مطلوب",
+    "INVALID_FORMAT": "صيغة غير صحيحة",
+    "FILE_TOO_LARGE": "الملف كبير جداً",
+    "INVALID_FILE_TYPE": "نوع ملف غير صحيح"
+  },
+
+  "MESSAGES": {
+    "UPLOAD_SUCCESS": "تم رفع الملفات بنجاح",
+    "UPLOAD_ERROR": "حدث خطأ أثناء رفع الملفات",
+    "DOWNLOAD_STARTED": "بدأ تحميل الملف",
+    "DOWNLOAD_ERROR": "حدث خطأ أثناء تحميل الملف",
+    "DELETE_CONFIRMATION": "هل أنت متأكد من حذف هذا الملف؟",
+    "DELETE_SUCCESS": "تم حذف الملف بنجاح",
+    "DELETE_ERROR": "حدث خطأ أثناء حذف الملف",
+    "LOGIN_SUCCESS": "تم تسجيل الدخول بنجاح",
+    "LOGIN_ERROR": "فشل تسجيل الدخول",
+    "LOGOUT_SUCCESS": "تم تسجيل الخروج بنجاح"
+  },
+
+  "LANGUAGES": {
+    "ARABIC": "العربية",
+    "ENGLISH": "English",
+    "FRENCH": "Français"
+  }
+}

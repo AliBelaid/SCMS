@@ -1,0 +1,14 @@
+[
+    {"Name": "G1800", "TelecomSupport": [0, 1, 2, 3], "Alias": ""},
+    {"Name": "DCS1800", "TelecomSupport": [2, 0, 1, 3], "Alias": "D"},
+    {"Name": "U900", "TelecomSupport": [1, 0, 3], "Alias": "U"},
+    {"Name": "U2100", "TelecomSupport": [1, 2, 0, 3], "Alias": "W"},
+    {"Name": "L1800", "TelecomSupport": [1, 2, 0, 3], "Alias": "L1800"},
+    {"Name": "L1800&L2100", "TelecomSupport": [0, 1, 3], "Alias": "L2X"},
+    {"Name": "L2100", "TelecomSupport": [0, 1, 3], "Alias": "L2100"},
+    {"Name": "L700", "TelecomSupport": [0, 1, 3], "Alias": "L700"},
+    {"Name": "L1800&L2100&L700", "TelecomSupport": [0, 1, 3], "Alias": "L3X"},
+    {"Name": "CA", "TelecomSupport": [0, 1, 3], "Alias": "C"},
+    {"Name": "N3500", "TelecomSupport": [0, 1, 3], "Alias": "N"}
+  ]
+  

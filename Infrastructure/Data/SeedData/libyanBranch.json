@@ -1,0 +1,53 @@
+[
+  {
+    "CompanyAddressDescription": "المقر الرئيسي", "LibyanaBranchInfo" :1,
+    "AddressLocation": {
+      "Latitude": "32.883748",
+      "Longitude": "13.183017",
+      "Street": "طريق الشط",
+      "NearPoint": "طريق الشط بجانب ميدان الفروسية أبوستة",
+      "CityId": 50
+    }
+  },
+  {
+    "CompanyAddressDescription": "المقر الفرعي", "LibyanaBranchInfo" :1,
+    "AddressLocation": {
+      "Latitude": "32.882754",
+      "Longitude": "13.189527",
+      "Street": "شارع الشيخ",
+      "NearPoint": "بجانب جامع الصقع خلف مدرسة",
+      "CityId": 50
+    }
+  },
+  {
+    "CompanyAddressDescription": "فرع-مصراتة",
+    "LibyanaBranchInfo" :1,
+    "AddressLocation": {
+      "Latitude": "32.374321",
+      "Longitude": "15.086976",
+      "Street": "Ghout Al-Shaal Street",
+      "NearPoint": "Misrata Square",
+      "CityId": 70 
+    }
+  },
+  {
+    "CompanyAddressDescription": "فرع-بنغازي", "LibyanaBranchInfo" :1,
+    "AddressLocation": {
+      "Latitude": "32.1167",
+      "Longitude": "20.0667",
+      "Street": "Al-Kahraman Street",
+      "NearPoint": "Al-Kahraman Square",
+      "CityId": 1
+    }
+  },
+  {
+    "CompanyAddressDescription": "فرع-سبها", "LibyanaBranchInfo" :1,
+    "AddressLocation": {
+      "Latitude": "27.021851",
+      "Longitude": "14.428613",
+      "Street": "Al-Asima Street",
+      "NearPoint": "Sabha Square",
+      "CityId": 21
+    }
+  }
+]

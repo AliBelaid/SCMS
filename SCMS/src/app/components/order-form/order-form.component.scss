@@ -1,0 +1,142 @@
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  .page-header {
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #131c43;
+    }
+
+    p {
+      margin: 0.5rem 0 0;
+      color: #5c6086;
+    }
+  }
+
+  form {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(19, 28, 67, 0.06);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .form-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 600;
+      color: #2b2f55;
+    }
+
+    input[type='text'],
+    input[type='date'],
+    select,
+    textarea {
+      border: 1px solid #d9dcf1;
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.95rem;
+      color: #131c43;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #5a5ee5;
+        box-shadow: 0 0 0 3px rgba(90, 94, 229, 0.15);
+      }
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    small {
+      color: #d93025;
+      font-size: 0.8rem;
+    }
+  }
+
+  .description {
+    grid-column: 1 / -1;
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 1rem;
+
+    label {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  .toggle {
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    button {
+      background: linear-gradient(135deg, #5a5ee5, #7a60ff);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+      }
+
+      &:not(:disabled):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(90, 94, 229, 0.3);
+      }
+    }
+
+    .link {
+      color: #5a5ee5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+
+  .feedback {
+    margin: 0;
+    color: #2b7a0b;
+    font-weight: 600;
+  }
+}
+

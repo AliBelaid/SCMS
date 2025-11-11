@@ -1,0 +1,32 @@
+  [
+      {
+        "id": 1,
+        "title": "New Year",
+       "holidaydate": "01-01-2020",
+        "day": "sun day"
+      },
+      {
+        "id": 2,
+        "title": "Diwali",
+       "holidaydate": "28-02-2020",
+        "day": "Thursday "
+      },
+      {
+        "id": 3,
+        "title": "Christmas",
+       "holidaydate": "28-02-2020",
+        "day": "Fray"
+      },
+      {
+        "id": 4,
+        "title": "Ramzon",
+        "holidaydate": "17-02-2020",
+        "day": "sun day"
+      },
+      {
+        "id": 5,
+        "title": "Bakrid",
+       "holidaydate": "15-09-2020",
+        "day": "Saturday"
+      }
+    ]

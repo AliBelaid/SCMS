@@ -1,0 +1,98 @@
+[
+  {
+    "name": "tax_returns",
+    "arabicName": "الإقرارات الضريبية",
+    "description": "Annual tax return documents and related forms",
+    "icon": "description",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 1,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "receipts",
+    "arabicName": "الإيصالات",
+    "description": "Business expense receipts and invoices",
+    "icon": "receipt",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 2,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "income",
+    "arabicName": "الدخل",
+    "description": "Income statements and documentation",
+    "icon": "attach_money",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 3,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "deductions",
+    "arabicName": "الخصومات",
+    "description": "Tax deduction documentation and receipts",
+    "icon": "money_off",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 4,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "business",
+    "arabicName": "عمل",
+    "description": "Business documentation and licenses",
+    "icon": "business",
+    "isActive": true,
+    "allowChildren": true,
+    "parentId": null,
+    "displayOrder": 5,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "contracts",
+    "arabicName": "العقود",
+    "description": "Legal contracts and agreements",
+    "icon": "gavel",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 6,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "financial",
+    "arabicName": "البيانات المالية",
+    "description": "Financial statements and reports",
+    "icon": "account_balance",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 7,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  },
+  {
+    "name": "property",
+    "arabicName": "الممتلكات",
+    "description": "Property documentation and deeds",
+    "icon": "home",
+    "isActive": true,
+    "allowChildren": false,
+    "parentId": null,
+    "displayOrder": 8,
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastModified": null
+  }
+] 

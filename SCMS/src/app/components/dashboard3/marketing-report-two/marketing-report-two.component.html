@@ -1,0 +1,74 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <div class="d-flex justify-content-between m-b-16">
+      <mat-card-title class="f-s-18 m-b-0">Marketing Report</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)"
+            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div class="row align-items-center p-b-8">
+      <div class="col-md-6">
+        <ul class="list-unstyled m-0">
+          @for(stat of stats; track stat) {
+          <li class="hstack gap-12 m-b-24">
+            <div class="d-flex align-items-center gap-16">
+              <span
+                class="text-muted bg-light rounded-circle-shape p-x-16 p-y-8 rounded-pill d-flex align-items-center justify-content-center">
+                <i class="iconify f-s-24" [attr.data-icon]="stat.icon"></i>
+              </span>
+              <div>
+                <p class="text-muted m-y-0 f-s-14 f-w-500">{{ stat.subtitle }}</p>
+                <h6 class="mat-subtitle-1 f-s-20 lh-sm">{{ stat.title }}</h6>
+              </div>
+            </div>
+          </li>
+          }
+        </ul>
+
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <apx-chart [series]="marketingreporttwoChart.series" [chart]="marketingreporttwoChart.chart"
+            [colors]="marketingreporttwoChart.colors" [dataLabels]="marketingreporttwoChart.dataLabels"
+            [legend]="marketingreporttwoChart.legend" [tooltip]="marketingreporttwoChart.tooltip"
+            [plotOptions]="marketingreporttwoChart.plotOptions" [grid]="marketingreporttwoChart.grid"
+            [xaxis]="marketingreporttwoChart.xaxis" [yaxis]="marketingreporttwoChart.yaxis"
+            [labels]="marketingreporttwoChart.labels" [stroke]="marketingreporttwoChart.stroke"></apx-chart>
+          <h2 class="mat-subtitle-1 f-s-30 lh-lg m-b-8 m-t-4">275</h2>
+          <p class="f-s-12 text-muted m-y-0 f-w-500">Learn insigs how to manage all aspects of your startup.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-light rounded-8 p-x-18 p-y-24">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-16 w-75">
+          <i class="iconify f-s-30 text-primary flex-shrink-0" data-icon="solar:plain-2-line-duotone"></i>
+          <p class="f-s-14 text-muted m-y-0 f-w-500">Learn insigs how to manage all aspects of your startup.</p>
+        </div>
+        <a href="javascript:void()"
+          class="icon-40 flex-shrink-0 bg-primary rounded-circle d-flex align-items-center justify-content-center">
+          <i class="iconify f-s-18 text-white" data-icon="solar:play-line-duotone"></i>
+        </a>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

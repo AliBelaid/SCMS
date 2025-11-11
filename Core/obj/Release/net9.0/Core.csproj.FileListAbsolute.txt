@@ -1,0 +1,14 @@
+D:\SFileSysyem\DVS_2025\Core\bin\Release\net9.0\Core.deps.json
+D:\SFileSysyem\DVS_2025\Core\bin\Release\net9.0\Core.runtimeconfig.json
+D:\SFileSysyem\DVS_2025\Core\bin\Release\net9.0\Core.dll
+D:\SFileSysyem\DVS_2025\Core\bin\Release\net9.0\Core.pdb
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.csproj.AssemblyReference.cache
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.AssemblyInfoInputs.cache
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.AssemblyInfo.cs
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.csproj.CoreCompileInputs.cache
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.dll
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\refint\Core.dll
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.pdb
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\Core.genruntimeconfig.cache
+D:\SFileSysyem\DVS_2025\Core\obj\Release\net9.0\ref\Core.dll

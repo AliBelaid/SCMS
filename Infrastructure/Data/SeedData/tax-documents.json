@@ -1,0 +1,82 @@
+[
+  {
+    "folderID": 1,
+    "userID": 1,
+    "originalName": "W2_2024_JohnDoe.pdf",
+    "storedName": "67890123-4567-89ab-cdef-1234567890ab.pdf",
+    "physicalPath": "/uploads/tax-documents/67890123-4567-89ab-cdef-1234567890ab.pdf",
+    "uploadDate": "2024-01-15T09:30:00Z",
+    "isBackedUp": true,
+    "isActive": true
+  },
+  {
+    "folderID": 1,
+    "userID": 1,
+    "originalName": "1099_Investment_Income.pdf",
+    "storedName": "78901234-5678-9abc-def0-1234567890bc.pdf",
+    "physicalPath": "/uploads/tax-documents/78901234-5678-9abc-def0-1234567890bc.pdf",
+    "uploadDate": "2024-01-20T14:15:00Z",
+    "isBackedUp": false,
+    "isActive": true
+  },
+  {
+    "folderID": 2,
+    "userID": 1,
+    "originalName": "Office_Supplies_Receipt_Jan2024.jpg",
+    "storedName": "89012345-6789-abcd-ef01-234567890cde.jpg",
+    "physicalPath": "/uploads/tax-documents/89012345-6789-abcd-ef01-234567890cde.jpg",
+    "uploadDate": "2024-02-05T11:45:00Z",
+    "isBackedUp": true,
+    "isActive": true
+  },
+  {
+    "folderID": 2,
+    "userID": 1,
+    "originalName": "Travel_Expense_Receipt.pdf",
+    "storedName": "90123456-789a-bcde-f012-34567890def0.pdf",
+    "physicalPath": "/uploads/tax-documents/90123456-789a-bcde-f012-34567890def0.pdf",
+    "uploadDate": "2024-02-08T16:20:00Z",
+    "isBackedUp": true,
+    "isActive": true
+  },
+  {
+    "folderID": 3,
+    "userID": 1,
+    "originalName": "Salary_Statement_2024.pdf",
+    "storedName": "01234567-89ab-cdef-0123-4567890ef012.pdf",
+    "physicalPath": "/uploads/tax-documents/01234567-89ab-cdef-0123-4567890ef012.pdf",
+    "uploadDate": "2024-02-12T10:10:00Z",
+    "isBackedUp": false,
+    "isActive": true
+  },
+  {
+    "folderID": 3,
+    "userID": 1,
+    "originalName": "Charitable_Donation_Receipt.pdf",
+    "storedName": "12345678-9abc-def0-1234-567890f01234.pdf",
+    "physicalPath": "/uploads/tax-documents/12345678-9abc-def0-1234-567890f01234.pdf",
+    "uploadDate": "2024-02-18T13:25:00Z",
+    "isBackedUp": false,
+    "isActive": true
+  },
+  {
+    "folderID": 4,
+    "userID": 1,
+    "originalName": "Business_License_Certificate.pdf",
+    "storedName": "23456789-abcd-ef01-2345-67890f012345.pdf",
+    "physicalPath": "/uploads/tax-documents/23456789-abcd-ef01-2345-67890f012345.pdf",
+    "uploadDate": "2024-02-20T15:40:00Z",
+    "isBackedUp": true,
+    "isActive": true
+  },
+  {
+    "folderID": 4,
+    "userID": 1,
+    "originalName": "Property_Lease_Agreement.pdf",
+    "storedName": "34567890-bcde-f012-3456-7890f0123456.pdf",
+    "physicalPath": "/uploads/tax-documents/34567890-bcde-f012-3456-7890f0123456.pdf",
+    "uploadDate": "2024-03-02T09:15:00Z",
+    "isBackedUp": false,
+    "isActive": true
+  }
+] 

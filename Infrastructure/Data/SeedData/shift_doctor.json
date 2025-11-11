@@ -1,0 +1,127 @@
+ 
+
+  [
+
+  {
+                "DoctorId": 1,
+                "Shifts": [
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-11",
+                        "WeekDayName": "ThursDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-22",
+                        "WeekDayName": "MonDay"
+                    }
+                ]
+            },
+            {
+                "DoctorId": 2,
+                "Shifts": [
+                    {
+                        "Start": "14:00",
+                        "End": "18:00",
+                        "Day": "2024-07-02",
+                        "WeekDayName": "TuesDay"
+                    },
+                    {
+                        "Start": "14:00",
+                        "End": "18:00",
+                        "Day": "2024-07-24",
+                        "WeekDayName": "WednesDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-07",
+                        "WeekDayName": "SunDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-29",
+                        "WeekDayName": "MonDay"
+                    }
+                ]
+            },
+            {
+                "DoctorId": 3,
+                "Shifts": [
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-05",
+                        "WeekDayName": "FriDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-15",
+                        "WeekDayName": "MonDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-06",
+                        "WeekDayName": "SaturDay"
+                    },
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-16",
+                        "WeekDayName": "TuesDay"
+                    }
+                ]
+            },
+            {
+                "DoctorId": 4,
+                "Shifts": [
+                    {
+                        "Start": "08:00",
+                        "End": "12:00",
+                        "Day": "2024-07-24",
+                        "WeekDayName": "WednesDay"
+                    },
+                    {
+                        "Start": "14:00",
+                        "End": "18:00",
+                        "Day": "2024-07-18",
+                        "WeekDayName": "ThursDay"
+                    }
+                ]
+            },
+            {
+                "DoctorId": 5,
+                "Shifts": [
+                    {
+                        "Start": "09:00",
+                        "End": "13:00",
+                        "Day": "2024-07-02",
+                        "WeekDayName": "TuesDay"
+                    },
+                    {
+                        "Start": "09:00",
+                        "End": "13:00",
+                        "Day": "2024-07-26",
+                        "WeekDayName": "FriDay"
+                    },
+                    {
+                        "Start": "14:00",
+                        "End": "18:00",
+                        "Day": "2024-07-10",
+                        "WeekDayName": "WednesDay"
+                    },
+                    {
+                        "Start": "14:00",
+                        "End": "18:00",
+                        "Day": "2024-07-18",
+                        "WeekDayName": "ThursDay"
+                    }
+                ]
+            }
+        ]
+        

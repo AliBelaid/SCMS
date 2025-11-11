@@ -1,0 +1,80 @@
+<mat-card class="cardWithShadow">
+    <mat-card-content>
+        <div class="d-lg-flex align-items-center justify-content-between m-b-24">
+            <mat-card-title class="f-s-18">Delivery Analytics</mat-card-title>
+            <div class="d-flex align-items-center justify-content-center gap-8">
+                <div class="theme-tab">
+                    <ul class="mat-mdc-tab-header list-unstyled m-0 d-flex align-items-center">
+                        <li><a [ngClass]="tabtitle==='orders' ? 'active-class' : ''" class="mat-mdc-tab f-s-12"
+                                href="javascript:void(0)" (click)="handleTab('orders')">Email</a></li>
+                        <li><a [ngClass]="tabtitle!=='orders'? 'active-class' : ''" class="mat-mdc-tab f-s-12"
+                                href="javascript:void(0)" (click)="handleTab('expenses')">From last week</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <a href="javascript:void(0)"
+                            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+                            <span>Action</span>
+                        </a>
+                        <a href="javascript:void(0)"
+                            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+                            <span>Another action</span>
+                        </a>
+                        <a href="javascript:void(0)"
+                            class="d-flex align-items-center text-decoration-none p-y-10 p-x-16 gap-8">
+                            <span>Something else here</span>
+                        </a>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+
+        @if (tabtitle==="orders") {
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <apx-chart [series]="deliveryanalyticsChart.series" [chart]="deliveryanalyticsChart.chart"
+                    [colors]="deliveryanalyticsChart.colors" [stroke]="deliveryanalyticsChart.stroke"
+                    [fill]="deliveryanalyticsChart.fill" [markers]="deliveryanalyticsChart.markers"
+                    [tooltip]="deliveryanalyticsChart.tooltip" [labels]="deliveryanalyticsChart.labels"
+                    [plotOptions]="deliveryanalyticsChart.plotOptions" [grid]="deliveryanalyticsChart.grid"
+                    [dataLabels]="deliveryanalyticsChart.dataLabels" [legend]="deliveryanalyticsChart.legend"
+                    [xaxis]="deliveryanalyticsChart.xaxis" [yaxis]="deliveryanalyticsChart.yaxis"></apx-chart>
+            </div>
+            <div class="col-lg-5">
+                <div class="bg-light p-y-16 p-x-20 rounded-8 m-b-30">
+                    <i class="iconify f-s-30 text-primary" data-icon="solar:rocket-2-bold-duotone"></i>
+                    <h5 class="f-s-18 m-t-8 m-b-4">Welcome Emails!</h5>
+                    <p class="f-s-14 text-dark f-w-500 m-y-0">Have great potential!</p>
+                </div>
+                <div class="d-flex align-items-center gap-12 m-b-16">
+                    <span class="circle-shape bg-primary rounded-pill"></span>
+                    <h6 class="f-s-16 lh-sm">22.3%</h6>
+                    <p class="f-s-14 f-w-500 text-muted m-y-0">Open Rate</p>
+                </div>
+                <div class="d-flex align-items-center gap-12 m-b-16">
+                    <span class="circle-shape bg-secondary rounded-pill"></span>
+                    <h6 class="f-s-16 lh-sm">14.2%</h6>
+                    <p class="f-s-14 f-w-500 text-muted m-y-0">Click-through Rate</p>
+                </div>
+                <div class="d-flex align-items-center gap-12 m-b-16">
+                    <span class="circle-shape bg-error rounded-pill"></span>
+                    <h6 class="f-s-16 lh-sm">11.6%</h6>
+                    <p class="f-s-14 f-w-500 text-muted m-y-0">Conversation Rate</p>
+                </div>
+            </div>
+        </div>
+
+        } @else {
+        <apx-chart [series]="deliveryChart.series" [dataLabels]="deliveryChart.dataLabels" [chart]="deliveryChart.chart"
+            [legend]="deliveryChart.legend" [colors]="deliveryChart.colors" [grid]="deliveryChart.grid"
+            [fill]="deliveryChart.fill" [stroke]="deliveryChart.stroke" [tooltip]="deliveryChart.tooltip"
+            [markers]="deliveryChart.markers" [xaxis]="deliveryChart.xaxis" [yaxis]="deliveryChart.yaxis"
+            [plotOptions]="deliveryChart.plotOptions"></apx-chart>
+        }
+
+    </mat-card-content>
+</mat-card>

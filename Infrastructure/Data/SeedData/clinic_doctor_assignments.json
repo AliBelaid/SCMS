@@ -1,0 +1,50 @@
+[
+  {
+    "ClinicId": 1,
+    "DoctorIds": [1, 13, 26]
+  },
+  {
+    "ClinicId": 2,
+    "DoctorIds": [2, 14, 27]
+  },
+  {
+    "ClinicId": 3,
+    "DoctorIds": [3, 15, 28]
+  },
+  {
+    "ClinicId": 4,
+    "DoctorIds": [4, 16, 29]
+  },
+  {
+    "ClinicId": 5,
+    "DoctorIds": [5, 17, 30]
+  },
+  {
+    "ClinicId": 6,
+    "DoctorIds": [6, 18]
+  },
+  {
+    "ClinicId": 7,
+    "DoctorIds": [7, 19]
+  },
+  {
+    "ClinicId": 8,
+    "DoctorIds": [8, 20]
+  },
+  {
+    "ClinicId": 9,
+    "DoctorIds": [9, 21]
+  },
+  {
+    "ClinicId": 10,
+    "DoctorIds": [10, 22]
+  },
+  {
+    "ClinicId": 11,
+    "DoctorIds": [11, 23]
+  },
+  {
+    "ClinicId": 12,
+    "DoctorIds": [12, 24, 25]
+  }
+] 

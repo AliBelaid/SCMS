@@ -1,0 +1,498 @@
+[
+  {
+    "FirstName": "Ahmed",
+    "LastName": "Khan",
+    "YearsOfExperience": 15,
+    "Specialization": "Cardiology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Cardiology",
+      "subSpecialties": ["Interventional Cardiology", "Heart Failure"],
+      "certifications": ["Board Certified in Cardiology", "FACC"],
+      "specialInterests": ["Coronary Artery Disease", "Preventive Cardiology"],
+      "description": "Experienced cardiologist specializing in interventional procedures and heart failure management"
+    },
+    "MedicalLicenseNumber": "MD12345",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-profile-with-medical-service-icon_755165-393.jpg"
+  },
+  {
+    "FirstName": "Mohammed",
+    "LastName": "Al-Saeed",
+    "YearsOfExperience": 12,
+    "Specialization": "Pediatrics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Pediatrics",
+      "subSpecialties": ["Neonatology", "Pediatric Infectious Diseases"],
+      "certifications": ["Board Certified in Pediatrics"],
+      "specialInterests": ["Newborn Care", "Childhood Vaccinations"],
+      "description": "Compassionate pediatrician with special focus on newborns and infectious diseases"
+    },
+    "MedicalLicenseNumber": "MD23456",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Ali",
+    "LastName": "Ibrahim",
+    "YearsOfExperience": 20,
+    "Specialization": "Neurology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Neurology",
+      "subSpecialties": ["Stroke", "Epilepsy"],
+      "certifications": ["Board Certified in Neurology", "Stroke Certification"],
+      "specialInterests": ["Stroke Prevention", "Epilepsy Management"],
+      "description": "Senior neurologist with extensive experience in stroke care and epilepsy treatment"
+    },
+    "MedicalLicenseNumber": "MD34567",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://as1.ftcdn.net/v2/jpg/01/30/52/26/1000_F_130522656_W6SpuDyM9mSPgCpuidLNFrMkQvpCcAKR.jpg"
+  },
+  {
+    "FirstName": "Omar",
+    "LastName": "Rahman",
+    "YearsOfExperience": 10,
+    "Specialization": "Orthopedics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Orthopedics",
+      "subSpecialties": ["Sports Medicine", "Joint Replacement"],
+      "certifications": ["Board Certified in Orthopedic Surgery"],
+      "specialInterests": ["Knee Reconstruction", "Minimally Invasive Surgery"],
+      "description": "Orthopedic surgeon specializing in sports injuries and joint replacements"
+    },
+    "MedicalLicenseNumber": "MD45678",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/medical-health-care-logo-design-vector-icon_527952-528.jpg"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Al-Farsi",
+    "YearsOfExperience": 8,
+    "Specialization": "Dermatology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Dermatology",
+      "subSpecialties": ["Cosmetic Dermatology", "Dermatopathology"],
+      "certifications": ["Board Certified in Dermatology"],
+      "specialInterests": ["Acne Treatment", "Skin Cancer Detection"],
+      "description": "Dermatologist with expertise in cosmetic procedures and skin cancer screenings"
+    },
+    "MedicalLicenseNumber": "MD56789",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-woman-physician-therapist-avatar_8071-24443.jpg"
+  },
+  {
+    "FirstName": "Fatima",
+    "LastName": "Hussein",
+    "YearsOfExperience": 14,
+    "Specialization": "Otolaryngology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Otolaryngology",
+      "subSpecialties": ["Rhinology", "Laryngology"],
+      "certifications": ["Board Certified in Otolaryngology"],
+      "specialInterests": ["Sinus Surgery", "Voice Disorders"],
+      "description": "ENT specialist with focus on sinus conditions and voice disorders"
+    },
+    "MedicalLicenseNumber": "MD67890",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304567.png"
+  },
+  {
+    "FirstName": "Layla",
+    "LastName": "Al-Ali",
+    "YearsOfExperience": 11,
+    "Specialization": "Ophthalmology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Ophthalmology",
+      "subSpecialties": ["Cornea", "Refractive Surgery"],
+      "certifications": ["Board Certified in Ophthalmology"],
+      "specialInterests": ["LASIK Surgery", "Corneal Transplants"],
+      "description": "Ophthalmologist specializing in corneal procedures and vision correction surgeries"
+    },
+    "MedicalLicenseNumber": "MD78901",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Hassan",
+    "LastName": "Abdullah",
+    "YearsOfExperience": 16,
+    "Specialization": "Obstetrics and Gynecology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Obstetrics and Gynecology",
+      "subSpecialties": ["Maternal-Fetal Medicine", "Reproductive Endocrinology"],
+      "certifications": ["Board Certified in Obstetrics and Gynecology"],
+      "specialInterests": ["High-Risk Pregnancy", "Infertility Treatment"],
+      "description": "OB/GYN specialist with expertise in high-risk pregnancies and fertility issues"
+    },
+    "MedicalLicenseNumber": "MD89012",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://t3.ftcdn.net/jpg/02/60/79/68/360_F_260796882_QyjAAZWLDVXlG7LJjFmVQRU3jd9vHEjU.jpg"
+  },
+  {
+    "FirstName": "Noor",
+    "LastName": "Al-Mansour",
+    "YearsOfExperience": 9,
+    "Specialization": "General Surgery",
+    "SpecializationDetails": {
+      "mainSpecialty": "General Surgery",
+      "subSpecialties": ["Minimally Invasive Surgery", "Bariatric Surgery"],
+      "certifications": ["Board Certified in General Surgery"],
+      "specialInterests": ["Laparoscopic Procedures", "Weight Loss Surgery"],
+      "description": "General surgeon specializing in minimally invasive techniques and weight loss surgery"
+    },
+    "MedicalLicenseNumber": "MD90123",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Amir",
+    "LastName": "Malik",
+    "YearsOfExperience": 13,
+    "Specialization": "Internal Medicine",
+    "SpecializationDetails": {
+      "mainSpecialty": "Internal Medicine",
+      "subSpecialties": ["Geriatrics", "Preventive Medicine"],
+      "certifications": ["Board Certified in Internal Medicine"],
+      "specialInterests": ["Chronic Disease Management", "Elderly Care"],
+      "description": "Internist with focus on preventive care and managing complex medical conditions in elderly patients"
+    },
+    "MedicalLicenseNumber": "MD01234",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304567.png"
+  },
+  {
+    "FirstName": "Zainab",
+    "LastName": "Al-Amir",
+    "YearsOfExperience": 7,
+    "Specialization": "Urology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Urology",
+      "subSpecialties": ["Urologic Oncology", "Female Urology"],
+      "certifications": ["Board Certified in Urology"],
+      "specialInterests": ["Prostate Health", "Urinary Incontinence"],
+      "description": "Urologist specializing in cancer treatment and women's urological health"
+    },
+    "MedicalLicenseNumber": "MD12340",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304767.png"
+  },
+  {
+    "FirstName": "Khalid",
+    "LastName": "Saleh",
+    "YearsOfExperience": 18,
+    "Specialization": "Psychiatry",
+    "SpecializationDetails": {
+      "mainSpecialty": "Psychiatry",
+      "subSpecialties": ["Mood Disorders", "Anxiety Disorders"],
+      "certifications": ["Board Certified in Psychiatry"],
+      "specialInterests": ["Depression Treatment", "Stress Management"],
+      "description": "Psychiatrist with extensive experience in treating depression and anxiety disorders"
+    },
+    "MedicalLicenseNumber": "MD23401",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Yasmin",
+    "LastName": "Nasir",
+    "YearsOfExperience": 11,
+    "Specialization": "Cardiology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Cardiology",
+      "subSpecialties": ["Non-invasive Cardiology", "Echocardiography"],
+      "certifications": ["Board Certified in Cardiology"],
+      "specialInterests": ["Heart Disease in Women", "Cardiac Imaging"],
+      "description": "Cardiologist specializing in non-invasive diagnostic procedures and women's heart health"
+    },
+    "MedicalLicenseNumber": "MD34012",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Tariq",
+    "LastName": "Ahmed",
+    "YearsOfExperience": 9,
+    "Specialization": "Pediatrics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Pediatrics",
+      "subSpecialties": ["Pediatric Pulmonology", "Asthma Care"],
+      "certifications": ["Board Certified in Pediatrics"],
+      "specialInterests": ["Childhood Asthma", "Respiratory Infections"],
+      "description": "Pediatrician specializing in respiratory conditions in children"
+    },
+    "MedicalLicenseNumber": "MD45123",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304567.png"
+  },
+  {
+    "FirstName": "Leila",
+    "LastName": "Haddad",
+    "YearsOfExperience": 14,
+    "Specialization": "Neurology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Neurology",
+      "subSpecialties": ["Headache Medicine", "Multiple Sclerosis"],
+      "certifications": ["Board Certified in Neurology"],
+      "specialInterests": ["Migraine Treatment", "MS Management"],
+      "description": "Neurologist with expertise in headache disorders and multiple sclerosis"
+    },
+    "MedicalLicenseNumber": "MD56234",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Samir",
+    "LastName": "Khalil",
+    "YearsOfExperience": 16,
+    "Specialization": "Orthopedics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Orthopedics",
+      "subSpecialties": ["Spine Surgery", "Trauma Orthopedics"],
+      "certifications": ["Board Certified in Orthopedic Surgery"],
+      "specialInterests": ["Spinal Deformities", "Fracture Management"],
+      "description": "Orthopedic surgeon specializing in spine conditions and trauma care"
+    },
+    "MedicalLicenseNumber": "MD67345",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Hana",
+    "LastName": "Qasim",
+    "YearsOfExperience": 10,
+    "Specialization": "Dermatology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Dermatology",
+      "subSpecialties": ["Pediatric Dermatology", "Laser Treatment"],
+      "certifications": ["Board Certified in Dermatology"],
+      "specialInterests": ["Childhood Skin Disorders", "Acne Scarring"],
+      "description": "Dermatologist specializing in pediatric skin conditions and laser treatments"
+    },
+    "MedicalLicenseNumber": "MD78456",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304767.png"
+  },
+  {
+    "FirstName": "Karim",
+    "LastName": "Farouk",
+    "YearsOfExperience": 12,
+    "Specialization": "Otolaryngology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Otolaryngology",
+      "subSpecialties": ["Pediatric ENT", "Sleep Medicine"],
+      "certifications": ["Board Certified in Otolaryngology"],
+      "specialInterests": ["Sleep Apnea", "Tonsil and Adenoid Surgery"],
+      "description": "ENT specialist with focus on children's ENT issues and sleep disorders"
+    },
+    "MedicalLicenseNumber": "MD89567",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Maya",
+    "LastName": "Zayid",
+    "YearsOfExperience": 8,
+    "Specialization": "Ophthalmology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Ophthalmology",
+      "subSpecialties": ["Glaucoma", "Pediatric Ophthalmology"],
+      "certifications": ["Board Certified in Ophthalmology"],
+      "specialInterests": ["Glaucoma Management", "Children's Eye Care"],
+      "description": "Ophthalmologist specializing in glaucoma treatment and pediatric eye disorders"
+    },
+    "MedicalLicenseNumber": "MD90678",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Faisal",
+    "LastName": "Hakim",
+    "YearsOfExperience": 15,
+    "Specialization": "Obstetrics and Gynecology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Obstetrics and Gynecology",
+      "subSpecialties": ["Gynecologic Oncology", "Minimally Invasive Surgery"],
+      "certifications": ["Board Certified in Obstetrics and Gynecology"],
+      "specialInterests": ["Gynecologic Cancer", "Laparoscopic Surgery"],
+      "description": "OB/GYN with expertise in gynecologic cancer treatment and minimally invasive surgeries"
+    },
+    "MedicalLicenseNumber": "MD01789",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Rania",
+    "LastName": "Othman",
+    "YearsOfExperience": 11,
+    "Specialization": "General Surgery",
+    "SpecializationDetails": {
+      "mainSpecialty": "General Surgery",
+      "subSpecialties": ["Breast Surgery", "Surgical Oncology"],
+      "certifications": ["Board Certified in General Surgery"],
+      "specialInterests": ["Breast Cancer Surgery", "Oncoplastic Techniques"],
+      "description": "General surgeon with specialization in breast cancer surgery and oncologic procedures"
+    },
+    "MedicalLicenseNumber": "MD12890",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304767.png"
+  },
+  {
+    "FirstName": "Jamal",
+    "LastName": "Rashid",
+    "YearsOfExperience": 17,
+    "Specialization": "Internal Medicine",
+    "SpecializationDetails": {
+      "mainSpecialty": "Internal Medicine",
+      "subSpecialties": ["Pulmonology", "Critical Care"],
+      "certifications": ["Board Certified in Internal Medicine", "Critical Care Certification"],
+      "specialInterests": ["COPD Management", "Respiratory Failure"],
+      "description": "Internist with specialization in lung diseases and critical care medicine"
+    },
+    "MedicalLicenseNumber": "MD23901",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://t3.ftcdn.net/jpg/02/60/79/68/360_F_260796882_QyjAAZWLDVXlG7LJjFmVQRU3jd9vHEjU.jpg"
+  },
+  {
+    "FirstName": "Samira",
+    "LastName": "Badir",
+    "YearsOfExperience": 9,
+    "Specialization": "Urology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Urology",
+      "subSpecialties": ["Neurourology", "Urinary Reconstruction"],
+      "certifications": ["Board Certified in Urology"],
+      "specialInterests": ["Bladder Dysfunction", "Reconstructive Surgery"],
+      "description": "Urologist specializing in neurological bladder conditions and reconstructive procedures"
+    },
+    "MedicalLicenseNumber": "MD34012",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Youssef",
+    "LastName": "Adel",
+    "YearsOfExperience": 13,
+    "Specialization": "Psychiatry",
+    "SpecializationDetails": {
+      "mainSpecialty": "Psychiatry",
+      "subSpecialties": ["Child and Adolescent Psychiatry", "ADHD Treatment"],
+      "certifications": ["Board Certified in Psychiatry", "Child Psychiatry Certification"],
+      "specialInterests": ["Childhood Behavioral Disorders", "ADHD Management"],
+      "description": "Psychiatrist specializing in children's mental health and ADHD treatment"
+    },
+    "MedicalLicenseNumber": "MD45123",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Amina",
+    "LastName": "Fawzi",
+    "YearsOfExperience": 10,
+    "Specialization": "Cardiology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Cardiology",
+      "subSpecialties": ["Preventive Cardiology", "Cardiac Rehabilitation"],
+      "certifications": ["Board Certified in Cardiology"],
+      "specialInterests": ["Cardiovascular Prevention", "Cardiac Rehab Programs"],
+      "description": "Cardiologist focusing on preventive care and rehabilitation after cardiac events"
+    },
+    "MedicalLicenseNumber": "MD56234",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304767.png"
+  },
+  {
+    "FirstName": "Zayd",
+    "LastName": "Hamza",
+    "YearsOfExperience": 8,
+    "Specialization": "Pediatrics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Pediatrics",
+      "subSpecialties": ["Pediatric Gastroenterology", "Nutrition"],
+      "certifications": ["Board Certified in Pediatrics"],
+      "specialInterests": ["Childhood Digestive Disorders", "Nutritional Management"],
+      "description": "Pediatrician with expertise in digestive issues and nutritional care for children"
+    },
+    "MedicalLicenseNumber": "MD67345",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://t3.ftcdn.net/jpg/02/60/79/68/360_F_260796882_QyjAAZWLDVXlG7LJjFmVQRU3jd9vHEjU.jpg"
+  },
+  {
+    "FirstName": "Dalia",
+    "LastName": "Nabil",
+    "YearsOfExperience": 14,
+    "Specialization": "Neurology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Neurology",
+      "subSpecialties": ["Neuromuscular Disorders", "EMG Studies"],
+      "certifications": ["Board Certified in Neurology"],
+      "specialInterests": ["Myasthenia Gravis", "Peripheral Neuropathy"],
+      "description": "Neurologist specializing in neuromuscular conditions and electrodiagnostic studies"
+    },
+    "MedicalLicenseNumber": "MD78456",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  },
+  {
+    "FirstName": "Hamid",
+    "LastName": "Kareem",
+    "YearsOfExperience": 16,
+    "Specialization": "Orthopedics",
+    "SpecializationDetails": {
+      "mainSpecialty": "Orthopedics",
+      "subSpecialties": ["Hand Surgery", "Upper Extremity"],
+      "certifications": ["Board Certified in Orthopedic Surgery", "Hand Surgery Certification"],
+      "specialInterests": ["Hand and Wrist Disorders", "Microsurgery"],
+      "description": "Orthopedic surgeon with specialization in hand and upper extremity conditions"
+    },
+    "MedicalLicenseNumber": "MD89567",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Salma",
+    "LastName": "Gamal",
+    "YearsOfExperience": 12,
+    "Specialization": "Dermatology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Dermatology",
+      "subSpecialties": ["Laser Medicine", "Aesthetic Dermatology"],
+      "certifications": ["Board Certified in Dermatology"],
+      "specialInterests": ["Laser Treatments", "Anti-aging Procedures"],
+      "description": "Dermatologist with focus on laser treatments and aesthetic procedures"
+    },
+    "MedicalLicenseNumber": "MD90678",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://cdn-icons-png.flaticon.com/512/3304/3304767.png"
+  },
+  {
+    "FirstName": "Rashid",
+    "LastName": "Abbas",
+    "YearsOfExperience": 15,
+    "Specialization": "Otolaryngology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Otolaryngology",
+      "subSpecialties": ["Head and Neck Surgery", "Thyroid Surgery"],
+      "certifications": ["Board Certified in Otolaryngology"],
+      "specialInterests": ["Thyroid Disorders", "Head and Neck Cancer"],
+      "description": "ENT specialist with expertise in head and neck surgeries and thyroid procedures"
+    },
+    "MedicalLicenseNumber": "MD01789",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg"
+  },
+  {
+    "FirstName": "Sophia",
+    "LastName": "Malak",
+    "YearsOfExperience": 9,
+    "Specialization": "Ophthalmology",
+    "SpecializationDetails": {
+      "mainSpecialty": "Ophthalmology",
+      "subSpecialties": ["Retina", "Diabetic Eye Care"],
+      "certifications": ["Board Certified in Ophthalmology"],
+      "specialInterests": ["Retinal Diseases", "Diabetic Retinopathy"],
+      "description": "Ophthalmologist specializing in retinal conditions and diabetic eye complications"
+    },
+    "MedicalLicenseNumber": "MD12890",
+    "HospitalAffiliation": "General Hospital",
+    "Logo": "https://img.freepik.com/premium-vector/female-doctor-icon-flat-style_183665-65.jpg"
+  }
+] 

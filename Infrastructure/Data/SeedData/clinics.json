@@ -1,0 +1,132 @@
+[
+  {
+    "Name": "Cardiology Clinic",
+    "NameArabic": "عيادة القلب",
+    "Description": "Specializes in diagnosing and treating heart conditions including coronary artery disease, heart failure, and arrhythmias",
+    "Location": "Building A, Floor 2, Room 201",
+    "ContactInfo": "+1-123-456-7890",
+    "IsActive": true,
+    "Category": "Cardiology",
+    "Logo": "https://cesphn.org.au/wp-content/uploads/2025/02/cardiac-clinic-1.png"
+  },
+  {
+    "Name": "Pediatric Care Center",
+    "NameArabic": "مركز رعاية الأطفال",
+    "Description": "Comprehensive care for children of all ages, from newborns to adolescents, including preventive care and treatment of illnesses",
+    "Location": "Building B, Floor 1, Room 105",
+    "ContactInfo": "+1-123-456-7891",
+    "IsActive": true,
+    "Category": "Pediatrics",
+    "Logo": "https://news.christianacare.org/wp-content/uploads/2022/10/Pediatric-Care-Center-Infant-Care.jpg"
+  },
+  {
+    "Name": "Neurology Department",
+    "NameArabic": "قسم الأعصاب",
+    "Description": "Diagnosis and treatment of neurological disorders including stroke, epilepsy, multiple sclerosis, and Parkinson's disease",
+    "Location": "Building A, Floor 3, Room 320",
+    "ContactInfo": "+1-123-456-7892",
+    "IsActive": true,
+    "Category": "Neurology",
+    "Logo": "https://neurologyoffice.com/wp-content/uploads/Neurology_Blog.jpg"
+  },
+  {
+    "Name": "Orthopedic Surgery Center",
+    "NameArabic": "مركز جراحة العظام",
+    "Description": "Specialized in bone and joint surgeries, sports injuries, joint replacements, and spine surgeries",
+    "Location": "Building C, Floor 2, Room 215",
+    "ContactInfo": "+1-123-456-7893",
+    "IsActive": true,
+    "Category": "Orthopedics",
+    "Logo": "https://sogms.com/wp-content/uploads/2019/05/SOG_sc4-400x267.jpg"
+  },
+  {
+    "Name": "Dermatology Practice",
+    "NameArabic": "عيادة الأمراض الجلدية",
+    "Description": "Skin care and treatment center focusing on acne, eczema, psoriasis, skin cancer screenings, and cosmetic dermatology",
+    "Location": "Building B, Floor 3, Room 310",
+    "ContactInfo": "+1-123-456-7894",
+    "IsActive": true,
+    "Category": "Dermatology",
+    "Logo": "https://t3.ftcdn.net/jpg/03/04/97/84/360_F_304978441_VYWUGhjNV1fmzHzQaU0WpIomd3HinFjY.jpg"
+  },
+  {
+    "Name": "ENT Specialists",
+    "NameArabic": "أخصائي و الأنف والأذن والحنجرة",
+    "Description": "Ear, nose, and throat conditions treatment including hearing disorders, sinus issues, voice disorders, and sleep apnea",
+    "Location": "Building D, Floor 1, Room 110",
+    "ContactInfo": "+1-123-456-7895",
+    "IsActive": true,
+    "Category": "Otolaryngology",
+    "Logo": "https://healthinfo.healthengine.com.au/assets/iStock-1051318054-1024x683.jpg"
+  },
+  {
+    "Name": "Ophthalmology Center",
+    "NameArabic": "مركز طب العيون",
+    "Description": "Complete eye care services including vision exams, cataract surgery, glaucoma treatment, and LASIK procedures",
+    "Location": "Building A, Floor 1, Room 120",
+    "ContactInfo": "+1-123-456-7896",
+    "IsActive": true,
+    "Category": "Ophthalmology",
+    "Logo": "https://brooklyneyecenter.com/images/slider/homepage1/1.jpg"
+  },
+  {
+    "Name": "Obstetrics & Gynecology",
+    "NameArabic": "أمراض النساء والتوليد",
+    "Description": "Women's health and pregnancy care, including prenatal care, labor and delivery, reproductive health, and gynecological surgeries",
+    "Location": "Building B, Floor 2, Room 210",
+    "ContactInfo": "+1-123-456-7897",
+    "IsActive": true,
+    "Category": "Obstetrics and Gynecology",
+    "Logo": "https://pennstatehealthnews.org/wp-content/uploads/2023/04/choosing-OB-1200.jpg"
+  },
+  {
+    "Name": "General Surgery Department",
+    "NameArabic": "قسم الجراحة العامة",
+    "Description": "Comprehensive surgical services including abdominal surgeries, hernia repairs, appendectomies, and minimally invasive procedures",
+    "Location": "Building C, Floor 3, Room 305",
+    "ContactInfo": "+1-123-456-7898",
+    "IsActive": true,
+    "Category": "General Surgery",
+    "Logo": "https://grandgenesishealth.com/wp-content/uploads/2022/10/General-Surgery.jpg"
+  },
+  {
+    "Name": "Internal Medicine Practice",
+    "NameArabic": "عيادة الطب الباطني",
+    "Description": "Comprehensive adult primary care, including preventive medicine, chronic disease management, and general health maintenance",
+    "Location": "Building D, Floor 2, Room 220",
+    "ContactInfo": "+1-123-456-7899",
+    "IsActive": true,
+    "Category": "Internal Medicine",
+    "Logo": "http://cdn.castleconnolly.com/dims4/default/9371771/2147483647/strip/true/crop/1000x563+0+0/resize/840x473!/quality/90/?url=http%3A%2F%2Fcastle-connolly-brightspot.s3.us-east-1.amazonaws.com%2F6b%2F08%2F609fbd1d4f9db72c59a32b78f877%2Fpillar-internal-medicine-13-1200x675.jpg"
+  },
+  {
+    "Name": "Urology Center",
+    "NameArabic": "مركز المسالك البولية",
+    "Description": "Diagnosis and treatment of urinary tract disorders, kidney stones, prostate issues, and male reproductive health problems",
+    "Location": "Building E, Floor 1, Room 115",
+    "ContactInfo": "+1-123-456-7900",
+    "IsActive": true,
+    "Category": "Urology",
+    "Logo": "https://static.bangkokhospital.com/uploads/2024/03/%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%9B%E0%B8%B1%E0%B8%AA%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%B0_%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%9B_shutterstock_2169431287.jpg"
+  },
+  {
+    "Name": "Psychiatry Department",
+    "NameArabic": "قسم الطب النفسي",
+    "Description": "Mental health services including diagnosis and treatment of depression, anxiety, bipolar disorder, schizophrenia, and other psychiatric conditions",
+    "Location": "Building E, Floor 2, Room 225",
+    "ContactInfo": "+1-123-456-7901",
+    "IsActive": true,
+    "Category": "Psychiatry",
+    "Logo": "https://ssimsb.ac.in/public//uploads/course/1655208728.jpg"
+  },
+  {
+    "Name": "Radiology Department",
+    "NameArabic": "قسم الأشعة",
+    "Description": "Advanced diagnostic imaging services including X-ray, CT, MRI, ultrasound, and nuclear medicine",
+    "Location": "Building F, Floor 1, Room 150",
+    "ContactInfo": "+1-123-456-7902",
+    "IsActive": true,
+    "Category": "Radiology",
+    "Logo": "https://elitefitout.com.au/wp-content/uploads/2021/01/SouthCoastRadiology_0006-HDR-1.jpg"
+  }
+] 

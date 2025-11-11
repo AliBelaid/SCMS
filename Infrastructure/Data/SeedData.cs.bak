@@ -1,0 +1,189 @@
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.IO;
+using Core.Entities.Medical;
+using Core.Entities;
+using Infrastructure.Identity;
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
+using System.Text.Json;
+using StackExchange.Redis;
+
+namespace API.Data
+{
+    public static class SeedData
+    {
+        public static async Task Initialize(IServiceProvider serviceProvider)
+        {
+            using var context = new AppIdentityDbContext(
+                serviceProvider.GetRequiredService<DbContextOptions<AppIdentityDbContext>>());
+
+            if (await context.CategoryServices.AnyAsync())
+            {
+                return; // DB has been seeded
+            }
+
+            // Seed Categories
+            var categories = new List<CategoryService>
+            {
+                new CategoryService
+                {
+                    Name = "Radiology",
+                    Description = "Medical imaging services",
+                    IsActive = true,
+                    DisplayOrder = 1,
+                    AllowChildren = true,
+                    Icon = "radiology"
+                },
+                new CategoryService
+                {
+                    Name = "Laboratory",
+                    Description = "Medical laboratory services",
+                    IsActive = true,
+                    DisplayOrder = 2,
+                    AllowChildren = true,
+                    Icon = "lab"
+                },
+                new CategoryService
+                {
+                    Name = "Consultation",
+                    Description = "Medical consultation services",
+                    IsActive = true,
+                    DisplayOrder = 3,
+                    AllowChildren = true,
+                    Icon = "consultation"
+                }
+            };
+
+            await context.CategoryServices.AddRangeAsync(categories);
+            await context.SaveChangesAsync();
+
+            // Get the created categories
+            var radiologyCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "Radiology");
+            var labCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "Laboratory");
+            var consultationCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "Consultation");
+
+            // Add subcategories
+            var subcategories = new List<CategoryService>
+            {
+                new CategoryService
+                {
+                    Name = "X-Ray",
+                    Description = "X-Ray imaging services",
+                    IsActive = true,
+                    DisplayOrder = 1,
+                    ParentId = radiologyCategory.Id,
+                    AllowChildren = false,
+                    Icon = "xray"
+                },
+                new CategoryService
+                {
+                    Name = "MRI",
+                    Description = "Magnetic Resonance Imaging",
+                    IsActive = true,
+                    DisplayOrder = 2,
+                    ParentId = radiologyCategory.Id,
+                    AllowChildren = false,
+                    Icon = "mri"
+                },
+                new CategoryService
+                {
+                    Name = "Blood Tests",
+                    Description = "Blood analysis services",
+                    IsActive = true,
+                    DisplayOrder = 1,
+                    ParentId = labCategory.Id,
+                    AllowChildren = false,
+                    Icon = "blood"
+                },
+                new CategoryService
+                {
+                    Name = "General Consultation",
+                    Description = "General medical consultation",
+                    IsActive = true,
+                    DisplayOrder = 1,
+                    ParentId = consultationCategory.Id,
+                    AllowChildren = false,
+                    Icon = "general"
+                }
+            };
+
+            await context.CategoryServices.AddRangeAsync(subcategories);
+            await context.SaveChangesAsync();
+
+            // Get the created subcategories
+            var xrayCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "X-Ray");
+            var mriCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "MRI");
+            var bloodTestCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "Blood Tests");
+            var generalConsultCategory = await context.CategoryServices.FirstOrDefaultAsync(c => c.Name == "General Consultation");
+
+            // Add sample services
+            var services = new List<MedicalService>
+            {
+                new MedicalService
+                {
+                    Name = "Chest X-Ray",
+                    Description = "Standard chest X-Ray examination",
+                    CategoryId = xrayCategory.Id,
+                    IsActive = true,
+                    Prices = new List<ServicePrice>
+                    {
+                        new ServicePrice { PatientType = PatientType.Citizen, Price = 50, DoctorPercentage = 70, CenterPercentage = 30 },
+                        new ServicePrice { PatientType = PatientType.Insurance, Price = 75, DoctorPercentage = 65, CenterPercentage = 35 },
+                        new ServicePrice { PatientType = PatientType.Company, Price = 100, DoctorPercentage = 60, CenterPercentage = 40 },
+                        new ServicePrice { PatientType = PatientType.Foreigner, Price = 150, DoctorPercentage = 75, CenterPercentage = 25 }
+                    }
+                },
+                new MedicalService
+                {
+                    Name = "Brain MRI",
+                    Description = "Magnetic Resonance Imaging of the brain",
+                    CategoryId = mriCategory.Id,
+                    IsActive = true,
+                    Prices = new List<ServicePrice>
+                    {
+                        new ServicePrice { PatientType = PatientType.Citizen, Price = 300, DoctorPercentage = 80, CenterPercentage = 20 },
+                        new ServicePrice { PatientType = PatientType.Insurance, Price = 400, DoctorPercentage = 75, CenterPercentage = 25 },
+                        new ServicePrice { PatientType = PatientType.Company, Price = 500, DoctorPercentage = 70, CenterPercentage = 30 },
+                        new ServicePrice { PatientType = PatientType.Foreigner, Price = 600, DoctorPercentage = 85, CenterPercentage = 15 }
+                    }
+                },
+                new MedicalService
+                {
+                    Name = "Complete Blood Count",
+                    Description = "Full blood count analysis",
+                    CategoryId = bloodTestCategory.Id,
+                    IsActive = true,
+                    Prices = new List<ServicePrice>
+                    {
+                        new ServicePrice { PatientType = PatientType.Citizen, Price = 30, DoctorPercentage = 60, CenterPercentage = 40 },
+                        new ServicePrice { PatientType = PatientType.Insurance, Price = 40, DoctorPercentage = 55, CenterPercentage = 45 },
+                        new ServicePrice { PatientType = PatientType.Company, Price = 50, DoctorPercentage = 50, CenterPercentage = 50 },
+                        new ServicePrice { PatientType = PatientType.Foreigner, Price = 60, DoctorPercentage = 65, CenterPercentage = 35 }
+                    }
+                },
+                new MedicalService
+                {
+                    Name = "General Medical Consultation",
+                    Description = "Standard medical consultation",
+                    CategoryId = generalConsultCategory.Id,
+                    IsActive = true,
+                    Prices = new List<ServicePrice>
+                    {
+                        new ServicePrice { PatientType = PatientType.Citizen, Price = 100, DoctorPercentage = 80, CenterPercentage = 20 },
+                        new ServicePrice { PatientType = PatientType.Insurance, Price = 120, DoctorPercentage = 75, CenterPercentage = 25 },
+                        new ServicePrice { PatientType = PatientType.Company, Price = 150, DoctorPercentage = 70, CenterPercentage = 30 },
+                        new ServicePrice { PatientType = PatientType.Foreigner, Price = 200, DoctorPercentage = 85, CenterPercentage = 15 }
+                    }
+                }
+            };
+
+            await context.MedicalServices.AddRangeAsync(services);
+            await context.SaveChangesAsync();
+        }
+    }
+} 

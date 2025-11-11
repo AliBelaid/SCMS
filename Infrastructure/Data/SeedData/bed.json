@@ -1,0 +1,102 @@
+  [
+      {
+        "WardType": "أطفال",
+        "WardDescription": "جناح مخصص للأطفال",
+        "Rooms": [
+          {
+            "RoomNumber": "101",
+            "Name": "غرفة 1",
+            "Capacity": 10,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true },
+              { "BedNumber": "6", "Status": 2, "State": true },
+              { "BedNumber": "7", "Status": 1, "State": true },
+              { "BedNumber": "8", "Status": 3, "State": false },
+              { "BedNumber": "9", "Status": 1, "State": true },
+              { "BedNumber": "10", "Status": 2, "State": true }
+            ]
+          },
+          {
+            "RoomNumber": "102",
+            "Name": "غرفة 2",
+            "Capacity": 10,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true },
+              { "BedNumber": "6", "Status": 2, "State": true },
+              { "BedNumber": "7", "Status": 1, "State": true },
+              { "BedNumber": "8", "Status": 3, "State": false },
+              { "BedNumber": "9", "Status": 1, "State": true },
+              { "BedNumber": "10", "Status": 2, "State": true }
+            ]
+          },
+          {
+            "RoomNumber": "103",
+            "Name": "غرفة 3",
+            "Capacity": 10,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true },
+              { "BedNumber": "6", "Status": 2, "State": true },
+              { "BedNumber": "7", "Status": 1, "State": true },
+              { "BedNumber": "8", "Status": 3, "State": false },
+              { "BedNumber": "9", "Status": 1, "State": true },
+              { "BedNumber": "10", "Status": 2, "State": true }
+            ]
+          }
+        ]
+      },
+      {
+        "WardType": "نساء",
+        "WardDescription": "جناح مخصص للنساء",
+        "Rooms": [
+          {
+            "RoomNumber": "201",
+            "Name": "غرفة 1",
+            "Capacity": 5,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true }
+            ]
+          },
+          {
+            "RoomNumber": "202",
+            "Name": "غرفة 2",
+            "Capacity": 5,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true }
+            ]
+          },
+          {
+            "RoomNumber": "203",
+            "Name": "غرفة 3",
+            "Capacity": 5,
+            "Beds": [
+              { "BedNumber": "1", "Status": 1, "State": true },
+              { "BedNumber": "2", "Status": 2, "State": true },
+              { "BedNumber": "3", "Status": 1, "State": true },
+              { "BedNumber": "4", "Status": 3, "State": false },
+              { "BedNumber": "5", "Status": 1, "State": true }
+            ]
+          }
+        ]
+      }
+    ]
+ 

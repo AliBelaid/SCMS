@@ -1,0 +1,24 @@
+<div class="d-flex align-items-baseline justify-content-between m-b-8">
+    <div>
+        <mat-card-title class="m-b-4">Total Orders</mat-card-title>
+        <mat-card-subtitle>Weekly order updates</mat-card-subtitle>
+    </div>
+    <mat-form-field class="theme-select" appearance="outline">
+        <mat-select value="mar">
+            @for(month of months; track month.viewValue ) {
+            <mat-option [value]="month.value">
+                {{ month.viewValue }}
+            </mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<!-- chart -->
+<div>
+    <apx-chart [series]="totalordersChart.series" [dataLabels]="totalordersChart.dataLabels"
+        [chart]="totalordersChart.chart" [legend]="totalordersChart.legend" [colors]="totalordersChart.colors"
+        [grid]="totalordersChart.grid" [fill]="totalordersChart.fill" [stroke]="totalordersChart.stroke"
+        [tooltip]="totalordersChart.tooltip" [markers]="totalordersChart.markers" [xaxis]="totalordersChart.xaxis"
+        [responsive]="totalordersChart.responsive"></apx-chart>
+</div>
