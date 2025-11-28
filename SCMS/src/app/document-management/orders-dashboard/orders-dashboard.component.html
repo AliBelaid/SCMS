@@ -1,0 +1,175 @@
+<ng-container *ngIf="dashboardStats as stats; else loadingState">
+  <div class="orders-dashboard" *ngIf="!isLoading; else loadingState">
+    <section class="dashboard-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">لوحة تحكم المعاملات</h1>
+        <p class="hero-subtitle">عرض سريع لإحصائيات المعاملات الواردة والصادرة.</p>
+      </div>
+      <div class="quick-actions">
+        <button mat-flat-button color="primary" type="button" (click)="navigateTo('/app/document-management/orders/create')">
+          <mat-icon>add</mat-icon>
+          إنشاء معاملة جديدة
+        </button>
+        <button mat-flat-button color="accent" type="button" (click)="navigateToIncoming()">
+          <mat-icon>inbox</mat-icon>
+          المعاملات الواردة
+        </button>
+        <button mat-flat-button color="warn" type="button" (click)="navigateToOutgoing()">
+          <mat-icon>outbox</mat-icon>
+          المعاملات الصادرة
+        </button>
+      </div>
+    </section>
+
+    <section class="dashboard-content">
+      <div class="stats-grid">
+        <mat-card class="stat-card total-orders">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>dashboard</mat-icon>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">{{ stats.totalOrders }}</div>
+              <div class="stat-label">إجمالي المعاملات</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card incoming-orders">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>inbox</mat-icon>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">{{ stats.incomingOrders }}</div>
+              <div class="stat-label">واردة</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card outgoing-orders">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>outbox</mat-icon>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">{{ stats.outgoingOrders }}</div>
+              <div class="stat-label">صادرة</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card pending-orders">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>hourglass_top</mat-icon>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">{{ stats.pendingOrders }}</div>
+              <div class="stat-label">قيد الانتظار</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card completed-orders">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>check_circle</mat-icon>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">{{ stats.completedOrders }}</div>
+              <div class="stat-label">مكتملة</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <section class="charts-section">
+        <mat-card class="chart-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>apartment</mat-icon>
+              حسب الإدارة
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="department-chart">
+            <div class="department-item" *ngFor="let item of stats.ordersByDepartment">
+              <div class="department-label">
+                <span class="dept-code">{{ item.department }}</span>
+                <span class="dept-count">{{ item.count }}</span>
+              </div>
+              <mat-progress-bar class="dept-progress" mode="determinate" [value]="item.count"></mat-progress-bar>
+            </div>
+            <p *ngIf="!stats.ordersByDepartment.length">لا توجد بيانات للإدارات.</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="chart-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>calendar_month</mat-icon>
+              حسب الموضوع
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="orders-list">
+              <div class="order-item" *ngFor="let item of stats.ordersBySubject">
+                <div class="order-details">
+                  <div class="order-title">{{ item.subject }}</div>
+                  <div class="order-meta">
+                    <div class="meta-item">
+                      <mat-icon>stacked_bar_chart</mat-icon>
+                      {{ item.count }} معاملات
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p *ngIf="!stats.ordersBySubject.length">لا توجد بيانات للمواضيع.</p>
+          </mat-card-content>
+        </mat-card>
+      </section>
+
+      <mat-card class="recent-orders-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>history</mat-icon>
+            المعاملات الحديثة
+          </mat-card-title>
+        </mat-card-header>
+        <div class="orders-list">
+          <div class="order-item" *ngFor="let order of stats.recentOrders">
+            <div class="order-icon" [class.incoming]="order.type === 'incoming'" [class.outgoing]="order.type === 'outgoing'">
+              <mat-icon>{{ order.type === 'incoming' ? 'download' : 'upload' }}</mat-icon>
+            </div>
+            <div class="order-details">
+              <div class="order-title">{{ order.title }}</div>
+              <div class="order-ref">{{ order.referenceNumber }}</div>
+              <div class="order-meta">
+                <div class="meta-item">
+                  <mat-icon>calendar_today</mat-icon>
+                  {{ order.createdAt | date:'mediumDate' }}
+                </div>
+                <div class="meta-item">
+                  <mat-icon>person</mat-icon>
+                  {{ order.createdBy }}
+                </div>
+              </div>
+            </div>
+            <div class="order-status">
+              <mat-chip color="primary" selected>{{ statusLabels[order.status] }}</mat-chip>
+            </div>
+          </div>
+          <p *ngIf="!stats.recentOrders.length">لا توجد معاملات حديثة.</p>
+        </div>
+      </mat-card>
+    </section>
+  </div>
+</ng-container>
+
+<ng-template #loadingState>
+  <div class="loading-container">
+    <mat-spinner diameter="48"></mat-spinner>
+    <p>جاري تحميل البيانات...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,68 @@
+<ng-container *ngIf="(userService.currentUser$ | async) as user">
+  <div class="page-layout w-full max-w-screen-2xl mx-auto" *ngIf="user">
+    <div class="cover-section bg-primary relative w-full">
+      <div class="cover-overlay"></div>
+      <div class="w-full py-16 px-6 relative z-10">
+        <div class="flex items-center justify-end">
+          <button mat-fab color="accent" class="edit-profile-btn" (click)="openContact()" matTooltip="{{ 'Edit Profile' | translate }}">
+            <mat-icon svgIcon="mat:edit"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full px-6 -mt-16 relative z-20">
+      <mat-card class="profile-navigation-card mb-6 w-full">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center px-8 py-6">
+          <div class="flex items-center mb-4 sm:mb-0">
+            <div class="profile-avatar mr-6">
+              <div class="relative">
+                <div class="avatar-circle">
+                  <img *ngIf="user?.photoUrl" [src]="user?.photoUrl" alt="User Photo" class="avatar-image">
+                  <mat-icon *ngIf="!user?.photoUrl" svgIcon="mat:person" class="avatar-icon"></mat-icon>
+                </div>
+                <div class="status-badge" [class.active]="user?.active"></div>
+              </div>
+            </div>
+            <div>
+              <h1 class="text-2xl font-bold m-0">{{user?.firstName}} {{user?.lastName}}</h1>
+              <p class="text-secondary m-0">{{user?.roles?.[0] || user?.accountType || 'User'}}</p>
+            </div>
+          </div>
+          <div class="sm:ml-auto">
+            <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="profile-tabs">
+              <a mat-tab-link
+                 *ngFor="let link of links"
+                 [routerLink]="link.route"
+                 routerLinkActive #rla="routerLinkActive"
+                 [active]="rla.isActive">
+                <mat-icon [svgIcon]="link.icon" class="mr-2"></mat-icon>
+                {{ link.label | translate }}
+              </a>
+            </nav>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-tab-nav-panel #tabPanel class="w-full">
+        <router-outlet></router-outlet>
+      </mat-tab-nav-panel>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="flex items-center justify-center py-24">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!isLoading && !user" class="w-full py-24 px-4 text-center">
+    <mat-icon svgIcon="mat:error" style="width: 64px; height: 64px; margin: 0 auto 24px;" class="text-warn"></mat-icon>
+    <h1 class="text-2xl font-bold mb-4">{{ 'User Not Found' | translate }}</h1>
+    <p class="mb-6">{{ 'The user profile you are looking for could not be found.' | translate }}</p>
+    <button mat-raised-button color="primary" [routerLink]="['/']">
+      <mat-icon svgIcon="mat:arrow_back" class="mr-2"></mat-icon>
+      {{ 'Back to Home' | translate }}
+    </button>
+  </div>
+</ng-container>

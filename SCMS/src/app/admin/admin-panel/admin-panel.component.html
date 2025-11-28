@@ -1,0 +1,35 @@
+<vex-page-layout class="admin-panel-layout">
+
+  <vex-page-layout-header class="pb-16 flex flex-col items-start justify-center bg-primary-500">
+    <div [class.container]="layoutCtrl.value === 'boxed'"
+         [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+         class="w-full flex flex-col sm:flex-row justify-between">
+      <div class="text-white">
+        <h1 class="title mt-0 mb-1 text-white">{{ 'ADMIN.USER_MANAGEMENT_SYSTEM' | translate }}</h1>
+        <vex-breadcrumbs [crumbs]="breadcrumbs" class="text-white"></vex-breadcrumbs>
+      </div>
+
+      <div class="hidden sm:block">
+        <mat-button-toggle-group [formControl]="layoutCtrl" class="mt-4 sm:mt-0">
+          <mat-button-toggle value="boxed">{{ 'ADMIN.COMPACT' | translate }}</mat-button-toggle>
+          <mat-button-toggle value="fullwidth">{{ 'ADMIN.FULL_WIDTH' | translate }}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </vex-page-layout-header>
+
+  <vex-page-layout-content
+    [class.container]="layoutCtrl.value === 'boxed'"
+    [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+    class="admin-content"
+  >
+    <div class="admin-container">
+      <div class="info-card" [@tabTransition]>
+        <h2>{{ 'ADMIN.USER_MANAGEMENT' | translate }}</h2>
+        <p>
+          {{ ('ADMIN.USER_MANAGEMENT_PLACEHOLDER' | translate) || 'User management features have been removed from this build. Please use the profile page to update personal information.' }}
+        </p>
+      </div>
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>

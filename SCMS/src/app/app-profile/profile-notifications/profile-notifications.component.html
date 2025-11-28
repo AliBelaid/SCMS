@@ -1,0 +1,68 @@
+<mat-card class="profile-notifications-card">
+  <mat-card-header>
+    <mat-card-title>{{ 'Notification Settings' | translate }}</mat-card-title>
+    <mat-card-subtitle>{{ 'Manage your notification preferences' | translate }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="notificationsForm" (ngSubmit)="onSubmit()" class="notifications-form">
+      <div class="form-section">
+        <h3>{{ 'Notification Channels' | translate }}</h3>
+        <div class="toggle-row">
+          <span>{{ 'Email Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="emailNotifications"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Push Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="pushNotifications"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'SMS Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="smsNotifications"></mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>{{ 'Notification Types' | translate }}</h3>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'Default Notification Level' | translate }}</mat-label>
+            <mat-select formControlName="notificationType">
+              <mat-option *ngFor="let type of notificationTypes" [value]="type.value">
+                {{ type.label | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="toggle-row">
+          <span>{{ 'Appointment Reminders' | translate }}</span>
+          <mat-slide-toggle formControlName="appointmentReminders"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Prescription Updates' | translate }}</span>
+          <mat-slide-toggle formControlName="prescriptionUpdates"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Test Results' | translate }}</span>
+          <mat-slide-toggle formControlName="testResults"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Billing Updates' | translate }}</span>
+          <mat-slide-toggle formControlName="billingUpdates"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Marketing Emails' | translate }}</span>
+          <mat-slide-toggle formControlName="marketingEmails"></mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+          {{ 'Save Preferences' | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> 

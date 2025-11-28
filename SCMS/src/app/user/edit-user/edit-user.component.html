@@ -1,0 +1,276 @@
+
+<vex-page-layout *ngIf="(_SiteService.currentUser$ | async)">
+
+  <vex-page-layout-header class="pb-4 flex flex-col items-start justify-center">
+    <div [class.container]="layoutCtrl.value === 'boxed'"
+         [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+         class="w-full flex flex-col sm:flex-row justify-between">
+      <div>
+        <span @fadeInRight class="block">العقود الهوائيات </span>
+        <vex-breadcrumbs [crumbs]="['الرجوع لقائمة السابقة']"></vex-breadcrumbs>
+      </div>
+
+      <div class="hidden sm:block">
+        <mat-button-toggle-group [formControl]="layoutCtrl" class="mt-4 sm:mt-0">
+          <mat-button-toggle value="boxed">متوسط</mat-button-toggle>
+          <mat-button-toggle value="fullwidth">عرض-كبير</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </vex-page-layout-header>
+
+
+
+
+
+
+
+      <h1 class="display-1 font-bold mt-0 mb-4 flex items-center">
+        <span @scaleIn class="w-12 h-12 rounded-full text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center bg-primary/10">
+          <mat-icon svgIcon="mat:contacts"></mat-icon>
+        </span>
+        <span @fadeInRight class="block">تعبئة بيانات الشركة</span>
+      </h1>
+  <vex-page-layout-content [class.container]="layoutCtrl.value === 'boxed'"
+                           [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+                           class="-mt-6">
+
+
+      <!-- <h1 class="display-1 m-0">Cinematic Mountain View</h1>
+      <h3 class="title mt-0 text-secondary">Example Page Layout</h3> -->
+
+
+
+
+      <div @stagger class="overflow-y-auto flex-auto">
+
+
+        <h2 class="title mb-4 flex items-center">
+          <span @scaleIn
+            class="w-10 h-10 rounded-full text-primary mr-3 flex items-center justify-center bg-primary/10">
+            <mat-icon class="icon-sm" svgIcon="mat:description"></mat-icon>
+          </span>
+          <span @fadeInRight class="block">البيانات الاساسية</span>
+        </h2>
+
+        <div @fadeInUp class="card overflow-hidden">
+          <mat-horizontal-stepper #stepper="matHorizontalStepper" [linear]="true">
+            <ng-template matStepperIcon="edit">
+              <mat-icon svgIcon="mat:done_all"></mat-icon>
+            </ng-template>
+
+            <ng-template matStepperIcon="done">
+              <mat-icon svgIcon="mat:done_all"></mat-icon>
+            </ng-template>
+            <form [formGroup]="UserForm">
+
+
+              <mat-step [stepControl]="UserForm.get('basic')" formGroupName="basic" >
+                <ng-template matStepLabel>البيانات الاساسية</ng-template>
+                <h2 class="title m-0">الرجاء تعبئة الحقول </h2>
+                <!-- <div class="subheading-1">Set up your account for testing purposes.</div> -->
+
+
+                  <!-- <div class="mt-2 flex flex-col gap-2"   formGroupName="basic"   > -->
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+                      <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label> أسم الشركة  </mat-label>
+                      <input formControlName="userName" matInput required>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+                      <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label> رقم  الشركة  </mat-label>
+                      <input formControlName="phoneNumber" matInput required>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+                      <mat-hint>يجب أدخال   بدون تكرار </mat-hint>
+                    </mat-form-field>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+
+  <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label> ايميل الشركة  </mat-label>
+                      <input formControlName="email" matInput required>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+                      <mat-hint>يجب أدخال الايميل  بشكل صحيح  </mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>تحميل شعار الشركة</mat-label>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <ngx-mat-file-input formControlName="logo" matInput required (change)="onFileCardSelected($event)"></ngx-mat-file-input>
+                        <img id="logoPreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+                      </div>
+                     </mat-form-field>
+</div>
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+  <mat-form-field class="vex-flex-form-field flex-auto">
+  <mat-label>تاريخ تاسيس الشركة</mat-label>
+  <input [matDatepicker]="datepickerRef" matInput formControlName="lastActive">
+  <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #datepickerRef></mat-datepicker>
+</mat-form-field>
+
+                            <mat-form-field class="vex-flex-form-field flex-auto">
+                        <mat-label>نبدة عن الشركة</mat-label>
+                        <textarea formControlName="introduction" matInput required></textarea>
+                      </mat-form-field>
+
+
+</div>
+
+                  <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+                          <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label> أحداثي الطول </mat-label>
+                      <input formControlName="latitude" matInput required>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:location_on"></mat-icon>
+                      <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+                    </mat-form-field>
+                          <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label> أحداثي العرض </mat-label>
+                      <input formControlName="longitude" matInput required>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:location_on"></mat-icon>
+                      <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+                    </mat-form-field>
+                    <button mat-raised-button (click)="openMapDialog()" class="m-2 ">اختر الموقع على الخريطة</button>
+
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>الشارع</mat-label>
+                      <input formControlName="street" matInput>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:compare_arrows"></mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>المدينة</mat-label>
+                      <input formControlName="city" matInput>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:place"></mat-icon>
+                    </mat-form-field>
+                    <mat-form-field class="vex-flex-form-field flex-auto" *ngIf="user?.accountType===2">
+                      <mat-label>الدولة</mat-label>
+                      <input formControlName="country" matInput>
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:place"></mat-icon>
+                    </mat-form-field>
+
+                  </div>
+
+                  <div class="actions flex items-center justify-end gap-2">
+                    <button (click)="stepper.reset()" [disabled]="UserForm.get('basic').pristine" color="primary" mat-button
+                      type="button">تهيئة
+                    </button>
+                    <button [disabled]="UserForm.get('basic').invalid" color="primary" mat-raised-button matStepperNext>التالي
+                    </button>
+                  </div>
+
+
+
+              </mat-step>
+
+
+
+
+
+<!--
+              <mat-step [stepControl]="UserForm.get('BSCConfig')"  >
+
+                <app-local-company  [UserForm]="UserForm"></app-local-company>
+                <div class="actions flex items-center justify-end gap-2">
+
+
+                  <button (click)="stepper.reset()" [disabled]="UserForm.get('BSCConfig').pristine" color="primary"
+                    mat-button type="button">السابق
+                  </button>
+                  <button [disabled]="UserForm.get('BSCConfig').invalid" color="primary" mat-raised-button
+                    matStepperNext>التالي
+                  </button>
+                </div>
+              </mat-step> -->
+
+
+
+
+
+
+
+
+<!--
+
+              <mat-step [stepControl]="UserForm.get('planSites')"  >
+
+                <ng-template matStepLabel>أعمال المشروعات</ng-template>
+
+                <h2 class="title m-0">حدد أعمال نشاط الموقع  </h2>
+                 <div class="mt-4 flex flex-col gap-2"  formGroupName="planSites"    >
+                        <mat-form-field class="vex-flex-form-field flex-auto">
+                    <mat-label>أسم المشروع</mat-label>
+                    <input formControlName="planName" matInput value="description">
+                    <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:markunread_mailbox"></mat-icon>
+                  </mat-form-field>
+                  <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>تاريخ الدفع</mat-label>
+                      <input [matDatepicker]="datepickerRef" matInput formControlName="clanderPlanDate">
+                      <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+                      <mat-datepicker #datepickerRef></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>عدد أيام المتوقعة</mat-label>
+                      <input formControlName="dayToAction" matInput type="number">
+                      <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:home"></mat-icon>
+                    </mat-form-field>
+                          <mat-form-field class="vex-flex-form-field flex-auto">
+                      <mat-label>نوع النشاط النهائي</mat-label>
+                      <mat-select formControlName="stateOfPlan">
+                        <mat-option *ngFor="let add of stateOfPlans" [value]="add.id">
+                          {{add.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div> -->
+
+
+
+
+              <mat-step [stepControl]="UserForm.get('interNaitnlCompany')"   *ngIf="user?.accountType!==52" >
+                <ng-template matStepLabel>الشركات الاجنبية</ng-template>
+
+
+                <vex-Inter-naitnl-company [UserForm]="UserForm"></vex-Inter-naitnl-company>
+
+                <div class="actions flex items-center justify-end gap-2">
+
+                  <button (click)="stepper.reset()" [disabled]="UserForm.get('interNaitnlCompany').pristine" color="primary"
+                    mat-button type="button">السابق
+                  </button>
+                  <button [disabled]="UserForm.get('interNaitnlCompany').invalid" color="primary" mat-raised-button
+                    matStepperNext>التالي
+                  </button>
+                </div>
+              </mat-step>
+              <mat-step [stepControl]="UserForm.get('localCompany')"   *ngIf="user?.accountType!==55" >
+                <ng-template matStepLabel>الشركات local</ng-template>
+
+
+                <app-local-company [UserForm]="UserForm"></app-local-company>
+
+                <div class="actions flex items-center justify-end gap-2">
+
+                  <button (click)="stepper.reset()" [disabled]="UserForm.get('localCompany').pristine" color="primary"
+                    mat-button type="button">السابق
+                  </button>
+                  <button [disabled]="UserForm.get('localCompany').invalid" color="primary" mat-raised-button
+                    matStepperNext>التالي
+                  </button>
+                </div>
+              </mat-step>
+
+            </form>
+          </mat-horizontal-stepper>
+        </div>
+
+
+
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>

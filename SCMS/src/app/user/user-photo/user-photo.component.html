@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="card mt-6">
+    <div class="px-gutter py-4 border-b">
+      <div  class="row my-2" style="padding:0px;margin:0px;">
+        <ul @stagger   class="px-gutter py-3 grid grid-cols-2 sm:grid-cols-5 gap-6  img-ul" >
+            <li  class="card-img-wrapper" *ngFor="let url of previewUrls;  let i = index"   >
+                <img [src]="url"  class="card-img-top"  >
+                <ul class="list-inline member-icons animate text-center">
+            <i class="list-inline-item">
+              <button class="btn btn-primary"    (click)="setCover(url,i)">
+                <mat-icon class="icon-sm" svgIcon="mat:panorama"></mat-icon></button></i>
+            <i class="list-inline-item">
+              <button class="btn btn-primary"   (click)="remove_new_image(i)">
+                <mat-icon class="icon-sm" svgIcon="mat:delete_outline"></mat-icon> </button></i>
+             <i class="list-inline-item"><button class="btn btn-primary"
+              (click)="setAvatar(url,i)"
+              ><mat-icon class="icon-sm" svgIcon="mat:account_circle" ></mat-icon></button></i> </ul>
+              </li>
+
+          <li style="opacity:0.1;" >
+            <img (click)="add_new_subimage()" class="rounded w-full"  @scaleIn
+            src='/assets/user.png'
+            alt=""> </li>
+          <form>
+            <input #fileInput type="file" (change)="onFileChanged($event)" accept="image/*" multiple hidden>
+          </form>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+<!-- </div> -->

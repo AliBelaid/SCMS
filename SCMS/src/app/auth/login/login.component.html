@@ -1,0 +1,123 @@
+<!-- login.component.html -->
+<div class="login-container" [attr.dir]="selectedLang === 'ar' ? 'rtl' : 'ltr'">
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <mat-form-field appearance="outline" class="language-field">
+      <mat-label>{{ 'SELECT_LANGUAGE' | translate }}</mat-label>
+      <mat-select [(ngModel)]="selectedLang" (selectionChange)="changeLanguage($event.value)">
+        <mat-option value="en">English</mat-option>
+        <mat-option value="ar">العربية</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Main Login Card -->
+  <div class="login-content">
+    <div @fadeInUp class="login-card">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <img src="assets/img/medical/logo.png" alt="HEMS Logo" class="logo">
+      </div>
+
+      <!-- Title Section -->
+      <div class="title-section">
+        <h2 class="login-title">{{ 'LOGIN_FORM' | translate }}</h2>
+        <p class="login-subtitle">{{ 'WELCOME_TO_HEMS' | translate }}</p>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+        <!-- Username Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>{{ 'USERNAME' | translate }}</mat-label>
+          <input 
+            formControlName="code" 
+            matInput 
+            required
+            autocomplete="username"
+            [placeholder]="'ENTER_USERNAME' | translate">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="isFieldInvalid('code')">
+            {{ getFieldError('code') | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>{{ 'PASSWORD' | translate }}</mat-label>
+          <input 
+            [type]="inputType" 
+            formControlName="password" 
+            matInput 
+            required
+            autocomplete="current-password"
+            [placeholder]="'ENTER_PASSWORD' | translate">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button 
+            (click)="toggleVisibility()" 
+            mat-icon-button 
+            matSuffix 
+            matTooltip="{{ 'TOGGLE_VISIBILITY' | translate }}"  
+            type="button">
+            <mat-icon>{{ visible ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="isFieldInvalid('password')">
+            {{ getFieldError('password') | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Branch Code Field (Optional) -->
+        <mat-form-field appearance="outline" class="form-field branch-field">
+          <mat-label>{{ 'BRANCH_CODE' | translate }} ({{ 'OPTIONAL' | translate }})</mat-label>
+          <input 
+            formControlName="branchCode" 
+            matInput
+            [placeholder]="'ENTER_BRANCH_CODE' | translate">
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-hint>{{ 'BRANCH_CODE_HINT' | translate }}</mat-hint>
+        </mat-form-field>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="form-options">
+          <mat-checkbox 
+            formControlName="rememberMe" 
+            color="primary" 
+            class="remember-me">
+            {{ 'REMEMBER_ME' | translate }}
+          </mat-checkbox>
+          <a [routerLink]="['/forgot-password']" class="forgot-password">
+            {{ 'FORGOT_PASSWORD' | translate }}?
+          </a>
+        </div>
+
+        <!-- Login Button -->
+        <button 
+          type="submit"
+          mat-raised-button 
+          color="primary" 
+          class="login-button"
+          [disabled]="loginForm.invalid || isLoading">
+          <mat-spinner *ngIf="isLoading" diameter="20" class="login-spinner"></mat-spinner>
+          <span *ngIf="!isLoading">{{ 'SIGN_IN' | translate }}</span>
+          <span *ngIf="isLoading">{{ 'SIGNING_IN' | translate }}</span>
+        </button>
+
+        <!-- Error Display -->
+        <div *ngIf="loginForm.invalid && loginForm.touched" class="form-errors">
+          <mat-icon color="warn">error</mat-icon>
+          <span>{{ 'PLEASE_CORRECT_ERRORS' | translate }}</span>
+        </div>
+      </form>
+
+      <!-- Footer Links (if needed) -->
+      <!-- 
+      <div class="login-footer">
+        <p class="register-link">
+          {{ 'NO_ACCOUNT' | translate }}
+          <a [routerLink]="['/register']">{{ 'CREATE_ACCOUNT' | translate }}</a>
+        </p>
+      </div>
+      -->
+    </div>
+  </div>
+</div>

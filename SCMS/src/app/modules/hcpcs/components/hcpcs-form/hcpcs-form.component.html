@@ -1,0 +1,199 @@
+<div class="hcpcs-form-container">
+  
+  <!-- Header -->
+  <div class="page-header">
+    <button mat-icon-button (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="header-content">
+      <h1>
+        <mat-icon>{{ editMode ? 'edit' : 'add_circle' }}</mat-icon>
+        {{ pageTitle }}
+      </h1>
+      <p class="subtitle">{{ editMode ? 'Update existing HCPCS code details' : 'Add a new HCPCS code to the system' }}</p>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading HCPCS code...</p>
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!loading">
+    
+    <!-- Code Information Card -->
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>code</mat-icon>
+        <mat-card-title>Code Information</mat-card-title>
+        <mat-card-subtitle>Basic HCPCS code identification</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="form-grid">
+          
+          <!-- HCPCS Code -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>HCPCS Code *</mat-label>
+            <input matInput 
+                   formControlName="code"
+                   (input)="onCodeInput($event)"
+                   (blur)="validateCodeFormat()"
+                   placeholder="A1234"
+                   maxlength="5"
+                   [readonly]="editMode">
+            <mat-icon matPrefix>tag</mat-icon>
+            <mat-hint>Format: Letter + 4 digits (e.g., A1234, J9999)</mat-hint>
+            <mat-error *ngIf="isFieldInvalid('code')">
+              {{ getErrorMessage('code') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Action Code -->
+          <mat-form-field appearance="outline">
+            <mat-label>Action Code</mat-label>
+            <input matInput formControlName="actionCode" placeholder="ADD, DELETE, CHANGE">
+            <mat-icon matPrefix>assignment</mat-icon>
+            <mat-hint>Optional action code (ADD, DELETE, CHANGE, etc.)</mat-hint>
+          </mat-form-field>
+
+          <!-- Category -->
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option value="">None</mat-option>
+              <mat-option *ngFor="let cat of categories" [value]="cat">
+                {{ cat }}
+              </mat-option>
+            </mat-select>
+            <mat-icon matPrefix>category</mat-icon>
+          </mat-form-field>
+
+          <!-- Status Toggle -->
+          <div class="status-toggle">
+            <mat-slide-toggle formControlName="isActive" color="primary">
+              <strong>Active Status</strong>
+              <span class="status-text">
+                {{ form.get('isActive')?.value ? 'Active' : 'Inactive' }}
+              </span>
+            </mat-slide-toggle>
+          </div>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Descriptions Card -->
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>description</mat-icon>
+        <mat-card-title>Descriptions</mat-card-title>
+        <mat-card-subtitle>Short and long descriptions for the code</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        
+        <!-- Short Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Short Description *</mat-label>
+          <input matInput 
+                 formControlName="shortDescription"
+                 placeholder="Brief description"
+                 maxlength="255">
+          <mat-icon matPrefix>short_text</mat-icon>
+          <mat-hint align="end">{{ form.get('shortDescription')?.value?.length || 0 }} / 255</mat-hint>
+          <mat-error *ngIf="isFieldInvalid('shortDescription')">
+            {{ getErrorMessage('shortDescription') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Long Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Long Description *</mat-label>
+          <textarea matInput 
+                    formControlName="longDescription"
+                    placeholder="Detailed description of the HCPCS code"
+                    rows="5"
+                    maxlength="1000"></textarea>
+          <mat-icon matPrefix>notes</mat-icon>
+          <mat-hint align="end">{{ form.get('longDescription')?.value?.length || 0 }} / 1000</mat-hint>
+          <mat-error *ngIf="isFieldInvalid('longDescription')">
+            {{ getErrorMessage('longDescription') }}
+          </mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Dates Card -->
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>event</mat-icon>
+        <mat-card-title>Effective Dates</mat-card-title>
+        <mat-card-subtitle>Define when this code is active</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="form-grid">
+          
+          <!-- Effective Date -->
+          <mat-form-field appearance="outline">
+            <mat-label>Effective Date</mat-label>
+            <input matInput 
+                   [matDatepicker]="effectivePicker"
+                   formControlName="effectiveDate"
+                   placeholder="MM/DD/YYYY">
+            <mat-datepicker-toggle matSuffix [for]="effectivePicker"></mat-datepicker-toggle>
+            <mat-datepicker #effectivePicker></mat-datepicker>
+            <mat-icon matPrefix>event_available</mat-icon>
+            <mat-hint>Date when this code becomes effective</mat-hint>
+          </mat-form-field>
+
+          <!-- Termination Date -->
+          <mat-form-field appearance="outline">
+            <mat-label>Termination Date</mat-label>
+            <input matInput 
+                   [matDatepicker]="terminationPicker"
+                   formControlName="terminationDate"
+                   placeholder="MM/DD/YYYY">
+            <mat-datepicker-toggle matSuffix [for]="terminationPicker"></mat-datepicker-toggle>
+            <mat-datepicker #terminationPicker></mat-datepicker>
+            <mat-icon matPrefix>event_busy</mat-icon>
+            <mat-hint>Date when this code is terminated (optional)</mat-hint>
+          </mat-form-field>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button type="button" 
+              mat-stroked-button 
+              (click)="onCancel()"
+              [disabled]="saving">
+        <mat-icon>cancel</mat-icon>
+        Cancel
+      </button>
+
+      <button type="submit" 
+              mat-raised-button 
+              color="primary"
+              [disabled]="form.invalid || saving">
+        <mat-icon>{{ editMode ? 'save' : 'add_circle' }}</mat-icon>
+        {{ submitButtonText }}
+        <mat-spinner diameter="20" *ngIf="saving" class="button-spinner"></mat-spinner>
+      </button>
+    </div>
+
+  </form>
+
+  <!-- Required Fields Note -->
+  <div class="required-note">
+    <mat-icon>info</mat-icon>
+    <span>Fields marked with * are required</span>
+  </div>
+
+</div>

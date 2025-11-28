@@ -1,0 +1,174 @@
+.container {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+
+  .search-field {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .status-field {
+    width: 200px;
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  text-align: center;
+  color: var(--color-warn);
+  gap: 1rem;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.role-card {
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+  }
+
+  .description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  mat-expansion-panel {
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 1px solid var(--foreground-divider);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  mat-list {
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+
+    mat-list-item {
+      height: auto;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  mat-card-actions {
+    padding: 1rem;
+    margin: 0;
+    border-top: 1px solid var(--foreground-divider);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 599px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+
+    .title {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .filters {
+    flex-direction: column;
+
+    .search-field,
+    .status-field {
+      width: 100%;
+    }
+  }
+
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Theme variables
+:host {
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --foreground-divider: rgba(0, 0, 0, 0.12);
+
+  @media (prefers-color-scheme: dark) {
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --foreground-divider: rgba(255, 255, 255, 0.12);
+  }
+}

@@ -1,0 +1,425 @@
+@use '@angular/material' as mat;
+
+// Main container
+.user-management {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  // Header section with title and action button
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+    .header-content {
+      h1 {
+        margin: 0;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      p {
+        margin: 4px 0 0;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+    
+    .header-actions {
+      button {
+        min-width: 120px;
+        
+        svg {
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  
+  // Stats cards row
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+    
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      
+      mat-card-content {
+        display: flex;
+        align-items: center;
+        padding: 24px;
+        
+        .stat-value {
+          font-size: 32px;
+          font-weight: 500;
+          line-height: 1;
+          margin-bottom: 8px;
+        }
+        
+        .stat-label {
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.6);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+      
+      .stat-icon {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 32px;
+        opacity: 0.15;
+        
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+      
+      // Different colors for different stat cards
+      &:nth-child(1) {
+        background: linear-gradient(135deg, #ffffff 0%, #f2f7ff 100%);
+        .stat-value { color: #1976d2; }
+      }
+      
+      &:nth-child(2) {
+        background: linear-gradient(135deg, #ffffff 0%, #fff7f2 100%);
+        .stat-value { color: #e64a19; }
+      }
+      
+      &:nth-child(3) {
+        background: linear-gradient(135deg, #ffffff 0%, #f2fff7 100%);
+        .stat-value { color: #388e3c; }
+      }
+      
+      &:nth-child(4) {
+        background: linear-gradient(135deg, #ffffff 0%, #f7f2ff 100%);
+        .stat-value { color: #7b1fa2; }
+      }
+    }
+  }
+  
+  // Filter section
+  .filter-section {
+    margin-bottom: 24px;
+    
+    mat-card {
+      border-radius: 12px;
+      
+      mat-card-content {
+        padding: 16px;
+      }
+    }
+    
+    .search-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      
+      .search-field {
+        flex: 2 1 300px;
+        
+        .search-icon {
+          display: flex;
+          align-items: center;
+          margin-right: 8px;
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+      
+      .filter-field {
+        flex: 1 1 200px;
+      }
+      
+      mat-form-field {
+        width: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  // Table container
+  .table-container {
+    margin-bottom: 24px;
+    
+    mat-card {
+      border-radius: 12px;
+      overflow: hidden;
+      
+      mat-card-content {
+        padding: 0;
+      }
+    }
+    
+    .user-table {
+      width: 100%;
+      
+      .mat-mdc-header-row {
+        background-color: #f5f7f9;
+      }
+      
+      .mat-mdc-header-cell {
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: 500;
+        font-size: 14px;
+      }
+      
+      .mat-mdc-row {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        &.expanded-row {
+          background-color: rgba(0, 0, 0, 0.03);
+        }
+      }
+      
+      .detail-row {
+        overflow: hidden;
+      }
+      
+      // User avatar styling
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .avatar-placeholder {
+          width: 100%;
+          height: 100%;
+          background-color: #e0e0e0;
+          color: #757575;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 500;
+          font-size: 18px;
+          text-transform: uppercase;
+        }
+      }
+      
+      // User info column
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        
+        .user-name {
+          font-weight: 500;
+        }
+        
+        .user-email {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+      
+      // Role chips styling
+      .role-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        
+        .role-chip {
+          padding: 2px 8px;
+          border-radius: 12px;
+          font-size: 12px;
+          font-weight: 500;
+          
+          &.admin-role {
+            background-color: rgba(233, 30, 99, 0.1);
+            color: #e91e63;
+          }
+          
+          &.doctor-role {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+          }
+          
+          &.patient-role {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+          }
+          
+          &.pharmacy-role {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+          }
+          
+          &.reception-role {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+          }
+        }
+      }
+      
+      // Specialty chips styling
+      .specialty-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        
+        .specialty-chip {
+          padding: 2px 8px;
+          border-radius: 12px;
+          font-size: 12px;
+          background-color: rgba(0, 0, 0, 0.05);
+          color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .no-specialty {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.4);
+          font-style: italic;
+        }
+      }
+      
+      // Status badge styling
+      .status-badge {
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        
+        &.active-status {
+          background-color: rgba(76, 175, 80, 0.1);
+          color: #4caf50;
+        }
+        
+        &.inactive-status {
+          background-color: rgba(158, 158, 158, 0.1);
+          color: #9e9e9e;
+        }
+        
+        &.blocked-status {
+          background-color: rgba(244, 67, 54, 0.1);
+          color: #f44336;
+        }
+      }
+      
+      // Actions column styling
+      .action-buttons {
+        display: flex;
+        justify-content: flex-end;
+        
+        button {
+          margin-left: 4px;
+        }
+      }
+    }
+    
+    // Menu items with SVG icons
+    .menu-icon {
+      margin-right: 12px;
+      vertical-align: middle;
+      color: rgba(0, 0, 0, 0.54);
+      
+      &.delete-icon {
+        color: #f44336;
+      }
+    }
+    
+    // Paginator styling
+    .mat-mdc-paginator {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Bulk actions styling
+  .bulk-actions {
+    position: sticky;
+    bottom: 24px;
+    z-index: 10;
+    
+    mat-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      
+      mat-card-content {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        
+        .selected-count {
+          font-weight: 500;
+          margin-right: auto;
+        }
+        
+        button {
+          margin-left: 8px;
+          
+          .button-icon {
+            margin-right: 8px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .user-management {
+    padding: 16px;
+    
+    .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      
+      .header-actions {
+        align-self: stretch;
+        
+        button {
+          width: 100%;
+        }
+      }
+    }
+    
+    .stats-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .user-management {
+    .stats-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-section {
+      .search-container {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }
+} 

@@ -1,0 +1,126 @@
+<div [formGroup]="UserForm" class="container">
+  <!-- Start of "مصدر السؤال" section -->
+
+
+    <ng-template matStepLabel>الشركات المحلية</ng-template>
+     <h2 class="title m-0">واجهة أدخال الشركة المحلية يرجي ادخال البيانات التالية</h2>
+    <!-- <div class="subheading-1">Enter your password you will use to log in.</div> -->
+
+    <div class="mt-4 flex flex-col gap-2"   formGroupName="GetLocalCompany" >
+         <!-- <div class="mt-2 flex flex-col gap-2"   formGroupName="basic"   > -->
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+            <mat-form-field class="vex-flex-form-field flex-auto">
+            <!-- <mat-label> licenseNumber </mat-label> -->
+            <mat-label> رقم الشهادة </mat-label>
+            <input formControlName="licenseNumber" matInput required>
+            <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+            <mat-hint>يجب أدخال رقم الشهادة  بشكل صحيح </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="flex-auto">
+            <mat-label>تاريخ الصلاحية الشهادة</mat-label>
+            <input [matDatepicker]="datepickerRef" matInput formControlName="licenseValidity">
+            <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #datepickerRef></mat-datepicker>
+          </mat-form-field>
+</div>
+      <div class="mt-4 flex flex-col gap-2" >
+        <mat-form-field class="vex-flex-form-field flex-auto">
+          <mat-label>تحميل شعار الشركة</mat-label>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <ngx-mat-file-input formControlName="registrationRequestFile" matInput required (change)="onFileCardSelected($event)"></ngx-mat-file-input>
+            <img id="logoPreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+          </div>
+         </mat-form-field>
+      </div>
+      <div class="mt-4 flex flex-col gap-2" >
+        <mat-form-field class="vex-flex-form-field flex-auto">
+          <!-- <mat-label> foodControlRegistrationCertificateFile</mat-label> -->
+          <mat-label> رفع بيانات التسجيل</mat-label>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <ngx-mat-file-input formControlName="foodControlRegistrationCertificateFile" matInput required (change)="onRegistrationCertificateFile($event)"></ngx-mat-file-input>
+            <img id="CertificateFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+          </div>
+         </mat-form-field>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+        <mat-form-field class="vex-flex-form-field flex-auto">
+        <!-- <mat-label> authorizedPersonLetter </mat-label> -->
+        <mat-label> بيانات المخول من الشركة</mat-label>
+
+        <input formControlName="authorizedPersonLetter" matInput required>
+        <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+        <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="vex-flex-form-field flex-auto">
+        <!-- <mat-label> authorizedPersonName </mat-label> -->
+        <mat-label> أسم المخول</mat-label>
+
+        <input formControlName="authorizedPersonName" matInput required>
+        <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+        <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="vex-flex-form-field flex-auto">
+        <!-- <mat-label> authorizedPersonPhone </mat-label> -->
+        <mat-label> رقم هاتف </mat-label>
+
+        <input formControlName="authorizedPersonPhone" matInput required>
+        <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+        <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="vex-flex-form-field flex-auto">
+        <!-- <mat-label> authorizedPersonEmail </mat-label> -->
+        <mat-label> الايميل</mat-label>
+
+        <input formControlName="authorizedPersonEmail" matInput required>
+        <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+        <mat-hint>يجب أدخال رمز  بدون تكرار </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="vex-flex-form-field flex-auto">
+        <!-- <mat-label> authorizedPersonID </mat-label> -->
+        <mat-label> رقم البطاقة  </mat-label>
+        <input formControlName="authorizedPersonID" matInput required>
+        <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+        <mat-hint>يجب أدخال رقم البطاقة   </mat-hint>
+      </mat-form-field>
+</div>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+        <mat-form-field class="vex-flex-form-field flex-auto">
+          <mat-label>رقم التسجيل </mat-label>
+          <input formControlName="registrationFee" matInput type="number">
+          <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:autorenew"></mat-icon>
+        </mat-form-field>
+        <mat-form-field class="vex-flex-form-field flex-auto"  >
+          <mat-label>نوع الترخيص</mat-label>
+          <mat-select formControlName="professionalType">
+            <mat-option *ngFor="let add of greenFileds" [value]="add.id">{{ add.NameEn }} /{{ add.NameArb }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+</div>
+<div class="mt-4 flex flex-col gap-2" >
+  <mat-form-field class="vex-flex-form-field flex-auto">
+       <mat-label>  رفع ملف التسجيل </mat-label>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <ngx-mat-file-input formControlName="authenticityCertificateFromAdministrationFile" matInput required (change)="onAuthenticityCertificateFile($event)"></ngx-mat-file-input>
+        <img id="ErtificateFromAdministrationFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+      </div>
+     </mat-form-field>
+  </div>
+  <div class="mt-4 flex flex-col gap-2" >
+    <mat-form-field class="vex-flex-form-field flex-auto">
+      <mat-label> رفع تسجيل من مركز الاغدية</mat-label>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <ngx-mat-file-input formControlName="companyFile" matInput required (change)="onCompanyFile($event)"></ngx-mat-file-input>
+        <img id="CompanyFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+      </div>
+     </mat-form-field>
+  </div>
+</div>
+
+
+
+
+    </div>
+

@@ -1,0 +1,92 @@
+
+
+  <div class="mt-6 flex flex-col md:flex-row md:items-start"  >
+  <div class="flex-auto">
+    <div class="card"  >
+      <div class="px-gutter py-4 border-b">
+        <h2 class="title m-0">    التلميذ الشخصية</h2>
+      </div>
+
+      <div class="col-2 img-container" (mouseover)="showButtonArray[i]=true" (mouseout)="showButtonArray[i]=false" *ngFor="let url of images;let  i =index"  >
+        <img  class="img-thumbnail rounded w-full"
+         [src]="url.url"
+         alt="{{url.id}}"
+         class="img-thumbnail p-1">
+         <div class="buttons example-button-row" style="width: 60px;height: 30px;"  [@fadeInOut] >
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button mat-mini-fab
+              [ngStyle]="{'background-color' : url.isMain ===true ? '#f03d7f' : '#6c685e'}"
+              (click)="selectAvatar(url)"
+              aria-label="Example icon button with a menu icon">
+                <mat-icon   >face</mat-icon>
+              </button>
+            </div>
+            <div class="example-button-container">
+              <button mat-mini-fab
+              [ngStyle]="{'background-color' : url.is_cover ===true ?  '#f03d7f' : '#6c685e'}"
+              (click)="selectCover(url)"
+               aria-label="Example icon button with a filter list icon">
+                <mat-icon  >panorama</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button mat-mini-fab   (click)="remove_old_image(url)"
+        class="btn-remove-img" color="red"
+       aria-label="Example icon button with a filter list icon">
+         <mat-icon style="font-size: 18px;">delete</mat-icon>
+       </button>
+      </div>
+
+
+
+
+
+
+    <div class="col-2 img-container" (mouseover)="showButtonArrayAdded[x]=true" (mouseout)="showButtonArrayAdded[x]=false" *ngFor="let url of previewUrls;let x =index" >
+      <img    src="{{url}}" alt="{{url}}" class="img-thumbnail rounded w-full"    >
+
+        <div class="buttons example-button-row"  [@fadeInOut]  >
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button mat-mini-fab   (click)="setAvatar(url,x)"
+              [ngStyle]="{'background-color' : avatar === url   ? '#f03d7f' : '#6c685e'}"
+               aria-label="Example icon button with a menu icon">
+                <mat-icon>face</mat-icon>
+              </button>
+            </div>
+            <div class="example-button-container">
+              <button mat-mini-fab   (click)="setCover(url,x)"
+              [ngStyle]="{'background-color' :  cover ===url ?  '#f03d7f' : '#6c685e'}"
+              aria-label="Example icon button with a filter list icon">
+                <mat-icon>panorama</mat-icon>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+        <button mat-mini-fab   (click)="remove_new_image(x)"
+        class="btn-remove-img" color="red"
+       aria-label="Example icon button with a filter list icon">
+         <mat-icon style="font-size: 18px;">delete</mat-icon>
+       </button>
+
+  </div>
+  <div  style="opacity:0.1;" class="col-2  img-container">
+    <img (click)="add_new_subimage()" class="img-thumbnail rounded w-full"
+
+
+    @scaleIn src= 'assets/img/plus.png'  alt="">
+
+    <form>
+      <input #fileInput type="file" (change)="onFileChanged($event)" accept="image/*" multiple hidden>
+    </form>
+
+  </div>
+
+    </div></div></div>
+
+

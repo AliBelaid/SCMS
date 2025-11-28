@@ -1,0 +1,32 @@
+.hcpcs-view {
+  padding: 1.5rem;
+
+  mat-card {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+
+    div {
+      background: #f5f7fa;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    dt {
+      margin: 0;
+      font-weight: 600;
+      color: #546e7a;
+    }
+
+    dd {
+      margin: 0.25rem 0 0;
+      color: #263238;
+    }
+  }
+}
+

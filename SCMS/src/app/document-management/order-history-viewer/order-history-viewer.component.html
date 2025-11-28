@@ -1,0 +1,101 @@
+<div class="order-history-container">
+  <mat-card class="history-header">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>history</mat-icon>
+        سجل المعاملة
+      </mat-card-title>
+      <div class="header-actions">
+        <button mat-icon-button (click)="refresh()" matTooltip="تحديث">
+          <mat-icon>refresh</mat-icon>
+        </button>
+        <mat-chip class="count-chip">
+          {{ totalCount }} إجراء
+        </mat-chip>
+      </div>
+    </mat-card-header>
+  </mat-card>
+
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>جاري تحميل السجل...</p>
+  </div>
+
+  <div *ngIf="!isLoading && history.length > 0" class="history-timeline">
+    <mat-card *ngFor="let item of history; let i = index" class="history-item">
+      <div class="timeline-marker">
+        <div class="timeline-dot" [ngClass]="getActionColor(item.action)"></div>
+        <div class="timeline-line" *ngIf="i < history.length - 1"></div>
+      </div>
+      <div class="history-content">
+        <div class="history-header-row">
+          <div class="action-info">
+            <mat-icon [color]="getActionColor(item.action)" class="action-icon">
+              {{ getActionIcon(item.action) }}
+            </mat-icon>
+            <div class="action-details">
+              <h3 class="action-title">{{ getActionLabel(item.action) }}</h3>
+              <p class="action-description">{{ item.description }}</p>
+            </div>
+          </div>
+          <mat-chip [color]="getActionColor(item.action)" class="action-chip">
+            {{ getActionLabel(item.action) }}
+          </mat-chip>
+        </div>
+
+        <div class="history-meta">
+          <div class="meta-item">
+            <mat-icon>person</mat-icon>
+            <span>{{ item.performedByName }}</span>
+          </div>
+          <div class="meta-item">
+            <mat-icon>schedule</mat-icon>
+            <span class="time-relative">{{ getRelativeTime(item.performedAt) }}</span>
+            <span class="time-absolute">{{ formatDate(item.performedAt) }}</span>
+          </div>
+          <div class="meta-item" *ngIf="item.notes">
+            <mat-icon>info</mat-icon>
+            <span>{{ item.notes }}</span>
+          </div>
+        </div>
+
+        <mat-expansion-panel *ngIf="item.oldValue || item.newValue" class="change-details">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>compare_arrows</mat-icon>
+              عرض التفاصيل
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="change-comparison">
+            <div class="change-old" *ngIf="item.oldValue">
+              <strong>القيمة السابقة:</strong>
+              <pre>{{ item.oldValue }}</pre>
+            </div>
+            <mat-icon class="arrow-icon">arrow_back</mat-icon>
+            <div class="change-new" *ngIf="item.newValue">
+              <strong>القيمة الجديدة:</strong>
+              <pre>{{ item.newValue }}</pre>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!isLoading && history.length === 0" class="empty-state">
+    <mat-icon>inbox</mat-icon>
+    <h3>لا يوجد سجل</h3>
+    <p>لم يتم تسجيل أي إجراءات على هذه المعاملة حتى الآن</p>
+  </div>
+
+  <mat-paginator
+    *ngIf="!isLoading && history.length > 0"
+    [length]="totalCount"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    (page)="onPageChange($event)"
+    class="history-paginator"
+  >
+  </mat-paginator>
+</div>
+

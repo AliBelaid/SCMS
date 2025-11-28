@@ -1,0 +1,59 @@
+<div class="breadcrumb-container" *ngIf="breadcrumbs.length > 0">
+  <div class="breadcrumb-wrapper">
+    <!-- Back Button -->
+    <button 
+      mat-icon-button 
+      class="back-button" 
+      (click)="goBack()"
+      [matTooltip]="'GO_BACK' | translate"
+      matTooltipPosition="below"
+      aria-label="Go back">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <!-- Breadcrumb Trail -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
+      <ol class="breadcrumb-list">
+        <li 
+          *ngFor="let crumb of breadcrumbs; let i = index; let last = last" 
+          class="breadcrumb-item"
+          [class.active]="last"
+          [class.clickable]="!last">
+          
+          <!-- Clickable Breadcrumb -->
+          <a 
+            *ngIf="!last" 
+            class="breadcrumb-link"
+            (click)="navigate(crumb)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="navigate(crumb)"
+            (keydown.space)="navigate(crumb); $event.preventDefault()"
+            [matTooltip]="crumb.label | translate"
+            matTooltipPosition="below"
+            [attr.aria-label]="'Navigate to ' + (crumb.label | translate)">
+            <mat-icon *ngIf="crumb.icon" class="breadcrumb-icon">{{ crumb.icon }}</mat-icon>
+            <span class="breadcrumb-label">{{ crumb.label | translate }}</span>
+          </a>
+
+          <!-- Current Page (Non-clickable) -->
+          <span 
+            *ngIf="last" 
+            class="breadcrumb-current"
+            [attr.aria-current]="'page'">
+            <mat-icon *ngIf="crumb.icon" class="breadcrumb-icon">{{ crumb.icon }}</mat-icon>
+            <span class="breadcrumb-label">{{ crumb.label | translate }}</span>
+          </span>
+
+          <!-- Separator -->
+          <mat-icon 
+            *ngIf="!last" 
+            class="breadcrumb-separator" 
+            aria-hidden="true">
+            chevron_right
+          </mat-icon>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>

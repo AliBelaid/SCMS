@@ -1,0 +1,83 @@
+<div class="create-request-dialog">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>Create New Request</h2>
+    <button mat-icon-button (click)="cancel()">
+      <mat-icon svgIcon="mat:close"></mat-icon>
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+    <div class="dialog-content">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Enter request title">
+        <mat-icon matPrefix svgIcon="mat:title"></mat-icon>
+        <mat-error *ngIf="requestForm.get('title')?.hasError('required')">
+          Title is required
+        </mat-error>
+        <mat-error *ngIf="requestForm.get('title')?.hasError('maxlength')">
+          Title cannot exceed 100 characters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea 
+          matInput 
+          formControlName="description" 
+          placeholder="Provide details about your request"
+          rows="4">
+        </textarea>
+        <mat-icon matPrefix svgIcon="mat:description"></mat-icon>
+        <mat-error *ngIf="requestForm.get('description')?.hasError('required')">
+          Description is required
+        </mat-error>
+        <mat-error *ngIf="requestForm.get('description')?.hasError('maxlength')">
+          Description cannot exceed 500 characters
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Request Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of requestTypes" [value]="type.value">
+              {{ type.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix svgIcon="mat:category"></mat-icon>
+          <mat-error *ngIf="requestForm.get('type')?.hasError('required')">
+            Request type is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option *ngFor="let priority of priorityLevels" [value]="priority.value">
+              {{ priority.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix svgIcon="mat:priority_high"></mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="dialog-actions">
+      <button type="button" mat-button (click)="cancel()">
+        Cancel
+      </button>
+      <button 
+        type="submit" 
+        mat-raised-button 
+        color="primary" 
+        [disabled]="requestForm.invalid">
+        Create Request
+      </button>
+    </div>
+  </form>
+</div> 

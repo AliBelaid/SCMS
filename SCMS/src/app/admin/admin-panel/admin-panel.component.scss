@@ -1,0 +1,306 @@
+.admin-panel-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  ::ng-deep {
+    .vex-page-layout-header {
+      flex: 0 0 auto;
+      min-height: 120px;
+      background: #2196f3;
+      color: white;
+      padding: 24px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      .title {
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .mat-button-toggle-group {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+
+        .mat-button-toggle {
+          color: white;
+          background: transparent;
+
+          &.mat-button-toggle-checked {
+            background: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+
+    .vex-page-layout-content {
+      flex: 1 1 auto;
+      overflow: hidden;
+      background: #f5f5f5;
+      padding: 24px;
+    }
+  }
+}
+
+.admin-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.admin-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  ::ng-deep {
+    .mat-tab-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .mat-tab-header {
+        flex: 0 0 auto;
+        background: white;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .mat-tab-body-wrapper {
+        flex: 1;
+        overflow: auto;
+      }
+
+      .mat-tab-body-content {
+        height: 100%;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+.tab-content {
+  height: 100%;
+  padding: 24px;
+  overflow: auto;
+}
+
+// Roles and Permissions specific styles
+::ng-deep {
+  .roles-permissions-container {
+    min-width: 800px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .mat-table {
+      width: 100%;
+      min-width: 800px;
+    }
+
+    .mat-column-actions {
+      width: 120px;
+      text-align: center;
+    }
+
+    .mat-column-permissions {
+      min-width: 300px;
+    }
+  }
+
+  // Specialties list styles
+  .specialties-container {
+    min-width: 600px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .mat-table {
+      width: 100%;
+      min-width: 600px;
+    }
+
+    .mat-column-description {
+      min-width: 300px;
+      max-width: 500px;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .mat-column-actions {
+      width: 120px;
+      text-align: center;
+    }
+  }
+
+  // User creation form styles
+  .user-creation-form {
+    min-width: 500px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+
+    .mat-form-field {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .mat-form-field {
+        flex: 1;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-top: 24px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 600px) {
+  .admin-panel-layout {
+    ::ng-deep {
+      .vex-page-layout-header {
+        min-height: 160px;
+        padding: 16px;
+
+        .title {
+          font-size: 24px;
+        }
+      }
+
+      .vex-page-layout-content {
+        padding: 16px;
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 16px;
+  }
+
+  ::ng-deep {
+    .roles-permissions-container,
+    .specialties-container,
+    .user-creation-form {
+      min-width: 100%;
+      width: 100%;
+      padding: 16px;
+    }
+  }
+}
+
+.container {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #5c77ff;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+}
+
+.tab-panel {
+  .member-tabset {
+    background-color: white;
+    border-radius: 8px;
+
+    ::ng-deep {
+      .mat-tab-header {
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 1rem;
+
+        .mat-tab-label {
+          height: 48px;
+          padding: 0 24px;
+          opacity: 1;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.6);
+
+          &.mat-tab-label-active {
+            color: #5c77ff;
+          }
+        }
+
+        .mat-ink-bar {
+          background-color: #5c77ff;
+        }
+      }
+
+      .mat-tab-body-content {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+// Container styles for child components
+::ng-deep {
+  app-user-management,
+  app-photo-management {
+    display: block;
+    margin-top: 1rem;
+
+    .table-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        background-color: #f5f5f5;
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 500;
+        padding: 1rem;
+        text-align: left;
+      }
+
+      td {
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      tr:hover {
+        background-color: #f8f9ff;
+      }
+    }
+
+    .mat-raised-button {
+      margin: 0.5rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+}

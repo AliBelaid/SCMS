@@ -63,6 +63,8 @@ public class Startup
         services.AddAutoMapper(typeof(MappingProfiles));
         services.AddApplicationServices(_configuration);
         services.AddIdentityServices(_configuration);
+        services.AddScoped<LogUserActivity>();
+        services.AddScoped<LogOrderActivity>();
         services.AddMemoryCache();
         
         // Add SignalR

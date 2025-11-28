@@ -1,0 +1,24 @@
+<div class="px-6 py-4 border-b">
+  <h2 class="title m-0">Friend Suggestions</h2>
+</div>
+
+<div @stagger class="px-6 py-4 flex flex-col gap-4">
+  <div *ngFor="let friend of suggestions;" class="flex items-center">
+    <img @scaleIn    src="{{friend.avatar_img_url||'https://vex.visurel.com//assets/img/Medical/user.jpg'}}"
+     alt="Profile Picture" class="avatar ltr:mr-3 rtl:ml-3 flex-none"/>
+    <div @fadeInRight class="flex-auto">
+      <h4 class="body-2 m-0 leading-snug">{{ friend.name }}</h4>
+      <h5 class="text-secondary m-0 caption leading-none">{{ friend.school_name }} mutual friends</h5>
+    </div>
+    <button (click)="removeFriend(friend)"  color="primary" mat-icon-button type="button">
+      <mat-icon svgIcon="mat:delete"></mat-icon>
+    </button>
+    <button (click)="addFriend(friend)"   *ngIf="friend.is_friend_request_by_me===1"   color="primary" mat-icon-button type="button">
+      <mat-icon svgIcon="mat:person_add"></mat-icon>
+    </button>
+    <button (click)="AbrveFrindes(friend)"   *ngIf="friend.is_friend_request_to_me===1"   color="primary" mat-icon-button type="button">
+      <mat-icon svgIcon="mat:done"></mat-icon>
+    </button>
+  </div>
+</div>
+<!-- trackBy: trackByName -->

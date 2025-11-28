@@ -1,0 +1,78 @@
+// :host {
+//   background: var(--toolbar-background);
+//   box-sizing: border-box;
+//   color: var(--toolbar-color);
+//   display: block;
+//   white-space: nowrap;
+//   width: 100%;
+//   z-index: var(--toolbar-z-index);
+// }
+
+// .toolbar {
+//   height: var(--toolbar-height);
+// }
+
+// a {
+//   color: var(--toolbar-color);
+//   text-decoration: none;
+// }
+
+// mat-icon{
+//   font-family: 'Material Icons' !important;
+// }
+
+// .modal {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 1050;
+//   display: none;
+//   overflow: hidden;
+//   -webkit-overflow-scrolling: touch;
+//   outline: 0;
+// }
+.card:hover img{
+  transform:scale(1.2,1.2);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: 0.7;
+
+}
+.card img {
+  transform:scale(1,1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+.card-img-wrapper {
+overflow: hidden;
+position: relative;
+}
+
+.member-icons {
+  position: absolute;
+  top:  30%;
+  left:  0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0;
+}
+.card-img-wrapper:hover .member-icons {
+bottom: 0;
+opacity: 1;
+}
+.animate {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-img-top {
+  width: 150px;
+  height: 150px;
+}
+mat-icon {
+  width: 32px !important;
+  height: 32px !important;
+}

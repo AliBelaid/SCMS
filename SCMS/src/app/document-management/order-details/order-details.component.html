@@ -1,0 +1,506 @@
+<div class="order-details-container">
+  <!-- Header -->
+  <div class="header-section">
+    <button mat-icon-button (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>{{ order ? order.title : 'تفاصيل المعاملة' }}</h1>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>جاري تحميل التفاصيل...</p>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!isLoading && order" class="details-content">
+    <!-- Quick Info Card -->
+    <mat-card class="quick-info-card">
+      <mat-card-content>
+        <div class="quick-info-grid">
+          <div class="info-item">
+            <mat-icon>tag</mat-icon>
+            <div>
+              <span class="label">الرقم المرجعي:</span>
+              <span class="value">{{ order.referenceNumber }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>swap_horiz</mat-icon>
+            <div>
+              <span class="label">النوع:</span>
+              <mat-chip [color]="order.type === 'incoming' ? 'primary' : 'accent'" selected>
+                {{ typeLabels[order.type] }}
+              </mat-chip>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>business</mat-icon>
+            <div>
+              <span class="label">القسم:</span>
+              <span class="value">{{ order.departmentCode }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>category</mat-icon>
+            <div>
+              <span class="label">الموضوع:</span>
+              <span class="value">{{ order.subjectCode }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>info</mat-icon>
+            <div>
+              <span class="label">الحالة:</span>
+              <mat-chip [color]="getStatusColor(order.status)" selected>
+                {{ statusLabels[order.status] }}
+              </mat-chip>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>priority_high</mat-icon>
+            <div>
+              <span class="label">الأولوية:</span>
+              <mat-chip [color]="getPriorityColor(order.priority)" selected>
+                {{ priorityLabels[order.priority] }}
+              </mat-chip>
+            </div>
+          </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" *ngIf="myPermissions?.canEdit" (click)="editOrder()">
+            <mat-icon>edit</mat-icon>
+            تعديل
+          </button>
+
+          <button mat-raised-button color="accent" *ngIf="isOwner" (click)="archiveOrder()">
+            <mat-icon>archive</mat-icon>
+            أرشفة
+          </button>
+
+          <button mat-raised-button color="warn" *ngIf="myPermissions?.canDelete" (click)="deleteOrder()">
+            <mat-icon>delete</mat-icon>
+            حذف
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Tabs -->
+    <mat-tab-group [(selectedIndex)]="selectedTab" class="details-tabs">
+      <!-- Tab 1: General Information -->
+      <mat-tab label="معلومات عامة">
+        <div class="tab-content">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>description</mat-icon>
+                معلومات المعاملة
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="info-grid">
+                <div class="info-row">
+                  <span class="info-label">العنوان:</span>
+                  <span class="info-value">{{ order.title }}</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="info-label">الوصف:</span>
+                  <span class="info-value">{{ order.description }}</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="info-label">تاريخ الإنشاء:</span>
+                  <span class="info-value">{{ formatDate(order.createdAt) }}</span>
+                </div>
+
+                <div class="info-row" *ngIf="order.updatedAt">
+                  <span class="info-label">آخر تحديث:</span>
+                  <span class="info-value">{{ formatDate(order.updatedAt) }}</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="info-label">أنشئت بواسطة:</span>
+                  <span class="info-value">{{ order.createdBy }}</span>
+                </div>
+
+                <div class="info-row" *ngIf="order.dueDate">
+                  <span class="info-label">تاريخ الاستحقاق:</span>
+                  <span class="info-value">{{ formatDate(order.dueDate) }}</span>
+                </div>
+
+                <div class="info-row" *ngIf="order.expirationDate">
+                  <span class="info-label">تاريخ الانتهاء:</span>
+                  <span class="info-value warn-text">{{ formatDate(order.expirationDate) }}</span>
+                </div>
+
+                <div class="info-row" *ngIf="order.notes">
+                  <span class="info-label">ملاحظات:</span>
+                  <span class="info-value">{{ order.notes }}</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="info-label">عامة:</span>
+                  <span class="info-value">
+                    <mat-icon [class.public]="order.isPublic" [class.private]="!order.isPublic">
+                      {{ order.isPublic ? 'public' : 'lock' }}
+                    </mat-icon>
+                    {{ order.isPublic ? 'نعم' : 'لا' }}
+                  </span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- My Permissions -->
+          <mat-card class="permissions-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>vpn_key</mat-icon>
+                صلاحياتي
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="permissions-chips" *ngIf="myPermissions">
+                <div class="chip-container">
+                  <mat-chip *ngIf="isOwner" color="primary" selected>
+                    <mat-icon>verified_user</mat-icon>
+                    مالك المعاملة
+                  </mat-chip>
+                  <mat-chip *ngIf="myPermissions.canView" color="accent" selected>
+                    <mat-icon>visibility</mat-icon>
+                    عرض
+                  </mat-chip>
+                  <mat-chip *ngIf="myPermissions.canEdit" color="accent" selected>
+                    <mat-icon>edit</mat-icon>
+                    تعديل
+                  </mat-chip>
+                  <mat-chip *ngIf="myPermissions.canDelete" color="warn" selected>
+                    <mat-icon>delete</mat-icon>
+                    حذف
+                  </mat-chip>
+                </div>
+
+                <p class="permission-source" *ngIf="myPermissions.permissionSource">
+                  <mat-icon>info</mat-icon>
+                  مصدر الصلاحية: {{ myPermissions.permissionSource === 'Owner' ? 'مالك' : 
+                                     myPermissions.permissionSource === 'Direct' ? 'مباشر' :
+                                     myPermissions.permissionSource === 'Department' ? 'إدارة' :
+                                     myPermissions.permissionSource === 'Public' ? 'عام' : 'لا يوجد' }}
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <!-- Tab 2: Attachments -->
+      <mat-tab label="المرفقات">
+        <div class="tab-content">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>attach_file</mat-icon>
+                الملفات المرفقة ({{ order.attachments?.length || 0 }})
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="!order.attachments || order.attachments.length === 0" class="empty-state">
+                <mat-icon>folder_open</mat-icon>
+                <p>لا توجد مرفقات</p>
+              </div>
+              <mat-list *ngIf="order.attachments && order.attachments.length > 0">
+                <mat-list-item *ngFor="let attachment of order.attachments" class="attachment-item">
+                  <mat-icon matListItemIcon [class]="'file-icon ' + attachment.fileType">
+                    {{ attachment.fileType === 'pdf' ? 'picture_as_pdf' : 
+                       attachment.fileType === 'image' ? 'image' : 
+                       attachment.fileType === 'document' ? 'description' : 'insert_drive_file' }}
+                  </mat-icon>
+
+                  <div matListItemTitle class="attachment-info">
+                    <span class="file-name">{{ attachment.fileName }}</span>
+                    <span class="file-size">{{ formatFileSize(attachment.fileSize) }}</span>
+                  </div>
+
+                  <div matListItemMeta class="attachment-actions">
+                    <button mat-icon-button (click)="viewAttachment(attachment)" matTooltip="عرض">
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="downloadAttachment(attachment)" matTooltip="تحميل">
+                      <mat-icon>download</mat-icon>
+                    </button>
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <!-- Tab 3: History -->
+      <mat-tab label="السجل">
+        <div class="tab-content">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>history</mat-icon>
+                سجل التغييرات ({{ orderHistory.length }})
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="orderHistory.length === 0" class="empty-state">
+                <mat-icon>history</mat-icon>
+                <p>لا يوجد سجل</p>
+              </div>
+              <div class="timeline" *ngIf="orderHistory.length > 0">
+                <div class="timeline-item" *ngFor="let item of orderHistory; let last = last" [class.last]="last">
+                  <div class="timeline-marker" [ngClass]="getActionColor(item.action)">
+                    <mat-icon>{{ actionIcons[item.action] }}</mat-icon>
+                  </div>
+
+                  <mat-card class="timeline-content">
+                    <mat-card-header>
+                      <mat-card-title>{{ actionLabels[item.action] }}</mat-card-title>
+                      <mat-card-subtitle>
+                        <mat-icon>person</mat-icon>
+                        {{ item.performedByName || 'مستخدم' }}
+                        •
+                        <mat-icon>schedule</mat-icon>
+                        {{ formatDate(item.performedAt) }}
+                      </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p class="history-description">{{ item.description }}</p>
+
+                      <div class="history-changes" *ngIf="item.oldValue || item.newValue">
+                        <div class="change-row" *ngIf="item.oldValue">
+                          <span class="change-label">القيمة السابقة:</span>
+                          <span class="change-value old">{{ item.oldValue }}</span>
+                        </div>
+                        <div class="change-row" *ngIf="item.newValue">
+                          <span class="change-label">القيمة الجديدة:</span>
+                          <span class="change-value new">{{ item.newValue }}</span>
+                        </div>
+                      </div>
+
+                      <p class="history-notes" *ngIf="item.notes">
+                        <mat-icon>note</mat-icon>
+                        {{ item.notes }}
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <!-- Tab 4: Permissions Management (Owner Only) -->
+      <mat-tab label="إدارة الصلاحيات" *ngIf="showPermissionsTab">
+        <div class="tab-content">
+          <!-- User Permissions -->
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>person</mat-icon>
+                صلاحيات المستخدمين
+              </mat-card-title>
+              <button mat-raised-button color="primary" (click)="grantUserPermission()">
+                <mat-icon>add</mat-icon>
+                منح صلاحية
+              </button>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="!order.userPermissions || order.userPermissions.length === 0" class="empty-state">
+                <mat-icon>person_off</mat-icon>
+                <p>لا توجد صلاحيات مستخدمين مباشرة</p>
+              </div>
+              <mat-list *ngIf="order.userPermissions && order.userPermissions.length > 0">
+                <mat-list-item *ngFor="let perm of order.userPermissions" class="permission-item">
+                  <mat-icon matListItemIcon>person</mat-icon>
+
+                  <div matListItemTitle>
+                    <span class="user-name">{{ perm.userCode || 'مستخدم' }}</span>
+                    <span class="user-email">{{ perm.userEmail }}</span>
+                  </div>
+
+                  <div matListItemLine class="permission-chips">
+                    <div class="chip-container">
+                      <mat-chip *ngIf="perm.canView" color="accent" selected>
+                        <mat-icon>visibility</mat-icon>
+                        عرض
+                      </mat-chip>
+                      <mat-chip *ngIf="perm.canEdit" color="accent" selected>
+                        <mat-icon>edit</mat-icon>
+                        تعديل
+                      </mat-chip>
+                      <mat-chip *ngIf="perm.canDelete" color="warn" selected>
+                        <mat-icon>delete</mat-icon>
+                        حذف
+                      </mat-chip>
+                    </div>
+                  </div>
+
+                  <button matListItemMeta mat-icon-button color="warn" 
+                          (click)="revokeUserPermission(perm.userId)"
+                          matTooltip="إلغاء الصلاحية">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Department Access -->
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>business</mat-icon>
+                وصول الإدارات
+              </mat-card-title>
+              <button mat-raised-button color="primary" (click)="grantDepartmentAccess()">
+                <mat-icon>add</mat-icon>
+                منح وصول
+              </button>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="!order.departmentAccesses || order.departmentAccesses.length === 0" class="empty-state">
+                <mat-icon>business_center</mat-icon>
+                <p>لا توجد إدارات لديها وصول</p>
+              </div>
+              <mat-list *ngIf="order.departmentAccesses && order.departmentAccesses.length > 0">
+                <mat-list-item *ngFor="let access of order.departmentAccesses" class="permission-item">
+                  <mat-icon matListItemIcon>business</mat-icon>
+
+                  <div matListItemTitle>
+                    <span class="dept-name">{{ access.departmentNameAr }}</span>
+                  </div>
+
+                  <div matListItemLine>
+                    <mat-chip [color]="access.accessLevel === 3 ? 'primary' : 'accent'" selected>
+                      {{ getAccessLevelLabel(access.accessLevel) }}
+                    </mat-chip>
+                  </div>
+
+                  <button matListItemMeta mat-icon-button color="warn" 
+                          (click)="revokeDepartmentAccess(access.departmentId)"
+                          matTooltip="إلغاء الوصول">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- User Exceptions -->
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>block</mat-icon>
+                استثناءات المستخدمين
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="!order.userExceptions || order.userExceptions.length === 0" class="empty-state">
+                <mat-icon>check_circle</mat-icon>
+                <p>لا توجد استثناءات</p>
+              </div>
+              <mat-list *ngIf="order.userExceptions && order.userExceptions.length > 0">
+                <mat-list-item *ngFor="let exception of order.userExceptions" class="exception-item">
+                  <mat-icon matListItemIcon color="warn">block</mat-icon>
+
+                  <div matListItemTitle>
+                    <span class="user-name">{{ exception.userCode || 'مستخدم' }}</span>
+                  </div>
+
+                  <div matListItemLine *ngIf="exception.reason">
+                    <mat-icon>info</mat-icon>
+                    {{ exception.reason }}
+                  </div>
+
+                  <button matListItemMeta mat-icon-button color="primary" 
+                          (click)="removeUserException(exception.userId)"
+                          matTooltip="إلغاء الاستثناء">
+                    <mat-icon>check_circle</mat-icon>
+                  </button>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <!-- Tab 5: Active Users (Owner Only) -->
+      <mat-tab label="المستخدمين النشطين" *ngIf="showActiveUsersTab">
+        <div class="tab-content">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>people</mat-icon>
+                من لديه وصول ({{ activeUsers.length }})
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngIf="activeUsers.length === 0" class="empty-state">
+                <mat-icon>people_outline</mat-icon>
+                <p>لا يوجد مستخدمين نشطين</p>
+              </div>
+              <mat-list *ngIf="activeUsers.length > 0">
+                <mat-list-item *ngFor="let user of activeUsers" class="active-user-item">
+                  <mat-icon matListItemIcon [class]="user.accessType">
+                    {{ user.accessType === 'owner' ? 'verified_user' :
+                       user.accessType === 'direct' ? 'person' :
+                       user.accessType === 'department' ? 'business' : 'public' }}
+                  </mat-icon>
+
+                  <div matListItemTitle>
+                    <span class="user-name">{{ user.userName }}</span>
+                    <span class="user-email" *ngIf="user.userEmail">{{ user.userEmail }}</span>
+                  </div>
+
+                  <div matListItemLine class="user-access-info">
+                    <div class="chip-container">
+                      <mat-chip [color]="user.accessType === 'owner' ? 'primary' : 'accent'" selected>
+                        {{ user.source }}
+                      </mat-chip>
+                      <mat-chip>{{ user.accessLevel }}</mat-chip>
+                    </div>
+                  </div>
+
+                  <div matListItemLine class="user-permissions">
+                    <span *ngIf="user.canView" class="permission-badge view">
+                      <mat-icon>visibility</mat-icon>
+                      عرض
+                    </span>
+                    <span *ngIf="user.canEdit" class="permission-badge edit">
+                      <mat-icon>edit</mat-icon>
+                      تعديل
+                    </span>
+                    <span *ngIf="user.canDelete" class="permission-badge delete">
+                      <mat-icon>delete</mat-icon>
+                      حذف
+                    </span>
+                  </div>
+
+                  <div matListItemMeta *ngIf="user.grantedAt" class="grant-date">
+                    <mat-icon>schedule</mat-icon>
+                    {{ formatDate(user.grantedAt) }}
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

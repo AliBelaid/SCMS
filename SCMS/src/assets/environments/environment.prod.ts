@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: '/api/',
-  hmr: false
-}; 
+  hmr: false,
+ // apiUrl: '/api'
+ apiUrl: '/api'
+
+};

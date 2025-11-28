@@ -1,0 +1,76 @@
+<mat-card class="profile-security-card">
+  <mat-card-header>
+    <mat-card-title>{{ 'Security Settings' | translate }}</mat-card-title>
+    <mat-card-subtitle>{{ 'Manage your account security' | translate }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()" class="security-form">
+      <div class="form-section">
+        <h3>{{ 'Change Password' | translate }}</h3>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'Current Password' | translate }}</mat-label>
+            <input matInput [type]="showCurrentPassword ? 'text' : 'password'" formControlName="currentPassword" required>
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility('current')" type="button">
+              <mat-icon>{{ showCurrentPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordForm.get('currentPassword')?.hasError('required')">
+              {{ 'Current password is required' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'New Password' | translate }}</mat-label>
+            <input matInput [type]="showNewPassword ? 'text' : 'password'" formControlName="newPassword" required>
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility('new')" type="button">
+              <mat-icon>{{ showNewPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordForm.get('newPassword')?.hasError('required')">
+              {{ 'New password is required' | translate }}
+            </mat-error>
+            <mat-error *ngIf="passwordForm.get('newPassword')?.hasError('minlength')">
+              {{ 'Password must be at least 8 characters long' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'Confirm New Password' | translate }}</mat-label>
+            <input matInput [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility('confirm')" type="button">
+              <mat-icon>{{ showConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordForm.get('confirmPassword')?.hasError('required')">
+              {{ 'Please confirm your new password' | translate }}
+            </mat-error>
+            <mat-error *ngIf="passwordForm.hasError('mismatch')">
+              {{ 'Passwords do not match' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-divider class="my-6"></mat-divider>
+
+      <div class="form-section">
+        <h3>{{ 'Two-Factor Authentication' | translate }}</h3>
+        <p class="text-secondary">{{ 'Add an extra layer of security to your account' | translate }}</p>
+        <button mat-raised-button color="primary" class="mt-4">
+          <mat-icon>security</mat-icon>
+          {{ 'Enable 2FA' | translate }}
+        </button>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!passwordForm.valid">
+          <mat-icon>save</mat-icon>
+          {{ 'Save Changes' | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> 

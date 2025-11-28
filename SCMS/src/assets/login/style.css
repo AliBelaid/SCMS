@@ -1,0 +1,77 @@
+@import "~simplebar/dist/simplebar.css";
+@import "~highlight.js/styles/androidstudio.css";
+
+@import "./@vex/styles/core";
+
+/*
+  You can override any CSS Variable or style here
+  Example:
+
+  :root {
+   --sidenav-background: #333333;
+  }
+
+  All possible variables can be found in @vex/styles/core or by simply inspecting the element you want to change
+  in Chrome/Firefox DevTools
+*/
+
+/**
+  Uncomment the below code and adjust the values to fit your colors, the application will automatically adjust
+ */
+:root {
+  /* // --color-primary: blue;
+  // --color-primary-contrast: white;
+
+  // --color-accent: yellow;
+  // --color-accent-contrast: black;
+
+  // --color-warn: yellow;
+  // --color-warn-contrast: black; */
+
+
+}
+
+
+ 
+ 
+
+
+@font-face {
+  font-family: "mont";
+  src: local("mont"), url(./assets/fonts/Montserrat-Arabic-Regular.ttf) format("truetype");
+}
+
+body{
+  /* //  font-family: "mont", Arial, Helvetica, sans-serif !important;
+
+  // font-family: "stg", Arial, Helvetica, sans-serif !important; */
+}
+
+*{
+ /* //   font-family: "mont", Arial, Helvetica, sans-serif !important;
+
+  // font-family: "stg", Arial, Helvetica, sans-serif !important; */
+}
+
+
+@font-face {
+  font-family: "airstrip";
+  src: local("airstrip"), url(./assets/fonts/Air-Strip-Arabic.otf) format("opentype");
+}
+
+/* // Stg1_Ver1_Regular.ttf */
+
+
+
+@font-face {
+  font-family: "stg";
+  src: local("mont"), url(./assets/fonts/Stg1_Ver1_Regular.ttf) format("truetype");
+}
+
+
+
+:root
+ {
+
+  overflow: auto;
+}

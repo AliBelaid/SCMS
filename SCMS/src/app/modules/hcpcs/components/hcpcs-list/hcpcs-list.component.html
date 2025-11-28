@@ -1,0 +1,312 @@
+<div class="hcpcs-list-container">
+  
+  <!-- Header Section -->
+  <div class="page-header">
+    <div class="header-content">
+      <h1>
+        <mat-icon>medical_services</mat-icon>
+        HCPCS Codes Management
+      </h1>
+      <p class="subtitle">Healthcare Common Procedure Coding System</p>
+    </div>
+    
+    <div class="header-actions">
+      <button mat-raised-button color="primary" (click)="onCreate()">
+        <mat-icon>add</mat-icon>
+        Add New Code
+      </button>
+      
+      <button mat-raised-button color="accent" [matMenuTriggerFor]="importMenu">
+        <mat-icon>upload</mat-icon>
+        Import
+      </button>
+      
+      <mat-menu #importMenu="matMenu">
+        <button mat-menu-item (click)="onImportExcel()">
+          <mat-icon>upload_file</mat-icon>
+          <span>Import from Excel</span>
+        </button>
+        <button mat-menu-item (click)="onDownloadTemplate()">
+          <mat-icon>download</mat-icon>
+          <span>Download Template</span>
+        </button>
+      </mat-menu>
+      
+      <button mat-raised-button (click)="onExportExcel()" [disabled]="exporting">
+        <mat-icon>download</mat-icon>
+        <span *ngIf="!exporting">Export</span>
+        <span *ngIf="exporting">Exporting...</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="statistics-row" *ngIf="statistics">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <mat-icon class="stat-icon">code</mat-icon>
+        <div class="stat-info">
+          <h3>{{ statistics.totalCodes | number }}</h3>
+          <p>Total Codes</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card active">
+      <mat-card-content>
+        <mat-icon class="stat-icon">check_circle</mat-icon>
+        <div class="stat-info">
+          <h3>{{ statistics.activeCount | number }}</h3>
+          <p>Active</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card inactive">
+      <mat-card-content>
+        <mat-icon class="stat-icon">cancel</mat-icon>
+        <div class="stat-info">
+          <h3>{{ statistics.inactiveCount | number }}</h3>
+          <p>Inactive</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <mat-icon class="stat-icon">category</mat-icon>
+        <div class="stat-info">
+          <h3>{{ statistics.categoriesCount | number }}</h3>
+          <p>Categories</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Filters and Search -->
+  <mat-card class="filters-card">
+    <mat-card-content>
+      <form [formGroup]="filterForm">
+        <div class="filters-row">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search</mat-label>
+            <input
+              matInput
+              formControlName="searchTerm"
+              placeholder="Search by code or description..."
+            />
+            <mat-icon matPrefix>search</mat-icon>
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              *ngIf="filterForm.get('searchTerm')?.value"
+              (click)="clearSearch()"
+            >
+              <mat-icon>clear</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option value="">All Categories</mat-option>
+              <mat-option *ngFor="let cat of categories" [value]="cat">
+                {{ cat }}
+              </mat-option>
+            </mat-select>
+            <mat-icon matPrefix>category</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="isActive">
+              <mat-option [value]="null">All Status</mat-option>
+              <mat-option [value]="true">Active Only</mat-option>
+              <mat-option [value]="false">Inactive Only</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>toggle_on</mat-icon>
+          </mat-form-field>
+
+          <button mat-stroked-button type="button" (click)="clearFilters()">
+            <mat-icon>clear_all</mat-icon>
+            Clear Filters
+          </button>
+        </div>
+      </form>
+
+      <!-- Bulk Actions -->
+      <div class="bulk-actions" *ngIf="selection.selected.length > 0">
+        <span class="selection-info">
+          {{ selection.selected.length }} item(s) selected
+        </span>
+        <button mat-button color="warn" (click)="onBulkDelete()">
+          <mat-icon>delete</mat-icon>
+          Delete Selected
+        </button>
+        <button mat-button (click)="clearSelection()">
+          <mat-icon>clear</mat-icon>
+          Clear Selection
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Data Table -->
+  <mat-card class="table-card">
+    <mat-card-content>
+      
+      <!-- Loading Spinner -->
+      <div class="loading-overlay" *ngIf="loading">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Loading HCPCS codes...</p>
+      </div>
+
+      <!-- Importing Overlay -->
+      <div class="loading-overlay" *ngIf="importing">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Importing Excel file...</p>
+      </div>
+
+      <!-- Table -->
+      <div class="table-container">
+        <table mat-table 
+               [dataSource]="dataSource" 
+               matSort
+               (matSortChange)="onSortChange($event)"
+               class="hcpcs-table">
+
+          <!-- Select Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <!-- Code Column -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+            <td mat-cell *matCellDef="let row">
+              <strong class="code-badge">{{ row.code }}</strong>
+            </td>
+          </ng-container>
+
+          <!-- Short Description Column -->
+          <ng-container matColumnDef="shortDescription">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Short Description</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.shortDescription }}
+            </td>
+          </ng-container>
+
+          <!-- Long Description Column -->
+          <ng-container matColumnDef="longDescription">
+            <th mat-header-cell *matHeaderCellDef>Long Description</th>
+            <td mat-cell *matCellDef="let row" class="long-desc">
+              <span [matTooltip]="row.longDescription" matTooltipPosition="above">
+                {{ row.longDescription }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Action Code Column -->
+          <ng-container matColumnDef="actionCode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-chip *ngIf="row.actionCode" class="action-chip">
+                {{ row.actionCode }}
+              </mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Category Column -->
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-chip *ngIf="row.category" class="category-chip">
+                {{ row.category }}
+              </mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-slide-toggle 
+                [checked]="row.isActive"
+                (change)="onToggleActive(row)"
+                [color]="row.isActive ? 'primary' : 'warn'">
+                {{ getStatusText(row.isActive) }}
+              </mat-slide-toggle>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button [matMenuTriggerFor]="actionMenu" (click)="$event.stopPropagation()">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #actionMenu="matMenu">
+                <button mat-menu-item (click)="onView(row)">
+                  <mat-icon>visibility</mat-icon>
+                  <span>View Details</span>
+                </button>
+                <button mat-menu-item (click)="onEdit(row)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="onDelete(row)" class="danger">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              class="table-row"
+              (click)="onView(row)"></tr>
+
+          <!-- No Data Row -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+              <div class="no-data">
+                <mat-icon>search_off</mat-icon>
+                <p>No HCPCS codes found</p>
+                <button mat-raised-button color="primary" (click)="clearFilters()">
+                  Clear Filters
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Paginator -->
+      <mat-paginator 
+        [length]="totalCount"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageNumber - 1"
+        (page)="onPageChange($event)"
+        showFirstLastButtons>
+      </mat-paginator>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

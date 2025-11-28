@@ -1,0 +1,101 @@
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.page-layout {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.cover-section {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(45deg, #2196F3, #1976D2);
+  overflow: hidden;
+
+  .cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.profile-navigation-card {
+  margin-top: -64px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  .avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar-icon {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+      color: #757575;
+    }
+  }
+
+  .status-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+
+    &.active {
+      background-color: #4CAF50;
+    }
+  }
+}
+
+.profile-tabs {
+  .mat-tab-link {
+    min-width: 120px;
+    padding: 0 16px;
+    height: 48px;
+    line-height: 48px;
+  }
+}
+
+.edit-profile-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.text-secondary {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 599px) {
+  .profile-navigation-card {
+    margin-top: -32px;
+  }
+
+  .profile-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+} 

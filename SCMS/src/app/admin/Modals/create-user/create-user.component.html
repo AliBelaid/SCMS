@@ -1,0 +1,265 @@
+<form [formGroup]="user" class="create-user-form">
+  <div class="flex items-center p-4 bg-gradient-to-r from-blue-500 to-blue-600" mat-dialog-title>
+    <div class="user-image">
+      <img [src]="user.get('logo')?.value || 'assets/img/Medical/user.jpg'" class="avatar">
+      <button class="camera-button" type="button" (click)="fileInput.click()">
+        <mat-icon svgIcon="mat:camera_alt"></mat-icon>
+      </button>
+    </div>
+    <h2 class="headline m-0 flex-auto text-white font-semibold text-xl">
+      {{ user.get('displayName').value || ('NEW_USER' | translate) }}
+    </h2>
+    
+    <!-- File input for profile picture -->
+    <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept="image/*">
+    
+    <!-- Close button -->
+    <button class="text-white hover:text-gray-200" mat-dialog-close mat-icon-button type="button">
+      <mat-icon svgIcon="mat:close"></mat-icon>
+    </button>
+  </div>
+
+  <mat-divider class="text-border w-full"></mat-divider>
+
+  <!-- Error messages section -->
+  <div *ngIf="errorMessages && errorMessages.length > 0" class="error-container">
+    <div class="error-header">
+      <mat-icon color="warn">error</mat-icon>
+      <span>{{ 'PLEASE_FIX_ERRORS' | translate }}</span>
+    </div>
+    <ul class="error-list">
+      <li *ngFor="let error of errorMessages">{{ error }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>{{ 'LOADING_DATA' | translate }}</p>
+  </div>
+
+  <mat-dialog-content class="dialog-content" *ngIf="!loading">
+    <mat-tab-group animationDuration="200ms">
+      <!-- Personal Information Tab -->
+      <mat-tab label="{{ 'PERSONAL_INFO' | translate }}">
+        <div class="p-6">
+          <div class="text-sm text-blue-600 mb-6 bg-blue-50 p-3 rounded border border-blue-200">
+            <mat-icon svgIcon="mat:info" class="text-blue-500 mr-2 align-middle"></mat-icon>
+            {{ 'FILL_BASIC_INFORMATION' | translate }}
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-6">
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'NAME' | translate }} *</mat-label>
+              <input cdkFocusInitial formControlName="displayName" matInput required>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:person"></mat-icon>
+              <mat-error *ngFor="let validation of validationMessages.displayName">
+                <span *ngIf="user.get('displayName').hasError(validation.type)">{{ validation.message }}</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'USER_TYPE' | translate }}</mat-label>
+              <mat-select formControlName="userType">
+                <mat-option *ngFor="let type of userTypes" [value]="type.value">
+                  {{ type.label }}
+                </mat-option>
+              </mat-select>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:badge"></mat-icon>
+            </mat-form-field>
+          </div>
+          
+          <!-- Required fields note -->
+          <div class="text-sm text-gray-500 mt-6">
+            <mat-icon svgIcon="mat:info" class="text-gray-400 mr-1 align-middle" style="font-size: 16px;"></mat-icon>
+            {{ 'FIELDS_MARKED_REQUIRED' | translate }} *
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Contact Information Tab -->
+      <mat-tab label="{{ 'CONTACT_INFO' | translate }}">
+        <div class="p-6">
+          <div class="text-sm text-blue-600 mb-6 bg-blue-50 p-3 rounded border border-blue-200">
+            <mat-icon svgIcon="mat:contact_mail" class="text-blue-500 mr-2 align-middle"></mat-icon>
+            {{ 'PROVIDE_CONTACT_DETAILS' | translate }}
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-6">
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'EMAIL' | translate }}</mat-label>
+              <input formControlName="email" type="email" matInput>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:email"></mat-icon>
+              <mat-error *ngFor="let validation of validationMessages.email">
+                <span *ngIf="user.get('email').hasError(validation.type)">{{ validation.message }}</span>
+              </mat-error>
+              <mat-hint>{{ 'EMAIL_OR_PHONE_REQUIRED' | translate }}</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'PHONE_NUMBER' | translate }}</mat-label>
+              <input formControlName="phoneNumber" matInput>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:phone"></mat-icon>
+              <mat-error *ngFor="let validation of validationMessages.phoneNumber">
+                <span *ngIf="user.get('phoneNumber').hasError(validation.type)">{{ validation.message }}</span>
+              </mat-error>
+              <mat-hint>{{ 'EMAIL_OR_PHONE_REQUIRED' | translate }}</mat-hint>
+            </mat-form-field>
+          </div>
+          
+          <!-- Note about email or phone requirement -->
+          <div class="text-sm text-orange-600 mt-4 bg-orange-50 p-3 rounded border border-orange-200">
+            <mat-icon svgIcon="mat:warning" class="text-orange-500 mr-2 align-middle"></mat-icon>
+            {{ 'EITHER_EMAIL_OR_PHONE_REQUIRED' | translate }}
+          </div>
+        </div>
+      </mat-tab>
+
+
+
+      <!-- Security Tab -->
+      <mat-tab label="{{ 'SECURITY' | translate }}">
+        <div class="p-6">
+          <div class="text-sm text-blue-600 mb-6 bg-blue-50 p-3 rounded border border-blue-200">
+            <mat-icon svgIcon="mat:security" class="text-blue-500 mr-2 align-middle"></mat-icon>
+            {{ 'SET_SECURE_PASSWORD' | translate }}
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-6">
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'PASSWORD' | translate }} *</mat-label>
+              <input [type]="inputType" formControlName="password" matInput required>
+              <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+                <mat-icon svgIcon="mat:{{ visible ? 'visibility' : 'visibility_off' }}"></mat-icon>
+              </button>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:lock"></mat-icon>
+              <mat-error *ngFor="let validation of validationMessages.password">
+                <span *ngIf="user.get('password').hasError(validation.type)">{{ validation.message }}</span>
+              </mat-error>
+              <mat-hint align="start">{{ 'PASSWORD_MIN_LENGTH' | translate }}</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="flex-auto">
+              <mat-label>{{ 'PASSWORD_CONFIRM' | translate }} *</mat-label>
+              <input [type]="inputType" formControlName="password_confirm" matInput required>
+              <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+                <mat-icon svgIcon="mat:{{ visible ? 'visibility' : 'visibility_off' }}"></mat-icon>
+              </button>
+              <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:lock_outline"></mat-icon>
+              <mat-error *ngFor="let validation of validationMessages.password_confirm">
+                <span *ngIf="user.get('password_confirm').hasError(validation.type)">{{ validation.message }}</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+          <!-- Password requirements -->
+          <div class="text-sm text-gray-600 mt-4 bg-gray-50 p-3 rounded border">
+            <mat-icon svgIcon="mat:info" class="text-gray-500 mr-2 align-middle"></mat-icon>
+            {{ 'PASSWORD_REQUIREMENTS' | translate }}
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Roles Tab -->
+      <mat-tab label="{{ 'ROLES' | translate }}">
+        <div class="p-6">
+          <div class="text-sm text-blue-600 mb-6 bg-blue-50 p-3 rounded border border-blue-200">
+            <mat-icon svgIcon="mat:admin_panel_settings" class="text-blue-500 mr-2 align-middle"></mat-icon>
+            {{ 'SELECT_USER_ROLES' | translate }}
+          </div>
+          
+          <div class="text-sm text-orange-600 mb-4 bg-orange-50 p-3 rounded border border-orange-200">
+            <mat-icon svgIcon="mat:warning" class="text-orange-500 mr-2 align-middle"></mat-icon>
+            <span>{{ 'SELECT_AT_LEAST_ONE_ROLE' | translate }}</span>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div *ngFor="let role of roles; let i = index; trackBy: trackByRole"
+                 class="role-card p-4 rounded border transition-all duration-200 cursor-pointer hover:shadow-md"
+                 [class.selected]="role.checked"
+                 [class.border-blue-500]="role.checked"
+                 [class.bg-blue-50]="role.checked"
+                 [class.border-gray-200]="!role.checked"
+                 [class.bg-white]="!role.checked"
+                 (click)="toggleRole(role)">
+              <mat-checkbox [(ngModel)]="role.checked" 
+                           [ngModelOptions]="{standalone: true}"
+                           class="w-full">
+                <div class="flex items-center">
+                  <mat-icon class="text-blue-500 mr-3" svgIcon="mat:security"></mat-icon>
+                  <span class="font-medium text-gray-700">{{ role.name }}</span>
+                </div>
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Clinics Tab -->
+      <mat-tab label="{{ 'CLINICS' | translate }}">
+        <div class="clinics-section">
+          <div class="form-section-info">
+            <mat-icon>info</mat-icon>
+            <span>{{ 'SELECT_CLINICS_USER_CAN_ACCESS' | translate }}</span>
+          </div>
+          <div class="clinics-grid">
+            <div *ngFor="let clinic of clinics; let i = index; trackBy: trackByClinic"
+                 class="clinic-card"
+                 [class.selected]="clinic.checked"
+                 (click)="toggleClinic(clinic)">
+              <mat-checkbox [(ngModel)]="clinic.checked" 
+                           [ngModelOptions]="{standalone: true}">
+                <div class="clinic-content">
+                  <mat-icon class="clinic-icon" svgIcon="mat:local_hospital"></mat-icon>
+                  <span class="clinic-name">{{ clinic.name }}</span>
+                </div>
+              </mat-checkbox>
+            </div>
+          </div>
+          
+          <div *ngIf="clinics.length === 0" class="empty-message">
+            <mat-icon svgIcon="mat:info"></mat-icon>
+            <p>{{ 'NO_CLINICS_AVAILABLE' | translate }}</p>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Categories Tab -->
+      <mat-tab label="{{ 'CATEGORIES' | translate }}">
+        <div class="categories-section">
+          <div class="form-section-info">
+            <mat-icon>info</mat-icon>
+            <span>{{ 'SELECT_CATEGORIES_USER_CAN_ACCESS' | translate }}</span>
+          </div>
+          <div class="categories-grid">
+            <div *ngFor="let category of categories; let i = index; trackBy: trackByCategory"
+                 class="category-card"
+                 [class.selected]="category.checked"
+                 (click)="toggleCategory(category)">
+              <mat-checkbox [(ngModel)]="category.checked" 
+                           [ngModelOptions]="{standalone: true}">
+                <div class="category-content">
+                  <mat-icon class="category-icon" svgIcon="mat:category"></mat-icon>
+                  <span class="category-name">{{ category.name }}</span>
+                </div>
+              </mat-checkbox>
+            </div>
+          </div>
+          
+          <div *ngIf="categories.length === 0" class="empty-message">
+            <mat-icon svgIcon="mat:info"></mat-icon>
+            <p>{{ 'NO_CATEGORIES_AVAILABLE' | translate }}</p>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button mat-dialog-close type="button">{{ 'CANCEL' | translate }}</button>
+    <button mat-raised-button color="primary" type="button" [disabled]="loading" (click)="save()">
+      <mat-icon svgIcon="mat:save"></mat-icon>
+      {{ 'SAVE' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>
+

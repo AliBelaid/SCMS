@@ -1,0 +1,33 @@
+<div class="row my-2" style="padding:0px;margin:0px;">
+
+
+  <ng-container *ngIf="mode == 'update'  ">
+    <ul class=" img-ul" style="margin:0px;padding:0px;">
+      <li id="li_img_main">
+        <img (mouseover)="show_image_on_main(product.pictures[0].url)" src="{{product.pictures[0].url}}" alt="">
+        <i class="btn-remove-img fa fa-times fa-2x" (click)="remove_main_image(product.pictures[0].pivot.upload_file_id)"></i>
+      </li>
+    </ul>
+    <ul class=" img-ul" *ngFor="let pic  of product.sm_pictures  ; let i = index ">
+      <li id="li_img_existed_{{i}}">
+        <img (mouseover)="show_image_on_main(pic.url)" src="{{pic.url}}" alt="">
+        <i class="btn-remove-img fa fa-times fa-2x" (click)="remove_existed_image(pic.pivot.upload_file_id,i)"></i>
+      </li>
+    </ul>
+  </ng-container>
+
+
+  <ul class=" img-ul">
+    <li *ngFor="let url of previewUrls;; let i = index">
+      <img [src]="url" (mouseover)="show_image_on_main(url)">
+      <i class="btn-remove-img fa fa-times fa-2x" (click)="remove_new_image(i)"></i>
+    </li>
+  </ul>
+
+  <ul class=" img-ul">
+    <li style="opacity:0.1;"> <img (click)="add_new_subimage()" src="" alt=""> </li>
+    <form>
+      <input #fileInput type="file" (change)="onFileChanged($event)" accept="image/*" multiple hidden>
+    </form>
+  </ul>
+</div>

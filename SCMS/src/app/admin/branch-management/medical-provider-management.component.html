@@ -1,0 +1,267 @@
+<!-- medical-provider-management.component.html -->
+<div class="medical-provider-management-container">
+  <!-- Header -->
+  <mat-card class="header-card">
+    <mat-card-content>
+      <div class="header-content">
+        <div class="header-title">
+          <h1>{{ 'ADMIN.medical_provider_MANAGEMENT' | translate }}</h1>
+          <p class="subtitle">{{ 'ADMIN.MANAGE_SYSTEM_BRANCHES' | translate }}</p>
+          <div class="headquarters-badge" *ngIf="headquartersBranch()">
+            <mat-icon>business</mat-icon>
+            <span>{{ 'ADMIN.HEADQUARTERS' | translate }}: <strong>{{headquartersBranch()?.name}}</strong></span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button mat-raised-button color="primary" (click)="openCreateBranchDialog()">
+            <mat-icon>add_business</mat-icon>
+{{ 'ADMIN.CREATE_BRANCH' | translate }}
+          </button>
+          <button mat-button (click)="exportToExcel()">
+            <mat-icon>download</mat-icon>
+{{ 'ADMIN.EXPORT' | translate }}
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Statistics -->
+  <div class="statistics-row">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <mat-icon class="stat-icon">business</mat-icon>
+        <div class="stat-info">
+          <div class="stat-value">{{totalBranches()}}</div>
+          <div class="stat-label">{{ 'ADMIN.TOTAL_BRANCHES' | translate }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <mat-icon class="stat-icon" color="primary">check_circle</mat-icon>
+        <div class="stat-info">
+          <div class="stat-value">{{activeBranches()}}</div>
+          <div class="stat-label">{{ 'ADMIN.ACTIVE_BRANCHES' | translate }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <mat-icon class="stat-icon" color="accent">people</mat-icon>
+        <div class="stat-info">
+          <div class="stat-value">{{totalUsers()}}</div>
+          <div class="stat-label">{{ 'ADMIN.TOTAL_USERS' | translate }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stat-card headquarters-stat" *ngIf="headquartersBranch()">
+      <mat-card-content>
+        <mat-icon class="stat-icon headquarters-icon">stars</mat-icon>
+        <div class="stat-info">
+          <div class="stat-value">HQ</div>
+          <div class="stat-label">{{headquartersBranch()?.city}}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Filters -->
+  <mat-card class="filters-card">
+    <mat-card-content>
+      <div class="filters-row">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>{{ 'ADMIN.SEARCH_BRANCHES' | translate }}</mat-label>
+          <input matInput [(ngModel)]="searchTerm" (keyup)="applyFilter()" 
+                 [placeholder]="'ADMIN.SEARCH_BRANCHES_PLACEHOLDER' | translate">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'ADMIN.CITY' | translate }}</mat-label>
+          <mat-select [(ngModel)]="selectedCity" (selectionChange)="applyFilter()">
+            <mat-option value="all">{{ 'ADMIN.ALL_CITIES' | translate }}</mat-option>
+            <mat-option *ngFor="let city of cities()" [value]="city">
+              {{city}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button (click)="loadBranches()" [matTooltip]="'ADMIN.REFRESH' | translate">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Table -->
+  <mat-card class="table-card">
+    <mat-card-content>
+      <div class="table-container">
+        <div *ngIf="loading()" class="loading-overlay">
+          <mat-spinner></mat-spinner>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" matSort class="medical-provider-table">
+          
+          <!-- Code Column -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'ADMIN.CODE' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <span class="medical-provider-code">{{medical-provider.code}}</span>
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'ADMIN.medical_provider_NAME' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <div class="medical-provider-name-cell">
+                <span>{{medical-provider.name}}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- City Column -->
+          <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'ADMIN.CITY' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">{{medical-provider.city}}</td>
+          </ng-container>
+
+          <!-- Address Column -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>{{ 'ADMIN.ADDRESS' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <span class="address-text" [matTooltip]="medical-provider.address || ('ADMIN.NO_ADDRESS' | translate)">
+                {{medical-provider.address || '-'}}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Phone Column -->
+          <ng-container matColumnDef="phoneNumber">
+            <th mat-header-cell *matHeaderCellDef>{{ 'ADMIN.PHONE' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">{{medical-provider.phoneNumber || '-'}}</td>
+          </ng-container>
+
+          <!-- User Count Column -->
+          <ng-container matColumnDef="userCount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'ADMIN.USERS' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <button mat-button color="primary" 
+                      (click)="openBranchUsersDialog(medical-provider)"
+                      [disabled]="!medical-provider.userCount">
+                <mat-icon [matBadge]="medical-provider.userCount || '0'" 
+                          [matBadgeHidden]="!medical-provider.userCount"
+                          matBadgeColor="accent">
+                  people
+                </mat-icon>
+                <span>{{medical-provider.userCount || 0}}</span>
+              </button>
+            </td>
+          </ng-container>
+
+          <!-- Headquarters Column -->
+          <ng-container matColumnDef="headquarters">
+            <th mat-header-cell *matHeaderCellDef>{{ 'ADMIN.HQ' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <mat-icon *ngIf="medical-provider.isHeadquarters" 
+                        class="hq-icon" 
+                        [matTooltip]="'ADMIN.HEADQUARTERS_BRANCH' | translate">
+                stars
+              </mat-icon>
+              <button mat-icon-button 
+                      *ngIf="!medical-provider.isHeadquarters && medical-provider.active"
+                      (click)="setAsHeadquarters(medical-provider)"
+                      [matTooltip]="'ADMIN.SET_AS_HEADQUARTERS' | translate"
+                      class="set-hq-button">
+                <mat-icon>star_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'ADMIN.STATUS' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <mat-slide-toggle
+                [checked]="medical-provider.active"
+                (change)="toggleBranchStatus(medical-provider)"
+                [disabled]="medical-provider.isHeadquarters">
+              </mat-slide-toggle>
+              <span class="status-label" [class.active]="medical-provider.active">
+                {{medical-provider.active ? ('ADMIN.ACTIVE' | translate) : ('ADMIN.INACTIVE' | translate)}}
+              </span>
+              <mat-icon *ngIf="medical-provider.isHeadquarters" 
+                        class="lock-icon" 
+                        [matTooltip]="'ADMIN.HEADQUARTERS_CANNOT_DEACTIVATE' | translate">
+                lock
+              </mat-icon>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>{{ 'ADMIN.ACTIONS' | translate }}</th>
+            <td mat-cell *matCellDef="let medical-provider">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="openEditBranchDialog(medical-provider)">
+                  <mat-icon>edit</mat-icon>
+                  <span>{{ 'ADMIN.EDIT_BRANCH' | translate }}</span>
+                </button>
+                <button mat-menu-item (click)="openBranchUsersDialog(medical-provider)">
+                  <mat-icon>people</mat-icon>
+                  <span>{{ 'ADMIN.MANAGE_USERS' | translate }}</span>
+                </button>
+                <button mat-menu-item 
+                        (click)="setAsHeadquarters(medical-provider)"
+                        *ngIf="!medical-provider.isHeadquarters && medical-provider.active">
+                  <mat-icon color="accent">stars</mat-icon>
+                  <span>{{ 'ADMIN.SET_AS_HEADQUARTERS' | translate }}</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item 
+                        (click)="deleteBranch(medical-provider)" 
+                        class="delete-action"
+                        [disabled]="medical-provider.userCount > 0 || medical-provider.isHeadquarters">
+                  <mat-icon color="warn">delete</mat-icon>
+                  <span>{{ 'ADMIN.DELETE_BRANCH' | translate }}</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+              [class.inactive-row]="!row.active"
+              [class.headquarters-row]="row.isHeadquarters"></tr>
+
+          <!-- No data row -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell no-data" colspan="9">
+              <div class="no-data-message">
+                <mat-icon>business</mat-icon>
+                <p>{{ 'ADMIN.NO_BRANCHES_FOUND' | translate }}</p>
+                <button mat-raised-button color="primary" (click)="openCreateBranchDialog()">
+                  {{ 'ADMIN.CREATE_FIRST_BRANCH' | translate }}
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" 
+                       [showFirstLastButtons]="true"
+                       [pageSize]="25">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

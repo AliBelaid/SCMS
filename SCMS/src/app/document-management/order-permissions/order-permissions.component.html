@@ -1,0 +1,373 @@
+<div class="permissions-dialog" dir="rtl">
+    <div class="dialog-header">
+      <div class="title-group">
+        <h2 mat-dialog-title>
+          <mat-icon>security</mat-icon>
+          إدارة الصلاحيات: {{ data.orderTitle }}
+        </h2>
+        <div class="quick-nav">
+          <button mat-stroked-button color="primary" (click)="navigateToOrderDetails()">
+            <mat-icon>open_in_new</mat-icon>
+            عرض تفاصيل المعاملة
+          </button>
+          <button mat-stroked-button (click)="navigateToOrdersList()">
+            <mat-icon>list</mat-icon>
+            قائمة المعاملات
+          </button>
+        </div>
+      </div>
+      <button mat-icon-button (click)="close()" matTooltip="إغلاق">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  
+    <mat-dialog-content>
+      <!-- Tabs -->
+      <mat-tab-group [(selectedIndex)]="activeTab" animationDuration="300ms">
+        
+        <!-- User Permissions Tab -->
+        <mat-tab label="صلاحيات المستخدمين">
+          <div class="tab-content">
+            <!-- Add User Permission Form -->
+            <mat-card class="add-permission-card">
+              <mat-card-header>
+                <mat-card-title>منح صلاحيات لمستخدم</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <form [formGroup]="userPermissionForm" (ngSubmit)="grantUserPermission()">
+                  <div class="form-grid">
+                    <mat-form-field appearance="outline">
+                      <mat-label>رمز المستخدم</mat-label>
+                      <input matInput formControlName="userCode" placeholder="مثال: user123">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>معرف المستخدم</mat-label>
+                      <input matInput type="number" formControlName="userId" placeholder="1">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>تاريخ الانتهاء (اختياري)</mat-label>
+                      <input matInput type="date" formControlName="expiresAt">
+                    </mat-form-field>
+                  </div>
+  
+                  <div class="permissions-grid">
+                    <mat-checkbox formControlName="canView">عرض</mat-checkbox>
+                    <mat-checkbox formControlName="canEdit">تعديل</mat-checkbox>
+                    <mat-checkbox formControlName="canDelete">حذف</mat-checkbox>
+                    <mat-checkbox formControlName="canShare">مشاركة</mat-checkbox>
+                    <mat-checkbox formControlName="canDownload">تحميل</mat-checkbox>
+                    <mat-checkbox formControlName="canPrint">طباعة</mat-checkbox>
+                    <mat-checkbox formControlName="canComment">تعليق</mat-checkbox>
+                    <mat-checkbox formControlName="canApprove">موافقة</mat-checkbox>
+                  </div>
+  
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>ملاحظات</mat-label>
+                    <textarea matInput formControlName="notes" rows="2"></textarea>
+                  </mat-form-field>
+  
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="userPermissionForm.invalid">
+                      <mat-icon>add</mat-icon>
+                      منح الصلاحيات
+                    </button>
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+  
+            <!-- User Permissions List -->
+            <mat-card class="permissions-list-card">
+              <mat-card-header>
+                <mat-card-title>المستخدمون الحاليون ({{ userPermissions.length }})</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div *ngIf="isLoading" class="loading-state">
+                  <mat-spinner diameter="40"></mat-spinner>
+                  <p>جاري التحميل...</p>
+                </div>
+  
+                <div *ngIf="!isLoading && userPermissions.length === 0" class="empty-state">
+                  <mat-icon>person_off</mat-icon>
+                  <p>لا توجد صلاحيات مستخدمين</p>
+                </div>
+  
+                <table mat-table [dataSource]="userPermissions" *ngIf="!isLoading && userPermissions.length > 0" class="permissions-table">
+                  <ng-container matColumnDef="user">
+                    <th mat-header-cell *matHeaderCellDef>المستخدم</th>
+                    <td mat-cell *matCellDef="let permission">
+                      <div class="user-info">
+                        <mat-icon>person</mat-icon>
+                        <div>
+                          <div class="user-code">{{ permission.userCode }}</div>
+                          <div class="user-email">{{ permission.userEmail }}</div>
+                        </div>
+                      </div>
+                    </td>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="permissions">
+                    <th mat-header-cell *matHeaderCellDef>الصلاحيات</th>
+                    <td mat-cell *matCellDef="let permission">
+                      <div class="permission-chips">
+                        <mat-chip *ngIf="permission.canView" color="primary">عرض</mat-chip>
+                        <mat-chip *ngIf="permission.canEdit" color="accent">تعديل</mat-chip>
+                        <mat-chip *ngIf="permission.canDelete" color="warn">حذف</mat-chip>
+                        <mat-chip *ngIf="permission.canShare">مشاركة</mat-chip>
+                        <mat-chip *ngIf="permission.canDownload">تحميل</mat-chip>
+                        <mat-chip *ngIf="permission.canPrint">طباعة</mat-chip>
+                        <mat-chip *ngIf="permission.canComment">تعليق</mat-chip>
+                        <mat-chip *ngIf="permission.canApprove">موافقة</mat-chip>
+                      </div>
+                    </td>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="expires">
+                    <th mat-header-cell *matHeaderCellDef>الانتهاء</th>
+                    <td mat-cell *matCellDef="let permission">
+                      <span *ngIf="permission.expiresAt" [class.expired]="permission.isExpired">
+                        {{ formatDate(permission.expiresAt) }}
+                      </span>
+                      <span *ngIf="!permission.expiresAt" class="no-expiry">دائم</span>
+                    </td>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>الإجراءات</th>
+                    <td mat-cell *matCellDef="let permission">
+                      <button mat-icon-button color="warn" (click)="revokeUserPermission(permission.userId)" matTooltip="إلغاء الصلاحيات">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+  
+                  <tr mat-header-row *matHeaderRowDef="['user', 'permissions', 'expires', 'actions']"></tr>
+                  <tr mat-row *matRowDef="let row; columns: ['user', 'permissions', 'expires', 'actions'];"></tr>
+                </table>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+  
+        <!-- Department Access Tab -->
+        <mat-tab label="وصول الإدارات">
+          <div class="tab-content">
+            <!-- Add Department Access Form -->
+            <mat-card class="add-permission-card">
+              <mat-card-header>
+                <mat-card-title>منح وصول لإدارة</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <form [formGroup]="departmentAccessForm" (ngSubmit)="grantDepartmentAccess()">
+                  <div class="form-grid">
+                    <mat-form-field appearance="outline">
+                      <mat-label>الإدارة</mat-label>
+                      <mat-select formControlName="departmentId">
+                        <mat-option *ngFor="let dept of departments" [value]="dept.id">
+                          {{ dept.nameAr }} ({{ dept.code }})
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>مستوى الوصول</mat-label>
+                      <mat-select formControlName="accessLevel">
+                        <mat-option *ngFor="let level of accessLevels" [value]="level.value">
+                          {{ level.label }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>تاريخ الانتهاء (اختياري)</mat-label>
+                      <input matInput type="date" formControlName="expiresAt">
+                    </mat-form-field>
+                  </div>
+  
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>ملاحظات</mat-label>
+                    <textarea matInput formControlName="notes" rows="2"></textarea>
+                  </mat-form-field>
+  
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="departmentAccessForm.invalid">
+                      <mat-icon>add</mat-icon>
+                      منح الوصول
+                    </button>
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+  
+            <!-- Department Access List -->
+            <mat-card class="permissions-list-card">
+              <mat-card-header>
+                <mat-card-title>الإدارات الحالية ({{ departmentAccesses.length }})</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div *ngIf="isLoading" class="loading-state">
+                  <mat-spinner diameter="40"></mat-spinner>
+                  <p>جاري التحميل...</p>
+                </div>
+  
+                <div *ngIf="!isLoading && departmentAccesses.length === 0" class="empty-state">
+                  <mat-icon>business_center</mat-icon>
+                  <p>لا توجد إدارات لديها وصول</p>
+                </div>
+  
+                <div class="department-list" *ngIf="!isLoading && departmentAccesses.length > 0">
+                  <mat-card *ngFor="let access of departmentAccesses" class="department-card">
+                    <mat-card-content>
+                      <div class="department-header">
+                        <div class="department-info">
+                          <mat-icon>business</mat-icon>
+                          <div>
+                            <h3>{{ access.departmentNameAr }}</h3>
+                            <p>{{ access.departmentCode }}</p>
+                          </div>
+                        </div>
+                        <mat-chip [color]="access.accessLevel === 3 ? 'primary' : access.accessLevel === 2 ? 'accent' : 'basic'">
+                          {{ access.accessLevelName }}
+                        </mat-chip>
+                      </div>
+                      <div class="department-meta">
+                        <span class="granted-info">
+                          <mat-icon>person</mat-icon>
+                          منح بواسطة: {{ access.grantedByName }}
+                        </span>
+                        <span class="expiry-info" *ngIf="access.expiresAt" [class.expired]="access.isExpired">
+                          <mat-icon>event</mat-icon>
+                          {{ formatDate(access.expiresAt) }}
+                        </span>
+                      </div>
+                      <div class="department-actions">
+                    <button mat-stroked-button color="primary" (click)="navigateToDepartment(access.departmentId)">
+                      <mat-icon>location_on</mat-icon>
+                      الذهاب للإدارة
+                    </button>
+                        <button mat-raised-button color="warn" (click)="revokeDepartmentAccess(access.departmentId)">
+                          <mat-icon>cancel</mat-icon>
+                          إلغاء الوصول
+                        </button>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+  
+        <!-- User Exceptions Tab -->
+        <mat-tab label="الاستثناءات">
+          <div class="tab-content">
+            <!-- Add User Exception Form -->
+            <mat-card class="add-permission-card">
+              <mat-card-header>
+                <mat-card-title>إضافة استثناء مستخدم</mat-card-title>
+                <mat-card-subtitle>منع مستخدم معين من الوصول حتى لو كان في إدارة لديها وصول</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <form [formGroup]="userExceptionForm" (ngSubmit)="addUserException()">
+                  <div class="form-grid">
+                    <mat-form-field appearance="outline">
+                      <mat-label>رمز المستخدم</mat-label>
+                      <input matInput formControlName="userCode" placeholder="مثال: user123">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>معرف المستخدم</mat-label>
+                      <input matInput type="number" formControlName="userId" placeholder="1">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline">
+                      <mat-label>تاريخ الانتهاء (اختياري)</mat-label>
+                      <input matInput type="date" formControlName="expiresAt">
+                    </mat-form-field>
+                  </div>
+  
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>سبب الاستثناء</mat-label>
+                    <textarea matInput formControlName="reason" rows="3" placeholder="مثال: معاملة سرية - تضارب مصالح"></textarea>
+                    <mat-error *ngIf="userExceptionForm.get('reason')?.hasError('required')">
+                      السبب مطلوب
+                    </mat-error>
+                    <mat-error *ngIf="userExceptionForm.get('reason')?.hasError('minlength')">
+                      يجب أن يكون السبب 10 أحرف على الأقل
+                    </mat-error>
+                  </mat-form-field>
+  
+                  <div class="form-actions">
+                    <button mat-raised-button color="warn" type="submit" [disabled]="userExceptionForm.invalid">
+                      <mat-icon>block</mat-icon>
+                      إضافة استثناء
+                    </button>
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+  
+            <!-- User Exceptions List -->
+            <mat-card class="permissions-list-card">
+              <mat-card-header>
+                <mat-card-title>المستخدمون المستثنون ({{ userExceptions.length }})</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div *ngIf="isLoading" class="loading-state">
+                  <mat-spinner diameter="40"></mat-spinner>
+                  <p>جاري التحميل...</p>
+                </div>
+  
+                <div *ngIf="!isLoading && userExceptions.length === 0" class="empty-state">
+                  <mat-icon>check_circle</mat-icon>
+                  <p>لا توجد استثناءات</p>
+                </div>
+  
+                <div class="exceptions-list" *ngIf="!isLoading && userExceptions.length > 0">
+                  <mat-card *ngFor="let exception of userExceptions" class="exception-card">
+                    <mat-card-content>
+                      <div class="exception-header">
+                        <div class="user-info">
+                          <mat-icon color="warn">block</mat-icon>
+                          <div>
+                            <h3>{{ exception.userCode }}</h3>
+                            <p>{{ exception.userEmail }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="exception-reason">
+                        <mat-icon>info</mat-icon>
+                        <span>{{ exception.reason }}</span>
+                      </div>
+                      <div class="exception-meta">
+                        <span class="added-info">
+                          <mat-icon>person</mat-icon>
+                          أضيف بواسطة: {{ exception.addedByName }}
+                        </span>
+                        <span class="expiry-info" *ngIf="exception.expiresAt" [class.expired]="exception.isExpired">
+                          <mat-icon>event</mat-icon>
+                          {{ formatDate(exception.expiresAt) }}
+                        </span>
+                      </div>
+                      <div class="exception-actions">
+                        <button mat-raised-button color="primary" (click)="removeUserException(exception.userId)">
+                          <mat-icon>check</mat-icon>
+                          إلغاء الاستثناء
+                        </button>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="close()">إغلاق</button>
+    </mat-dialog-actions>
+  </div>

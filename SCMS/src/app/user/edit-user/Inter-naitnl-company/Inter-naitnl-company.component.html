@@ -1,0 +1,144 @@
+
+
+
+
+<div [formGroup]="UserForm" class="container">
+
+  <ng-template matStepLabel>{{ 'INTERNATIONAL_COMPANY' | translate }}</ng-template>
+  <h2 class="title m-0">{{ 'ADD_COMPANY_DETAILS' | translate }}</h2>
+
+  <div class="mt-4 flex flex-col gap-2" formGroupName="GetLocalCompany">
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+          <mat-form-field class="vex-flex-form-field flex-auto">
+              <mat-label>{{ 'FINANCIAL_STATUS_FILE_LABEL' | translate }}</mat-label>
+              <input formControlName="financialStatusFile" matInput required>
+              <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+              <mat-hint>{{ 'FINANCIAL_STATUS_FILE_HINT' | translate }}</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="vex-flex-form-field flex-auto">
+              <mat-label>{{ 'SITE_MASTER_FILE_LABEL' | translate }}</mat-label>
+              <input formControlName="siteMasterFile" matInput required>
+              <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+              <mat-hint>{{ 'SITE_MASTER_FILE_HINT' | translate }}</mat-hint>
+          </mat-form-field>
+      </div>
+
+<!-- Continuation of the form with translation keys -->
+<div class="mt-4 flex flex-col gap-2">
+  <mat-form-field class="vex-flex-form-field flex-auto">
+    <mat-label>{{ 'UPLOAD_LOGO_LABEL' | translate }}</mat-label>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <ngx-mat-file-input formControlName="registrationRequestFile" matInput required (change)="onFileCardSelected($event)"></ngx-mat-file-input>
+      <img id="FileCardSelectedPreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+    </div>
+  </mat-form-field>
+</div>
+
+<div class="mt-4 flex flex-col gap-2">
+  <mat-form-field class="vex-flex-form-field flex-auto">
+    <mat-label>{{ 'UPLOAD_ISO13485_CERTIFICATE_FILE_LABEL' | translate }}</mat-label>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <ngx-mat-file-input formControlName="gmpAndISO13485CertificateFile" matInput required (change)="onISO13485CertificateFile($event)"></ngx-mat-file-input>
+      <img id="ISO13485CertificateFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+    </div>
+  </mat-form-field>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+  <mat-form-field class="vex-flex-form-field flex-auto">
+    <mat-label>{{ 'ISO13485_LICENSE_LABEL' | translate }}</mat-label>
+    <input formControlName="licenseNumber" matInput required>
+    <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+    <mat-hint>{{ 'ISO13485_LICENSE_NUMBER_HINT' | translate }}</mat-hint>
+  </mat-form-field>
+
+  <!-- Assume similar changes for the rest of the form fields -->
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+  <mat-form-field class="vex-flex-form-field flex-auto">
+    <mat-label>{{ 'REGISTRATION_FEE_LABEL' | translate }}</mat-label>
+    <input formControlName="registrationFee" matInput type="number">
+    <mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:autorenew"></mat-icon>
+  </mat-form-field>
+
+  <!-- Continue with other fields -->
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+  <!-- Example for one more field -->
+  <mat-form-field class="vex-flex-form-field flex-auto">
+    <mat-label>{{ 'STABILITY_STUDIES_FILE_LABEL' | translate }}</mat-label>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <ngx-mat-file-input formControlName="authenticityCertificateFromAdministrationFile" matInput required (change)="onStabilityStudiesFile($event)"></ngx-mat-file-input>
+      <img id="StabilityStudiesFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+    </div>
+  </mat-form-field>
+
+<!-- Continuation from previous code -->
+
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'LICENSE_DATE_LABEL' | translate }}</mat-label>
+<input formControlName="licenseDate" matInput required>
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+<mat-hint>{{ 'LICENSE_DATE_HINT' | translate }}</mat-hint>
+</mat-form-field>
+
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'LICENSE_VALIDITY_LABEL' | translate }}</mat-label>
+<input formControlName="licenseValidity" matInput required>
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+<mat-hint>{{ 'LICENSE_VALIDITY_HINT' | translate }}</mat-hint>
+</mat-form-field>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'AUTHORIZED_PERSON_EMAIL_LABEL' | translate }}</mat-label>
+<input formControlName="authorizedPersonEmail" matInput required>
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+<mat-hint>{{ 'AUTHORIZED_PERSON_EMAIL_HINT' | translate }}</mat-hint>
+</mat-form-field>
+
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'FREE_SALE_CERTIFICATE_FILE_LABEL' | translate }}</mat-label>
+<input formControlName="freeSaleCertificateFile" matInput required>
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:where_to_vote"></mat-icon>
+<mat-hint>{{ 'FREE_SALE_CERTIFICATE_FILE_HINT' | translate }}</mat-hint>
+</mat-form-field>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'REGISTRATION_FEE_LABEL' | translate }}</mat-label>
+<input formControlName="registrationFee" matInput type="number">
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:autorenew"></mat-icon>
+</mat-form-field>
+
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'CLINICAL_PERFORMANCE_FILE_LABEL' | translate }}</mat-label>
+<input formControlName="clinicalPerformanceFile" matInput>
+<mat-icon class="ltr:mr-3 rtl:ml-3" matPrefix svgIcon="mat:autorenew"></mat-icon>
+</mat-form-field>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'STABILITY_STUDIES_FILE_LABEL' | translate }}</mat-label>
+<div style="display: flex; align-items: center; gap: 10px;">
+  <ngx-mat-file-input formControlName="authenticityCertificateFromAdministrationFile" matInput required (change)="onStabilityStudiesFile($event)"></ngx-mat-file-input>
+  <img id="StabilityStudiesFilePreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+</div>
+</mat-form-field>
+
+<mat-form-field class="vex-flex-form-field flex-auto">
+<mat-label>{{ 'FOOD_CONTROL_REGISTRATION_CERTIFICATE_FILE_LABEL' | translate }}</mat-label>
+<div style="display: flex; align-items: center; gap: 10px;">
+  <ngx-mat-file-input formControlName="riskAssessmentFile" matInput required (change)="onRiskAssessmentFile($event)"></ngx-mat-file-input>
+  <img id="RiskAssessmentPreview" src="assets/img/Medical/staff.png" style="width: 50px; height: 50px;" alt="Preview">
+</div>
+</mat-form-field>
+</div>
+</div>
+  </div>

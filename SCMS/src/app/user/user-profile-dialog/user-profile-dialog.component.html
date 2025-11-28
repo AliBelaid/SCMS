@@ -1,0 +1,123 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="flex items-center p-4 bg-blue-50" mat-dialog-title>
+    <div class="image-container">
+      <img [src]="form.get('logo')?.value || 'assets/img/Medical/user.jpg'" class="avatar">
+      <button class="camera-button" type="button" (click)="fileInput.click()">
+          <mat-icon svgIcon="mat:camera"></mat-icon>
+      </button>
+    </div>
+    <h2 *ngIf="form.get('firstName')?.value || form.get('lastName')?.value" class="headline m-0 flex-auto text-blue-800 font-medium">
+      {{ form.get('firstName')?.value + ' ' + form.get('lastName')?.value }}
+    </h2>
+    <h2 *ngIf="!form.get('firstName')?.value && !form.get('lastName')?.value" class="headline m-0 flex-auto text-blue-800 font-medium">
+      {{ 'USER_PROFILE' | translate }}
+    </h2>
+
+    <!-- File input -->
+    <button class="text-blue-600 hover:text-blue-700" mat-icon-button type="button" (click)="fileInput.click()">
+      <mat-icon svgIcon="mat:camera"></mat-icon>
+    </button>
+    <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept="image/*">
+
+    <!-- Close button -->
+    <button class="text-gray-500 hover:text-gray-800" mat-dialog-close mat-icon-button type="button">
+      <mat-icon svgIcon="mat:close"></mat-icon>
+    </button>
+  </div>
+
+  <mat-divider class="text-border w-full"></mat-divider>
+  <mat-dialog-content class="flex flex-col p-6">
+    <!-- Loading spinner -->
+    <div *ngIf="loading" class="flex justify-center my-6">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <!-- API Error message -->
+    <div *ngIf="apiError" class="text-red-500 text-sm mb-6 p-4 bg-red-50 rounded border border-red-200">
+      <div class="flex items-center">
+        <mat-icon svgIcon="mat:error" class="text-red-500 mr-2"></mat-icon>
+        {{ apiError }}
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-6" [hidden]="loading">
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'FIRST_NAME' | translate }} *</mat-label>
+        <input cdkFocusInitial formControlName="firstName" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:person"></mat-icon>
+        <mat-error *ngIf="form.get('firstName')?.hasError('required')">
+          {{ 'FIRST_NAME_REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'LAST_NAME' | translate }} *</mat-label>
+        <input formControlName="lastName" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:person"></mat-icon>
+        <mat-error *ngIf="form.get('lastName')?.hasError('required')">
+          {{ 'LAST_NAME_REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-6 mt-4" [hidden]="loading">
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'EMAIL' | translate }} *</mat-label>
+        <input formControlName="email" type="email" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:email"></mat-icon>
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          {{ 'EMAIL_REQUIRED' | translate }}
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          {{ 'VALID_EMAIL_REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'PHONE_NUMBER' | translate }}</mat-label>
+        <input formControlName="phoneNumber" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:phone"></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-6 mt-4" [hidden]="loading">
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'CITY' | translate }}</mat-label>
+        <input formControlName="city" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:location_city"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'COUNTRY' | translate }}</mat-label>
+        <input formControlName="country" matInput>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:public"></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-6 mt-4" [hidden]="loading">
+      <mat-form-field class="flex-auto" appearance="outline">
+        <mat-label>{{ 'GENDER' | translate }}</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">{{ 'MALE' | translate }}</mat-option>
+          <mat-option value="female">{{ 'FEMALE' | translate }}</mat-option>
+          <mat-option value="other">{{ 'OTHER' | translate }}</mat-option>
+        </mat-select>
+        <mat-icon class="mr-3 text-blue-500" matPrefix svgIcon="mat:face"></mat-icon>
+      </mat-form-field>
+    </div>
+    
+    <!-- Required fields note -->
+    <div class="text-sm text-gray-500 mt-6" [hidden]="loading">
+      {{ 'FIELDS_MARKED_REQUIRED' | translate }} *
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button">
+      {{ 'CANCEL' | translate }}
+    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+      {{ 'SAVE' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form> 

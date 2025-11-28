@@ -1,105 +1,147 @@
-          {
-            "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-            "version": 1,
-            "newProjectRoot": "projects",
-            "projects": {
-              "mdash": {
-                "projectType": "application",
-                "schematics": {
-                  "@schematics/angular:component": {
-                    "style": "scss"
-                  }
-                },
-                "root": "",
-                "sourceRoot": "src",
-                "prefix": "app",
-                "architect": {
-                  "build": {
-                    "builder": "@angular-devkit/build-angular:application",
-                    "options": {
-                      "allowedCommonJsDependencies": ["apexcharts", "bezier-easing"],
-                      "outputPath": {
-                        "base": "../API/wwwroot"
-                      },
-                      "index": "src/index.html",
-                      "polyfills": ["zone.js"],
-                      "tsConfig": "tsconfig.app.json",
-                      "inlineStyleLanguage": "scss",
-                      "assets": ["src/favicon.ico", "src/assets"],
-                      "styles": [
-                        "src/styles.scss",
-                        "src/assets/scss/style.scss",
-                        "node_modules/ngx-toastr/toastr.css",
-                        "node_modules/angular-calendar/css/angular-calendar.css",
-                        "node_modules/highlight.js/styles/atom-one-dark.min.css"
-                      ],
-                      "scripts": [],
-                      "browser": "src/main.ts"
-                    },
-                    "configurations": {
-                      "production": {
-                        "budgets": [
-                          {
-                            "type": "initial",
-                            "maximumWarning": "12mb",
-                            "maximumError": "12mb"
-                          },
-                          {
-                            "type": "anyComponentStyle",
-                            "maximumWarning": "12mb",
-                            "maximumError": "12mb"
-                          }
-                        ],
-                        "outputHashing": "all",
-                        "fileReplacements": [
-                          {
-                            "replace": "src/assets/environments/environment.ts",
-                            "with": "src/assets/environments/environment.prod.ts"
-                          }
-                        ]
-                      },
-                      "development": {
-                        "optimization": false,
-                        "extractLicenses": false,
-                        "sourceMap": true,
-                        "namedChunks": true
-                      }
-                    },
-                    "defaultConfiguration": "production"
-                  },
-                  "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "configurations": {
-                      "production": {
-                        "buildTarget": "mdash:build:production"
-                      },
-                      "development": {
-                        "buildTarget": "mdash:build:development"
-                      }
-                    },
-                    "defaultConfiguration": "development"
-                  },
-                  "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                      "buildTarget": "mdash:build"
-                    }
-                  },
-                  "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                      "polyfills": ["zone.js", "zone.js/testing"],
-                      "tsConfig": "tsconfig.spec.json",
-                      "inlineStyleLanguage": "scss",
-                      "assets": ["src/favicon.ico", "src/assets"],
-                      "styles": ["src/styles.scss"],
-                      "scripts": []
-                    }
-                  }
-                }
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "Medisoft",
+  "projects": {
+    "vex": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "Medisoft",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "../API/wwwroot",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/_redirects",
+              "src/README.md",
+              "src/CHANGELOG.md",
+              "src/.htaccess",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/@material-design-icons/svg",
+                "output": "assets/img/icons/material-design-icons/"
               }
-            },
-            "cli": {
-              "analytics": false
+            ],
+            "styles": [
+              "src/styles.scss",
+              "src/@vex/styles/tailwind.scss"
+            ],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "simplebar",
+              "highlight.js",
+              "faker",
+              "showdown",
+              "core-js",
+              "dom-set",
+              "dom-plane",
+              "angular-calendar/date-adapters/date-fns",
+              "calendar-utils/date-adapters/date-fns",
+              "@mattlewis92/dom-autoscroller",
+              "apexcharts",
+              "can-use-dom",
+              "lodash.debounce",
+              "lodash.memoize",
+              "lodash.throttle",
+              "luxon",
+              "quill",
+              "quill-delta",
+              "seedrandom",
+              "chart.js",
+              "pusher-js",
+              "rgbcolor",
+              "html2canvas"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": false,
+            "commonChunk": true
+          
+          },
+          "configurations": {
+            "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": false
+              },
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "aot": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/assets/environments/environment.ts",
+                  "with": "src/assets/environments/environment.prod.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "vex:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "vex:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "vex:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "4f22516f-2dd3-4c73-ad67-c1beb00ca617"
+  }
+}

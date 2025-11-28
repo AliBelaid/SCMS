@@ -1,0 +1,371 @@
+.permissions-dialog {
+  direction: rtl;
+  min-width: 800px;
+  max-width: 1200px;
+
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+
+      mat-icon {
+        color: #667eea;
+      }
+    }
+  }
+
+  mat-dialog-content {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .tab-content {
+    padding: 24px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .add-permission-card {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    mat-card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 16px;
+      border-radius: 12px 12px 0 0;
+
+      mat-card-title {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      mat-card-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 4px;
+      }
+    }
+
+    mat-card-content {
+      padding: 24px;
+    }
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+    padding: 16px;
+    background: #f5f7fa;
+    border-radius: 8px;
+
+    mat-checkbox {
+      ::ng-deep .mdc-checkbox__background {
+        border-color: #667eea;
+      }
+
+      ::ng-deep .mdc-checkbox--selected .mdc-checkbox__background {
+        background-color: #667eea;
+        border-color: #667eea;
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+
+    button {
+      mat-icon {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .permissions-list-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    mat-card-header {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 12px 12px 0 0;
+      border-bottom: 1px solid #e0e0e0;
+
+      mat-card-title {
+        margin: 0;
+        color: #333;
+        font-size: 1.1rem;
+      }
+    }
+
+    mat-card-content {
+      padding: 16px;
+    }
+  }
+
+  .loading-state,
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #666;
+
+    mat-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+
+  .permissions-table {
+    width: 100%;
+
+    th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      mat-icon {
+        color: #667eea;
+      }
+
+      .user-code {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .user-email {
+        font-size: 0.85rem;
+        color: #666;
+      }
+    }
+
+    .permission-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+
+      mat-chip {
+        font-size: 0.75rem;
+        height: 24px;
+        min-height: 24px;
+        padding: 0 8px;
+      }
+    }
+
+    .no-expiry {
+      color: #4caf50;
+      font-weight: 500;
+    }
+
+    .expired {
+      color: #f44336;
+      font-weight: 500;
+    }
+  }
+
+  .department-list,
+  .exceptions-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .department-card,
+  .exception-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    mat-card-content {
+      padding: 16px;
+    }
+  }
+
+  .department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .department-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      mat-icon {
+        color: #667eea;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      p {
+        margin: 4px 0 0 0;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+  }
+
+  .department-meta,
+  .exception-meta {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+    font-size: 0.85rem;
+    color: #666;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .expired {
+      color: #f44336;
+    }
+  }
+
+  .department-actions,
+  .exception-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+
+    button {
+      mat-icon {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .exception-header {
+    margin-bottom: 12px;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      mat-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      p {
+        margin: 4px 0 0 0;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+  }
+
+  .exception-reason {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    padding: 12px;
+    background: #fff3cd;
+    border-radius: 8px;
+    margin: 12px 0;
+
+    mat-icon {
+      color: #856404;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    span {
+      flex: 1;
+      color: #856404;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  mat-dialog-actions {
+    padding: 16px 24px;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .permissions-dialog {
+    min-width: unset;
+    width: 100%;
+
+    .permissions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

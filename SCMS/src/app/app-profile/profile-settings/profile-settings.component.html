@@ -1,0 +1,64 @@
+<mat-card class="profile-settings-card">
+  <mat-card-header>
+    <mat-card-title>{{ 'Profile Settings' | translate }}</mat-card-title>
+    <mat-card-subtitle>{{ 'Customize your application preferences' | translate }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" class="settings-form">
+      <div class="settings-section">
+        <h3>{{ 'Appearance' | translate }}</h3>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'Language' | translate }}</mat-label>
+            <mat-select formControlName="language">
+              <mat-option *ngFor="let lang of languages" [value]="lang.value">
+                {{ lang.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ 'Theme' | translate }}</mat-label>
+            <mat-select formControlName="theme">
+              <mat-option *ngFor="let theme of themes" [value]="theme.value">
+                {{ theme.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>{{ 'Notifications' | translate }}</h3>
+        <div class="toggle-row">
+          <span>{{ 'Email Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="emailNotifications"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'Push Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="pushNotifications"></mat-slide-toggle>
+        </div>
+        <div class="toggle-row">
+          <span>{{ 'SMS Notifications' | translate }}</span>
+          <mat-slide-toggle formControlName="smsNotifications"></mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>{{ 'Security' | translate }}</h3>
+        <div class="toggle-row">
+          <span>{{ 'Two-Factor Authentication' | translate }}</span>
+          <mat-slide-toggle formControlName="twoFactorAuth"></mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+          {{ 'Save Settings' | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> 

@@ -54,3 +54,4 @@ D:\SFileSysyem\SCMS\Core\obj\Debug\net9.0\refint\Core.dll
 D:\SFileSysyem\SCMS\Core\obj\Debug\net9.0\Core.pdb
 D:\SFileSysyem\SCMS\Core\obj\Debug\net9.0\Core.genruntimeconfig.cache
 D:\SFileSysyem\SCMS\Core\obj\Debug\net9.0\ref\Core.dll
+D:\SFileSysyem\SCMS\Core\obj\Debug\net9.0\Core.sourcelink.json

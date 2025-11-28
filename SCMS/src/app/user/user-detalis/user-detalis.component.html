@@ -1,0 +1,198 @@
+<div class="container-fluid max-w-screen-2xl mx-auto py-gutter">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="flex items-center justify-center py-24">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!isLoading && error" class="flex items-center justify-center p-6">
+    <div class="text-center">
+      <mat-icon class="icon-size-8 text-warn" [svgIcon]="'mat:error_outline'"></mat-icon>
+      <p class="mt-2">{{ error }}</p>
+      <button mat-raised-button color="primary" class="mt-4">
+        <mat-icon svgIcon="mat:refresh" class="mr-2"></mat-icon>
+        {{ 'RETRY' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!isLoading && !error && user">
+    <!-- Statistics Cards Section -->
+    <div class="bg-card p-8 rounded-lg shadow mb-8">
+      <h2 class="headline mb-6 text-2xl font-bold">{{ 'STATISTICS' | translate }}</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-app-bar rounded-lg p-6 shadow-sm transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center">
+            <div class="bg-primary/10 rounded-full p-4 mr-4">
+              <mat-icon svgIcon="mat:calendar_today" class="text-primary icon-size-7"></mat-icon>
+            </div>
+            <div>
+              <h3 class="m-0 text-xl font-medium">{{ calculateDaysSinceJoined() }}</h3>
+              <p class="m-0 text-sm text-secondary">{{ 'Days Active' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="isTechnician()" class="bg-app-bar rounded-lg p-6 shadow-sm transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center">
+            <div class="bg-primary/10 rounded-full p-4 mr-4">
+              <mat-icon svgIcon="mat:people" class="text-primary icon-size-7"></mat-icon>
+            </div>
+            <div>
+              <h3 class="m-0 text-xl font-medium">{{ technicianStats?.totalPatients || 0 }}</h3>
+              <p class="m-0 text-sm text-secondary">{{ 'Total Patients' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="isTechnician()" class="bg-app-bar rounded-lg p-6 shadow-sm transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center">
+            <div class="bg-primary/10 rounded-full p-4 mr-4">
+              <mat-icon svgIcon="mat:account_balance_wallet" class="text-primary icon-size-7"></mat-icon>
+            </div>
+            <div>
+              <h3 class="m-0 text-xl font-medium">{{ technicianStats?.totalRevenue | currency }}</h3>
+              <p class="m-0 text-sm text-secondary">{{ 'Total Revenue' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-app-bar rounded-lg p-6 shadow-sm transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center">
+            <div class="bg-primary/10 rounded-full p-4 mr-4">
+              <mat-icon svgIcon="mat:verified_user" class="text-primary icon-size-7"></mat-icon>
+            </div>
+            <div>
+              <h3 class="m-0 text-xl font-medium">{{ user?.roles?.[0] || 'User' }}</h3>
+              <p class="m-0 text-sm text-secondary">{{ 'Role' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- User Info Section -->
+    <div class="card rounded-lg shadow-lg overflow-hidden">
+      <div class="px-8 py-6 border-b flex justify-between items-center bg-primary/5">
+        <h2 class="title m-0 text-2xl font-semibold">{{ 'USER_PROFILE' | translate }}</h2>
+      </div>
+
+      <div class="px-8 py-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Personal Info Column -->
+        <div>
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:person"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'NAME' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.firstName }} {{ user?.lastName }}</p>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:mail"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'EMAIL' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.email }}</p>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:phone"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'PHONE_NUMBER' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.phoneNumber || '-' }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Info Column -->
+        <div>
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:work"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'ROLE' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.accountType || user?.roles?.[0] }}</p>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:location_city"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'CITY' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.city || '-' }}</p>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center" @fadeInRight>
+            <div @scaleIn
+                 class="w-14 h-14 rounded-full bg-primary/10 text-primary ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+              <mat-icon class="icon-size-6" svgIcon="mat:public"></mat-icon>
+            </div>
+            <div>
+              <p class="m-0 body-1 font-medium text-lg">{{ 'COUNTRY' | translate }}</p>
+              <p class="m-0 caption text-hint text-base">{{ user?.country || '-' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technician-specific section -->
+    <div *ngIf="isTechnician()" class="card mt-8 rounded-lg shadow-lg overflow-hidden">
+      <div class="px-8 py-6 border-b bg-primary/5">
+        <h2 class="title m-0 text-2xl font-semibold">{{ 'TECHNICIAN_INFORMATION' | translate }}</h2>
+      </div>
+
+      <div class="px-8 py-6">
+        <!-- Recent Activity Section -->
+        <h3 class="subtitle mb-4 text-xl font-medium">{{ 'RECENT_ACTIVITY' | translate }}</h3>
+        
+        <div *ngIf="!recentActivity?.length" class="text-center py-8 bg-app-bar rounded-lg">
+          <mat-icon svgIcon="mat:info" class="text-hint mb-4" style="width: 64px; height: 64px;"></mat-icon>
+          <p class="text-lg">{{ 'NO_RECENT_ACTIVITY' | translate }}</p>
+        </div>
+        
+        <div class="timeline-wrapper p-4" *ngIf="recentActivity?.length">
+          <div class="timeline-item mb-6" *ngFor="let activity of recentActivity">
+            <div class="timeline-badge" [ngClass]="activity.type">
+              <mat-icon [svgIcon]="getActivityIcon(activity.type)"></mat-icon>
+            </div>
+            <div class="timeline-content bg-app-bar p-4 rounded-lg shadow-sm">
+              <p class="timeline-title text-lg font-medium mb-1">{{ activity.title }}</p>
+              <p class="timeline-subtitle mb-2">{{ activity.description }}</p>
+              <p class="timeline-date text-sm text-secondary">{{ activity.date | date }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="actions-wrapper mt-6 flex justify-end">
+          <button mat-raised-button color="primary" class="text-lg px-6 py-2" [routerLink]="['../queue']">
+            <mat-icon svgIcon="mat:queue" class="mr-2"></mat-icon>
+            {{ 'VIEW_QUEUE' | translate }}
+          </button>
+          <button mat-raised-button color="accent" class="ml-4 text-lg px-6 py-2" [routerLink]="['../balance']">
+            <mat-icon svgIcon="mat:account_balance" class="mr-2"></mat-icon>
+            {{ 'VIEW_BALANCE' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

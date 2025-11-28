@@ -11475,3 +11475,4 @@ D:\SFileSysyem\SCMS\API\obj\Debug\net9.0\refint\API.dll
 D:\SFileSysyem\SCMS\API\obj\Debug\net9.0\API.pdb
 D:\SFileSysyem\SCMS\API\obj\Debug\net9.0\API.genruntimeconfig.cache
 D:\SFileSysyem\SCMS\API\obj\Debug\net9.0\ref\API.dll
+D:\SFileSysyem\SCMS\API\obj\Debug\net9.0\API.sourcelink.json

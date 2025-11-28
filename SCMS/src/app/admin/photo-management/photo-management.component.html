@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="header flex items-center justify-between mb-6">
+    <h2 class="title">Photo Management</h2>
+    <div class="actions">
+      <button mat-flat-button color="primary" class="upload-btn" (click)="uploadPhoto()">
+        <mat-icon svgIcon="mat:upload"></mat-icon>
+        Upload Photo
+      </button>
+    </div>
+  </div>
+
+  <div class="filters mb-6">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search photos</mat-label>
+      <input matInput placeholder="Search by name or tag..." [(ngModel)]="searchQuery">
+      <mat-icon matSuffix svgIcon="mat:search"></mat-icon>
+    </mat-form-field>
+
+    <mat-button-toggle-group [(ngModel)]="viewMode" class="view-toggle">
+      <mat-button-toggle value="grid">
+        <mat-icon svgIcon="mat:grid_view"></mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="list">
+        <mat-icon svgIcon="mat:view_list"></mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div [class]="viewMode === 'grid' ? 'photo-grid' : 'photo-list'" class="photos-container">
+    <mat-card *ngFor="let photo of photos" class="photo-card">
+      <img mat-card-image [src]="photo.url" [alt]="photo.name">
+      <mat-card-content>
+        <h3>{{photo.name}}</h3>
+        <p class="text-secondary">Uploaded by {{photo.uploadedBy}}</p>
+        <div class="tags">
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of photo?.tags">{{tag}}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary" matTooltip="Edit">
+          <mat-icon svgIcon="mat:edit"></mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Delete">
+          <mat-icon svgIcon="mat:delete"></mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Download">
+          <mat-icon svgIcon="mat:download"></mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!photos?.length" class="empty-state">
+    <mat-icon svgIcon="mat:photo_library" class="empty-icon"></mat-icon>
+    <h3>No photos yet</h3>
+    <p>Upload some photos to get started</p>
+    <button mat-flat-button color="primary" (click)="uploadPhoto()">
+      Upload Photos
+    </button>
+  </div>
+
+  <mat-paginator [length]="totalPhotos"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[12, 24, 48, 96]"
+                 showFirstLastButtons>
+  </mat-paginator>
+</div>

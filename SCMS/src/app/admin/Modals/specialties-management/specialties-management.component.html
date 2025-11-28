@@ -1,0 +1,88 @@
+<div class="specialties-management-container">
+  <div class="header">
+    <h1>Specialties Management</h1>
+    <button mat-raised-button color="primary" (click)="openAddSpecialtyDialog()">
+      <mat-icon>add</mat-icon>
+      Add New Specialty
+    </button>
+  </div>
+
+  <div class="filters">
+    <form [formGroup]="filterForm" class="filter-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput formControlName="search" placeholder="Search specialties...">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="all">All</mat-option>
+          <mat-option value="active">Active</mat-option>
+          <mat-option value="inactive">Inactive</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="content">
+    <div *ngIf="loading" class="loading">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Loading specialties...</p>
+    </div>
+
+    <div *ngIf="error" class="error">
+      <mat-icon>error_outline</mat-icon>
+      <p>{{ error }}</p>
+    </div>
+
+    <div *ngIf="!loading && !error && filteredSpecialties.length === 0" class="no-specialties">
+      <mat-icon>medical_services</mat-icon>
+      <p>No specialties found</p>
+    </div>
+
+    <div class="specialties-grid" *ngIf="!loading && !error && filteredSpecialties.length > 0">
+      <mat-card *ngFor="let specialty of filteredSpecialties" class="specialty-card">
+        <mat-card-header>
+          <mat-card-title>{{ specialty.name }}</mat-card-title>
+          <mat-card-subtitle>{{ specialty.description }}</mat-card-subtitle>
+          <div class="status-badge" [ngClass]="{'active': specialty.isActive, 'inactive': !specialty.isActive}">
+            {{ specialty.isActive ? 'Active' : 'Inactive' }}
+          </div>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="doctors-section">
+            <h3>Assigned Doctors</h3>
+            <p>{{ specialty.doctorCount }} doctors</p>
+          </div>
+
+          <div class="services-section">
+            <h3>Services</h3>
+            <div class="services-list">
+              <mat-chip-list>
+                <mat-chip *ngFor="let service of specialty.services">
+                  {{ service }}
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-icon-button color="primary" (click)="openEditSpecialtyDialog(specialty)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="openDeleteSpecialtyDialog(specialty)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button [color]="specialty.isActive ? 'warn' : 'primary'"
+                  (click)="toggleSpecialtyStatus(specialty)">
+            <mat-icon>{{ specialty.isActive ? 'toggle_off' : 'toggle_on' }}</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

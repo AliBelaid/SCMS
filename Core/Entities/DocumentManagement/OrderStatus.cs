@@ -5,7 +5,8 @@ namespace Core.Entities.DocumentManagement
         Pending = 1,
         InProgress = 2,
         Completed = 3,
-        Archived = 4
+        Archived = 4,
+        Cancelled = 5
     }
 }
 

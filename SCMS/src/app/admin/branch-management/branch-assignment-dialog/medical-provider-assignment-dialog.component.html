@@ -1,0 +1,241 @@
+<!-- medical-provider-assignment-dialog.component.html -->
+<h2 mat-dialog-title>
+  <mat-icon>business</mat-icon>
+  <span>medical-provider Assignment</span>
+</h2>
+
+<mat-dialog-content>
+  <!-- User Information Section -->
+  <div class="user-info-section">
+    <div class="section-header">
+      <mat-icon>person</mat-icon>
+      <span class="section-title">User Information</span>
+    </div>
+    
+    <div class="user-info-card">
+      <div class="user-avatar">
+        <div class="avatar-circle">
+          {{data.user.displayName?.charAt(0)?.toUpperCase() || 'U'}}
+        </div>
+      </div>
+      
+      <div class="user-details">
+        <div class="detail-row">
+          <span class="label">Name:</span>
+          <span class="value">{{data.user.displayName}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Username:</span>
+          <span class="value">{{data.user.userName}}</span>
+        </div>
+        <div class="detail-row" *ngIf="data.user.email">
+          <span class="label">Email:</span>
+          <span class="value">{{data.user.email}}</span>
+        </div>
+        <div class="detail-row" *ngIf="data.user.phoneNumber">
+          <span class="label">Phone:</span>
+          <span class="value">{{data.user.phoneNumber}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Assignment Status -->
+    <div class="current-assignment" *ngIf="data.currentMedicalProviderId">
+      <div class="assignment-label">
+        <mat-icon>location_on</mat-icon>
+        <span>Current medical-provider Assignment:</span>
+      </div>
+      <mat-chip color="primary" selected>
+        <mat-icon>business</mat-icon>
+        {{getCurrentMedicalProviderName()}}
+        <span class="role-badge" *ngIf="data.currentRole">
+          • {{getRoleName(data.currentRole)}}
+        </span>
+      </mat-chip>
+    </div>
+    
+    <div class="no-assignment" *ngIf="!data.currentMedicalProviderId">
+      <mat-icon>info</mat-icon>
+      <span>This user is not currently assigned to any medical-provider</span>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <!-- Assignment Form Section -->
+  <form [formGroup]="assignmentForm" class="assignment-form">
+    <div class="form-section">
+      <div class="section-header">
+        <mat-icon>edit_location</mat-icon>
+        <span class="section-title">medical-provider Assignment</span>
+      </div>
+      
+      <div class="info-message">
+        <mat-icon>info</mat-icon>
+        <p>Users can only be assigned to one medical-provider at a time. Assigning to a new medical-provider will automatically remove them from their current medical-provider.</p>
+      </div>
+
+      <!-- medical-provider Selection -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select medical-provider</mat-label>
+        <mat-icon matPrefix>business</mat-icon>
+        <mat-select formControlName="medicalProviderId">
+          <mat-option [value]="null">
+            <mat-icon>close</mat-icon>
+            <span>Remove from medical-provider (No Assignment)</span>
+          </mat-option>
+          <mat-divider></mat-divider>
+          
+          <mat-optgroup label="Available medical-providers">
+            <mat-option *ngFor="let medical-provider of availableMedicalProviders" 
+                        [value]="medical-provider.id"
+                        [disabled]="medical-provider.id === data.currentMedicalProviderId">
+              <div class="medical-provider-option">
+                <div class="medical-provider-main">
+                  <mat-icon *ngIf="medical-provider.isHeadquarters" class="hq-icon">stars</mat-icon>
+                  <span class="medical-provider-name">{{medical-provider.name}}</span>
+                  <mat-chip *ngIf="medical-provider.id === data.currentMedicalProviderId" size="small">Current</mat-chip>
+                </div>
+                <div class="medical-provider-sub">
+                  <span class="medical-provider-code">{{medical-provider.code}}</span>
+                  <span class="medical-provider-separator">•</span>
+                  <span class="medical-provider-city">{{medical-provider.city}}</span>
+                  <span class="medical-provider-users" *ngIf="medical-provider.userCount">
+                    • {{medical-provider.userCount}} users
+                  </span>
+                </div>
+              </div>
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+        
+            <mat-hint *ngIf="assignmentForm.get('medicalProviderId')?.value === null">
+          ⚠️ This will remove the user from their current medical-provider assignment
+        </mat-hint>
+      </mat-form-field>
+
+      <!-- Role Selection (only shown when medical-provider is selected) -->
+      <div class="role-section" *ngIf="assignmentForm.get('medicalProviderId')?.value">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>medical-provider Role</mat-label>
+          <mat-icon matPrefix>badge</mat-icon>
+          <mat-select formControlName="role">
+            <mat-option [value]="1">
+              <mat-icon>person</mat-icon>
+              <span>Reception Staff</span>
+            </mat-option>
+            <mat-option [value]="2">
+              <mat-icon>medical_services</mat-icon>
+              <span>Doctor</span>
+            </mat-option>
+            <mat-option [value]="3">
+              <mat-icon>manage_accounts</mat-icon>
+              <span>medical-provider Manager</span>
+            </mat-option>
+            <mat-option [value]="4">
+              <mat-icon>edit_note</mat-icon>
+              <span>Clerk</span>
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="assignmentForm.get('role')?.hasError('required')">
+              Role is required when assigning to a medical-provider
+          </mat-error>
+          <mat-hint>Select the user's role within this medical-provider</mat-hint>
+        </mat-form-field>
+
+        <!-- Primary User Checkbox -->
+        <div class="primary-section">
+          <mat-checkbox formControlName="isPrimary" color="primary">
+            <span class="primary-label">
+              Set as Primary Contact
+              <span class="primary-hint">Primary users are the main point of contact for the medical-provider</span>
+            </span>
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <!-- Selected medical-provider Info -->
+      <div class="selected-medical-provider-info" *ngIf="getSelectedMedicalProvider() as medical-provider">
+        <div class="info-header">
+          <mat-icon>info_outline</mat-icon>
+          <span>Selected medical-provider Details</span>
+        </div>
+        <div class="medical-provider-details">
+          <div class="detail-item">
+            <mat-icon>location_city</mat-icon>
+            <span>{{medical-provider.city}}</span>
+          </div>
+          <div class="detail-item" *ngIf="medical-provider.address">
+            <mat-icon>location_on</mat-icon>
+            <span>{{medical-provider.address}}</span>
+          </div>
+          <div class="detail-item" *ngIf="medical-provider.phoneNumber">
+            <mat-icon>phone</mat-icon>
+            <span>{{medical-provider.phoneNumber}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Summary -->
+    <div class="action-summary" *ngIf="showSummary()">
+      <div class="summary-header">
+        <mat-icon>summarize</mat-icon>
+        <span>Action Summary</span>
+      </div>
+      
+      <div class="summary-content">
+        <!-- Remove from medical-provider -->
+        <div class="summary-item warning" 
+             *ngIf="assignmentForm.get('medicalProviderId')?.value === null && data.currentMedicalProviderId">
+          <mat-icon>warning</mat-icon>
+          <div class="summary-text">
+            <strong>Remove Assignment:</strong>
+            <span>User will be removed from {{getCurrentMedicalProviderName()}}</span>
+          </div>
+        </div>
+        
+        <!-- New assignment -->
+        <div class="summary-item success" 
+             *ngIf="assignmentForm.get('medicalProviderId')?.value && !data.currentMedicalProviderId">
+          <mat-icon>check_circle</mat-icon>
+          <div class="summary-text">
+            <strong>New Assignment:</strong>
+            <span>User will be assigned to {{getSelectedMedicalProviderName()}} as {{getRoleName(assignmentForm.get('role')?.value)}}</span>
+          </div>
+        </div>
+        
+        <!-- Move between medical-providers -->
+        <div class="summary-item info" 
+             *ngIf="assignmentForm.get('medicalProviderId')?.value && data.currentMedicalProviderId && assignmentForm.get('medicalProviderId')?.value !== data.currentMedicalProviderId">
+          <mat-icon>swap_horiz</mat-icon>
+          <div class="summary-text">
+            <strong>medical-provider Transfer:</strong>
+            <span>User will be moved from {{getCurrentMedicalProviderName()}} to {{getSelectedMedicalProviderName()}} as {{getRoleName(assignmentForm.get('role')?.value)}}</span>
+          </div>
+        </div>
+        
+        <!-- Update role only -->
+        <div class="summary-item update" 
+                *ngIf="assignmentForm.get('medicalProviderId')?.value === data.currentMedicalProviderId && assignmentForm.get('role')?.value !== data.currentRole">
+          <mat-icon>update</mat-icon>
+          <div class="summary-text">
+            <strong>Role Update:</strong>
+            <span>User's role will be changed to {{getRoleName(assignmentForm.get('role')?.value)}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button 
+          [color]="assignmentForm.get('medicalProviderId')?.value === null ? 'warn' : 'primary'"
+          (click)="save()"
+          [disabled]="!assignmentForm.valid">
+    <mat-icon>{{assignmentForm.get('medicalProviderId')?.value === null ? 'remove_circle' : 'check_circle'}}</mat-icon>
+    {{getActionButtonText()}}
+  </button>
+</mat-dialog-actions>

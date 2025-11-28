@@ -47,3 +47,4 @@ D:\SFileSysyem\SCMS\infrastructure\obj\Debug\net9.0\refint\Infrastructure.dll
 D:\SFileSysyem\SCMS\infrastructure\obj\Debug\net9.0\Infrastructure.pdb
 D:\SFileSysyem\SCMS\infrastructure\obj\Debug\net9.0\Infrastructure.genruntimeconfig.cache
 D:\SFileSysyem\SCMS\infrastructure\obj\Debug\net9.0\ref\Infrastructure.dll
+D:\SFileSysyem\SCMS\Infrastructure\obj\Debug\net9.0\Infrastructure.sourcelink.json

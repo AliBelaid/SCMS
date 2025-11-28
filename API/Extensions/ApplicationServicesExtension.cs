@@ -27,7 +27,13 @@ namespace API.Extensions
             
             // Document Viewer Services
             services.AddScoped<IDocumentService, DocumentService>();
-             
+            services.AddScoped<IOrderPermissionService, OrderPermissionService>();
+            services.AddScoped<IOrderExpirationService, OrderExpirationService>();
+            services.AddScoped<IOrderActivityLogService, OrderActivityLogService>();
+            services.AddOrderHistoryServices();
+            services.AddScoped<API.Extensions.IUserRepository, API.Extensions.UserRepository>();
+            services.AddScoped<Core.Interfaces.IUserRepository>(sp =>
+                (Core.Interfaces.IUserRepository)sp.GetRequiredService<API.Extensions.IUserRepository>());
 
 
             services.Configure<ApiBehaviorOptions>(options =>

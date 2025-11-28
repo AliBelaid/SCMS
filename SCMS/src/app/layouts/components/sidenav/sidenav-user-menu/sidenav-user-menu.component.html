@@ -1,0 +1,84 @@
+<div class="vex-user-menu">
+  <!-- User Info Section -->
+  <div class="vex-user-menu-header p-4 bg-primary-50 border-b border-divider">
+    <div class="flex items-center">
+      <!-- User Avatar -->
+      <img 
+        *ngIf="(currentUser$ | async)?.logo" 
+        [src]="(currentUser$ | async)?.logo" 
+        alt="User Avatar"
+        class="h-10 w-10 rounded-full mr-3" />
+      <img 
+        *ngIf="!(currentUser$ | async)?.logo" 
+        src="assets/img/Medical/staff.png" 
+        alt="User Avatar"
+        class="h-10 w-10 rounded-full mr-3" />
+      
+      <!-- User Details -->
+      <div class="flex flex-col">
+        <div class="font-medium">
+          {{ (currentUser$ | async)?.firstName }} {{ (currentUser$ | async)?.lastName }}
+        </div>
+        <div class="text-xs text-secondary">
+          {{ (currentUser$ | async)?.email }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Link -->
+  <a
+    (click)="navigateToProfile()"
+    class="vex-user-menu-item"
+    matRipple
+    matRippleColor="rgb(var(--vex-color-primary-600), 0.1)">
+    <mat-icon
+      class="vex-user-menu-item__icon icon-sm"
+      svgIcon="mat:account_circle"></mat-icon>
+    <div class="vex-user-menu-item__label">Profile Settings</div>
+  </a>
+
+  <!-- Doctor-specific options -->
+  <ng-container *ngIf="(currentUser$ | async)?.roles?.includes('Doctor')">
+    <a
+      (click)="close()"
+      [routerLink]="['/doctor', (currentUser$ | async)?.id, 'queue']"
+      class="vex-user-menu-item"
+      matRipple
+      matRippleColor="rgb(var(--vex-color-primary-600), 0.1)">
+      <mat-icon
+        class="vex-user-menu-item__icon icon-sm"
+        svgIcon="mat:schedule"></mat-icon>
+      <div class="vex-user-menu-item__label">My Schedule</div>
+    </a>
+  </ng-container>
+
+  <!-- Admin-specific options -->
+  <ng-container *ngIf="(currentUser$ | async)?.roles?.includes('Admin')">
+    <a
+      (click)="close()"
+      [routerLink]="['/admin']"
+      class="vex-user-menu-item"
+      matRipple
+      matRippleColor="rgb(var(--vex-color-primary-600), 0.1)">
+      <mat-icon
+        class="vex-user-menu-item__icon icon-sm"
+        svgIcon="mat:admin_panel_settings"></mat-icon>
+      <div class="vex-user-menu-item__label">Admin Dashboard</div>
+    </a>
+  </ng-container>
+
+  <div class="border-b border-divider mx-4"></div>
+
+  <!-- Logout Button -->
+  <a
+    (click)="logout()"
+    class="vex-user-menu-item"
+    matRipple
+    matRippleColor="rgb(var(--vex-color-primary-600), 0.1)">
+    <mat-icon
+      class="vex-user-menu-item__icon icon-sm"
+      svgIcon="mat:logout"></mat-icon>
+    <div class="vex-user-menu-item__label">Sign Out</div>
+  </a>
+</div>

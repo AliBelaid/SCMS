@@ -1,0 +1,179 @@
+// :root CSS variables
+
+:root{
+
+  // Vertical Sidebar - Default Light
+
+  --#{$prefix}sidebar-bg: #fbfaff;
+  --#{$prefix}sidebar-menu-item-color: #545a6d;
+  --#{$prefix}sidebar-menu-sub-item-color: #545a6d;
+  --#{$prefix}sidebar-menu-item-icon-color: #545a6d;
+  --#{$prefix}sidebar-menu-item-icon-effact-color: rgba(84,90,109,0.2);
+  --#{$prefix}sidebar-menu-item-hover-color: #5156be;
+  --#{$prefix}sidebar-menu-item-hover-effact-color: rgba(81,86,190,0.2);
+  --#{$prefix}sidebar-menu-item-active-color: #5156be;
+  --#{$prefix}sidebar-menu-item-active-effact-color: rgba(81,86,190,0.2);
+  --#{$prefix}sidebar-border-color: #e9e9ef;
+  --#{$prefix}sidebar-menu-item-active-bg-color: #f3f8fb;
+  --#{$prefix}sidebar-menu-item-active-bg-color-dark: #293552;
+  --#{$prefix}sidebar-alert: rgba(81,86,190,0.1);
+
+  // Vertical Sidebar - Dark
+  --#{$prefix}sidebar-dark-bg: #2C302E; //2c313a
+  --#{$prefix}sidebar-dark-menu-item-color: #99a4b1;
+  --#{$prefix}sidebar-dark-menu-sub-item-color: #858d98;
+  --#{$prefix}sidebar-dark-menu-item-icon-color: #858d98;
+  --#{$prefix}sidebar-dark-menu-item-hover-color: #ffffff;
+  --#{$prefix}sidebar-dark-menu-item-active-color: #ffffff;
+
+    // Topbar - Deafult Light
+  --#{$prefix}header-bg: #ffffff;
+  --#{$prefix}header-item-color: #555b6d;
+
+    // Topbar - Dark
+    // #page-topbar{
+    //   --#{$prefix}header-dark-bg: #ffffff;
+    //   --#{$prefix}header-dark-item-color: #e9ecef;
+    // }
+
+
+  // Topbar Search
+  --#{$prefix}topbar-search-bg: #f3f3f9;
+  --#{$prefix}topbar-dark-search-bg: #363a38;
+  --#{$prefix}search-width: 0px;
+  --#{$prefix}search-border-color: #e9e9ef;
+
+  // scss-docs-start box-shadow-variables
+  --#{$prefix}box-shadow:      0 0.25rem 0.75rem rgba(18,38,63,.08);
+
+    // Footer
+  --#{$prefix}footer-bg: #ffffff;
+  --#{$prefix}footer-color: #74788d;
+
+  // Horizontal nav
+  --#{$prefix}topnav-bg:   #fbfaff;
+  --#{$prefix}topnav-item-color: #{$gray-400};
+  --#{$prefix}topnav-item-color-active: #{$white};
+
+  --#{$prefix}menu-item-color: #7b8190;
+  --#{$prefix}menu-item-active-color: #5b73e8;
+
+    // body
+    --#{$prefix}body-bg: #ffffff;
+    --#{$prefix}body-color: #{$gray-700};
+    --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
+
+      // apex charts
+  --#{$prefix}apex-grid-color: #f8f9fa;
+
+        // Display
+    --#{$prefix}display-none: none;
+    --#{$prefix}display-block: block;
+
+      // card-title-desc
+  --#{$prefix}card-title-desc: #{$gray-600};
+  
+  // component variable
+
+  // theme-color
+  --#{$prefix}white: #{$white};
+  --#{$prefix}light: #{$gray-200};
+  --#{$prefix}light-rgb: #{to-rgb($gray-200)};
+  --#{$prefix}dark: #{$gray-900};
+  --#{$prefix}dark-rgb: #{to-rgb($gray-900)};
+  --#{$prefix}text-muted: #{$gray-600};
+
+  // link
+  --#{$prefix}link-color: #{$primary};
+  --#{$prefix}link-hover-color: #{$primary};
+
+  // Border variable
+  --#{$prefix}border-color:  #e9e9ef;
+
+  // dropdown
+  .dropdown-menu{
+    --#{$prefix}dropdown-bg:                       #{$white};
+    --#{$prefix}dropdown-link-color:               #{$gray-900};
+    --#{$prefix}dropdown-link-hover-color:         #{shade-color($gray-900, 5%)};
+    --#{$prefix}dropdown-link-hover-bg:            #{$gray-100};
+    --#{$prefix}dropdown-border-width:             0px;
+  }
+ 
+  .offcanvas{
+    --#{$prefix}offcanvas-bg-color:                #{$white};
+  }
+
+  // card
+  .card{
+    --#{$prefix}card-bg:                              #{$white};
+    --#{$prefix}card-cap-bg:                          #{$white};
+    --#{$prefix}card-border-color:                    #{$gray-200};
+  }
+
+  --#{$prefix}card-bg:                              #{$white};
+  --#{$prefix}card-logo-dark:                       block;
+  --#{$prefix}card-logo-light:                      none;
+  
+
+
+  // nav tabs
+  --#{$prefix}nav-tabs-link-active-color:             #{$gray-700};
+  --#{$prefix}nav-tabs-link-active-bg:                #{$body-bg};
+
+  // accordion
+  .accordion{
+  --#{$prefix}accordion-button-active-color:           #{shade-color($primary, 10%)};
+  --#{$prefix}accordion-bg:                            #{$white};
+  --#{$prefix}accordion-button-bg:                     #{$white};
+  --#{$prefix}accordion-button-active-bg:              #{tint-color($primary, 90%)};
+  }
+  
+  
+
+    // table
+    .table{
+    --#{$prefix}table-color:                           #{$body-color};
+    }
+
+    // Boxed layout 
+    --#{$prefix}boxed-body-bg:                         #f0f0f0;
+
+
+  // toast
+  .toast{
+    --#{$prefix}toast-background-color:                 #{rgba($white, .85)};
+    --#{$prefix}toast-border-color:                     #{rgba($black, .1)};
+    --#{$prefix}toast-header-border-color:              #{rgba($black, .05)};
+  }
+ 
+
+  //list
+  --#{$prefix}list-group-hover-bg:                     #{$gray-100};
+
+  // popover
+  // .popover{
+  // --#{$prefix}popover-bg:                              #{$white};
+  // }
+
+  // pagination
+  .pagination{
+  --#{$prefix}pagination-hover-bg:                     #{$gray-200};
+  }
+
+  // form
+  --#{$prefix}input-bg:                                #{$white};
+  --#{$prefix}input-group-addon-border-color:          #{$gray-400};
+  --#{$prefix}input-border:                            #{$gray-400};
+  --#{$prefix}input-border-color:                      #{$gray-400};
+  --#{$prefix}input-focus-border:                      #{tint-color($component-active-bg, 50%)};
+  --#{$prefix}input-disabled-bg:                       #{$gray-200};
+
+  // input
+  --#{$prefix}input-placeholder-color:                 #{$gray-600};
+  --#{$prefix}input-group-addon-bg:                    #{$gray-200};
+
+  //check
+  --#{$prefix}input-check-border:                      var(--#{$prefix}input-border);
+
+  
+}

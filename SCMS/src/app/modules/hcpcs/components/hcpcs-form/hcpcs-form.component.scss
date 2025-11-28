@@ -1,0 +1,331 @@
+.hcpcs-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+
+  // ==================== HEADER ====================
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+
+    .back-button {
+      color: white;
+      
+      mat-icon {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .header-content {
+      flex: 1;
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        mat-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      .subtitle {
+        margin: 8px 0 0 44px;
+        opacity: 0.9;
+        font-size: 14px;
+      }
+    }
+  }
+
+  // ==================== LOADING ====================
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 24px;
+
+    p {
+      font-size: 16px;
+      color: #667eea;
+      font-weight: 500;
+    }
+  }
+
+  // ==================== FORM ====================
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    mat-card-header {
+      margin-bottom: 24px;
+
+      mat-icon[mat-card-avatar] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+
+      mat-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      mat-card-subtitle {
+        color: #7f8c8d;
+        margin-top: 4px;
+      }
+    }
+
+    mat-card-content {
+      padding: 0 16px 16px 16px;
+    }
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  // ==================== FORM FIELDS ====================
+
+  mat-form-field {
+    width: 100%;
+
+    &.full-width {
+      width: 100%;
+    }
+
+    mat-icon[matPrefix] {
+      margin-right: 12px;
+      color: #667eea;
+    }
+
+    mat-hint {
+      font-size: 12px;
+      color: #95a5a6;
+    }
+
+    mat-error {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+
+  // Status Toggle
+  .status-toggle {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+
+    mat-slide-toggle {
+      flex: 1;
+
+      strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #2c3e50;
+      }
+
+      .status-text {
+        font-size: 13px;
+        color: #7f8c8d;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  // ==================== ACTION BUTTONS ====================
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-top: 8px;
+
+    button {
+      min-width: 140px;
+      height: 48px;
+      font-size: 15px;
+      font-weight: 500;
+
+      mat-icon {
+        margin-right: 8px;
+      }
+
+      &[type="submit"] {
+        position: relative;
+
+        .button-spinner {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  // ==================== REQUIRED NOTE ====================
+
+  .required-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    border-radius: 4px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #1976d2;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// ==================== VALIDATION STATES ====================
+
+mat-form-field {
+  &.mat-form-field-invalid {
+    .mat-mdc-text-field-wrapper {
+      border-color: #f44336;
+    }
+  }
+}
+
+// ==================== RESPONSIVE ====================
+
+@media (max-width: 768px) {
+  .hcpcs-form-container {
+    padding: 16px;
+
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      .header-content h1 {
+        font-size: 22px;
+
+        mat-icon {
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .header-content .subtitle {
+        margin-left: 0;
+        font-size: 13px;
+      }
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+      flex-direction: column-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ==================== ANIMATIONS ====================
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hcpcs-form-container > * {
+  animation: fadeIn 0.3s ease-out;
+}
+
+// ==================== DARK MODE SUPPORT ====================
+
+@media (prefers-color-scheme: dark) {
+  .hcpcs-form-container {
+    .form-card {
+      background: #2c2c2c;
+      
+      mat-card-title {
+        color: #ffffff;
+      }
+
+      mat-card-subtitle {
+        color: #b0b0b0;
+      }
+    }
+
+    .status-toggle,
+    .action-buttons {
+      background: #333333;
+    }
+
+    .required-note {
+      background: #1e3a5f;
+      border-left-color: #64b5f6;
+      color: #90caf9;
+    }
+  }
+}

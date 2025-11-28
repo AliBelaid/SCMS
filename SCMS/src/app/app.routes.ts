@@ -1,30 +1,78 @@
-import { Routes } from '@angular/router';
-import { FullComponent } from './layouts/full/full.component';
+import { LayoutComponent } from './layouts/layout/layout.component';
+import { VexRoutes } from '@vex/interfaces/vex-route.interface';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/assets/services/auth.service';
+import { NoAuthGuard } from './guards/auth.guard';
+ 
 
-export const routes: Routes = [
-  // Login route (outside main layout)
-  {
-    path: 'login',
-    loadComponent: () =>
-      import('./pages/document-viewer/login/login.component').then(
-        (m) => m.LoginPageComponent
-      ),
-  },
+export const appRoutes: VexRoutes = [
+  // Root route - redirect based on authentication status
   {
     path: '',
-    component: FullComponent,
+    canActivate: [() => {
+      const authService = inject(AuthService);
+      const router = inject(Router);
+      
+      if (authService.isAuthenticated()) {
+        router.navigate(['/app/document-management']);
+        return false;
+      } else {
+        router.navigate(['/login']);
+        return false;
+      }
+    }],
+    pathMatch: 'full',
+    children: []
+  },
+
+  // Add dashboard route redirect
+  {
+    path: 'dashboard',
+    redirectTo: '/app/document-management',
+    pathMatch: 'full'
+  },
+  // Auth routes - commented out until components are created
+  {
+    path: 'login',
+    canActivate: [NoAuthGuard],
+    loadComponent: () =>
+      import('./auth/login/login.component').then(
+        (m) => m.LoginComponent
+      )
+  },
+ 
+  {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import(
+        './auth/forgot-password/forgot-password.component'
+      ).then((m) => m.ForgotPasswordComponent)
+  },
+
+  // Main application with layout
+  {
+    path: 'app',
+    component: LayoutComponent,
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('./pages/document-management/document-management.routes').then(
-            (m) => m.DocumentManagementRoutes
-          ),
+        redirectTo: 'document-management',
+        pathMatch: 'full'
       },
-    ],
-  },
-  {
-    path: '**',
-    redirectTo: 'login',
-  },
+      {
+        path: 'document-management',
+        loadChildren: () =>
+          import('./document-management/document-management.routes').then(
+            (m) => m.DocumentManagementRoutes
+          )
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+      }
+    ]
+  }
 ];
+
+export default appRoutes;

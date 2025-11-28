@@ -1,0 +1,68 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>{{ dialogTitle }}</h2>
+    <button mat-icon-button (click)="onCancel()" class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="dialog-content">
+      <!-- Role Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Role Name *</mat-label>
+        <input matInput formControlName="name" placeholder="Enter role name">
+        <mat-icon matPrefix>badge</mat-icon>
+        <mat-error *ngIf="isFieldInvalid('name')">
+          {{ getFieldError('name') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Role Description -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description *</mat-label>
+        <textarea matInput formControlName="description" rows="3" placeholder="Enter role description"></textarea>
+        <mat-icon matPrefix>description</mat-icon>
+        <mat-error *ngIf="isFieldInvalid('description')">
+          {{ getFieldError('description') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Active Status -->
+      <div class="form-row">
+        <mat-checkbox formControlName="isActive" color="primary">
+          <strong>Active Role</strong>
+          <div class="checkbox-hint">Inactive roles cannot be assigned to users</div>
+        </mat-checkbox>
+      </div>
+
+      <!-- Permissions Section -->
+      <div class="permissions-section">
+        <h3>Permissions</h3>
+        <p class="section-description">Select the permissions that this role should have:</p>
+        
+        <div class="permissions-grid">
+          <div *ngFor="let permission of availablePermissions; let i = index" class="permission-item">
+            <mat-checkbox [formControlName]="'permissions.' + i" color="primary">
+              <div class="permission-content">
+                <div class="permission-name">{{ permission.name }}</div>
+                <div class="permission-description">{{ permission.description }}</div>
+              </div>
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="dialog-actions">
+      <button mat-button type="button" (click)="onCancel()" [disabled]="isSubmitting">
+        Cancel
+      </button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="roleForm.invalid || isSubmitting">
+        <mat-spinner diameter="20" *ngIf="isSubmitting"></mat-spinner>
+        <mat-icon *ngIf="!isSubmitting">{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+        <span>{{ submitButtonText }}</span>
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

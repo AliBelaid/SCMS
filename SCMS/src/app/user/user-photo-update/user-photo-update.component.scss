@@ -1,0 +1,85 @@
+.img-container {
+  position: relative;
+  display: inline-block;
+
+}
+
+.img-thumbnail {
+  display: block;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.buttons {
+  position: absolute;
+  top:  50%;
+  left:  0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0.7;
+  font-size: 10px;
+
+}
+.tp-button-row button,
+.tp-button-row a {
+   margin-right: 8px;
+}
+// .buttons:hover img{
+//   transform:scale(1.2,1.2);
+//   transition-duration: 500ms;
+//   transition-timing-function: ease-out;
+//   opacity: 0.7;
+
+// }
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 60px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 10px;
+}
+
+.btn-remove-img{
+  font-size:9px;
+   position:absolute;
+   top:-5px;
+   right:-2px;
+     background-color: orange;
+     border-radius: 50%;
+     padding:1px;
+     color:white;
+     width: 30px;
+     height: 34px;
+       }

@@ -1,0 +1,116 @@
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <h1 class="title">{{ 'ROLES.TITLE' | translate }}</h1>
+    <button mat-raised-button color="primary" (click)="openAddRoleDialog()">
+      <mat-icon>add</mat-icon>
+      {{ 'ROLES.ADD_ROLE' | translate }}
+    </button>
+  </div>
+
+  <!-- Filters -->
+  <form [formGroup]="filterForm" class="filters">
+    <mat-form-field class="search-field">
+      <mat-label>{{ 'COMMON.SEARCH' | translate }}</mat-label>
+      <input matInput formControlName="search" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="status-field">
+      <mat-label>{{ 'COMMON.STATUS' | translate }}</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="all">{{ 'COMMON.ALL' | translate }}</mat-option>
+        <mat-option value="active">{{ 'COMMON.ACTIVE' | translate }}</mat-option>
+        <mat-option value="inactive">{{ 'COMMON.INACTIVE' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <!-- Loading and Error States -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <div *ngIf="error" class="error-container">
+    <mat-icon color="warn">error</mat-icon>
+    <p>{{ error }}</p>
+    <button mat-button color="primary" (click)="loadRoles()">
+      {{ 'COMMON.RETRY' | translate }}
+    </button>
+  </div>
+
+  <!-- Roles Grid -->
+  <div class="roles-grid" *ngIf="!loading && !error">
+    <mat-card *ngFor="let role of filteredRoles" class="role-card">
+      <mat-card-header>
+        <div class="role-header">
+          <h2>{{ role.name }}</h2>
+          <mat-slide-toggle
+            [checked]="role.isActive"
+            (change)="toggleRoleStatus(role)"
+            color="primary">
+          </mat-slide-toggle>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p class="description">{{ role.description }}</p>
+
+        <!-- Permissions Section -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'ROLES.PERMISSIONS' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="permissions-grid">
+            <mat-checkbox
+              *ngFor="let permission of role.permissions"
+              [checked]="permission.isGranted"
+              (change)="togglePermission(role, permission)"
+              [disabled]="!role.isActive">
+              {{ permission.name }}
+            </mat-checkbox>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Assigned Users Section -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'ROLES.ASSIGNED_USERS' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-list>
+            <mat-list-item *ngFor="let user of role.assignedUsers">
+              <mat-icon matListItemIcon>person</mat-icon>
+              <div matListItemTitle>{{ user.firstName }} {{ user.lastName }}</div>
+              <div matListItemLine>{{ user.email }}</div>
+              <button mat-icon-button color="warn" (click)="removeUserFromRole(role, user)">
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+
+          <button mat-button color="primary" (click)="openAssignUsersDialog(role)">
+            <mat-icon>person_add</mat-icon>
+            {{ 'ROLES.ASSIGN_USERS' | translate }}
+          </button>
+        </mat-expansion-panel>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="openEditRoleDialog(role)">
+          <mat-icon>edit</mat-icon>
+          {{ 'COMMON.EDIT' | translate }}
+        </button>
+        <button mat-button color="warn" (click)="openDeleteRoleDialog(role)">
+          <mat-icon>delete</mat-icon>
+          {{ 'COMMON.DELETE' | translate }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

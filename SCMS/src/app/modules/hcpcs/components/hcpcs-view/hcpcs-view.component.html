@@ -1,0 +1,46 @@
+<div class="hcpcs-view" *ngIf="code$ | async as code">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ code.code }}</mat-card-title>
+      <mat-card-subtitle>{{ code.shortDescription }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <div>
+          <dt>Long Description</dt>
+          <dd>{{ code.longDescription || '—' }}</dd>
+        </div>
+        <div>
+          <dt>Category</dt>
+          <dd>{{ code.category || '—' }}</dd>
+        </div>
+        <div>
+          <dt>Action Code</dt>
+          <dd>{{ code.actionCode || '—' }}</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>{{ code.isActive ? 'Active' : 'Inactive' }}</dd>
+        </div>
+        <div>
+          <dt>Effective Date</dt>
+          <dd>{{ code.effectiveDate | date : 'longDate' }}</dd>
+        </div>
+        <div>
+          <dt>Termination Date</dt>
+          <dd>{{ code.terminationDate | date : 'longDate' }}</dd>
+        </div>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <a mat-stroked-button color="primary" [routerLink]="['/app/hcpcs/edit', code.id]">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </a>
+      <a mat-button routerLink="/app/hcpcs/list">
+        Back to list
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
