@@ -1,0 +1,26 @@
+# Secrets and sensitive configuration files
+API/appsettings.Development.json
+API/appsettings.*.json
+!API/appsettings.json
+!API/appsettings.*.example.json
+
+# Large files
+Infrastructure/Data/force.txt
+**/force.txt
+
+# Build outputs
+**/bin/
+**/obj/
+**/node_modules/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
