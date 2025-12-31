@@ -21,28 +21,43 @@ namespace API.Controllers
             _contentRootPath = env.ContentRootPath;
         }
 
-        [HttpGet]
-        [Route("/{**path}")]
-        public IActionResult Index(string path)
+        [HttpGet("{*path}")]
+        public IActionResult Index(string path = "")
         {
             try
             {
-                _logger.LogInformation($"Fallback request for path: {path ?? "root"}");
+                // Get the actual path from the request
+                var requestPath = HttpContext.Request.Path.Value?.TrimStart('/') ?? "";
+                
+                // If this is an API route, it should have been handled by API controllers
+                // Return 404 immediately without logging or processing
+                if (!string.IsNullOrEmpty(requestPath) && (
+                    requestPath.StartsWith("api/", StringComparison.OrdinalIgnoreCase) || 
+                    requestPath.StartsWith("swagger", StringComparison.OrdinalIgnoreCase) ||
+                    requestPath.StartsWith("_framework/", StringComparison.OrdinalIgnoreCase) ||
+                    requestPath.StartsWith("_vs/", StringComparison.OrdinalIgnoreCase) ||
+                    requestPath.StartsWith("notificationhub", StringComparison.OrdinalIgnoreCase)))
+                {
+                    return NotFound();
+                }
+                
+                _logger.LogInformation($"Fallback request for path: {requestPath}");
 
                 // If this is an API request, we don't want to return the SPA
-                if (path != null && (
-                    path.StartsWith("api/", StringComparison.OrdinalIgnoreCase) || 
-                    path.StartsWith("swagger", StringComparison.OrdinalIgnoreCase) ||
-                    path.StartsWith("_framework/", StringComparison.OrdinalIgnoreCase) ||
-                    path.StartsWith("_vs/", StringComparison.OrdinalIgnoreCase)))
+                // This should never be reached for API routes as they should be matched by API controllers first
+                if (!string.IsNullOrEmpty(requestPath) && (
+                    requestPath.StartsWith("api/", StringComparison.OrdinalIgnoreCase) || 
+                    requestPath.StartsWith("swagger", StringComparison.OrdinalIgnoreCase) ||
+                    requestPath.StartsWith("_framework/", StringComparison.OrdinalIgnoreCase) ||
+                    requestPath.StartsWith("_vs/", StringComparison.OrdinalIgnoreCase)))
                 {
-                    _logger.LogInformation($"Not serving SPA for API/system path: {path}");
+                    _logger.LogWarning($"FallbackController matched API/system path that should have been handled by API controllers: {requestPath}");
                     return NotFound();
                 }
 
                 // Check if path is a physical file in wwwroot
-                var requestedFileInfo = _fileProvider.GetFileInfo(path ?? string.Empty);
-                if (requestedFileInfo.Exists)
+                var requestedFileInfo = _fileProvider.GetFileInfo(requestPath);
+                if (requestedFileInfo.Exists && !string.IsNullOrEmpty(requestedFileInfo.PhysicalPath))
                 {
                     _logger.LogInformation($"Serving file: {requestedFileInfo.PhysicalPath}");
                     var contentType = GetContentType(requestedFileInfo.Name);
@@ -51,7 +66,7 @@ namespace API.Controllers
 
                 // Return the SPA index.html for all other requests to handle client-side routing
                 var indexFileInfo = _fileProvider.GetFileInfo("index.html");
-                if (indexFileInfo.Exists)
+                if (indexFileInfo.Exists && !string.IsNullOrEmpty(indexFileInfo.PhysicalPath))
                 {
                     _logger.LogInformation($"Serving SPA index.html: {indexFileInfo.PhysicalPath}");
                     return PhysicalFile(indexFileInfo.PhysicalPath, "text/html");

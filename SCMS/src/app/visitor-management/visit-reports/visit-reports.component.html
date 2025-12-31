@@ -1,0 +1,194 @@
+<div class="reports-container" style="margin-top: 70px; padding: 20px;">
+  
+  <!-- Hero Section -->
+  <div class="reports-hero" style="text-align: center; margin-bottom: 30px;">
+    <div class="hero-content">
+      <img src="assets/images/logos/home.png" alt="Reports Logo" class="hero-logo" style="width: 80px; height: 80px; margin-bottom: 10px;">
+      <h1 class="hero-title" style="font-size: 2rem; margin: 10px 0;">
+        <mat-icon style="vertical-align: middle;">assessment</mat-icon>
+        تقارير الزوار
+      </h1>
+      <p class="hero-subtitle" style="color: #666;">إحصائيات وتقارير الزيارات</p>
+    </div>
+  </div>
+
+  <!-- Date Range Filter -->
+  <mat-card style="margin-bottom: 20px;">
+    <mat-card-content>
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <mat-form-field appearance="outline">
+          <mat-label>من تاريخ</mat-label>
+          <input matInput [matDatepicker]="fromPicker" [(ngModel)]="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+          <mat-datepicker #fromPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>إلى تاريخ</mat-label>
+          <input matInput [matDatepicker]="toPicker" [(ngModel)]="toDate">
+          <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+          <mat-datepicker #toPicker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="loadReports()">
+          <mat-icon>search</mat-icon>
+          تحديث التقرير
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" style="text-align: center; padding: 40px;">
+    <mat-spinner diameter="60" style="margin: 0 auto;"></mat-spinner>
+    <p>جاري تحميل التقارير...</p>
+  </div>
+
+  <!-- Summary Cards -->
+  <div *ngIf="!isLoading && summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+    
+    <mat-card style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+      <mat-card-content style="text-align: center; padding: 30px;">
+        <mat-icon style="font-size: 48px; height: 48px; width: 48px;">people</mat-icon>
+        <h2 style="font-size: 2.5rem; margin: 10px 0;">{{ summary.totalVisits }}</h2>
+        <p>إجمالي الزيارات</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+      <mat-card-content style="text-align: center; padding: 30px;">
+        <mat-icon style="font-size: 48px; height: 48px; width: 48px;">check_circle</mat-icon>
+        <h2 style="font-size: 2.5rem; margin: 10px 0;">{{ summary.totalCompleted }}</h2>
+        <p>الزيارات المكتملة</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+      <mat-card-content style="text-align: center; padding: 30px;">
+        <mat-icon style="font-size: 48px; height: 48px; width: 48px;">access_time</mat-icon>
+        <h2 style="font-size: 2.5rem; margin: 10px 0;">{{ summary.totalOngoing }}</h2>
+        <p>الزيارات الجارية</p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <!-- Department Statistics -->
+  <mat-card *ngIf="!isLoading && summary" style="margin-bottom: 20px;">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>business</mat-icon>
+        الزيارات حسب الإدارة
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="summary.visitsPerDepartment" style="width: 100%;">
+        
+        <ng-container matColumnDef="departmentName">
+          <th mat-header-cell *matHeaderCellDef>الإدارة</th>
+          <td mat-cell *matCellDef="let dept">{{ dept.departmentName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="visitCount">
+          <th mat-header-cell *matHeaderCellDef>عدد الزيارات</th>
+          <td mat-cell *matCellDef="let dept">
+            <strong>{{ dept.visitCount }}</strong>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="departmentColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: departmentColumns;"></tr>
+      </table>
+
+      <div *ngIf="summary.visitsPerDepartment.length === 0" style="text-align: center; padding: 20px; color: #999;">
+        لا توجد بيانات للعرض
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- User Statistics -->
+  <mat-card *ngIf="!isLoading && summary" style="margin-bottom: 20px;">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>person</mat-icon>
+        الزيارات حسب المستخدم
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="summary.visitsPerUser" style="width: 100%;">
+        
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef>المستخدم</th>
+          <td mat-cell *matCellDef="let user">{{ user.userName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="visitCount">
+          <th mat-header-cell *matHeaderCellDef>عدد الزيارات</th>
+          <td mat-cell *matCellDef="let user">
+            <strong>{{ user.visitCount }}</strong>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="userColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: userColumns;"></tr>
+      </table>
+
+      <div *ngIf="summary.visitsPerUser.length === 0" style="text-align: center; padding: 20px; color: #999;">
+        لا توجد بيانات للعرض
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Daily Statistics -->
+  <mat-card *ngIf="!isLoading && dailyStats.length > 0" style="margin-bottom: 20px;">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>today</mat-icon>
+        الإحصائيات اليومية (آخر 7 أيام)
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="dailyStats" style="width: 100%;">
+        
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>التاريخ</th>
+          <td mat-cell *matCellDef="let stat">{{ stat.date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef>الإجمالي</th>
+          <td mat-cell *matCellDef="let stat">{{ stat.total }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="completed">
+          <th mat-header-cell *matHeaderCellDef>مكتمل</th>
+          <td mat-cell *matCellDef="let stat">{{ stat.completed }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="ongoing">
+          <th mat-header-cell *matHeaderCellDef>جاري</th>
+          <td mat-cell *matCellDef="let stat">{{ stat.ongoing }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dailyColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dailyColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Footer -->
+  <mat-card style="margin-top: 30px;">
+    <mat-card-content>
+      <div style="text-align: center;">
+        <div style="margin-bottom: 10px;">
+          <img src="assets/images/logos/img1.png" alt="System Logo" style="width: 60px; height: 60px;">
+        </div>
+        <h3 style="margin: 10px 0;">نظام إدارة الزوار</h3>
+        <p style="color: #666;">Visitor Management System</p>
+        <p style="color: #999;">تم تطوير النظام بواسطة: <strong>اللجنة الفنية العليا 2025-2026</strong></p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

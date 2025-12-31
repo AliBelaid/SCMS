@@ -9789,23 +9789,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ali.Belaid\\.nuget\\packages\\": {},
+    "C:\\Users\\Ali\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SFileSysyem\\SCMS\\Core\\Core.csproj",
+      "projectUniqueName": "D:\\myApps\\SCMS\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "D:\\SFileSysyem\\SCMS\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Ali.Belaid\\.nuget\\packages\\",
-      "outputPath": "D:\\SFileSysyem\\SCMS\\Core\\obj\\",
+      "projectPath": "D:\\myApps\\SCMS\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Ali\\.nuget\\packages\\",
+      "outputPath": "D:\\myApps\\SCMS\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ali.Belaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9928,7 +9928,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

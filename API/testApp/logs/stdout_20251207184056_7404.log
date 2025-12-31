@@ -1,0 +1,437 @@
+info: API.Program[0]
+      Starting application initialization and database seeding...
+info: API.Program[0]
+      Connection string from configuration: True
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (69ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      DECLARE @result int;
+      EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+      BEGIN
+          CREATE TABLE [__EFMigrationsHistory] (
+              [MigrationId] nvarchar(150) NOT NULL,
+              [ProductVersion] nvarchar(32) NOT NULL,
+              CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+          );
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      DECLARE @result int;
+      EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: API.Program[0]
+      Identity database migration and seeding completed successfully.
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[61]
+      User profile not available. Using 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ASP.NET\4.0.30319.0\AutoGenKeys\S-1-5-82-2892227210-3549739472-665080510-3785172963-1779350310\DataProtection' as key repository and Windows DPAPI to encrypt keys at rest.
+warn: Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer[0]
+      Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Order history cleanup service starting.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (33ms) [Parameters=[@__cutoff_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [o].[Id], [o].[Action], [o].[Description], [o].[IpAddress], [o].[NewValue], [o].[Notes], [o].[OldValue], [o].[OrderId], [o].[PerformedAt], [o].[PerformedById], [o].[UserAgent]
+      FROM [OrderHistories] AS [o]
+      WHERE [o].[PerformedAt] < @__cutoff_0
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Completed order history cleanup cycle.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\myApps\SCMS\API\testApp
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://10.17.178.34:5050/api/Account/login - application/json 44
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.AccountController.Login (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Dtos.DocumentViewer.UserDto]] Login(API.Dtos.LoginDto) on controller API.Controllers.AccountController (API).
+info: API.Controllers.AccountController[0]
+      Login attempt for code: MEMBER003
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (52ms) [Parameters=[@__loginDto_Code_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT [a2].[Id], [a2].[AccessFailedCount], [a2].[CodeUser], [a2].[ConcurrencyStamp], [a2].[Country], [a2].[Email], [a2].[EmailConfirmed], [a2].[IsActive], [a2].[LastActive], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[PreferredLanguage], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UserName], [s].[UserId], [s].[RoleId], [s].[Id], [s].[ConcurrencyStamp], [s].[Name], [s].[NormalizedName]
+      FROM (
+          SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[CodeUser], [a].[ConcurrencyStamp], [a].[Country], [a].[Email], [a].[EmailConfirmed], [a].[IsActive], [a].[LastActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[PreferredLanguage], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+          FROM [AspNetUsers] AS [a]
+          WHERE [a].[CodeUser] = @__loginDto_Code_0
+      ) AS [a2]
+      LEFT JOIN (
+          SELECT [a0].[UserId], [a0].[RoleId], [a1].[Id], [a1].[ConcurrencyStamp], [a1].[Name], [a1].[NormalizedName]
+          FROM [AspNetUserRoles] AS [a0]
+          INNER JOIN [AspNetRoles] AS [a1] ON [a0].[RoleId] = [a1].[Id]
+      ) AS [s] ON [a2].[Id] = [s].[UserId]
+      ORDER BY [a2].[Id], [s].[UserId], [s].[RoleId]
+info: API.Controllers.AccountController[0]
+      User found: 4 - MEMBER003 - IsActive: True
+info: API.Controllers.AccountController[0]
+      Checking password for user MEMBER003
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT [a0].[Name]
+      FROM [AspNetUserRoles] AS [a]
+      INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+      WHERE [a].[UserId] = @__userId_0
+info: Infrastructure.Services.TokenService[0]
+      Token generated for user 4 with 5 claims
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (23ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[CodeUser], [a].[ConcurrencyStamp], [a].[Country], [a].[Email], [a].[EmailConfirmed], [a].[IsActive], [a].[LastActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[PreferredLanguage], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+      FROM [AspNetUsers] AS [a]
+      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (87ms) [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p20='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='Text', CommandTimeout='120']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [CodeUser] = @p1, [ConcurrencyStamp] = @p2, [Country] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [IsActive] = @p6, [LastActive] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [PreferredLanguage] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+      OUTPUT 1
+      WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+info: API.Controllers.AccountController[0]
+      Login successful for user MEMBER003
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'Core.Dtos.DocumentViewer.UserDto'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.AccountController.Login (API) in 589.4041ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.AccountController.Login (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://10.17.178.34:5050/api/Account/login - 200 648 application/json;+charset=utf-8 665.8714ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetActiveVisits", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Core.Dtos.VisitorManagement.VisitDto]]] GetActiveVisits(System.String) on controller API.Controllers.VisitsController (API).
+info: API.Controllers.VisitsController[0]
+      GetActiveVisits called with search: null
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+info: API.Controllers.VisitsController[0]
+      Total visits in database: 3
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      ORDER BY [v].[CheckInAt] DESC
+info: API.Controllers.VisitsController[0]
+      Retrieved 3 visits from database
+info: API.Controllers.VisitsController[0]
+      Mapped to 3 DTOs. Returning all visits from system (search: none)
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetActiveVisits (API) in 148.1963ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - 200 1535 application/json;+charset=utf-8 209.8440ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/search?query=ali - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitorsController.SearchVisitors (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "SearchVisitors", controller = "Visitors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Core.Dtos.VisitorManagement.VisitorDto]]] SearchVisitors(System.String) on controller API.Controllers.VisitorsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (65ms) [Parameters=[@__p_1='?' (DbType = Int32), @__searchTerm_0_contains='?' (Size = 200), @__searchTerm_0_contains_1='?' (Size = 50)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(@__p_1) [v].[Id], [v].[FullName], [v].[NationalId], [v].[Phone], [v].[Company], [v].[MedicalNotes], [v].[PersonImageUrl], [v].[IdCardImageUrl], [v].[IsBlocked], [v].[CreatedAt]
+      FROM [Visitors] AS [v]
+      WHERE LOWER([v].[FullName]) LIKE @__searchTerm_0_contains ESCAPE N'\' OR ([v].[NationalId] IS NOT NULL AND [v].[NationalId] LIKE @__searchTerm_0_contains_1 ESCAPE N'\') OR ([v].[Phone] IS NOT NULL AND [v].[Phone] LIKE @__searchTerm_0_contains_1 ESCAPE N'\') OR ([v].[Company] IS NOT NULL AND LOWER([v].[Company]) LIKE @__searchTerm_0_contains ESCAPE N'\')
+      ORDER BY [v].[FullName]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitorDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitorsController.SearchVisitors (API) in 98.7793ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitorsController.SearchVisitors (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/search?query=ali - 200 1277 application/json;+charset=utf-8 106.2845ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/pos/imagesPerson/person_7_20251207122629_7b193273f9bd419591fc865f032b3030.jpg - - -
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/pos/imagesPerson/person_7_20251207122629_7b193273f9bd419591fc865f032b3030.jpg'. Physical path: 'D:\myApps\SCMS\API\testApp\wwwroot\pos\imagesPerson\person_7_20251207122629_7b193273f9bd419591fc865f032b3030.jpg'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/pos/imagesPerson/person_7_20251207122629_7b193273f9bd419591fc865f032b3030.jpg - 200 34355 image/jpeg 27.1571ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/6/profile - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetVisitorProfile", controller = "Visitors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] GetVisitorProfile(Int32) on controller API.Controllers.VisitorsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[Company], [v].[CreatedAt], [v].[FullName], [v].[IdCardImageUrl], [v].[IsBlocked], [v].[MedicalNotes], [v].[NationalId], [v].[PersonImageUrl], [v].[Phone], [v].[UpdatedAt]
+      FROM [Visitors] AS [v]
+      WHERE [v].[Id] = @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(@__p_1) [v].[Id], [v].[VisitNumber], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[Status], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt]
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+      ORDER BY [v].[CheckInAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type '<>f__AnonymousType47`3[[Core.Dtos.VisitorManagement.VisitorDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[<>f__AnonymousType46`8[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitorsController.GetVisitorProfile (API) in 37.2829ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/6/profile - 200 512 application/json;+charset=utf-8 42.5091ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/7/profile - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetVisitorProfile", controller = "Visitors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] GetVisitorProfile(Int32) on controller API.Controllers.VisitorsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[Company], [v].[CreatedAt], [v].[FullName], [v].[IdCardImageUrl], [v].[IsBlocked], [v].[MedicalNotes], [v].[NationalId], [v].[PersonImageUrl], [v].[Phone], [v].[UpdatedAt]
+      FROM [Visitors] AS [v]
+      WHERE [v].[Id] = @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(@__p_1) [v].[Id], [v].[VisitNumber], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[Status], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt]
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+      ORDER BY [v].[CheckInAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type '<>f__AnonymousType47`3[[Core.Dtos.VisitorManagement.VisitorDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[<>f__AnonymousType46`8[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitorsController.GetVisitorProfile (API) in 5.2463ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/7/profile - 200 652 application/json;+charset=utf-8 6.3569ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/pos/imagesPerson/idcard_7_20251207122629_dd3e0c10e4734eb28c5686774dedbf41.jpg - - -
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/pos/imagesPerson/idcard_7_20251207122629_dd3e0c10e4734eb28c5686774dedbf41.jpg'. Physical path: 'D:\myApps\SCMS\API\testApp\wwwroot\pos\imagesPerson\idcard_7_20251207122629_dd3e0c10e4734eb28c5686774dedbf41.jpg'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/pos/imagesPerson/idcard_7_20251207122629_dd3e0c10e4734eb28c5686774dedbf41.jpg - 200 31812 image/jpeg 25.1821ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/1/profile - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetVisitorProfile", controller = "Visitors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] GetVisitorProfile(Int32) on controller API.Controllers.VisitorsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[Company], [v].[CreatedAt], [v].[FullName], [v].[IdCardImageUrl], [v].[IsBlocked], [v].[MedicalNotes], [v].[NationalId], [v].[PersonImageUrl], [v].[Phone], [v].[UpdatedAt]
+      FROM [Visitors] AS [v]
+      WHERE [v].[Id] = @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(@__p_1) [v].[Id], [v].[VisitNumber], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[Status], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt]
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+      ORDER BY [v].[CheckInAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+      WHERE [v].[VisitorId] = @__id_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type '<>f__AnonymousType47`3[[Core.Dtos.VisitorManagement.VisitorDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[<>f__AnonymousType46`8[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitorsController.GetVisitorProfile (API) in 3.78ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitorsController.GetVisitorProfile (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visitors/1/profile - 200 281 application/json;+charset=utf-8 4.5822ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetActiveVisits", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Core.Dtos.VisitorManagement.VisitDto]]] GetActiveVisits(System.String) on controller API.Controllers.VisitsController (API).
+info: API.Controllers.VisitsController[0]
+      GetActiveVisits called with search: null
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+info: API.Controllers.VisitsController[0]
+      Total visits in database: 3
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      ORDER BY [v].[CheckInAt] DESC
+info: API.Controllers.VisitsController[0]
+      Retrieved 3 visits from database
+info: API.Controllers.VisitsController[0]
+      Mapped to 3 DTOs. Returning all visits from system (search: none)
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetActiveVisits (API) in 9.2753ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - 200 1535 application/json;+charset=utf-8 11.3158ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/number/V20251207-0003 - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetVisitByNumber (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetVisitByNumber", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Dtos.VisitorManagement.VisitDto]] GetVisitByNumber(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[@__visitNumber_0='?' (Size = 50)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[VisitNumber] = @__visitNumber_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'Core.Dtos.VisitorManagement.VisitDto'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetVisitByNumber (API) in 35.9564ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetVisitByNumber (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/number/V20251207-0003 - 200 551 application/json;+charset=utf-8 38.8736ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://10.17.178.34:5050/api/Visits/checkout/V20251207-0003 - application/json 0
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.CheckoutVisit (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "CheckoutVisit", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Dtos.VisitorManagement.VisitDto]] CheckoutVisit(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__visitNumber_0='?' (Size = 50)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[VisitNumber] = @__visitNumber_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing BadRequestObjectResult, writing value of type 'API.Errors.ApiResponse'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.CheckoutVisit (API) in 17.505ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.CheckoutVisit (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://10.17.178.34:5050/api/Visits/checkout/V20251207-0003 - 400 51 application/json;+charset=utf-8 22.1084ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetActiveVisits", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Core.Dtos.VisitorManagement.VisitDto]]] GetActiveVisits(System.String) on controller API.Controllers.VisitsController (API).
+info: API.Controllers.VisitsController[0]
+      GetActiveVisits called with search: null
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT COUNT(*)
+      FROM [Visits] AS [v]
+info: API.Controllers.VisitsController[0]
+      Total visits in database: 3
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      ORDER BY [v].[CheckInAt] DESC
+info: API.Controllers.VisitsController[0]
+      Retrieved 3 visits from database
+info: API.Controllers.VisitsController[0]
+      Mapped to 3 DTOs. Returning all visits from system (search: none)
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetActiveVisits (API) in 5.4148ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - 200 1535 application/json;+charset=utf-8 6.1224ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/number/V20251207-0001 - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetVisitByNumber (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetVisitByNumber", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Dtos.VisitorManagement.VisitDto]] GetVisitByNumber(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@__visitNumber_0='?' (Size = 50)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[VisitNumber] = @__visitNumber_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'Core.Dtos.VisitorManagement.VisitDto'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetVisitByNumber (API) in 11.1481ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetVisitByNumber (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/number/V20251207-0001 - 200 437 application/json;+charset=utf-8 14.6017ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://10.17.178.34:5050/api/Visits/checkout/V20251207-0001 - application/json 0
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.CheckoutVisit (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "CheckoutVisit", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Dtos.VisitorManagement.VisitDto]] CheckoutVisit(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__visitNumber_0='?' (Size = 50)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[VisitNumber] = @__visitNumber_0
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing BadRequestObjectResult, writing value of type 'API.Errors.ApiResponse'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.CheckoutVisit (API) in 2.0486ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.CheckoutVisit (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://10.17.178.34:5050/api/Visits/checkout/V20251207-0001 - 400 51 application/json;+charset=utf-8 2.4985ms
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Order history cleanup service stopping.

@@ -1,49 +1,328 @@
-<ng-container *ngIf="department$ | async as department; else loading">
-  <section class="department-details">
-    <header class="header">
-      <div>
-        <h1>{{ department.nameAr }}</h1>
-        <p>الرمز: <span>{{ department.code }}</span></p>
-      </div>
-      <span class="status" [class.inactive]="!department.isActive">
-        {{ department.isActive ? 'نشطة' : 'متوقفة' }}
-      </span>
-    </header>
-
-    <article class="card">
-      <h2>الوصف</h2>
-      <p>{{ department.description || 'لا يوجد وصف متاح.' }}</p>
-    </article>
-
-    <article class="card">
-      <h2>المواضيع ({{ department.subjects.length }})</h2>
-      <ul>
-        <li *ngFor="let subject of department.subjects">
-          <div>
-            <strong>{{ subject.code }}</strong>
-            <span>{{ subject.nameAr }}</span>
-          </div>
-          <div class="meta">
-            <span>الوارد: {{ subject.incomingPrefix }}</span>
-            <span>الصادر: {{ subject.outgoingPrefix }}</span>
-            <span [class.inactive]="!subject.isActive">
-              {{ subject.isActive ? 'نشط' : 'متوقف' }}
-            </span>
-          </div>
-        </li>
-      </ul>
-    </article>
-
-    <footer class="actions">
-      <a [routerLink]="['/departments/edit', department.id]" class="primary">تعديل الإدارة</a>
-      <a routerLink="/departments" class="secondary">العودة للقائمة</a>
-    </footer>
-  </section>
-</ng-container>
-
-<ng-template #loading>
-  <div class="loading">
+<div class="department-details-container">
+  <div *ngIf="isLoading(); else content" class="loading-container">
+    <mat-spinner diameter="64"></mat-spinner>
     <p>جاري تحميل تفاصيل الإدارة...</p>
   </div>
-</ng-template>
 
+  <ng-template #content>
+    <div *ngIf="department(); else notFound">
+      <!-- Hero Section -->
+      <div class="details-hero">
+        <div class="hero-content">
+          <div class="hero-header">
+            <div class="title-section">
+              <mat-icon class="hero-icon">apartment</mat-icon>
+              <div>
+                <h1 class="hero-title">{{ department()!.nameAr }}</h1>
+                <p class="hero-code">{{ department()!.code }}</p>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button mat-raised-button color="primary" (click)="editDepartment()" *ngIf="canEdit()">
+                <mat-icon>edit</mat-icon>
+                تعديل
+              </button>
+              <button mat-button (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+                رجوع
+              </button>
+            </div>
+          </div>
+
+          <div class="status-chips">
+            <mat-chip [color]="department()!.isActive ? 'primary' : 'warn'" selected>
+              <mat-icon>{{ department()!.isActive ? 'check_circle' : 'cancel' }}</mat-icon>
+              {{ department()!.isActive ? 'نشطة' : 'متوقفة' }}
+            </mat-chip>
+            <mat-chip>
+              <mat-icon>topic</mat-icon>
+              {{ department()!.subjects?.length || 0 }} موضوع
+            </mat-chip>
+            <mat-chip>
+              <mat-icon>people</mat-icon>
+              {{ department()!.users?.length || 0 }} مستخدم
+            </mat-chip>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Section -->
+      <mat-card class="tabs-card">
+        <mat-tab-group [(selectedIndex)]="selectedTabIndex" animationDuration="300ms">
+          <!-- Overview Tab -->
+          <mat-tab label="نظرة عامة">
+            <div class="tab-content">
+              <div class="info-grid">
+                <mat-card class="info-card">
+                  <mat-card-header>
+                    <mat-card-title>
+                      <mat-icon>info</mat-icon>
+                      المعلومات الأساسية
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <div class="info-row">
+                      <span class="label">الرمز:</span>
+                      <span class="value">{{ department()!.code }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="label">الاسم (عربي):</span>
+                      <span class="value">{{ department()!.nameAr }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="label">الاسم (إنجليزي):</span>
+                      <span class="value">{{ department()!.nameEn }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="label">المدير:</span>
+                      <span class="value">{{ department()!.managerName || 'غير محدد' }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="label">تاريخ الإنشاء:</span>
+                      <span class="value">{{ formatDate(department()!.createdAt) }}</span>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="info-card">
+                  <mat-card-header>
+                    <mat-card-title>
+                      <mat-icon>description</mat-icon>
+                      الوصف
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p class="description">
+                      {{ department()!.description || 'لا يوجد وصف متاح.' }}
+                    </p>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="info-card full-width">
+                  <mat-card-header>
+                    <mat-card-title>
+                      <mat-icon>bar_chart</mat-icon>
+                      إحصائيات
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <div class="stats-grid">
+                      <div class="stat-item">
+                        <mat-icon>topic</mat-icon>
+                        <div class="stat-info">
+                          <span class="stat-value">{{ department()!.subjects?.length || 0 }}</span>
+                          <span class="stat-label">موضوع</span>
+                        </div>
+                      </div>
+                      <div class="stat-item">
+                        <mat-icon>people</mat-icon>
+                        <div class="stat-info">
+                          <span class="stat-value">{{ department()!.users?.length || 0 }}</span>
+                          <span class="stat-label">مستخدم</span>
+                        </div>
+                      </div>
+                      <div class="stat-item">
+                        <mat-icon>description</mat-icon>
+                        <div class="stat-info">
+                          <span class="stat-value">0</span>
+                          <span class="stat-label">معاملة</span>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
+
+          <!-- Subjects Tab -->
+          <mat-tab label="المواضيع">
+            <div class="tab-content">
+              <div class="tab-header">
+                <h2>
+                  <mat-icon>topic</mat-icon>
+                  مواضيع الإدارة ({{ department()!.subjects?.length || 0 }})
+                </h2>
+                <button mat-raised-button color="primary" (click)="addSubject()" *ngIf="canEdit()">
+                  <mat-icon>add</mat-icon>
+                  إضافة موضوع
+                </button>
+              </div>
+
+              <div *ngIf="department()!.subjects && department()!.subjects.length > 0; else noSubjects">
+                <table mat-table [dataSource]="department()!.subjects" class="subjects-table">
+                  <!-- Code Column -->
+                  <ng-container matColumnDef="code">
+                    <th mat-header-cell *matHeaderCellDef>الرمز</th>
+                    <td mat-cell *matCellDef="let subject">
+                      <strong>{{ subject.code }}</strong>
+                    </td>
+                  </ng-container>
+
+                  <!-- Name Ar Column -->
+                  <ng-container matColumnDef="nameAr">
+                    <th mat-header-cell *matHeaderCellDef>الاسم (عربي)</th>
+                    <td mat-cell *matCellDef="let subject">{{ subject.nameAr }}</td>
+                  </ng-container>
+
+                  <!-- Name En Column -->
+                  <ng-container matColumnDef="nameEn">
+                    <th mat-header-cell *matHeaderCellDef>الاسم (إنجليزي)</th>
+                    <td mat-cell *matCellDef="let subject">{{ subject.nameEn }}</td>
+                  </ng-container>
+
+                  <!-- Status Column -->
+                  <ng-container matColumnDef="isActive">
+                    <th mat-header-cell *matHeaderCellDef>الحالة</th>
+                    <td mat-cell *matCellDef="let subject">
+                      <mat-chip [color]="subject.isActive ? 'primary' : 'warn'" selected>
+                        {{ subject.isActive ? 'نشط' : 'متوقف' }}
+                      </mat-chip>
+                    </td>
+                  </ng-container>
+
+                  <!-- Actions Column -->
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>الإجراءات</th>
+                    <td mat-cell *matCellDef="let subject">
+                      <button mat-icon-button [matMenuTriggerFor]="subjectMenu" *ngIf="canEdit()">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #subjectMenu="matMenu">
+                        <button mat-menu-item (click)="editSubject(subject)">
+                          <mat-icon>edit</mat-icon>
+                          <span>تعديل</span>
+                        </button>
+                        <button mat-menu-item (click)="deleteSubject(subject)">
+                          <mat-icon>delete</mat-icon>
+                          <span>حذف</span>
+                        </button>
+                      </mat-menu>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="subjectsColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: subjectsColumns;"></tr>
+                </table>
+              </div>
+
+              <ng-template #noSubjects>
+                <div class="empty-state">
+                  <mat-icon>topic</mat-icon>
+                  <p>لا توجد مواضيع بعد</p>
+                  <button mat-raised-button color="primary" (click)="addSubject()" *ngIf="canEdit()">
+                    <mat-icon>add</mat-icon>
+                    إضافة موضوع جديد
+                  </button>
+                </div>
+              </ng-template>
+            </div>
+          </mat-tab>
+
+          <!-- Users Tab -->
+          <mat-tab label="المستخدمون">
+            <div class="tab-content">
+              <div class="tab-header">
+                <h2>
+                  <mat-icon>people</mat-icon>
+                  مستخدمو الإدارة ({{ department()!.users?.length || 0 }})
+                </h2>
+                <button mat-raised-button color="primary" (click)="addUser()" *ngIf="canEdit()">
+                  <mat-icon>person_add</mat-icon>
+                  إضافة مستخدم
+                </button>
+              </div>
+
+              <div *ngIf="department()!.users && department()!.users.length > 0; else noUsers">
+                <table mat-table [dataSource]="department()!.users" class="users-table">
+                  <!-- User Code Column -->
+                  <ng-container matColumnDef="userCode">
+                    <th mat-header-cell *matHeaderCellDef>الرمز</th>
+                    <td mat-cell *matCellDef="let user">
+                      <strong>{{ user.userCode }}</strong>
+                    </td>
+                  </ng-container>
+
+                  <!-- User Name Column -->
+                  <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef>الاسم</th>
+                    <td mat-cell *matCellDef="let user">{{ user.userName }}</td>
+                  </ng-container>
+
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef>المنصب</th>
+                    <td mat-cell *matCellDef="let user">{{ user.position || '-' }}</td>
+                  </ng-container>
+
+                  <!-- Is Head Column -->
+                  <ng-container matColumnDef="isHead">
+                    <th mat-header-cell *matHeaderCellDef>رئيس الإدارة</th>
+                    <td mat-cell *matCellDef="let user">
+                      <mat-chip *ngIf="user.isHead" color="accent" selected>
+                        <mat-icon>star</mat-icon>
+                        رئيس
+                      </mat-chip>
+                      <span *ngIf="!user.isHead">-</span>
+                    </td>
+                  </ng-container>
+
+                  <!-- Joined At Column -->
+                  <ng-container matColumnDef="joinedAt">
+                    <th mat-header-cell *matHeaderCellDef>تاريخ الانضمام</th>
+                    <td mat-cell *matCellDef="let user">{{ formatDate(user.joinedAt) }}</td>
+                  </ng-container>
+
+                  <!-- Actions Column -->
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>الإجراءات</th>
+                    <td mat-cell *matCellDef="let user">
+                      <button mat-icon-button [matMenuTriggerFor]="userMenu" *ngIf="canEdit()">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #userMenu="matMenu">
+                        <button mat-menu-item (click)="editUser(user)">
+                          <mat-icon>edit</mat-icon>
+                          <span>تعديل</span>
+                        </button>
+                        <button mat-menu-item (click)="removeUser(user)">
+                          <mat-icon>person_remove</mat-icon>
+                          <span>إزالة</span>
+                        </button>
+                      </mat-menu>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="usersColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: usersColumns;"></tr>
+                </table>
+              </div>
+
+              <ng-template #noUsers>
+                <div class="empty-state">
+                  <mat-icon>people_outline</mat-icon>
+                  <p>لا توجد مستخدمون بعد</p>
+                  <button mat-raised-button color="primary" (click)="addUser()" *ngIf="canEdit()">
+                    <mat-icon>person_add</mat-icon>
+                    إضافة مستخدم جديد
+                  </button>
+                </div>
+              </ng-template>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+    </div>
+
+    <ng-template #notFound>
+      <div class="not-found">
+        <mat-icon>error_outline</mat-icon>
+        <h2>الإدارة غير موجودة</h2>
+        <button mat-raised-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          العودة للقائمة
+        </button>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

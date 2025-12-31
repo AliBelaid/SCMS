@@ -1,0 +1,144 @@
+<div class="departments-container" style="margin-top: 70px;">
+  <!-- Header -->
+  <div class="departments-hero">
+    <div class="hero-content">
+      <mat-icon class="hero-logo-icon">business</mat-icon>
+      <h1 class="hero-title">
+        <mat-icon>business</mat-icon>
+        إدارة الإدارات
+      </h1>
+      <p class="hero-subtitle">إدارة بيانات الإدارات والوحدات التنظيمية</p>
+    </div>
+  </div>
+
+  <!-- Main Content Card -->
+  <mat-card class="departments-card">
+    <mat-card-header>
+      <mat-card-title class="d-flex align-items-center justify-content-between">
+        <div class="title-section">
+          <mat-icon>business</mat-icon>
+          <span>قائمة الإدارات</span>
+          <mat-chip class="count-chip">{{ filteredDepartments.length }}</mat-chip>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button mat-raised-button color="primary" (click)="createDepartment()">
+            <mat-icon>add</mat-icon>
+            إضافة إدارة جديدة
+          </button>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Filters Section -->
+      <div class="filters-section">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>بحث</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
+          <input
+            matInput
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="applyFilters()"
+            placeholder="ابحث باسم الإدارة أو الرقم...">
+          <button
+            mat-icon-button
+            matSuffix
+            *ngIf="searchTerm"
+            (click)="searchTerm = ''; applyFilters()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="clearFilters()"
+          *ngIf="searchTerm">
+          <mat-icon>clear</mat-icon>
+          مسح الفلاتر
+        </button>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-state">
+        <mat-spinner diameter="60"></mat-spinner>
+        <p>جاري تحميل الإدارات...</p>
+      </div>
+
+      <!-- Departments Table -->
+      <div *ngIf="!isLoading" class="table-container">
+        <table mat-table [dataSource]="dataSource" matSort class="departments-table">
+          
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>الرقم</th>
+            <td mat-cell *matCellDef="let department">
+              <div class="department-id">
+                <mat-icon class="department-icon">tag</mat-icon>
+                <span>{{ department.id }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>اسم الإدارة</th>
+            <td mat-cell *matCellDef="let department">
+              <div class="department-cell">
+                <mat-icon>business</mat-icon>
+                <span>{{ department.name }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>الإجراءات</th>
+            <td mat-cell *matCellDef="let department">
+              <div class="action-buttons">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  (click)="editDepartment(department)"
+                  matTooltip="تعديل">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button
+                  mat-icon-button
+                  color="warn"
+                  (click)="deleteDepartment(department)"
+                  matTooltip="حذف">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+        </table>
+
+        <!-- Empty State -->
+        <div *ngIf="filteredDepartments.length === 0" class="empty-state">
+          <mat-icon>business_center</mat-icon>
+          <h3>لا توجد إدارات</h3>
+          <p>لم يتم العثور على إدارات تطابق معايير البحث</p>
+          <button mat-raised-button color="primary" (click)="createDepartment()">
+            <mat-icon>add</mat-icon>
+            إضافة إدارة جديدة
+          </button>
+        </div>
+
+        <!-- Paginator -->
+        <mat-paginator
+          *ngIf="filteredDepartments.length > 0"
+          [pageSizeOptions]="[10, 25, 50, 100]"
+          [pageSize]="25"
+          showFirstLastButtons>
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

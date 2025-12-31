@@ -57,7 +57,7 @@ namespace API.Controllers
                 var userDto = _mapper.Map<UserDto>(user);
                 return Ok(new { user = userDto, token = "mock-jwt-token" }); // In real app, generate JWT token
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred during login" });
             }
@@ -73,7 +73,7 @@ namespace API.Controllers
                 var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
                 return Ok(userDtos);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while retrieving users" });
             }
@@ -91,7 +91,7 @@ namespace API.Controllers
                 var userDto = _mapper.Map<UserDto>(user);
                 return Ok(userDto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while retrieving the user" });
             }
@@ -111,7 +111,7 @@ namespace API.Controllers
             {
                 return BadRequest(new { error = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while creating the user" });
             }
@@ -129,7 +129,7 @@ namespace API.Controllers
                 var userDto = _mapper.Map<UserDto>(user);
                 return Ok(userDto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while updating the user" });
             }
@@ -146,7 +146,7 @@ namespace API.Controllers
 
                 return Ok(new { message = "User deleted successfully" });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while deleting the user" });
             }
@@ -163,7 +163,7 @@ namespace API.Controllers
 
                 return Ok(new { message = "User activated successfully" });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while activating the user" });
             }
@@ -180,7 +180,7 @@ namespace API.Controllers
 
                 return Ok(new { message = "User deactivated successfully" });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while deactivating the user" });
             }
@@ -197,7 +197,7 @@ namespace API.Controllers
 
                 return Ok(new { message = "Password reset successfully" });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while resetting the password" });
             }
@@ -212,7 +212,7 @@ namespace API.Controllers
                 var isUnique = await _userService.IsUserCodeUniqueAsync(code);
                 return Ok(!isUnique); // Return true if code exists (not unique)
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while checking the user code" });
             }
@@ -232,7 +232,7 @@ namespace API.Controllers
                 var userDto = _mapper.Map<UserDto>(user);
                 return Ok(userDto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while retrieving the current user" });
             }
@@ -241,7 +241,7 @@ namespace API.Controllers
 
     public class LoginRequestDto
     {
-        public string Code { get; set; }
-        public string Password { get; set; }
+        public required string Code { get; set; }
+        public required string Password { get; set; }
     }
 } 

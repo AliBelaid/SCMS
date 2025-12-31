@@ -1,0 +1,343 @@
+<div class="visitor-profile-container" *ngIf="profile">
+  <!-- Header with Back Button -->
+  <div class="profile-header">
+    <button mat-icon-button (click)="goBack()" matTooltip="رجوع">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>الملف الشخصي للزائر</h1>
+  </div>
+
+  <!-- Profile Summary Card -->
+  <mat-card class="profile-summary-card">
+    <div class="profile-header-section">
+      <div class="profile-image-section">
+        <div class="profile-image-container">
+          <img 
+            *ngIf="shouldShowImage(profile.profileImageUrl || profile.visitor.personImageUrl)"
+            [src]="getImageUrl(profile.profileImageUrl || profile.visitor.personImageUrl)!" 
+            [alt]="profile.visitor.fullName"
+            class="profile-image-large"
+            (error)="onImageError(profile.profileImageUrl || profile.visitor.personImageUrl)">
+          <div *ngIf="!shouldShowImage(profile.profileImageUrl || profile.visitor.personImageUrl)" 
+               class="profile-image-placeholder-large">
+            <mat-icon>person</mat-icon>
+          </div>
+        </div>
+        <div class="status-actions">
+          <mat-chip [color]="profile.visitor.isBlocked ? 'warn' : 'primary'" class="status-badge">
+            <mat-icon>{{ profile.visitor.isBlocked ? 'block' : 'check_circle' }}</mat-icon>
+            {{ profile.visitor.isBlocked ? 'محظور' : 'نشط' }}
+          </mat-chip>
+          <button mat-raised-button 
+                  [color]="profile.visitor.isBlocked ? 'primary' : 'warn'"
+                  (click)="toggleBlockStatus()"
+                  class="block-btn">
+            <mat-icon>{{ profile.visitor.isBlocked ? 'check_circle' : 'block' }}</mat-icon>
+            {{ profile.visitor.isBlocked ? 'إلغاء الحظر' : 'حظر الزائر' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="profile-info-section">
+        <h2>{{ profile.visitor.fullName }}</h2>
+        
+        <div class="info-grid">
+          <div class="info-item" *ngIf="profile.visitor.nationalId">
+            <mat-icon>badge</mat-icon>
+            <div>
+              <span class="label">الرقم الوطني:</span>
+              <span class="value">{{ profile.visitor.nationalId }}</span>
+            </div>
+          </div>
+
+          <div class="info-item" *ngIf="profile.visitor.phone">
+            <mat-icon>phone</mat-icon>
+            <div>
+              <span class="label">الهاتف:</span>
+              <span class="value">{{ profile.visitor.phone }}</span>
+            </div>
+          </div>
+
+          <div class="info-item" *ngIf="profile.visitor.company">
+            <mat-icon>business</mat-icon>
+            <div>
+              <span class="label">الشركة:</span>
+              <span class="value">{{ profile.visitor.company }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>calendar_today</mat-icon>
+            <div>
+              <span class="label">تاريخ التسجيل:</span>
+              <span class="value">{{ formatDate(profile.visitor.createdAt) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-stats-section">
+        <div class="stat-card">
+          <mat-icon class="stat-icon">history</mat-icon>
+          <div class="stat-value">{{ profile.totalVisits }}</div>
+          <div class="stat-label">إجمالي الزيارات</div>
+        </div>
+
+        <div class="stat-card">
+          <mat-icon class="stat-icon">check_circle</mat-icon>
+          <div class="stat-value">{{ profile.completedVisits }}</div>
+          <div class="stat-label">مكتملة</div>
+        </div>
+
+        <div class="stat-card" *ngIf="profile.ongoingVisits > 0">
+          <mat-icon class="stat-icon">schedule</mat-icon>
+          <div class="stat-value">{{ profile.ongoingVisits }}</div>
+          <div class="stat-label">جارية</div>
+        </div>
+
+        <div class="stat-card" *ngIf="profile.averageVisitDurationMinutes">
+          <mat-icon class="stat-icon">timer</mat-icon>
+          <div class="stat-value">{{ formatDuration(profile.averageVisitDurationMinutes) }}</div>
+          <div class="stat-label">متوسط المدة</div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <!-- Tabs Section -->
+  <mat-tab-group [(selectedIndex)]="selectedTabIndex" class="profile-tabs">
+    <!-- Overview Tab -->
+    <mat-tab label="نظرة عامة">
+      <div class="tab-content">
+        <mat-card class="overview-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>info</mat-icon>
+              معلومات إضافية
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="info-item" *ngIf="profile.visitor.medicalNotes">
+              <mat-icon>medical_services</mat-icon>
+              <div>
+                <span class="label">ملاحظات طبية:</span>
+                <span class="value">{{ profile.visitor.medicalNotes }}</span>
+              </div>
+            </div>
+
+            <div class="info-item" *ngIf="profile.firstVisitDate">
+              <mat-icon>event</mat-icon>
+              <div>
+                <span class="label">أول زيارة:</span>
+                <span class="value">{{ formatDate(profile.firstVisitDate) }}</span>
+              </div>
+            </div>
+
+            <div class="info-item" *ngIf="profile.lastVisitDate">
+              <mat-icon>event_available</mat-icon>
+              <div>
+                <span class="label">آخر زيارة:</span>
+                <span class="value">{{ formatDate(profile.lastVisitDate) }}</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Department Statistics -->
+        <mat-card class="department-stats-card" *ngIf="profile.departmentStats.length > 0">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>bar_chart</mat-icon>
+              إحصائيات الإدارات
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="department-stats-list">
+              <div class="department-stat-item" *ngFor="let stat of profile.departmentStats">
+                <div class="stat-header">
+                  <span class="dept-name">{{ stat.departmentName }}</span>
+                  <span class="dept-count">{{ stat.visitCount }} زيارة</span>
+                </div>
+                <div class="stat-bar">
+                  <div class="stat-bar-fill" [style.width.%]="stat.percentage"></div>
+                </div>
+                <div class="stat-percentage">{{ stat.percentage.toFixed(1) }}%</div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <!-- Visit History Tab -->
+    <mat-tab label="تاريخ الزيارات">
+      <div class="tab-content">
+        <mat-card class="history-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>history</mat-icon>
+              سجل الزيارات ({{ profile.visitHistory.length }})
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="table-container">
+              <table mat-table [dataSource]="profile.visitHistory" class="history-table">
+                <ng-container matColumnDef="visitNumber">
+                  <th mat-header-cell *matHeaderCellDef>رقم الزيارة</th>
+                  <td mat-cell *matCellDef="let visit">
+                    <button mat-button color="primary" (click)="viewVisit(visit.visitNumber)">
+                      {{ visit.visitNumber }}
+                    </button>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="departmentName">
+                  <th mat-header-cell *matHeaderCellDef>الإدارة</th>
+                  <td mat-cell *matCellDef="let visit">
+                    <mat-chip>{{ visit.departmentName }}</mat-chip>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="employeeToVisit">
+                  <th mat-header-cell *matHeaderCellDef>الموظف</th>
+                  <td mat-cell *matCellDef="let visit">{{ visit.employeeToVisit }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="checkInAt">
+                  <th mat-header-cell *matHeaderCellDef>وقت الدخول</th>
+                  <td mat-cell *matCellDef="let visit">{{ formatDate(visit.checkInAt) }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="checkOutAt">
+                  <th mat-header-cell *matHeaderCellDef>وقت الخروج</th>
+                  <td mat-cell *matCellDef="let visit">{{ formatDate(visit.checkOutAt) }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="duration">
+                  <th mat-header-cell *matHeaderCellDef>المدة</th>
+                  <td mat-cell *matCellDef="let visit">{{ formatDuration(visit.durationMinutes) }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>الحالة</th>
+                  <td mat-cell *matCellDef="let visit">
+                    <mat-chip [color]="getStatusColor(visit.status)">
+                      {{ getStatusLabel(visit.status) }}
+                    </mat-chip>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <!-- Image Gallery Tab -->
+    <mat-tab label="معرض الصور">
+      <div class="tab-content">
+        <mat-card class="gallery-card" *ngIf="profile.imageGallery.length > 0">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>photo_library</mat-icon>
+              معرض الصور ({{ profile.imageGallery.length }})
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <!-- Main Image Display -->
+            <div class="gallery-main">
+              <div class="gallery-nav-button left" (click)="previousImage()" *ngIf="profile.imageGallery.length > 1">
+                <mat-icon>chevron_right</mat-icon>
+              </div>
+
+              <div class="gallery-image-container">
+                <img 
+                  *ngIf="shouldShowImage(getCurrentImage()?.imageUrl)"
+                  [src]="getImageUrl(getCurrentImage()?.imageUrl)!" 
+                  [alt]="getCurrentImage()?.visitInfo"
+                  class="gallery-main-image"
+                  (error)="onImageError(getCurrentImage()?.imageUrl)">
+                <div *ngIf="!shouldShowImage(getCurrentImage()?.imageUrl)" class="gallery-image-placeholder">
+                  <mat-icon>image</mat-icon>
+                  <span>لا توجد صورة</span>
+                </div>
+                
+                <div class="gallery-image-info">
+                  <div class="image-type-badge">
+                    <mat-icon>{{ getImageTypeIcon(getCurrentImage()?.imageType || 0) }}</mat-icon>
+                    <span>{{ getImageTypeLabel(getCurrentImage()?.imageType || 0) }}</span>
+                  </div>
+                  <div class="image-details">
+                    <div class="detail-item">
+                      <mat-icon>confirmation_number</mat-icon>
+                      <span>{{ getCurrentImage()?.visitNumber }}</span>
+                    </div>
+                    <div class="detail-item">
+                      <mat-icon>event</mat-icon>
+                      <span>{{ formatDate(getCurrentImage()?.visitDate) }}</span>
+                    </div>
+                    <div class="detail-item">
+                      <mat-icon>info</mat-icon>
+                      <span>{{ getCurrentImage()?.visitInfo }}</span>
+                    </div>
+                    <div class="detail-item" *ngIf="getCurrentImage()?.carPlate">
+                      <mat-icon>directions_car</mat-icon>
+                      <span>{{ getCurrentImage()?.carPlate }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gallery-nav-button right" (click)="nextImage()" *ngIf="profile.imageGallery.length > 1">
+                <mat-icon>chevron_left</mat-icon>
+              </div>
+            </div>
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" *ngIf="profile.imageGallery.length > 1">
+              <div 
+                class="thumbnail-item"
+                [class.active]="currentImageIndex === i"
+                *ngFor="let image of profile.imageGallery; let i = index"
+                (click)="goToImage(i)">
+                <img *ngIf="shouldShowImage(image.imageUrl)" 
+                     [src]="getImageUrl(image.imageUrl)!" 
+                     [alt]="image.visitInfo"
+                     (error)="onImageError(image.imageUrl)">
+                <div *ngIf="!shouldShowImage(image.imageUrl)" class="thumbnail-placeholder">
+                  <mat-icon>{{ getImageTypeIcon(image.imageType) }}</mat-icon>
+                </div>
+                <div class="thumbnail-overlay">
+                  <mat-icon>{{ getImageTypeIcon(image.imageType) }}</mat-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-counter">
+              {{ currentImageIndex + 1 }} / {{ profile.imageGallery.length }}
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="gallery-card" *ngIf="profile.imageGallery.length === 0">
+          <mat-card-content>
+            <div class="empty-gallery">
+              <mat-icon>photo_library</mat-icon>
+              <p>لا توجد صور متاحة</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<!-- Loading State -->
+<div class="loading-container" *ngIf="isLoading">
+  <mat-spinner diameter="60"></mat-spinner>
+  <p>جاري تحميل الملف الشخصي...</p>
+</div>
+

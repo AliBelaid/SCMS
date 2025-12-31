@@ -4,10 +4,10 @@
 $ErrorActionPreference = "Stop"
 
 $startTime = Get-Date
-$dateString = Get-Date -Format "dd-MM-yyyy"
-$publishPath = "C:\DVS_pub_$dateString"
+$timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+$publishPath = "C:\scms_$timestamp"
 
-Write-Host "🚀 Starting DVS Full Application Publishing Process..." -ForegroundColor Green
+Write-Host "🚀 Starting SCMS Full Application Publishing Process..." -ForegroundColor Green
 Write-Host "=================================================" -ForegroundColor Green
 Write-Host "Target Directory: $publishPath" -ForegroundColor Yellow
 
@@ -31,73 +31,43 @@ Write-Host "=================================================" -ForegroundColor 
 # Step 1: Build Angular Frontend
 Write-Host "`nStep 1: Building Angular Frontend" -ForegroundColor Cyan
 
-Push-Location -Path "DVS_FE"
+Push-Location -Path "SCMS"
 
 try {
-    Write-Host "Running npm install..." -ForegroundColor Yellow
-    npm install --legacy-peer-deps
+    # Check if node_modules exists, if not install dependencies
+    if (-not (Test-Path "node_modules")) {
+        Write-Host "Installing Angular dependencies..." -ForegroundColor Yellow
+        npm install --legacy-peer-deps
+    } else {
+        Write-Host "Dependencies already installed, skipping npm install" -ForegroundColor Gray
+    }
     
-    Write-Host "Building production build..." -ForegroundColor Yellow
+    Write-Host "Building Angular in production mode..." -ForegroundColor Yellow
+    Write-Host "Output will go to: ..\API\wwwroot" -ForegroundColor Gray
     
-    # Try building with production config first
-    ng build --configuration=production
+    # Build Angular in production mode (outputs to ../API/wwwroot as configured in angular.json)
+    npm run build
     
     if ($LASTEXITCODE -ne 0) {
-        Write-Host "Production build failed (likely due to Google Fonts access issue)..." -ForegroundColor Yellow
-        Write-Host "Trying alternative build methods..." -ForegroundColor Yellow
-        
-        # Try building without font inlining by using different optimization settings
-        Write-Host "Attempting build with font inlining disabled..." -ForegroundColor Yellow
-        ng build --configuration=production --optimization=false
-        
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "Trying build with minimal optimization..." -ForegroundColor Yellow
-            ng build --configuration=production --optimization=false --build-optimizer=false
-            
-            if ($LASTEXITCODE -ne 0) {
-                Write-Host "Trying development build as final fallback..." -ForegroundColor Yellow
-                ng build
-                
-                if ($LASTEXITCODE -ne 0) {
-                    Write-Host "❌ All build attempts failed!" -ForegroundColor Red
-                    Write-Host "This is likely due to network connectivity issues preventing access to Google Fonts." -ForegroundColor Red
-                    Write-Host "Solutions:" -ForegroundColor Yellow
-                    Write-Host "1. Check your internet connection" -ForegroundColor White
-                    Write-Host "2. Try running the script again when network is stable" -ForegroundColor White
-                    Write-Host "3. Consider removing Google Fonts imports from your SCSS files temporarily" -ForegroundColor White
-                    throw "All build attempts failed. Please resolve network connectivity issues."
-                } else {
-                    Write-Host "✅ Development build succeeded as fallback" -ForegroundColor Green
-                }
-            } else {
-                Write-Host "✅ Build succeeded with minimal optimization" -ForegroundColor Green
-            }
-        } else {
-            Write-Host "✅ Build succeeded with font inlining disabled" -ForegroundColor Green
-        }
-    } else {
-        Write-Host "✅ Production build succeeded!" -ForegroundColor Green
+        Write-Host "❌ Angular build failed!" -ForegroundColor Red
+        throw "Angular build failed. Please check the error messages above."
     }
     
-    # Copy built files to publish directory
-    $frontendPublishPath = Join-Path $publishPath "frontend"
-    New-Item -Path $frontendPublishPath -ItemType Directory -Force | Out-Null
+    Write-Host "✅ Angular production build succeeded!" -ForegroundColor Green
     
-    # Angular build outputs to dist/dvs-fe (or similar)
-    $distPath = ""
-    if (Test-Path "dist") {
-        $distFolders = Get-ChildItem -Path "dist" -Directory
-        if ($distFolders.Count -gt 0) {
-            $distPath = $distFolders[0].FullName
-            Write-Host "Found dist folder: $($distFolders[0].Name)" -ForegroundColor Yellow
-        }
-    }
+    # Angular build outputs to ../API/wwwroot (configured in angular.json)
+    $wwwrootPath = Join-Path ".." "API\wwwroot"
     
-    if ($distPath -and (Test-Path $distPath)) {
-        Copy-Item -Path "$distPath/*" -Destination $frontendPublishPath -Recurse -Force
-        Write-Host "Frontend files copied from $distPath to: $frontendPublishPath" -ForegroundColor Green
+    if (Test-Path $wwwrootPath) {
+        Write-Host "✅ Angular build output found in: $wwwrootPath" -ForegroundColor Green
+        
+        # Copy built files to publish directory (frontend folder for separate deployment if needed)
+        $frontendPublishPath = Join-Path $publishPath "frontend"
+        New-Item -Path $frontendPublishPath -ItemType Directory -Force | Out-Null
+        Copy-Item -Path "$wwwrootPath\*" -Destination $frontendPublishPath -Recurse -Force
+        Write-Host "Frontend files copied to: $frontendPublishPath" -ForegroundColor Green
     } else {
-        throw "Frontend build output not found in dist folder"
+        throw "Frontend build output not found in $wwwrootPath"
     }
 }
 finally {
@@ -150,9 +120,10 @@ if ($apiProjects.Count -gt 0) {
             Write-Host "Continuing with publish..." -ForegroundColor Yellow
         }
         
-        # Publish API
+        # Publish API (will include wwwroot with Angular)
         $apiPublishPath = Join-Path $publishPath "api"
         Write-Host "Publishing API to: $apiPublishPath" -ForegroundColor Yellow
+        Write-Host "Note: Angular app from wwwroot will be included automatically" -ForegroundColor Gray
         dotnet publish --configuration Release --output $apiPublishPath /p:TreatWarningsAsErrors=false /p:WarningLevel=0
         
         if ($LASTEXITCODE -ne 0) {
@@ -180,8 +151,8 @@ Write-Host "=================================================" -ForegroundColor 
 Write-Host "`nStep 3: Creating deployment information" -ForegroundColor Cyan
 
 $deploymentInfo = @"
-DVS Application Deployment Package
-==================================
+SCMS Application Deployment Package
+===================================
 
 Build Date: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Build Machine: $env:COMPUTERNAME
@@ -190,21 +161,23 @@ Build User: $env:USERNAME
 Directory Structure:
 --------------------
 frontend/       - Angular application (serve with web server)
-api/            - .NET Core API (deploy to IIS or Kestrel)
+api/            - .NET Core API (includes wwwroot with Angular, deploy to IIS or Kestrel)
 
 Deployment Instructions:
 ------------------------
 
 1. Frontend (Angular):
-   - Deploy contents of 'frontend' folder to web server
+   - Deploy contents of 'frontend' folder to web server (optional - already in api/wwwroot)
+   - OR use the Angular app already included in api/wwwroot folder
    - Configure web server to serve index.html for all routes (SPA routing)
    - Update environment files if needed
    - Recommended: Use IIS, Apache, or Nginx
 
 2. Backend (API):
    - Deploy contents of 'api' folder to IIS or run with Kestrel
+   - Angular app is already included in api/wwwroot folder
    - Update appsettings.json with production database connection
-   - Ensure .NET 8.0 Runtime is installed on target server
+   - Ensure .NET 9.0 Runtime is installed on target server
    - Configure CORS settings for your domain
 
 3. Database:
@@ -220,7 +193,7 @@ Development Info:
 -----------------
 - Frontend runs on: http://localhost:4200 (ng serve)
 - Backend runs on: http://localhost:5000 (dotnet run)
-- Project path: D:\SFileSysyem\DVS_2025
+- Project path: D:\myApps\SCMS
 
 For more information, see project documentation.
 "@
@@ -231,27 +204,29 @@ Write-Host "Deployment info created" -ForegroundColor Green
 # Step 4: Create quick start batch file
 $quickStartBat = @"
 @echo off
-echo Starting DVS Application...
+echo Starting SCMS Application...
 echo ================================
 cd /d "%~dp0"
 
 echo Starting API Server...
-if exist "api\*.dll" (
-    start "DVS API" cmd /k "cd api && dotnet *.dll"
+if exist "api\API.dll" (
+    start "SCMS API" cmd /k "cd api && dotnet API.dll"
     timeout /t 3
+    echo API server started on http://localhost:5000
+    echo Angular app is served from api/wwwroot
 ) else (
     echo No API found in api folder
 )
 
 echo.
-echo Starting Frontend Server (requires http-server or similar)...
-echo Please serve the frontend folder using your preferred web server
+echo Note: Angular app is already included in api/wwwroot
+echo The API will serve both the API and the Angular frontend
 echo.
-echo Examples:
+echo To serve frontend separately (optional):
 echo   cd frontend && npx http-server -p 4200
 echo   cd frontend && python -m http.server 4200
 echo.
-echo Or deploy to IIS/Apache/Nginx for production
+echo For production, deploy the api folder to IIS/Apache/Nginx
 
 pause
 "@
@@ -262,20 +237,23 @@ Write-Host "Quick start script created" -ForegroundColor Green
 # Step 5: Create IIS deployment script
 $iisScript = @"
 @echo off
-echo DVS IIS Deployment Helper
-echo =========================
+echo SCMS IIS Deployment Helper
+echo ==========================
 
-echo This script helps deploy DVS to IIS
+echo This script helps deploy SCMS to IIS
 echo.
 echo Prerequisites:
 echo - IIS with ASP.NET Core Module installed
-echo - .NET 8.0 Runtime installed
+echo - .NET 9.0 Runtime installed
 echo.
 echo Steps:
-echo 1. Copy 'frontend' folder to IIS wwwroot (e.g., C:\inetpub\wwwroot\dvs)
-echo 2. Copy 'api' folder to IIS applications folder
-echo 3. Create IIS Application for API
+echo 1. Copy 'api' folder to IIS applications folder (e.g., C:\inetpub\wwwroot\scms)
+echo 2. Angular app is already included in api/wwwroot
+echo 3. Create IIS Application pointing to the api folder
 echo 4. Configure URL Rewrite for Angular SPA routing
+echo 5. Update appsettings.json with production settings
+echo.
+echo Note: The api folder contains both the API and Angular frontend (in wwwroot)
 echo.
 echo For detailed instructions, see DEPLOYMENT_INFO.txt
 echo.
@@ -291,7 +269,7 @@ Write-Host "=================================================" -ForegroundColor 
 $endTime = Get-Date
 $duration = $endTime - $startTime
 
-Write-Host "`n✅ DVS application publishing completed successfully!" -ForegroundColor Green
+Write-Host "`n✅ SCMS application publishing completed successfully!" -ForegroundColor Green
 Write-Host "=================================================" -ForegroundColor Green
 Write-Host "Published to: $publishPath" -ForegroundColor Cyan
 Write-Host "Total time: $($duration.Minutes) minutes and $($duration.Seconds) seconds" -ForegroundColor Yellow

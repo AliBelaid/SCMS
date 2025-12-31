@@ -94,7 +94,7 @@ namespace Infrastructure.Identity
             
             if (await userManager.FindByEmailAsync(adminUser.Email) == null)
             {
-                var result = await userManager.CreateAsync(adminUser, "Admin123");
+                var result = await userManager.CreateAsync(adminUser, "Admin123!");
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(adminUser, "Admin");

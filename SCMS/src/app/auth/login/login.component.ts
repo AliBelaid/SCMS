@@ -282,31 +282,14 @@ export class LoginComponent implements OnInit {
   private resolveLandingRoute(roles: string[], userType: string): { route: string; name: string } {
     const hasRole = (role: string) => roles.includes(role.toLowerCase()) || userType === role.toLowerCase();
 
-    if (hasRole('admin') || hasRole('tpa-admin') || hasRole('tpa_admin')) {
-      return { route: '/app/insurance/dashboard', name: 'Insurance Dashboard' };
+    // Navigate to visitor management for all users (main feature)
+    // You can customize this based on roles if needed
+    if (hasRole('admin') || hasRole('tpa-admin') || hasRole('tpa_admin') || hasRole('reception') || hasRole('dataentry')) {
+      return { route: '/app/visitor-management', name: 'Visitor Management Dashboard' };
     }
 
-    if (hasRole('reception')) {
-      return { route: '/app/reception', name: 'Reception Dashboard' };
-    }
-
-    if (hasRole('dataentry')) {
-      return { route: '/app/insurance/dashboard', name: 'Data Entry Dashboard' };
-    }
-
-    if (hasRole('insurance-company')) {
-      return { route: '/app/insurance/insurance-companies', name: 'Insurance Companies' };
-    }
-
-    if (hasRole('corporate-client')) {
-      return { route: '/app/corporate-clients', name: 'Corporate Clients' };
-    }
-
-    if (hasRole('medicaltechnician') || hasRole('medical-provider') || hasRole('provider')) {
-      return { route: '/app/insurance/medical-providers', name: 'Medical Providers' };
-    }
-
-    return { route: '/app', name: 'Main Dashboard' };
+    // Default to visitor management
+    return { route: '/app/visitor-management', name: 'Visitor Management Dashboard' };
   }
 
   private navigateToRoute(route: string, routeName: string): void {

@@ -64,7 +64,7 @@ namespace Infrastructure.Services
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public async Task<AppUser> GetUserByCodeAsync(string code)
+        public async Task<AppUser?> GetUserByCodeAsync(string code)
         {
             return await _context.Users
                 .Include(u => u.UserRoles)
@@ -81,7 +81,7 @@ namespace Infrastructure.Services
                 .ToListAsync();
         }
 
-        public async Task<AppUser> UpdateUserAsync(int id, UpdateUserDto updateUserDto)
+        public async Task<AppUser?> UpdateUserAsync(int id, UpdateUserDto updateUserDto)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null) return null;
@@ -166,7 +166,7 @@ namespace Infrastructure.Services
             return await _userManager.CheckPasswordAsync(user, password);
         }
 
-        public async Task<AppUser> GetCurrentUserAsync(int userId)
+        public async Task<AppUser?> GetCurrentUserAsync(int userId)
         {
             return await _userManager.Users
                 .Include(u => u.UserRoles)

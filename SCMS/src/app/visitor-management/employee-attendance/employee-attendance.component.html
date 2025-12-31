@@ -1,0 +1,164 @@
+<div class="attendance-container">
+  <div class="header-section">
+    <button mat-icon-button (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="header-content">
+      <h1 class="page-title">سجل حضور الموظف</h1>
+      <p class="employee-subtitle" *ngIf="employee">
+        {{ employee.employeeName }} ({{ employee.employeeId }})
+      </p>
+    </div>
+  </div>
+
+  <mat-card *ngIf="employee" class="employee-card">
+    <mat-card-header>
+      <div class="employee-header">
+        <div class="employee-details">
+          <h2>{{ employee.employeeName }}</h2>
+          <div class="employee-meta">
+            <span class="meta-item">
+              <mat-icon>badge</mat-icon>
+              {{ employee.employeeId }}
+            </span>
+            <span class="meta-item" *ngIf="employee.departmentName">
+              <mat-icon>business</mat-icon>
+              {{ employee.departmentName }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Filters Section -->
+      <div class="filters-section">
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>من تاريخ</mat-label>
+          <input matInput [matDatepicker]="fromPicker" [(ngModel)]="dateFrom" (dateChange)="onDateFilterChange()">
+          <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+          <mat-datepicker #fromPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>إلى تاريخ</mat-label>
+          <input matInput [matDatepicker]="toPicker" [(ngModel)]="dateTo" (dateChange)="onDateFilterChange()">
+          <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+          <mat-datepicker #toPicker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="applyQuickFilter('today')" [class.active]="selectedFilter === 'today'">
+          اليوم
+        </button>
+        <button mat-stroked-button (click)="applyQuickFilter('week')" [class.active]="selectedFilter === 'week'">
+          هذا الأسبوع
+        </button>
+        <button mat-stroked-button (click)="applyQuickFilter('month')" [class.active]="selectedFilter === 'month'">
+          هذا الشهر
+        </button>
+        <button mat-stroked-button (click)="applyQuickFilter('year')" [class.active]="selectedFilter === 'year'">
+          هذه السنة
+        </button>
+
+        <button mat-raised-button color="primary" (click)="exportAttendance()" [disabled]="isExporting || attendances.length === 0">
+          <mat-icon>download</mat-icon>
+          تصدير
+        </button>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-section" *ngIf="!isLoading">
+        <div class="stat-card">
+          <div class="stat-icon total">
+            <mat-icon>event</mat-icon>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">{{ attendances.length }}</div>
+            <div class="stat-label">إجمالي الحضور</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon completed">
+            <mat-icon>check_circle</mat-icon>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">{{ getCompletedCount() }}</div>
+            <div class="stat-label">حضور مكتمل</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon total-hours">
+            <mat-icon>schedule</mat-icon>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">{{ getTotalHours() }}</div>
+            <div class="stat-label">إجمالي الساعات</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>جاري تحميل البيانات...</p>
+      </div>
+
+      <!-- Attendance Table -->
+      <div class="table-container" *ngIf="!isLoading && attendances.length > 0">
+        <table mat-table [dataSource]="attendances" class="attendance-table">
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>التاريخ</th>
+            <td mat-cell *matCellDef="let attendance">
+              <div class="date-cell">
+                <div class="date-day">{{ getDateDay(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime || '') }}</div>
+                <div class="date-full">{{ formatDate(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime || '') }}</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="checkInTime">
+            <th mat-header-cell *matHeaderCellDef>وقت الدخول</th>
+            <td mat-cell *matCellDef="let attendance">
+              <div class="time-cell check-in">
+                <mat-icon>login</mat-icon>
+                <span>{{ formatTime(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime || '') }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="checkOutTime">
+            <th mat-header-cell *matHeaderCellDef>وقت الخروج</th>
+            <td mat-cell *matCellDef="let attendance">
+              <div class="time-cell check-out" *ngIf="attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime; else noCheckout">
+                <mat-icon>logout</mat-icon>
+                <span>{{ formatTime(attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime || '') }}</span>
+              </div>
+              <ng-template #noCheckout>
+                <span class="no-checkout">-</span>
+              </ng-template>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef>المدة</th>
+            <td mat-cell *matCellDef="let attendance">
+              <span class="duration-badge" [class.completed]="attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime" [class.ongoing]="!(attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime)">
+                {{ getDuration(attendance) }}
+              </span>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="attendance-row"></tr>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="!isLoading && attendances.length === 0">
+        <mat-icon>event_busy</mat-icon>
+        <h3>لا يوجد سجل حضور</h3>
+        <p>لم يتم العثور على أي سجل حضور في الفترة المحددة</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

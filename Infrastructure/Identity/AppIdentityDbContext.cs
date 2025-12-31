@@ -4,6 +4,7 @@ using System.Linq;
 using Core.Entities.DocumentManagement;
 using Core.Entities.DocumentViewer;
 using Core.Entities.Identity;
+using Core.Entities.VisitorManagement;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +40,13 @@ namespace Infrastructure.Identity
         public DbSet<ArchivedOrder> ArchivedOrders { get; set; }
         public DbSet<OrderActivityLog> OrderActivityLogs { get; set; }
 
+        // Visitor Management System entities
+        public DbSet<Visitor> Visitors { get; set; }
+        public DbSet<Visit> Visits { get; set; }
+        public DbSet<VisitorDepartment> VisitorDepartments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeAttendance> EmployeeAttendances { get; set; }
+
         private static readonly ValueComparer<List<string>> StringListValueComparer =
             new(
                 (left, right) => (left ?? new List<string>()).SequenceEqual(right ?? new List<string>()),
@@ -69,9 +77,19 @@ namespace Infrastructure.Identity
             ConfigureOrderUserExceptions(builder);
             ConfigureArchivedOrders(builder);
             ConfigureOrderActivityLogs(builder);
+            
+            // Visitor Management
+            ConfigureVisitors(builder);
+            ConfigureVisits(builder);
+            ConfigureVisitorDepartments(builder);
+            ConfigureEmployees(builder);
+            ConfigureEmployeeAttendances(builder);
 
             SeedDepartments(builder);
             SeedSubjects(builder);
+            SeedVisitorDepartments(builder);
+            SeedVisitors(builder);
+            // Note: SeedVisits moved to AppIdentityDbContextSeed to run after users are created
         }
 
         private static void ConfigureIdentity(ModelBuilder builder)
@@ -299,6 +317,31 @@ namespace Infrastructure.Identity
                     .WithMany()
                     .HasForeignKey(p => p.GrantedById)
                     .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure UserPermission to avoid cascade delete conflicts
+            builder.Entity<UserPermission>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Notes).HasMaxLength(500);
+
+                entity.HasIndex(e => new { e.OrderId, e.UserId }).IsUnique();
+                entity.HasIndex(e => e.UserId);
+
+                entity.HasOne(p => p.Order)
+                    .WithMany()
+                    .HasForeignKey(p => p.OrderId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(p => p.User)
+                    .WithMany()
+                    .HasForeignKey(p => p.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);  // Changed to Restrict to avoid cascade conflict
+
+                entity.HasOne(p => p.GrantedBy)
+                    .WithMany()
+                    .HasForeignKey(p => p.GrantedById)
+                    .OnDelete(DeleteBehavior.Restrict);  // Changed to Restrict to avoid cascade conflict
             });
         }
 
@@ -548,6 +591,428 @@ namespace Infrastructure.Identity
             );
 
             propertyBuilder.Metadata.SetValueComparer(StringListValueComparer);
+        }
+
+        private static void ConfigureVisitors(ModelBuilder builder)
+        {
+            builder.Entity<Visitor>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.FullName).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.NationalId).HasMaxLength(50);
+                entity.Property(e => e.Phone).HasMaxLength(50);
+                entity.Property(e => e.Company).HasMaxLength(200);
+                entity.Property(e => e.MedicalNotes).HasMaxLength(500);
+                entity.Property(e => e.PersonImageUrl).HasMaxLength(500);
+                entity.Property(e => e.IdCardImageUrl).HasMaxLength(500);
+
+                entity.HasIndex(e => e.NationalId);
+                entity.HasIndex(e => e.Phone);
+            });
+        }
+
+        private static void ConfigureVisits(ModelBuilder builder)
+        {
+            builder.Entity<Visit>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.VisitNumber).IsRequired().HasMaxLength(50);
+                entity.Property(e => e.VisitorName).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.CarPlate).HasMaxLength(20);
+                entity.Property(e => e.CarImageUrl).HasMaxLength(500);
+                entity.Property(e => e.DepartmentName).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.EmployeeToVisit).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.VisitReason).HasMaxLength(500);
+                entity.Property(e => e.Status).IsRequired().HasMaxLength(20);
+                entity.Property(e => e.CreatedByUserName).IsRequired().HasMaxLength(200);
+
+                entity.HasIndex(e => e.VisitNumber).IsUnique();
+                entity.HasIndex(e => e.Status);
+                entity.HasIndex(e => e.CheckInAt);
+
+                entity.HasOne(v => v.Visitor)
+                    .WithMany()
+                    .HasForeignKey(v => v.VisitorId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(v => v.CreatedByUser)
+                    .WithMany()
+                    .HasForeignKey(v => v.CreatedByUserId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+        }
+
+        private static void ConfigureVisitorDepartments(ModelBuilder builder)
+        {
+            builder.Entity<VisitorDepartment>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.Description).HasMaxLength(500);
+                entity.HasIndex(e => e.Name).IsUnique();
+            });
+        }
+
+        private static void ConfigureEmployees(ModelBuilder builder)
+        {
+            builder.Entity<Employee>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.EmployeeId).IsRequired().HasMaxLength(50);
+                entity.Property(e => e.EmployeeName).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.CardImageUrl).HasMaxLength(500);
+                entity.Property(e => e.FaceImageUrl).HasMaxLength(500);
+
+                entity.HasIndex(e => e.EmployeeId).IsUnique();
+
+                entity.HasOne(e => e.Department)
+                    .WithMany()
+                    .HasForeignKey(e => e.DepartmentId)
+                    .OnDelete(DeleteBehavior.SetNull);
+            });
+        }
+
+        private static void ConfigureEmployeeAttendances(ModelBuilder builder)
+        {
+            builder.Entity<EmployeeAttendance>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Notes).HasMaxLength(500);
+
+                entity.HasIndex(e => e.EmployeeId);
+                entity.HasIndex(e => e.CheckInTime);
+
+                entity.HasOne(e => e.Employee)
+                    .WithMany()
+                    .HasForeignKey(e => e.EmployeeId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+        }
+
+        private static void SeedVisitorDepartments(ModelBuilder builder)
+        {
+            var seedTimestamp = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            builder.Entity<VisitorDepartment>().HasData(
+                new VisitorDepartment
+                {
+                    Id = 1,
+                    Name = "Human Resources",
+                    Description = "HR Department",
+                    IsActive = true,
+                    CreatedAt = seedTimestamp
+                },
+                new VisitorDepartment
+                {
+                    Id = 2,
+                    Name = "Finance",
+                    Description = "Finance Department",
+                    IsActive = true,
+                    CreatedAt = seedTimestamp
+                },
+                new VisitorDepartment
+                {
+                    Id = 3,
+                    Name = "Operations",
+                    Description = "Operations Department",
+                    IsActive = true,
+                    CreatedAt = seedTimestamp
+                },
+                new VisitorDepartment
+                {
+                    Id = 4,
+                    Name = "IT",
+                    Description = "IT Department",
+                    IsActive = true,
+                    CreatedAt = seedTimestamp
+                },
+                new VisitorDepartment
+                {
+                    Id = 5,
+                    Name = "Sales",
+                    Description = "Sales Department",
+                    IsActive = true,
+                    CreatedAt = seedTimestamp
+                }
+            );
+        }
+
+        private static void SeedVisitors(ModelBuilder builder)
+        {
+            var seedTimestamp = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            builder.Entity<Visitor>().HasData(
+                new Visitor
+                {
+                    Id = 1,
+                    FullName = "Ahmed Ali Hassan",
+                    NationalId = "2850123456789",
+                    Phone = "0501234567",
+                    Company = "Tech Solutions Ltd",
+                    CreatedAt = seedTimestamp,
+                    UpdatedAt = seedTimestamp
+                },
+                new Visitor
+                {
+                    Id = 2,
+                    FullName = "Fatima Mohammed Ibrahim",
+                    NationalId = "2920987654321",
+                    Phone = "0559876543",
+                    Company = "Global Consultants",
+                    CreatedAt = seedTimestamp,
+                    UpdatedAt = seedTimestamp
+                },
+                new Visitor
+                {
+                    Id = 3,
+                    FullName = "Omar Abdullah Khalid",
+                    Phone = "0551112233",
+                    Company = "Business Partners Inc",
+                    CreatedAt = seedTimestamp,
+                    UpdatedAt = seedTimestamp
+                },
+                new Visitor
+                {
+                    Id = 4,
+                    FullName = "Layla Hassan Ahmed",
+                    NationalId = "2881234567890",
+                    Phone = "0503334455",
+                    CreatedAt = seedTimestamp,
+                    UpdatedAt = seedTimestamp
+                },
+                new Visitor
+                {
+                    Id = 5,
+                    FullName = "Khalid Yousef Mansour",
+                    Phone = "0555556666",
+                    Company = "Innovation Hub",
+                    CreatedAt = seedTimestamp,
+                    UpdatedAt = seedTimestamp
+                }
+            );
+        }
+
+        private static void SeedVisits(ModelBuilder builder)
+        {
+            var seedTimestamp = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            
+            // Note: User IDs will be created by Identity - typically Admin=1, Member1=2, Member2=3, Member3=4
+            // But we'll use a safe assumption that admin user exists with ID 1
+            // In production, this should be handled more carefully or visits seeded after users are created
+
+            builder.Entity<Visit>().HasData(
+                // Completed visit - Ahmed visiting HR (yesterday)
+                new Visit
+                {
+                    Id = 1,
+                    VisitNumber = "V20250106-0001",
+                    VisitorId = 1,
+                    VisitorName = "Ahmed Ali Hassan",
+                    CarPlate = "ABC-1234",
+                    DepartmentId = 1,
+                    DepartmentName = "Human Resources",
+                    EmployeeToVisit = "Mohammed Abdullah",
+                    VisitReason = "Job interview",
+                    ExpectedDurationHours = 2,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-1).AddHours(9),
+                    CheckOutAt = seedTimestamp.AddDays(-1).AddHours(11),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-1).AddHours(9),
+                    UpdatedAt = seedTimestamp.AddDays(-1).AddHours(11)
+                },
+                
+                // Completed visit - Fatima visiting Finance
+                new Visit
+                {
+                    Id = 2,
+                    VisitNumber = "V20250106-0002",
+                    VisitorId = 2,
+                    VisitorName = "Fatima Mohammed Ibrahim",
+                    DepartmentId = 2,
+                    DepartmentName = "Finance",
+                    EmployeeToVisit = "Sara Ahmed",
+                    VisitReason = "Budget consultation",
+                    ExpectedDurationHours = 3,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-1).AddHours(10),
+                    CheckOutAt = seedTimestamp.AddDays(-1).AddHours(13),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-1).AddHours(10),
+                    UpdatedAt = seedTimestamp.AddDays(-1).AddHours(13)
+                },
+                
+                // Ongoing visit - Omar visiting IT
+                new Visit
+                {
+                    Id = 3,
+                    VisitNumber = "V20250107-0001",
+                    VisitorId = 3,
+                    VisitorName = "Omar Abdullah Khalid",
+                    CarPlate = "XYZ-5678",
+                    DepartmentId = 4,
+                    DepartmentName = "IT",
+                    EmployeeToVisit = "Khalid Hassan",
+                    VisitReason = "System demonstration",
+                    ExpectedDurationHours = 4,
+                    Status = "ongoing",
+                    CheckInAt = seedTimestamp.AddHours(-2),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddHours(-2),
+                    UpdatedAt = seedTimestamp.AddHours(-2)
+                },
+                
+                // Ongoing visit - Layla visiting Sales
+                new Visit
+                {
+                    Id = 4,
+                    VisitNumber = "V20250107-0002",
+                    VisitorId = 4,
+                    VisitorName = "Layla Hassan Ahmed",
+                    DepartmentId = 5,
+                    DepartmentName = "Sales",
+                    EmployeeToVisit = "Noor Ibrahim",
+                    VisitReason = "Product presentation",
+                    ExpectedDurationHours = 2,
+                    Status = "ongoing",
+                    CheckInAt = seedTimestamp.AddHours(-1),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddHours(-1),
+                    UpdatedAt = seedTimestamp.AddHours(-1)
+                },
+                
+                // Completed visit - Khalid visiting Operations (2 days ago)
+                new Visit
+                {
+                    Id = 5,
+                    VisitNumber = "V20250105-0001",
+                    VisitorId = 5,
+                    VisitorName = "Khalid Yousef Mansour",
+                    CarPlate = "DEF-9999",
+                    DepartmentId = 3,
+                    DepartmentName = "Operations",
+                    EmployeeToVisit = "Ahmed Youssef",
+                    VisitReason = "Operations review meeting",
+                    ExpectedDurationHours = 5,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-2).AddHours(8),
+                    CheckOutAt = seedTimestamp.AddDays(-2).AddHours(13),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-2).AddHours(8),
+                    UpdatedAt = seedTimestamp.AddDays(-2).AddHours(13)
+                },
+                
+                // Completed visit - Ahmed 2nd visit to Finance (3 days ago)
+                new Visit
+                {
+                    Id = 6,
+                    VisitNumber = "V20250104-0001",
+                    VisitorId = 1,
+                    VisitorName = "Ahmed Ali Hassan",
+                    DepartmentId = 2,
+                    DepartmentName = "Finance",
+                    EmployeeToVisit = "Sara Ahmed",
+                    VisitReason = "Contract discussion",
+                    ExpectedDurationHours = 1,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-3).AddHours(14),
+                    CheckOutAt = seedTimestamp.AddDays(-3).AddHours(15),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-3).AddHours(14),
+                    UpdatedAt = seedTimestamp.AddDays(-3).AddHours(15)
+                },
+                
+                // Completed visit - Fatima visiting HR (4 days ago)
+                new Visit
+                {
+                    Id = 7,
+                    VisitNumber = "V20250103-0001",
+                    VisitorId = 2,
+                    VisitorName = "Fatima Mohammed Ibrahim",
+                    CarPlate = "LMN-3333",
+                    DepartmentId = 1,
+                    DepartmentName = "Human Resources",
+                    EmployeeToVisit = "Mohammed Abdullah",
+                    VisitReason = "Training session",
+                    ExpectedDurationHours = 6,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-4).AddHours(9),
+                    CheckOutAt = seedTimestamp.AddDays(-4).AddHours(15),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-4).AddHours(9),
+                    UpdatedAt = seedTimestamp.AddDays(-4).AddHours(15)
+                },
+                
+                // Ongoing visit - Omar 2nd visit to Sales
+                new Visit
+                {
+                    Id = 8,
+                    VisitNumber = "V20250107-0003",
+                    VisitorId = 3,
+                    VisitorName = "Omar Abdullah Khalid",
+                    DepartmentId = 5,
+                    DepartmentName = "Sales",
+                    EmployeeToVisit = "Noor Ibrahim",
+                    VisitReason = "Partnership discussion",
+                    ExpectedDurationHours = 3,
+                    Status = "ongoing",
+                    CheckInAt = seedTimestamp.AddMinutes(-30),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddMinutes(-30),
+                    UpdatedAt = seedTimestamp.AddMinutes(-30)
+                },
+                
+                // Completed visit - Layla visiting IT (5 days ago)
+                new Visit
+                {
+                    Id = 9,
+                    VisitNumber = "V20250102-0001",
+                    VisitorId = 4,
+                    VisitorName = "Layla Hassan Ahmed",
+                    DepartmentId = 4,
+                    DepartmentName = "IT",
+                    EmployeeToVisit = "Khalid Hassan",
+                    VisitReason = "Technical support",
+                    ExpectedDurationHours = 2,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-5).AddHours(10),
+                    CheckOutAt = seedTimestamp.AddDays(-5).AddHours(12),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-5).AddHours(10),
+                    UpdatedAt = seedTimestamp.AddDays(-5).AddHours(12)
+                },
+                
+                // Completed visit - Khalid visiting HR (6 days ago)
+                new Visit
+                {
+                    Id = 10,
+                    VisitNumber = "V20250101-0001",
+                    VisitorId = 5,
+                    VisitorName = "Khalid Yousef Mansour",
+                    CarPlate = "DEF-9999",
+                    DepartmentId = 1,
+                    DepartmentName = "Human Resources",
+                    EmployeeToVisit = "Mohammed Abdullah",
+                    VisitReason = "Employee onboarding",
+                    ExpectedDurationHours = 4,
+                    Status = "completed",
+                    CheckInAt = seedTimestamp.AddDays(-6).AddHours(9),
+                    CheckOutAt = seedTimestamp.AddDays(-6).AddHours(13),
+                    CreatedByUserId = 1,
+                    CreatedByUserName = "ADMIN001",
+                    CreatedAt = seedTimestamp.AddDays(-6).AddHours(9),
+                    UpdatedAt = seedTimestamp.AddDays(-6).AddHours(13)
+                }
+            );
         }
     }
 }

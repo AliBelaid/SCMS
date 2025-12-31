@@ -95,6 +95,79 @@ export const DocumentManagementRoutes: Routes = [
         ],
       },
       {
+        path: 'departments',
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full',
+          },
+          {
+            path: 'list',
+            loadComponent: () =>
+              import('./departments-list/departments-list.component').then(
+                (m) => m.DepartmentsListComponent
+              ),
+          },
+          {
+            path: 'create',
+            loadComponent: () =>
+              import('./department-form/department-form.component').then(
+                (m) => m.DepartmentFormComponent
+              ),
+            data: { mode: 'create' },
+          },
+          {
+            path: 'edit/:id',
+            loadComponent: () =>
+              import('./department-form/department-form.component').then(
+                (m) => m.DepartmentFormComponent
+              ),
+            data: { mode: 'edit' },
+          },
+          {
+            path: 'details/:id',
+            loadComponent: () =>
+              import('./department-details/department-details.component').then(
+                (m) => m.DepartmentDetailsComponent
+              ),
+          },
+        ],
+      },
+      {
+        path: 'users',
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full',
+          },
+          {
+            path: 'list',
+            loadComponent: () =>
+              import('./users-list/users-list.component').then(
+                (m) => m.UsersListComponent
+              ),
+          },
+          {
+            path: 'create',
+            loadComponent: () =>
+              import('./user-form/user-form.component').then(
+                (m) => m.UserFormComponent
+              ),
+            data: { mode: 'create' },
+          },
+          {
+            path: 'edit/:id',
+            loadComponent: () =>
+              import('./user-form/user-form.component').then(
+                (m) => m.UserFormComponent
+              ),
+            data: { mode: 'edit' },
+          },
+        ],
+      },
+      {
         path: '**',
         redirectTo: 'dashboard',
       },

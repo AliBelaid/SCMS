@@ -67,6 +67,132 @@ export class NavigationConfigService {
                 icon: 'mat:add_circle'
               }
             ]
+          },
+          {
+            type: 'dropdown',
+            label: this.translate.instant('DEPARTMENTS') || 'Departments',
+            icon: 'mat:apartment',
+            children: [
+              {
+                type: 'link',
+                label: this.translate.instant('ALL_DEPARTMENTS') || 'All Departments',
+                route: '/app/document-management/departments/list',
+                icon: 'mat:list'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('CREATE_DEPARTMENT') || 'Create Department',
+                route: '/app/document-management/departments/create',
+                icon: 'mat:add_circle'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            label: this.translate.instant('USERS') || 'Users',
+            icon: 'mat:people',
+            children: [
+              {
+                type: 'link',
+                label: this.translate.instant('ALL_USERS') || 'All Users',
+                route: '/app/document-management/users/list',
+                icon: 'mat:list'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('CREATE_USER') || 'Create User',
+                route: '/app/document-management/users/create',
+                icon: 'mat:add_circle'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'subheading',
+        label: this.translate.instant('VISITOR_MANAGEMENT') || 'Visitor Management',
+        children: [
+          {
+            type: 'link',
+            label: this.translate.instant('VISITOR_DASHBOARD') || 'Dashboard',
+            route: '/app/visitor-management/dashboard',
+            icon: 'mat:dashboard',
+            routerLinkActiveOptions: { exact: true }
+          },
+          {
+            type: 'dropdown',
+            label: this.translate.instant('VISITS') || 'Visits',
+            icon: 'mat:event_available',
+            children: [
+              {
+                type: 'link',
+                label: this.translate.instant('ACTIVE_VISITS') || 'Active Visits',
+                route: '/app/visitor-management/visits/active',
+                icon: 'mat:access_time'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('CHECK_IN_VISITOR') || 'Check In Visitor',
+                route: '/app/visitor-management/visits/checkin',
+                icon: 'mat:login'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            label: this.translate.instant('VISITORS') || 'Visitors',
+            icon: 'mat:people',
+            children: [
+              {
+                type: 'link',
+                label: this.translate.instant('ALL_VISITORS') || 'All Visitors',
+                route: '/app/visitor-management/visitors/list',
+                icon: 'mat:list'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('CREATE_VISITOR') || 'Create Visitor',
+                route: '/app/visitor-management/visitors/create',
+                icon: 'mat:person_add'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('VISITOR_PROFILES') || 'Visitor Profiles',
+                route: '/app/visitor-management/visitors',
+                icon: 'mat:account_box'
+              }
+            ]
+          },
+          {
+            type: 'link',
+            label: this.translate.instant('VISIT_REPORTS') || 'Reports',
+            route: '/app/visitor-management/reports',
+            icon: 'mat:assessment'
+          },
+          {
+            type: 'dropdown',
+            label: this.translate.instant('EMPLOYEES') || 'Employees',
+            icon: 'mat:badge',
+            children: [
+              {
+                type: 'link',
+                label: this.translate.instant('ALL_EMPLOYEES') || 'All Employees',
+                route: '/app/visitor-management/employees',
+                icon: 'mat:list'
+              },
+              {
+                type: 'link',
+                label: this.translate.instant('EMPLOYEE_ATTENDANCE_DASHBOARD') || 'Attendance Dashboard',
+                route: '/app/visitor-management/employees/dashboard',
+                icon: 'mat:dashboard'
+              }
+            ]
+          },
+          {
+            type: 'link',
+            label: this.translate.instant('DEPARTMENTS') || 'Departments',
+            route: '/app/visitor-management/departments',
+            icon: 'mat:business'
           }
         ]
       },

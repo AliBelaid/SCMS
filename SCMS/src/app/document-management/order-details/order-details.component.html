@@ -231,10 +231,18 @@
                   </div>
 
                   <div matListItemMeta class="attachment-actions">
-                    <button mat-icon-button (click)="viewAttachment(attachment)" matTooltip="عرض">
+                    <button 
+                      mat-icon-button 
+                      (click)="viewAttachment(attachment)" 
+                      matTooltip="عرض"
+                      [disabled]="!isViewableFile(attachment) || (!myPermissions?.canView && !isOwner)">
                       <mat-icon>visibility</mat-icon>
                     </button>
-                    <button mat-icon-button (click)="downloadAttachment(attachment)" matTooltip="تحميل">
+                    <button 
+                      mat-icon-button 
+                      (click)="downloadAttachment(attachment)" 
+                      matTooltip="تحميل"
+                      [disabled]="!myPermissions?.canDownload && !isOwner">
                       <mat-icon>download</mat-icon>
                     </button>
                   </div>

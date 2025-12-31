@@ -9,6 +9,7 @@ import {
   Department,
   Subject as OrderSubject,
   Order,
+  CreateOrderDto,
   GrantUserPermissionDto,
   GrantDepartmentAccessDto,
   AddUserExceptionDto,
@@ -19,6 +20,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { AuthService } from 'src/assets/services/auth.service';
 import { DepartmentService } from '../department.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
@@ -100,7 +103,8 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     private orderService: DepartmentService,
     private authService: AuthService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private http: HttpClient
   ) {
     this.currentUser = this.authService.getCurrentUser();
   }
@@ -123,7 +127,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     this.orderForm = this.fb.group({
       type: ['incoming', Validators.required],
       departmentId: ['', Validators.required],
-      subjectId: ['', Validators.required],
+      subjectId: [{value: '', disabled: true}, Validators.required], // Disabled by default, enabled when department is selected
       title: ['', [Validators.required, Validators.maxLength(200)]],
       description: ['', [Validators.required, Validators.maxLength(1000)]],
       priority: ['medium', Validators.required],
@@ -321,20 +325,29 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   }
 
   onDepartmentChange(departmentId: string): void {
+    const subjectControl = this.orderForm.get('subjectId');
+    
     if (!departmentId) {
       this.filteredSubjects = [];
-      this.orderForm.patchValue({ subjectId: '' });
+      subjectControl?.disable();
+      subjectControl?.setValue('');
       return;
     }
+
+    // Enable the subject field when a department is selected
+    subjectControl?.enable();
 
     this.orderService.getSubjectsByDepartment(departmentId)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (subjects) => {
           this.filteredSubjects = subjects;
+          // Reset subject selection when subjects change
+          subjectControl?.setValue('');
         },
         error: (error) => {
           this.showMessage('فشل تحميل المواضيع', 'error');
+          subjectControl?.disable();
         }
       });
   }
@@ -358,15 +371,60 @@ export class OrderFormComponent implements OnInit, OnDestroy {
         throw new Error('القسم أو الموضوع غير صحيح');
       }
 
-      const referenceNumber = this.generateReferenceNumber(
-        department.code,
-        subject.code,
-        values.type
-      );
+      // Upload files first and get their IDs
+      const attachmentIds: number[] = [];
+      if (this.selectedFiles.length > 0) {
+        for (const file of this.selectedFiles) {
+          try {
+            const documentId = await this.uploadFile(file);
+            if (documentId) {
+              attachmentIds.push(documentId);
+            }
+          } catch (error) {
+            console.error('Error uploading file:', error);
+            // Continue with other files
+          }
+        }
+      }
 
-      const now = new Date();
-      const orderPayload: Omit<Order, 'id' | 'createdAt' | 'updatedAt'> = {
-        referenceNumber,
+      // Build user permissions
+      const userPermissions: GrantUserPermissionDto[] = this.userPermissions.value
+        .filter((p: any) => p.userId)
+        .map((p: any) => ({
+          userId: Number(p.userId),
+          canView: p.canView ?? true,
+          canEdit: p.canEdit ?? false,
+          canDelete: p.canDelete ?? false,
+          canShare: p.canShare ?? false,
+          canDownload: p.canDownload ?? true,
+          canPrint: p.canPrint ?? true,
+          canComment: p.canComment ?? true,
+          canApprove: p.canApprove ?? false,
+          expiresAt: p.expiresAt ? new Date(p.expiresAt) : undefined,
+          notes: p.notes,
+        }));
+
+      // Build department accesses
+      const departmentAccesses: GrantDepartmentAccessDto[] = this.departmentAccesses.value
+        .filter((a: any) => a.departmentId)
+        .map((a: any) => ({
+          departmentId: a.departmentId,
+          accessLevel: a.accessLevel,
+          expiresAt: a.expiresAt ? new Date(a.expiresAt) : undefined,
+          notes: a.notes,
+        }));
+
+      // Build user exceptions
+      const userExceptions: AddUserExceptionDto[] = this.userExceptions.value
+        .filter((e: any) => e.userId)
+        .map((e: any) => ({
+          userId: Number(e.userId),
+          reason: e.reason,
+          expiresAt: e.expiresAt ? new Date(e.expiresAt) : undefined,
+        }));
+
+      // Create order payload with all data
+      const orderPayload: CreateOrderDto = {
         type: values.type,
         departmentId: department.id,
         departmentCode: department.code,
@@ -376,21 +434,14 @@ export class OrderFormComponent implements OnInit, OnDestroy {
         description: values.description,
         status: values.status,
         priority: values.priority,
-        attachments: [],
-        createdBy: this.currentUser?.userName ?? 'system',
-        updatedBy: this.currentUser?.userName ?? 'system',
         dueDate: values.dueDate ? new Date(values.dueDate) : undefined,
         expirationDate: values.expirationDate ? new Date(values.expirationDate) : undefined,
-        isExpired: values.expirationDate ? new Date(values.expirationDate) < now : false,
-        isArchived: false,
-        archivedAt: undefined,
-        archivedBy: undefined,
-        archiveReason: undefined,
         notes: values.notes ?? '',
         isPublic: values.isPublic ?? false,
-        userPermissions: [],
-        departmentAccesses: [],
-        userExceptions: [],
+        userPermissions: userPermissions.length > 0 ? userPermissions : undefined,
+        departmentAccesses: departmentAccesses.length > 0 ? departmentAccesses : undefined,
+        userExceptions: userExceptions.length > 0 ? userExceptions : undefined,
+        attachmentIds: attachmentIds.length > 0 ? attachmentIds : undefined,
       };
 
       const createdOrder = await firstValueFrom(
@@ -399,58 +450,6 @@ export class OrderFormComponent implements OnInit, OnDestroy {
 
       if (!createdOrder) {
         throw new Error('فشل إنشاء المعاملة');
-      }
-
-      if (this.selectedFiles.length > 0) {
-        await this.uploadFiles(createdOrder.id);
-      }
-
-      for (const permission of this.userPermissions.value) {
-        if (permission.userId) {
-          const dto: GrantUserPermissionDto = {
-            userId: Number(permission.userId),
-            canView: permission.canView ?? true,
-            canEdit: permission.canEdit ?? false,
-            canDelete: permission.canDelete ?? false,
-            canShare: permission.canShare ?? false,
-            canDownload: permission.canDownload ?? true,
-            canPrint: permission.canPrint ?? true,
-            canComment: permission.canComment ?? true,
-            canApprove: permission.canApprove ?? false,
-            expiresAt: permission.expiresAt ? new Date(permission.expiresAt) : undefined,
-            notes: permission.notes,
-          };
-          await firstValueFrom(
-            this.orderService.grantUserPermission(createdOrder.id, dto)
-          );
-        }
-      }
-
-      for (const access of this.departmentAccesses.value) {
-        if (access.departmentId) {
-          const dto: GrantDepartmentAccessDto = {
-            departmentId: access.departmentId,
-            accessLevel: access.accessLevel,
-            expiresAt: access.expiresAt ? new Date(access.expiresAt) : undefined,
-            notes: access.notes,
-          };
-          await firstValueFrom(
-            this.orderService.grantDepartmentAccess(createdOrder.id, dto)
-          );
-        }
-      }
-
-      for (const exception of this.userExceptions.value) {
-        if (exception.userId) {
-          const dto: AddUserExceptionDto = {
-            userId: Number(exception.userId),
-            reason: exception.reason,
-            expiresAt: exception.expiresAt ? new Date(exception.expiresAt) : undefined,
-          };
-          await firstValueFrom(
-            this.orderService.addUserException(createdOrder.id, dto)
-          );
-        }
       }
 
       this.showMessage('تم إنشاء المعاملة بنجاح', 'success');
@@ -463,17 +462,25 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  private async uploadFiles(orderId: string): Promise<void> {
-    // TODO: Implement actual file upload to backend
-    // For now, this is a placeholder
-    for (const file of this.selectedFiles) {
+  private async uploadFile(file: File): Promise<number | null> {
+    try {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('orderId', orderId);
-      
-      // await this.fileUploadService.upload(formData).toPromise();
+      formData.append('description', `Attachment for order`);
+      formData.append('category', 'OrderAttachment');
+
+      // Use environment API URL
+      const response = await firstValueFrom(
+        this.http.post<{ id: number }>(`${environment.apiUrl}/DocumentViewer/upload`, formData)
+      );
+
+      return response?.id || null;
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      return null;
     }
   }
+
 
   private generateReferenceNumber(deptCode: string, subjectCode: string, type: string): string {
     const year = new Date().getFullYear();

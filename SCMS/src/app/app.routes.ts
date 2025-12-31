@@ -15,7 +15,7 @@ export const appRoutes: VexRoutes = [
       const router = inject(Router);
       
       if (authService.isAuthenticated()) {
-        router.navigate(['/app/document-management']);
+        router.navigate(['/app/visitor-management']);
         return false;
       } else {
         router.navigate(['/login']);
@@ -57,7 +57,7 @@ export const appRoutes: VexRoutes = [
     children: [
       {
         path: '',
-        redirectTo: 'document-management',
+        redirectTo: 'visitor-management',
         pathMatch: 'full'
       },
       {
@@ -65,6 +65,13 @@ export const appRoutes: VexRoutes = [
         loadChildren: () =>
           import('./document-management/document-management.routes').then(
             (m) => m.DocumentManagementRoutes
+          )
+      },
+      {
+        path: 'visitor-management',
+        loadChildren: () =>
+          import('./visitor-management/visitor-management.routes').then(
+            (m) => m.VisitorManagementRoutes
           )
       },
       {

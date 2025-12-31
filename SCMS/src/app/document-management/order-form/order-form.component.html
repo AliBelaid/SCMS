@@ -73,7 +73,7 @@
               <!-- Subject -->
               <mat-form-field appearance="outline" class="form-field">
                 <mat-label>الموضوع</mat-label>
-                <mat-select formControlName="subjectId" required [disabled]="!orderForm.get('departmentId')?.value">
+                <mat-select formControlName="subjectId" required>
                   <mat-option *ngFor="let subject of filteredSubjects" [value]="subject.id">
                     {{ subject.nameAr }} ({{ subject.code }})
                   </mat-option>

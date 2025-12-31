@@ -1,0 +1,308 @@
+<div class="dashboard-container" style="margin-top: 70px;">
+  <!-- Hero Section with Live Time -->
+  <div class="dashboard-hero">
+    <div class="hero-content">
+      <div class="live-time">
+        <h1 class="time">{{ getCurrentTimeFormatted() }}</h1>
+        <p class="date">{{ getCurrentDateFormatted() }}</p>
+      </div>
+      <div class="hero-title">
+        <mat-icon>dashboard</mat-icon>
+        <h2>لوحة التحكم - إدارة الزوار</h2>
+      </div>
+      <button mat-fab color="accent" class="refresh-button" 
+              (click)="refreshDashboard()"
+              [class.spinning]="isRefreshing"
+              matTooltip="تحديث">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="80"></mat-spinner>
+    <p>جاري تحميل البيانات...</p>
+  </div>
+
+  <div *ngIf="!isLoading" class="dashboard-content">
+    
+    <!-- Main Stats Cards -->
+    <div class="stats-grid">
+      <mat-card class="stat-card total-visits" (click)="navigateToVisits()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>assessment</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.totalVisits }}</h2>
+            <p class="stat-label">إجمالي الزيارات</p>
+            <div class="stat-trend">
+              <mat-icon>trending_up</mat-icon>
+              <span>+12% عن الشهر الماضي</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card ongoing-visits" (click)="navigateToVisits('checkedin')">
+        <mat-card-content>
+          <div class="stat-icon pulse-animation">
+            <mat-icon>schedule</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.totalOngoing }}</h2>
+            <p class="stat-label">زيارات جارية الآن</p>
+            <div class="stat-trend live">
+              <mat-icon>wifi</mat-icon>
+              <span>مباشر</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card completed-visits" (click)="navigateToVisits('checkedout')">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>check_circle</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.totalCompleted }}</h2>
+            <p class="stat-label">زيارات مكتملة</p>
+            <div class="stat-trend">
+              <mat-icon>done_all</mat-icon>
+              <span>{{ todayVisits }} اليوم</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card today-visits" (click)="navigateToReports()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>today</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ todayVisits }}</h2>
+            <p class="stat-label">زيارات اليوم</p>
+            <div class="stat-trend">
+              <mat-icon>access_time</mat-icon>
+              <span>{{ weekVisits }} هذا الأسبوع</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <button mat-raised-button color="primary" class="action-btn" (click)="navigateToCheckin()">
+        <mat-icon>add_circle</mat-icon>
+        <span>تسجيل زائر جديد</span>
+      </button>
+      <button mat-raised-button class="action-btn" (click)="navigateToVisits()">
+        <mat-icon>list</mat-icon>
+        <span>عرض جميع الزيارات</span>
+      </button>
+      <button mat-raised-button class="action-btn" (click)="navigateToReports()">
+        <mat-icon>bar_chart</mat-icon>
+        <span>التقارير</span>
+      </button>
+    </div>
+
+    <!-- Charts and Timeline Section -->
+    <div class="charts-section">
+      
+      <!-- Department Distribution -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>business</mat-icon>
+            <span>توزيع الزيارات حسب الإدارات</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="department-chart">
+            <div class="department-item" *ngFor="let dept of stats.visitsPerDepartment">
+              <div class="department-label">
+                <span class="dept-name">{{ dept.departmentName }}</span>
+                <span class="dept-count">{{ dept.visitCount }} زيارة</span>
+              </div>
+              <div class="dept-progress-container">
+                <div class="dept-progress-bar" 
+                     [style.width.%]="getDepartmentProgress(dept.visitCount)">
+                </div>
+              </div>
+              <span class="dept-percentage">{{ getDepartmentProgress(dept.visitCount).toFixed(1) }}%</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Hourly Timeline -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>timeline</mat-icon>
+            <span>توزيع الزيارات خلال اليوم</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="hourly-chart">
+            <div class="hour-item" *ngFor="let hour of hourlyDistribution">
+              <div class="hour-label">{{ hour.hour }}</div>
+              <div class="hour-bar-container">
+                <div class="hour-bar" 
+                     [style.width.%]="getHourBarWidth(hour.count)"
+                     [class.peak-hour]="hour.count > 10">
+                  <span class="hour-count" *ngIf="hour.count > 0">{{ hour.count }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Top Users -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>people</mat-icon>
+            <span>أكثر المستخدمين نشاطاً</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="users-list">
+            <div class="user-item" *ngFor="let user of stats.visitsPerUser.slice(0, 5); let i = index">
+              <div class="user-rank" [class]="'rank-' + (i + 1)">{{ i + 1 }}</div>
+              <div class="user-info">
+                <span class="user-name">{{ user.userName }}</span>
+                <div class="user-progress">
+                  <div class="user-bar" [style.width.%]="(user.visitCount / stats.totalVisits) * 100"></div>
+                </div>
+              </div>
+              <div class="user-count">{{ user.visitCount }}</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Ongoing Visits Section -->
+    <mat-card class="ongoing-card">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="title-section">
+            <mat-icon>schedule</mat-icon>
+            <span>الزيارات الجارية الآن</span>
+            <mat-chip class="count-chip">{{ ongoingVisits.length }}</mat-chip>
+          </div>
+          <button mat-button (click)="navigateToVisits('checkedin')">
+            عرض الكل
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="ongoing-list" *ngIf="ongoingVisits.length > 0">
+          <div class="visit-card" *ngFor="let visit of ongoingVisits.slice(0, 6)" (click)="viewVisit(visit)">
+            <div class="visit-header">
+              <div class="visit-number">
+                <mat-icon>confirmation_number</mat-icon>
+                <span>{{ visit.visitNumber }}</span>
+              </div>
+              <mat-chip color="primary" class="status-chip">
+                <mat-icon>schedule</mat-icon>
+                جارية
+              </mat-chip>
+            </div>
+            <div class="visit-body">
+              <div class="visitor-info">
+                <mat-icon>person</mat-icon>
+                <span class="visitor-name">{{ visit.visitorName }}</span>
+              </div>
+              <div class="department-info">
+                <mat-icon>business</mat-icon>
+                <span>{{ visit.departmentName }}</span>
+              </div>
+              <div class="employee-info">
+                <mat-icon>badge</mat-icon>
+                <span>{{ visit.employeeToVisit }}</span>
+              </div>
+              <div class="car-info" *ngIf="visit.carPlate">
+                <mat-icon>directions_car</mat-icon>
+                <span>{{ visit.carPlate }}</span>
+              </div>
+            </div>
+            <div class="visit-footer">
+              <div class="time-info">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ getTimeSince(visit.checkInAt) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="empty-state" *ngIf="ongoingVisits.length === 0">
+          <mat-icon>event_busy</mat-icon>
+          <p>لا توجد زيارات جارية حالياً</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Recent Visits Section -->
+    <mat-card class="recent-card">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="title-section">
+            <mat-icon>history</mat-icon>
+            <span>أحدث الزيارات</span>
+          </div>
+          <button mat-button (click)="navigateToVisits()">
+            عرض الكل
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="recent-list">
+          <div class="recent-item" *ngFor="let visit of recentVisits" (click)="viewVisit(visit)">
+            <div class="recent-icon" 
+                 [class.ongoing]="visit.status === 'checkedin' || visit.status === 'ongoing'" 
+                 [class.completed]="visit.status === 'checkedout' || visit.status === 'completed'"
+                 [class.rejected]="visit.status === 'rejected'">
+              <mat-icon>{{ 
+                (visit.status === 'checkedin' || visit.status === 'ongoing') ? 'schedule' : 
+                (visit.status === 'rejected') ? 'cancel' : 
+                'check_circle' 
+              }}</mat-icon>
+            </div>
+            <div class="recent-info">
+              <div class="recent-primary">
+                <span class="visitor-name">{{ visit.visitorName }}</span>
+                <mat-chip [color]="getStatusColor(visit.status)" class="status-mini">
+                  {{ getStatusLabel(visit.status) }}
+                </mat-chip>
+              </div>
+              <div class="recent-secondary">
+                <span class="visit-number">{{ visit.visitNumber }}</span>
+                <span class="separator">•</span>
+                <span class="department">{{ visit.departmentName }}</span>
+              </div>
+            </div>
+            <div class="recent-time">
+              <span>{{ getTimeSince(visit.createdAt) }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <!-- Real-time Indicator -->
+  <div class="realtime-indicator">
+    <mat-icon class="pulse">wifi</mat-icon>
+    <span>تحديثات مباشرة</span>
+  </div>
+</div>
+

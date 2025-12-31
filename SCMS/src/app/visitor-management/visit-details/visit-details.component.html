@@ -1,0 +1,229 @@
+<div class="visit-details-container" *ngIf="visit" style="margin-top: 70px;">
+  <!-- Header -->
+  <div class="details-header">
+    <button mat-icon-button (click)="goBack()" matTooltip="رجوع">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>تفاصيل الزيارة</h1>
+    <div class="header-actions">
+      <button mat-icon-button (click)="printVisit()" matTooltip="طباعة">
+        <mat-icon>print</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Visit Status Card -->
+  <mat-card class="status-card">
+    <mat-card-content>
+      <div class="status-header">
+        <div class="visit-number-section">
+          <mat-icon class="large-icon">confirmation_number</mat-icon>
+          <div>
+            <h2>{{ visit.visitNumber }}</h2>
+            <p class="subtitle">رقم الزيارة</p>
+          </div>
+        </div>
+        <mat-chip [color]="getStatusColor(visit.status)" class="status-chip-large">
+          <mat-icon>{{ visit.status?.toLowerCase() === 'checkedin' ? 'schedule' : visit.status?.toLowerCase() === 'checkedout' ? 'check_circle' : 'cancel' }}</mat-icon>
+          {{ getStatusLabel(visit.status) }}
+        </mat-chip>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Main Content Grid -->
+  <div class="content-grid">
+    <!-- Visitor Information -->
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>person</mat-icon>
+          معلومات الزائر
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="visitor-profile-section">
+          <div class="visitor-image-container">
+            <img 
+              *ngIf="shouldShowImage(visitor?.personImageUrl)"
+              [src]="getImageUrl(visitor?.personImageUrl)!" 
+              [alt]="visit.visitorName"
+              class="visitor-image"
+              (error)="onImageError(visitor?.personImageUrl)">
+            <div *ngIf="!shouldShowImage(visitor?.personImageUrl)" class="image-placeholder">
+              <mat-icon>person</mat-icon>
+            </div>
+          </div>
+          <div class="visitor-info">
+            <h3>{{ visit.visitorName }}</h3>
+            <div class="info-item" *ngIf="visitor?.nationalId">
+              <mat-icon>badge</mat-icon>
+              <span>{{ visitor.nationalId }}</span>
+            </div>
+            <div class="info-item" *ngIf="visitor?.phone">
+              <mat-icon>phone</mat-icon>
+              <span>{{ visitor.phone }}</span>
+            </div>
+            <div class="info-item" *ngIf="visitor?.company">
+              <mat-icon>business</mat-icon>
+              <span>{{ visitor.company }}</span>
+            </div>
+            <button mat-stroked-button color="primary" (click)="viewVisitorProfile()" class="profile-btn">
+              <mat-icon>visibility</mat-icon>
+              عرض الملف الشخصي
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Visit Details -->
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>info</mat-icon>
+          تفاصيل الزيارة
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="detail-item">
+          <span class="label">الإدارة:</span>
+          <mat-chip>
+            <mat-icon>business</mat-icon>
+            {{ visit.departmentName }}
+          </mat-chip>
+        </div>
+        <div class="detail-item">
+          <span class="label">الموظف المزار:</span>
+          <span class="value">{{ visit.employeeToVisit }}</span>
+        </div>
+        <div class="detail-item" *ngIf="visit.visitReason">
+          <span class="label">سبب الزيارة:</span>
+          <span class="value">{{ visit.visitReason }}</span>
+        </div>
+        <div class="detail-item" *ngIf="visit.expectedDurationHours">
+          <span class="label">المدة المتوقعة:</span>
+          <span class="value">{{ visit.expectedDurationHours }} ساعة</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">وقت الدخول:</span>
+          <span class="value">{{ formatDate(visit.checkInAt) }}</span>
+        </div>
+        <div class="detail-item" *ngIf="visit.checkOutAt">
+          <span class="label">وقت الخروج:</span>
+          <span class="value">{{ formatDate(visit.checkOutAt) }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">المدة:</span>
+          <mat-chip color="primary">
+            <mat-icon>timer</mat-icon>
+            {{ getDuration() }}
+          </mat-chip>
+        </div>
+        <div class="detail-item">
+          <span class="label">تم التسجيل بواسطة:</span>
+          <span class="value">{{ visit.createdByUserName }}</span>
+        </div>
+        <div class="detail-item" *ngIf="visit.rejectionReason">
+          <span class="label">سبب الرفض:</span>
+          <span class="value rejection-reason">{{ visit.rejectionReason }}</span>
+        </div>
+        <div class="detail-item" *ngIf="visit.rejectedAt">
+          <span class="label">تاريخ الرفض:</span>
+          <span class="value">{{ formatDate(visit.rejectedAt) }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Vehicle Information -->
+    <mat-card class="info-card" *ngIf="visit.carPlate || visit.carImageUrl">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>directions_car</mat-icon>
+          معلومات السيارة
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="detail-item" *ngIf="visit.carPlate">
+          <span class="label">رقم اللوحة:</span>
+          <mat-chip color="accent">
+            <mat-icon>directions_car</mat-icon>
+            {{ visit.carPlate }}
+          </mat-chip>
+        </div>
+        <div class="car-image-section" *ngIf="visit.carImageUrl">
+          <img 
+            *ngIf="shouldShowImage(visit.carImageUrl)"
+            [src]="getImageUrl(visit.carImageUrl)!" 
+            alt="صورة السيارة"
+            class="car-image"
+            (error)="onImageError(visit.carImageUrl)"
+            (click)="viewCarImage()">
+          <div *ngIf="!shouldShowImage(visit.carImageUrl)" class="image-placeholder">
+            <mat-icon>directions_car</mat-icon>
+            <span>لا توجد صورة</span>
+          </div>
+          <button mat-stroked-button *ngIf="shouldShowImage(visit.carImageUrl)" 
+                  (click)="viewCarImage()" class="view-image-btn">
+            <mat-icon>zoom_in</mat-icon>
+            عرض بالحجم الكامل
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- ID Card Image -->
+    <mat-card class="info-card" *ngIf="visitor?.idCardImageUrl">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>badge</mat-icon>
+          صورة بطاقة الهوية
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="id-card-section">
+          <img 
+            *ngIf="shouldShowImage(visitor.idCardImageUrl)"
+            [src]="getImageUrl(visitor.idCardImageUrl)!" 
+            alt="بطاقة الهوية"
+            class="id-card-image"
+            (error)="onImageError(visitor.idCardImageUrl)">
+          <div *ngIf="!shouldShowImage(visitor.idCardImageUrl)" class="image-placeholder">
+            <mat-icon>badge</mat-icon>
+            <span>لا توجد صورة</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Actions -->
+  <mat-card class="actions-card" *ngIf="visit.status?.toLowerCase() === 'checkedin'">
+    <mat-card-content>
+      <div class="actions-grid">
+        <button mat-raised-button color="primary" (click)="checkout()" class="action-btn">
+          <mat-icon>logout</mat-icon>
+          تسجيل خروج
+        </button>
+        <button mat-raised-button color="warn" (click)="rejectVisit()" class="action-btn">
+          <mat-icon>cancel</mat-icon>
+          رفض الزيارة
+        </button>
+        <button mat-raised-button 
+                [color]="visitor?.isBlocked ? 'accent' : 'warn'" 
+                (click)="blockVisitor()" 
+                class="action-btn">
+          <mat-icon>{{ visitor?.isBlocked ? 'block' : 'block' }}</mat-icon>
+          {{ visitor?.isBlocked ? 'إلغاء حظر الزائر' : 'حظر الزائر' }}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Loading State -->
+<div class="loading-container" *ngIf="isLoading">
+  <mat-spinner diameter="60"></mat-spinner>
+  <p>جاري تحميل التفاصيل...</p>
+</div>
+

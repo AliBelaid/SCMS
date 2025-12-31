@@ -11919,8 +11919,8 @@
     },
     "Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../infrastructure/Infrastructure.csproj"
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11962,23 +11962,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ali.Belaid\\.nuget\\packages\\": {},
+    "C:\\Users\\Ali\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SFileSysyem\\SCMS\\API\\API.csproj",
+      "projectUniqueName": "D:\\myApps\\SCMS\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\SFileSysyem\\SCMS\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Ali.Belaid\\.nuget\\packages\\",
-      "outputPath": "D:\\SFileSysyem\\SCMS\\API\\obj\\",
+      "projectPath": "D:\\myApps\\SCMS\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Ali\\.nuget\\packages\\",
+      "outputPath": "D:\\myApps\\SCMS\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ali.Belaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11994,8 +11994,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\SFileSysyem\\SCMS\\infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\SFileSysyem\\SCMS\\infrastructure\\Infrastructure.csproj"
+            "D:\\myApps\\SCMS\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\myApps\\SCMS\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -12172,7 +12172,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

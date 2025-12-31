@@ -1,4 +1,20 @@
-// ==================== Enhanced Models for Angular Frontend ====================
+// ==================== Department User Model ====================
+
+export interface DepartmentUser {
+  id: string;
+  userId: string;
+  userCode: string;
+  userEmail: string;
+  userName: string;
+  position?: string;
+  isHead: boolean;
+  joinedAt: Date;
+  leftAt?: Date;
+  notes?: string;
+  isActive: boolean;
+}
+
+// ==================== Core Models ====================
 
 export interface Department {
   id: string;
@@ -7,9 +23,14 @@ export interface Department {
   nameEn: string;
   description?: string;
   isActive: boolean;
-  subjects: Subject[];
   createdAt: Date;
-  createdBy: string;
+  updatedAt?: Date;
+  managerId?: number;
+  managerName?: string;
+  subjects: Subject[];
+  users?: DepartmentUser[];
+  usersCount?: number;
+  createdBy?: string;
 }
 
 export interface Subject {
@@ -17,11 +38,13 @@ export interface Subject {
   code: string;
   nameAr: string;
   nameEn: string;
+  description?: string;
   departmentId: string;
-  incomingPrefix: string;
-  outgoingPrefix: string;
+  incomingPrefix?: string;
+  outgoingPrefix?: string;
   isActive: boolean;
   createdAt: Date;
+  updatedAt?: Date;
 }
 
 export interface Order {
@@ -29,114 +52,48 @@ export interface Order {
   referenceNumber: string;
   type: 'incoming' | 'outgoing';
   departmentId: string;
-  departmentCode: string;
+  departmentNameAr?: string;
+  departmentCode?: string;
   subjectId: string;
-  subjectCode: string;
+  subjectNameAr?: string;
+  subjectCode?: string;
   title: string;
   description: string;
-  status: 'pending' | 'in-progress' | 'completed' | 'archived' | 'cancelled';
-  priority: 'low' | 'medium' | 'high' | 'urgent';
-  attachments: OrderAttachment[];
+  status: string;
+  priority: string;
   createdAt: Date;
+  updatedAt?: Date;
   createdBy: string;
-  updatedAt: Date;
-  updatedBy: string;
+  createdByName?: string;
+  updatedBy?: string;
+  updatedByName?: string;
   dueDate?: Date;
   expirationDate?: Date;
-  isExpired?: boolean;
-  isArchived: boolean;
-  archivedAt?: Date;
-  archivedBy?: string;
-  archiveReason?: string;
-  notes?: string;
   isPublic: boolean;
-
-  // Permissions
-  userPermissions?: UserPermission[];
-  departmentAccesses?: DepartmentAccess[];
-  userExceptions?: UserException[];
+  attachments?: OrderAttachment[];
+  attachmentsCount?: number; // Count of attachments (from API)
+  history?: OrderHistory[];
+  permissions?: OrderPermission[];
+  userPermissions?: UserPermission[]; // For backward compatibility and direct user permissions
+  userExceptions?: UserException[]; // Users explicitly excluded
+  notes?: string;
 }
 
 export interface OrderAttachment {
   id: string;
   orderId: string;
+  documentId?: number; // Reference to original DocumentViewer document
   fileName: string;
+  filePath: string;
+  fileUrl?: string; // URL for accessing the file
   fileSize: number;
-  fileType: 'pdf' | 'image' | 'document' | 'other';
-  fileUrl: string;
+  fileType: string;
   uploadedAt: Date;
   uploadedBy: string;
+  uploadedByName?: string;
+  canView?: boolean; // Whether file can be viewed inline (PDF/images)
+  canDownload?: boolean; // Whether file can be downloaded
 }
-
-// ==================== Permission Models ====================
-
-export interface UserPermission {
-  id: number;
-  userId: number;
-  userCode: string;
-  userEmail: string;
-  canView: boolean;
-  canEdit: boolean;
-  canDelete: boolean;
-  canShare: boolean;
-  canDownload: boolean;
-  canPrint: boolean;
-  canComment: boolean;
-  canApprove: boolean;
-  grantedAt: Date;
-  expiresAt?: Date;
-  isExpired: boolean;
-  grantedByName: string;
-}
-
-export interface DepartmentAccess {
-  id: number;
-  departmentId: string;
-  departmentCode: string;
-  departmentNameAr: string;
-  accessLevel: AccessLevel;
-  accessLevelName: string;
-  grantedAt: Date;
-  expiresAt?: Date;
-  isExpired: boolean;
-  grantedByName: string;
-}
-
-export enum AccessLevel {
-  ViewOnly = 1,
-  Edit = 2,
-  Full = 3,
-}
-
-export interface UserException {
-  id: number;
-  userId: number;
-  userCode: string;
-  userEmail: string;
-  reason: string;
-  addedAt: Date;
-  expiresAt?: Date;
-  isExpired: boolean;
-  addedByName: string;
-}
-
-export interface EffectivePermissions {
-  userId: number;
-  orderId: number;
-  canView: boolean;
-  canEdit: boolean;
-  canDelete: boolean;
-  canShare: boolean;
-  canDownload: boolean;
-  canPrint: boolean;
-  canComment: boolean;
-  canApprove: boolean;
-  isOwner: boolean;
-  isExcluded: boolean;
-  permissionSource: 'Owner' | 'Direct' | 'Department' | 'Public' | 'None';
-}
-
-// ==================== Order History Models (NEW) ====================
 
 export interface OrderHistory {
   id: number;
@@ -168,10 +125,168 @@ export enum OrderAction {
   ExpirationSet = 14,
   Archived = 15,
   Restored = 16,
-  Deleted = 17,
+  Deleted = 17
+}
+
+export interface OrderPermission {
+  orderId: string;
+  userId?: string;
+  userCode?: string;
+  departmentId?: string;
+  departmentCode?: string;
+  canView: boolean;
+  canEdit: boolean;
+  canDelete: boolean;
+  canShare: boolean;
+  canDownload: boolean;
+  canPrint: boolean;
+  canComment: boolean;
+  canApprove: boolean;
+  grantedAt: Date;
+  grantedBy: string;
+}
+
+// ==================== Permission Models ====================
+
+export interface UserPermission {
+  id: number;
+  userId: number;
+  userCode: string;
+  userEmail: string;
+  canView: boolean;
+  canEdit: boolean;
+  canDelete: boolean;
+  canShare: boolean;
+  canDownload: boolean;
+  canPrint: boolean;
+  canComment: boolean;
+  canApprove: boolean;
+  grantedAt: Date;
+  expiresAt?: Date;
+  isExpired: boolean;
+  grantedByName: string;
+}
+
+export interface DepartmentAccess {
+  id: number;
+  departmentId: number;
+  departmentCode: string;
+  departmentNameAr: string;
+  accessLevel: AccessLevel;
+  accessLevelName: string;
+  grantedAt: Date;
+  expiresAt?: Date;
+  isExpired: boolean;
+  grantedByName: string;
+}
+
+export enum AccessLevel {
+  ViewOnly = 1,
+  Edit = 2,
+  Full = 3
+}
+
+export interface UserException {
+  id: number;
+  userId: number;
+  userCode: string;
+  userEmail: string;
+  reason: string;
+  addedAt: Date;
+  expiresAt?: Date;
+  isExpired: boolean;
+  addedByName: string;
+}
+
+export interface EffectivePermissions {
+  userId: number;
+  orderId: number;
+  canView: boolean;
+  canEdit: boolean;
+  canDelete: boolean;
+  canShare: boolean;
+  canDownload: boolean;
+  canPrint: boolean;
+  canComment: boolean;
+  canApprove: boolean;
+  isOwner: boolean;
+  isExcluded: boolean;
+  permissionSource: 'Owner' | 'Direct' | 'Department' | 'Public' | 'None';
 }
 
 // ==================== DTOs ====================
+
+export interface CreateDepartmentDto {
+  code: string;
+  nameAr: string;
+  nameEn: string;
+  description?: string;
+  isActive?: boolean;
+  managerId?: number;
+  subjects?: CreateSubjectDto[];
+  users?: AddDepartmentUserDto[];
+}
+
+export interface UpdateDepartmentDto {
+  code?: string;
+  nameAr?: string;
+  nameEn?: string;
+  description?: string;
+  isActive?: boolean;
+  managerId?: number;
+}
+
+export interface CreateSubjectDto {
+  code: string;
+  nameAr: string;
+  nameEn: string;
+  description?: string;
+  isActive?: boolean;
+}
+
+export interface UpdateSubjectDto {
+  code?: string;
+  nameAr?: string;
+  nameEn?: string;
+  description?: string;
+  isActive?: boolean;
+}
+
+export interface AddDepartmentUserDto {
+  userId: number;
+  position?: string;
+  isHead?: boolean;
+  notes?: string;
+}
+
+export interface UpdateDepartmentUserDto {
+  position?: string;
+  isHead?: boolean;
+  notes?: string;
+}
+
+// ==================== Order Creation DTO ====================
+
+export interface CreateOrderDto {
+  referenceNumber?: string;
+  type: 'incoming' | 'outgoing';
+  departmentId: string;
+  departmentCode?: string;
+  subjectId: string;
+  subjectCode?: string;
+  title: string;
+  description: string;
+  status: string;
+  priority: string;
+  dueDate?: Date;
+  expirationDate?: Date;
+  notes?: string;
+  isPublic: boolean;
+  userPermissions?: GrantUserPermissionDto[];
+  departmentAccesses?: GrantDepartmentAccessDto[];
+  userExceptions?: AddUserExceptionDto[];
+  attachmentIds?: number[];
+}
 
 export interface GrantUserPermissionDto {
   userId: number;
@@ -193,6 +308,13 @@ export interface GrantDepartmentAccessDto {
   expiresAt?: Date;
   notes?: string;
 }
+
+export interface AddUserExceptionDto {
+  userId: number;
+  reason: string;
+  expiresAt?: Date;
+}
+
 
 export interface AddUserExceptionDto {
   userId: number;
@@ -250,60 +372,92 @@ export interface DashboardStats {
   expirationWarnings: ExpirationWarning[];
 }
 
-// ==================== Filters ====================
+// ==================== Helper Types ====================
 
-export interface OrderFilters {
-  searchTerm?: string;
-  type?: 'incoming' | 'outgoing' | 'all';
-  departmentId?: string;
-  subjectId?: string;
-  status?: string;
-  priority?: string;
-  createdBy?: string;
-  dateFrom?: Date;
-  dateTo?: Date;
-  isExpired?: boolean;
-  isArchived?: boolean;
-  hasExpiration?: boolean;
-  expiringInDays?: number;
+export type DirectoryUser = {
+  id: number;
+  code: string;
+  email: string;
+  name: string;
+};
+
+// ==================== DTOs ====================
+
+export interface CreateSubjectDto {
+  code: string;
+  nameAr: string;
+  nameEn: string;
+  description?: string;
+  isActive?: boolean;
 }
 
-// ==================== Create/Update DTOs ====================
+export interface UpdateSubjectDto {
+  code?: string;
+  nameAr?: string;
+  nameEn?: string;
+  description?: string;
+  isActive?: boolean;
+}
+
+export interface AddDepartmentUserDto {
+  userId: number;
+  position?: string;
+  isHead?: boolean;
+  notes?: string;
+}
+
+export interface UpdateDepartmentUserDto {
+  position?: string;
+  isHead?: boolean;
+  notes?: string;
+}
+
+// ==================== Order Creation DTO ====================
 
 export interface CreateOrderDto {
-  referenceNumber: string;
+  referenceNumber?: string;
   type: 'incoming' | 'outgoing';
   departmentId: string;
+  departmentCode?: string;
   subjectId: string;
+  subjectCode?: string;
   title: string;
   description: string;
   status: string;
   priority: string;
   dueDate?: Date;
   expirationDate?: Date;
+  notes?: string;
   isPublic: boolean;
+  userPermissions?: GrantUserPermissionDto[];
+  departmentAccesses?: GrantDepartmentAccessDto[];
+  userExceptions?: AddUserExceptionDto[];
+  attachmentIds?: number[];
+}
+
+export interface GrantUserPermissionDto {
+  userId: number;
+  canView?: boolean;
+  canEdit?: boolean;
+  canDelete?: boolean;
+  canShare?: boolean;
+  canDownload?: boolean;
+  canPrint?: boolean;
+  canComment?: boolean;
+  canApprove?: boolean;
+  expiresAt?: Date;
   notes?: string;
 }
 
-export interface UpdateOrderDto extends Partial<CreateOrderDto> {
-  updatedBy: string;
+export interface GrantDepartmentAccessDto {
+  departmentId: string;
+  accessLevel: AccessLevel;
+  expiresAt?: Date;
+  notes?: string;
 }
 
-// ==================== Permission Helper Types ====================
-
-export interface PermissionCheck {
-  canView: boolean;
-  canEdit: boolean;
-  canDelete: boolean;
-  canManagePermissions: boolean;
-  reason?: string;
-}
-
-export interface UserPermissionSummary {
-  hasDirectPermission: boolean;
-  hasDepartmentAccess: boolean;
-  isExcluded: boolean;
-  isOwner: boolean;
-  isPublic: boolean;
-  effectivePermissions: string[];
+export interface AddUserExceptionDto {
+  userId: number;
+  reason: string;
+  expiresAt?: Date;
 }

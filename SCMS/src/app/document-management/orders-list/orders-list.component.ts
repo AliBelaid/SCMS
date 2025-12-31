@@ -8,7 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Subject, takeUntil } from 'rxjs';
 import { DepartmentService } from 'src/app/document-management/department.service';
 import { AuthService } from 'src/assets/services/auth.service';
-import { Order, Department, UserPermission } from 'src/app/document-management/department.model';
+import { Order, Department, UserPermission, OrderPermission } from 'src/app/document-management/department.model';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -122,11 +122,25 @@ export class OrdersListComponent implements OnInit, OnDestroy {
 
     ordersObservable
       .pipe(takeUntil(this.destroy$))
-      .subscribe(orders => {
-        this.orders = orders;
-        this.filteredOrders = [...orders];
-        this.initializeDataSource();
-        this.isLoading = false;
+      .subscribe({
+        next: (orders) => {
+          // Ensure all orders have attachments array initialized
+          this.orders = orders.map(order => ({
+            ...order,
+            attachments: order.attachments || []
+          }));
+          this.filteredOrders = [...this.orders];
+          this.initializeDataSource();
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error('Error loading orders:', error);
+          this.isLoading = false;
+          // Initialize empty arrays to prevent template errors
+          this.orders = [];
+          this.filteredOrders = [];
+          this.initializeDataSource();
+        }
       });
   }
 
@@ -251,6 +265,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
 
     const permission = order.userPermissions?.find(
       (p) => p.userCode === userCode
+    ) || order.permissions?.find(
+      (p) => p.userCode === userCode
     );
 
     return !!permission && (permission.canEdit || permission.canApprove);
@@ -267,6 +283,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     }
 
     const permission = order.userPermissions?.find(
+      (p) => p.userCode === userCode
+    ) || order.permissions?.find(
       (p) => p.userCode === userCode
     );
 
@@ -290,14 +308,21 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     return !!permission && (permission.canEdit || permission.canApprove || permission.canDelete);
   }
 
-  private getCurrentUserPermission(order: Order): UserPermission | undefined {
+  private getCurrentUserPermission(order: Order): UserPermission | OrderPermission | undefined {
     if (!this.currentUser?.code) {
       return undefined;
     }
 
-    return order.userPermissions?.find(
+    // Try userPermissions first (UserPermission type), then permissions (OrderPermission type)
+    const userPerm = order.userPermissions?.find(
       (p) => p.userCode === this.currentUser.code
     );
+    if (userPerm) return userPerm;
+
+    const orderPerm = order.permissions?.find(
+      (p) => p.userCode === this.currentUser.code
+    );
+    return orderPerm;
   }
 
   getUserAccessSummary(order: Order): string[] {

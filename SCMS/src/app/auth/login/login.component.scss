@@ -4,7 +4,7 @@
   align-content: center;
   align-items: center;
   background: linear-gradient(135deg, rgba(0, 162, 233, 0.1) 0%, rgba(0, 119, 179, 0.05) 100%),
-              #fff url('../../../assets/img/medical/background1.png') no-repeat center center;
+              #fff url('../../../assets/img/medical/background3.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   display: flex;
@@ -47,31 +47,55 @@
   padding: 20px;
 }
 
-/* Enhanced Language Selector */
+/* Enhanced Language Selector - Icons Only */
 .language-selector {
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 10;
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 162, 233, 0.2);
+  transition: all 0.3s ease;
   
-  .language-field {
-    min-width: 140px;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 162, 233, 0.2);
+    border-color: rgba(0, 162, 233, 0.4);
+  }
+  
+  .lang-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #666;
     
-    ::ng-deep .mat-mdc-text-field-wrapper {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      border: 1px solid rgba(0, 162, 233, 0.2);
-      transition: all 0.3s ease;
-      
-      &:hover {
-        border-color: rgba(0, 162, 233, 0.4);
-        box-shadow: 0 2px 8px rgba(0, 162, 233, 0.1);
-      }
+    mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
     }
     
-    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
-      display: none;
+    &:hover {
+      background: rgba(0, 162, 233, 0.1);
+      color: #00a2e9;
+      transform: scale(1.1);
+    }
+    
+    &.active {
+      background: linear-gradient(135deg, #00a2e9 0%, #0077b3 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 162, 233, 0.3);
+      
+      &:hover {
+        background: linear-gradient(135deg, #0077b3 0%, #005580 100%);
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -135,29 +159,44 @@
   100% { left: 100%; }
 }
 
-/* Enhanced Logo Section */
+/* Enhanced Logo Section - Centered */
 .logo-section {
   margin-bottom: 32px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   
   .logo {
-    height: 90px;
-    width: auto;
+    height: auto;
+    width: 180px;
     max-width: 220px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0, 162, 233, 0.2));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(0, 162, 233, 0.25));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: logoFloat 3s ease-in-out infinite;
     
     &:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 6px 12px rgba(0, 162, 233, 0.3));
+      transform: scale(1.08) rotate(2deg);
+      filter: drop-shadow(0 8px 16px rgba(0, 162, 233, 0.4));
     }
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
 /* Enhanced Title Section */
 .title-section {
   margin-bottom: 32px;
+  text-align: center;
   
   .login-title {
     font-size: 32px;
@@ -169,6 +208,7 @@
     margin: 0 0 12px 0;
     letter-spacing: -0.8px;
     line-height: 1.2;
+    animation: titleFadeIn 0.8s ease-out;
   }
   
   .login-subtitle {
@@ -177,6 +217,29 @@
     margin: 0;
     font-weight: 400;
     opacity: 0.8;
+    animation: subtitleFadeIn 1s ease-out;
+  }
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
   }
 }
 
@@ -550,14 +613,22 @@
   .language-selector {
     top: 16px;
     left: 16px;
+    padding: 2px;
     
     &[dir="rtl"] {
       left: auto;
       right: 16px;
     }
     
-    .language-field {
-      min-width: 100px;
+    .lang-button {
+      width: 36px;
+      height: 36px;
+      
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

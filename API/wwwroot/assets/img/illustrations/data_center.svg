@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Data Center</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F5F7FA" x="0" y="0" width="800" height="600"/>
+        <g transform="translate(200, 150)">
+            <rect fill="#E2E8F0" x="0" y="0" width="400" height="300" rx="8"/>
+            <rect fill="#CBD5E0" x="50" y="50" width="300" height="60" rx="4"/>
+            <rect fill="#CBD5E0" x="50" y="120" width="300" height="60" rx="4"/>
+            <rect fill="#CBD5E0" x="50" y="190" width="300" height="60" rx="4"/>
+        </g>
+    </g>
+</svg> 

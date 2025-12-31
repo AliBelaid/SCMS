@@ -146,7 +146,7 @@ namespace API.Controllers
                 
                 return Ok(documentDtos);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while retrieving documents" });
             }
@@ -170,7 +170,7 @@ namespace API.Controllers
                 var documentDto = _mapper.Map<DocumentDto>(document);
                 return Ok(documentDto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while retrieving the document" });
             }
@@ -221,7 +221,7 @@ namespace API.Controllers
                 var documentDto = _mapper.Map<DocumentDto>(document);
                 return Ok(documentDto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while updating the document" });
             }
@@ -250,12 +250,12 @@ namespace API.Controllers
                 
                 // Handle non-ASCII characters in filename for Content-Disposition header
                 var asciiFileName = new string(document.FileName.Select(c => c < 128 ? c : '_').ToArray());
-                Response.Headers.Add("Content-Disposition", $"attachment; filename=\"{asciiFileName}\"");
-                Response.Headers.Add("Cache-Control", "no-cache");
+                Response.Headers["Content-Disposition"] = $"attachment; filename=\"{asciiFileName}\"";
+                Response.Headers["Cache-Control"] = "no-cache";
                 
                 return File(fileBytes, contentType, asciiFileName);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while downloading the document" });
             }
@@ -275,7 +275,7 @@ namespace API.Controllers
 
                 return Ok(new { previewUrl });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while getting the preview URL" });
             }
@@ -338,14 +338,14 @@ namespace API.Controllers
                 {
                     // Remove or replace non-ASCII characters for the header
                     var asciiFileName = new string(document.FileName.Select(c => c < 128 ? c : '_').ToArray());
-                    Response.Headers.Add("Content-Disposition", $"inline; filename=\"{asciiFileName}\"");
+                    Response.Headers["Content-Disposition"] = $"inline; filename=\"{asciiFileName}\"";
                 }
                 catch
                 {
                     // Fallback to a safe filename
-                    Response.Headers.Add("Content-Disposition", $"inline; filename=\"document.pdf\"");
+                    Response.Headers["Content-Disposition"] = $"inline; filename=\"document.pdf\"";
                 }
-                Response.Headers.Add("Cache-Control", "no-cache");
+                Response.Headers["Cache-Control"] = "no-cache";
                 
                 Console.WriteLine($"DocumentViewerController.ServeDocument: Returning file response");
                 return File(fileBytes, contentType, document.FileName);
@@ -395,13 +395,13 @@ namespace API.Controllers
 
                 // Return file as stream with CORS headers for preview
                 var fileStream = System.IO.File.OpenRead(document.FilePath);
-                Response.Headers.Add("Access-Control-Allow-Origin", "*");
-                Response.Headers.Add("Access-Control-Allow-Methods", "GET");
-                Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+                Response.Headers["Access-Control-Allow-Origin"] = "*";
+                Response.Headers["Access-Control-Allow-Methods"] = "GET";
+                Response.Headers["Access-Control-Allow-Headers"] = "Content-Type";
                 
                 return File(fileStream, contentType, document.FileName);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new { error = "An error occurred while serving the document for preview" });
             }
@@ -443,9 +443,9 @@ namespace API.Controllers
                 
                 // Return the original file with a note that conversion is not implemented
                 var asciiFileName = new string(document.FileName.Select(c => c < 128 ? c : '_').ToArray());
-                Response.Headers.Add("Content-Disposition", $"inline; filename=\"{asciiFileName}\"");
-                Response.Headers.Add("Cache-Control", "no-cache");
-                Response.Headers.Add("X-Conversion-Note", "Original file returned - PDF conversion not implemented");
+                Response.Headers["Content-Disposition"] = $"inline; filename=\"{asciiFileName}\"";
+                Response.Headers["Cache-Control"] = "no-cache";
+                Response.Headers["X-Conversion-Note"] = "Original file returned - PDF conversion not implemented";
                 
                 Console.WriteLine($"DocumentViewerController.ConvertToPdf: Returning original file (conversion not implemented)");
                 return File(fileBytes, contentType, asciiFileName);
@@ -639,7 +639,11 @@ namespace API.Controllers
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "FileStorage", "Documents", fileName);
                 
                 // Ensure directory exists
-                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                var directory = Path.GetDirectoryName(filePath);
+                if (!string.IsNullOrEmpty(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
                 
                 // Write test file
                 await System.IO.File.WriteAllTextAsync(filePath, testContent);
@@ -720,7 +724,11 @@ namespace API.Controllers
                 {
                     // Create file on disk
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "FileStorage", "Documents", sample.fileName);
-                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                    var directory = Path.GetDirectoryName(filePath);
+                if (!string.IsNullOrEmpty(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
                     await System.IO.File.WriteAllTextAsync(filePath, sample.content);
 
                     // Create document DTO
@@ -808,7 +816,11 @@ namespace API.Controllers
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "FileStorage", "Documents", fileName);
                 
                 // Ensure directory exists
-                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                var directory = Path.GetDirectoryName(filePath);
+                if (!string.IsNullOrEmpty(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
                 
                 // Write test file
                 await System.IO.File.WriteAllTextAsync(filePath, testContent);
@@ -817,8 +829,8 @@ namespace API.Controllers
                 var fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
                 var contentType = "text/plain";
                 
-                Response.Headers.Add("Content-Disposition", $"inline; filename=\"{fileName}\"");
-                Response.Headers.Add("Cache-Control", "no-cache");
+                Response.Headers["Content-Disposition"] = $"inline; filename=\"{fileName}\"";
+                Response.Headers["Cache-Control"] = "no-cache";
                 
                 return File(fileBytes, contentType, fileName);
             }

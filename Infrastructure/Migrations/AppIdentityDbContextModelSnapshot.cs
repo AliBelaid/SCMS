@@ -22,6 +22,107 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Core.Entities.DocumentManagement.ArchivedOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ArchiveReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("ArchivedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ArchivedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AttachmentsInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("CanBeRestored")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DepartmentName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("OriginalCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OriginalCreatedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OriginalCreatedByName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("OriginalOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("OriginalUpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReferenceNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SerializedOrderData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubjectName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArchivedAt");
+
+                    b.HasIndex("ArchivedById");
+
+                    b.HasIndex("OriginalOrderId");
+
+                    b.ToTable("ArchivedOrders");
+                });
+
             modelBuilder.Entity("Core.Entities.DocumentManagement.Department", b =>
                 {
                     b.Property<int>("Id")
@@ -162,6 +263,16 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ArchiveReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("ArchivedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ArchivedById")
+                        .HasColumnType("int");
+
                     b.Property<int?>("AssignedToId")
                         .HasColumnType("int");
 
@@ -182,6 +293,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(1000)");
 
                     b.Property<DateTime?>("DueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsArchived")
@@ -224,6 +338,8 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArchivedById");
+
                     b.HasIndex("AssignedToId");
 
                     b.HasIndex("CreatedAt");
@@ -246,6 +362,88 @@ namespace Infrastructure.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderActivityLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("ActionName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ControllerName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("HttpMethod")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("IpAddress")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsSuccess")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("OccurredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("PayloadSnapshot")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QueryString")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Summary")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("UserAgent")
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
+
+                    b.Property<string>("UserCode")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OccurredAt");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OrderActivityLogs");
+                });
+
             modelBuilder.Entity("Core.Entities.DocumentManagement.OrderAttachment", b =>
                 {
                     b.Property<int>("Id")
@@ -260,6 +458,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("DocumentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FileName")
                         .IsRequired()
@@ -300,6 +501,54 @@ namespace Infrastructure.Migrations
                     b.ToTable("OrderAttachments");
                 });
 
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderDepartmentAccess", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("CanDownload")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanShare")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanView")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GrantedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GrantedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("GrantedById");
+
+                    b.HasIndex("OrderId", "DepartmentId")
+                        .IsUnique();
+
+                    b.ToTable("DepartmentAccesses");
+                });
+
             modelBuilder.Entity("Core.Entities.DocumentManagement.OrderHistory", b =>
                 {
                     b.Property<int>("Id")
@@ -308,12 +557,12 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Action")
-                        .IsRequired()
+                    b.Property<int>("Action")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -324,6 +573,10 @@ namespace Infrastructure.Migrations
                     b.Property<string>("NewValue")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("OldValue")
                         .HasMaxLength(100)
@@ -394,6 +647,48 @@ namespace Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("OrderPermissions");
+                });
+
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderUserException", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("OrderId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("UserExceptions");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentManagement.Subject", b =>
@@ -565,6 +860,69 @@ namespace Infrastructure.Migrations
                             NameAr = "الصيانة",
                             NameEn = "Maintenance"
                         });
+                });
+
+            modelBuilder.Entity("Core.Entities.DocumentManagement.UserPermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("CanApprove")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanComment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanDownload")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanPrint")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanShare")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanView")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("GrantedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GrantedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GrantedById");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("OrderId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("UserPermissions");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentViewer.Document", b =>
@@ -804,6 +1162,385 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.VisitorManagement.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CardImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("EmployeeName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("FaceImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("EmployeeId")
+                        .IsUnique();
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.EmployeeAttendance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CheckInTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CheckOutTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CheckInTime");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeeAttendances");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.Visit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CarImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("CarPlate")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("CheckInAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CheckOutAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedByUserName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("EmployeeToVisit")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int?>("ExpectedDurationHours")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RejectedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("RejectedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RejectionReason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VisitNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("VisitReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("VisitorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VisitorName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CheckInAt");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("VisitNumber")
+                        .IsUnique();
+
+                    b.HasIndex("VisitorId");
+
+                    b.ToTable("Visits");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.Visitor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BlockReason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("BlockedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("BlockedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Company")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("IdCardImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MedicalNotes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("NationalId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PersonImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NationalId");
+
+                    b.HasIndex("Phone");
+
+                    b.ToTable("Visitors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Company = "Tech Solutions Ltd",
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedByUserId = 0,
+                            FullName = "Ahmed Ali Hassan",
+                            IsBlocked = false,
+                            NationalId = "2850123456789",
+                            Phone = "0501234567",
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Company = "Global Consultants",
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedByUserId = 0,
+                            FullName = "Fatima Mohammed Ibrahim",
+                            IsBlocked = false,
+                            NationalId = "2920987654321",
+                            Phone = "0559876543",
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Company = "Business Partners Inc",
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedByUserId = 0,
+                            FullName = "Omar Abdullah Khalid",
+                            IsBlocked = false,
+                            Phone = "0551112233",
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedByUserId = 0,
+                            FullName = "Layla Hassan Ahmed",
+                            IsBlocked = false,
+                            NationalId = "2881234567890",
+                            Phone = "0503334455",
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Company = "Innovation Hub",
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedByUserId = 0,
+                            FullName = "Khalid Yousef Mansour",
+                            IsBlocked = false,
+                            Phone = "0555556666",
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        });
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.VisitorDepartment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("VisitorDepartments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "HR Department",
+                            IsActive = true,
+                            Name = "Human Resources"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Finance Department",
+                            IsActive = true,
+                            Name = "Finance"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Operations Department",
+                            IsActive = true,
+                            Name = "Operations"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "IT Department",
+                            IsActive = true,
+                            Name = "IT"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Sales Department",
+                            IsActive = true,
+                            Name = "Sales"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -892,6 +1629,25 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.DocumentManagement.ArchivedOrder", b =>
+                {
+                    b.HasOne("Core.Entities.Identity.AppUser", "ArchivedBy")
+                        .WithMany()
+                        .HasForeignKey("ArchivedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.DocumentManagement.Order", "OriginalOrder")
+                        .WithMany()
+                        .HasForeignKey("OriginalOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ArchivedBy");
+
+                    b.Navigation("OriginalOrder");
+                });
+
             modelBuilder.Entity("Core.Entities.DocumentManagement.Department", b =>
                 {
                     b.HasOne("Core.Entities.Identity.AppUser", "Manager")
@@ -930,6 +1686,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.DocumentManagement.Order", b =>
                 {
+                    b.HasOne("Core.Entities.Identity.AppUser", "ArchivedBy")
+                        .WithMany()
+                        .HasForeignKey("ArchivedById")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Core.Entities.Identity.AppUser", "AssignedTo")
                         .WithMany()
                         .HasForeignKey("AssignedToId")
@@ -958,6 +1719,8 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UpdatedById")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.Navigation("ArchivedBy");
+
                     b.Navigation("AssignedTo");
 
                     b.Navigation("CreatedBy");
@@ -967,6 +1730,24 @@ namespace Infrastructure.Migrations
                     b.Navigation("Subject");
 
                     b.Navigation("UpdatedBy");
+                });
+
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderActivityLog", b =>
+                {
+                    b.HasOne("Core.Entities.DocumentManagement.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Core.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentManagement.OrderAttachment", b =>
@@ -986,6 +1767,33 @@ namespace Infrastructure.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("UploadedBy");
+                });
+
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderDepartmentAccess", b =>
+                {
+                    b.HasOne("Core.Entities.DocumentManagement.Department", "Department")
+                        .WithMany("OrderAccesses")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Identity.AppUser", "GrantedBy")
+                        .WithMany()
+                        .HasForeignKey("GrantedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.DocumentManagement.Order", "Order")
+                        .WithMany("DepartmentAccesses")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("GrantedBy");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentManagement.OrderHistory", b =>
@@ -1034,6 +1842,33 @@ namespace Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.DocumentManagement.OrderUserException", b =>
+                {
+                    b.HasOne("Core.Entities.Identity.AppUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.DocumentManagement.Order", "Order")
+                        .WithMany("UserExceptions")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Core.Entities.DocumentManagement.Subject", b =>
                 {
                     b.HasOne("Core.Entities.DocumentManagement.Department", "Department")
@@ -1043,6 +1878,33 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Core.Entities.DocumentManagement.UserPermission", b =>
+                {
+                    b.HasOne("Core.Entities.Identity.AppUser", "GrantedBy")
+                        .WithMany()
+                        .HasForeignKey("GrantedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.DocumentManagement.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("GrantedBy");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentViewer.Document", b =>
@@ -1094,6 +1956,46 @@ namespace Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.VisitorManagement.Employee", b =>
+                {
+                    b.HasOne("Core.Entities.VisitorManagement.VisitorDepartment", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.EmployeeAttendance", b =>
+                {
+                    b.HasOne("Core.Entities.VisitorManagement.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorManagement.Visit", b =>
+                {
+                    b.HasOne("Core.Entities.Identity.AppUser", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.VisitorManagement.Visitor", "Visitor")
+                        .WithMany()
+                        .HasForeignKey("VisitorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("Visitor");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Core.Entities.Identity.AppRole", null)
@@ -1134,6 +2036,8 @@ namespace Infrastructure.Migrations
                 {
                     b.Navigation("DepartmentUsers");
 
+                    b.Navigation("OrderAccesses");
+
                     b.Navigation("Orders");
 
                     b.Navigation("SubDepartments");
@@ -1145,9 +2049,13 @@ namespace Infrastructure.Migrations
                 {
                     b.Navigation("Attachments");
 
+                    b.Navigation("DepartmentAccesses");
+
                     b.Navigation("History");
 
                     b.Navigation("Permissions");
+
+                    b.Navigation("UserExceptions");
                 });
 
             modelBuilder.Entity("Core.Entities.DocumentManagement.Subject", b =>

@@ -188,8 +188,10 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Check direct permissions
+    // Check direct permissions (try userPermissions first, then permissions)
     const directPermission = order.userPermissions?.find(
+      (perm) => perm.userCode === this.currentUser.code
+    ) || order.permissions?.find(
       (perm) => perm.userCode === this.currentUser.code
     );
 
@@ -566,18 +568,83 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
   }
 
   downloadAttachment(attachment: OrderAttachment): void {
-    if (attachment.fileUrl) {
+    if (!this.myPermissions?.canDownload && !this.isOwner) {
+      this.snackBar.open('ليس لديك صلاحية لتحميل الملف', 'حسناً', { duration: 3000 });
+      return;
+    }
+
+    // Use fileUrl from API (already resolved with full URL)
+    const fileUrl = attachment.fileUrl;
+    if (fileUrl) {
+      // Add download=true parameter
+      const downloadUrl = fileUrl.includes('?') 
+        ? `${fileUrl}&download=true` 
+        : `${fileUrl}?download=true`;
+      
+      // Use a temporary link to trigger download
       const link = document.createElement('a');
-      link.href = attachment.fileUrl;
+      link.href = downloadUrl;
       link.download = attachment.fileName;
+      link.target = '_blank';
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
+      
+      this.snackBar.open('جاري تحميل الملف...', 'حسناً', { duration: 2000 });
     }
   }
 
   viewAttachment(attachment: OrderAttachment): void {
-    if (attachment.fileUrl) {
-      window.open(attachment.fileUrl, '_blank');
+    if (!this.myPermissions?.canView && !this.isOwner) {
+      this.snackBar.open('ليس لديك صلاحية لعرض الملف', 'حسناً', { duration: 3000 });
+      return;
     }
+
+    // Use fileUrl from API (already resolved with full URL)
+    const fileUrl = attachment.fileUrl;
+    if (fileUrl) {
+      // Check if file is viewable (PDF or image)
+      const isViewable = this.isViewableFile(attachment);
+      
+      if (isViewable) {
+        // Open in new tab for viewing
+        window.open(fileUrl, '_blank');
+      } else {
+        // For non-viewable files, trigger download instead
+        this.snackBar.open('هذا النوع من الملفات لا يمكن عرضه. سيتم تحميله.', 'حسناً', { duration: 3000 });
+        this.downloadAttachment(attachment);
+      }
+    }
+  }
+
+  isViewableFile(attachment: OrderAttachment): boolean {
+    // Use the canView flag from API if available
+    if (attachment.canView !== undefined) {
+      return attachment.canView;
+    }
+    
+    // Fallback to checking file type and extension
+    const fileType = attachment.fileType?.toLowerCase() || '';
+    const fileName = attachment.fileName?.toLowerCase() || '';
+    
+    // Check if it's a PDF
+    if (fileType === 'pdf' || fileName.endsWith('.pdf')) {
+      return true;
+    }
+    
+    // Check if it's an image
+    if (fileType === 'image' || fileType.startsWith('image/')) {
+      return true;
+    }
+    
+    // Check by file extension for images (handle extensions with or without dot)
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'];
+    const fileTypeWithoutDot = fileType.startsWith('.') ? fileType.substring(1) : fileType;
+    if (imageExtensions.some(ext => ext.substring(1) === fileTypeWithoutDot)) {
+      return true;
+    }
+    
+    return imageExtensions.some(ext => fileName.endsWith(ext));
   }
 
   goBack(): void {

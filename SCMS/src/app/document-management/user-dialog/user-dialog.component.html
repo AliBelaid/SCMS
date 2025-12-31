@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>
+  <mat-icon>{{ isEditMode ? 'edit' : 'person_add' }}</mat-icon>
+  {{ isEditMode ? 'تعديل المستخدم' : 'إضافة مستخدم جديد' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="userForm" class="user-form">
+    <mat-form-field appearance="outline" class="full-width" *ngIf="!isEditMode">
+      <mat-label>المستخدم *</mat-label>
+      <mat-select formControlName="userId" required>
+        <mat-option *ngFor="let user of availableUsers" [value]="user.id">
+          {{ user.code }} - {{ user.email }}
+        </mat-option>
+      </mat-select>
+      <mat-hint *ngIf="isLoadingUsers">
+        <mat-spinner diameter="20"></mat-spinner>
+        جاري تحميل المستخدمين...
+      </mat-hint>
+      <mat-error *ngIf="userForm.get('userId')?.hasError('required')">
+        المستخدم مطلوب
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" *ngIf="isEditMode">
+      <mat-label>المستخدم</mat-label>
+      <input matInput [value]="data.user?.userName || data.user?.userCode" disabled />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>المنصب</mat-label>
+      <input matInput formControlName="position" />
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isHead" class="full-width">
+      رئيس الإدارة
+    </mat-checkbox>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>ملاحظات</mat-label>
+      <textarea matInput formControlName="notes" rows="3"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">إلغاء</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!userForm.valid || isLoadingUsers">
+    <mat-icon>save</mat-icon>
+    حفظ
+  </button>
+</mat-dialog-actions>
+

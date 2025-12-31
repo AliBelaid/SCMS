@@ -1,14 +1,23 @@
 <!-- login.component.html -->
 <div class="login-container" [attr.dir]="selectedLang === 'ar' ? 'rtl' : 'ltr'">
-  <!-- Language Selector -->
+  <!-- Language Selector - Icons Only -->
   <div class="language-selector">
-    <mat-form-field appearance="outline" class="language-field">
-      <mat-label>{{ 'SELECT_LANGUAGE' | translate }}</mat-label>
-      <mat-select [(ngModel)]="selectedLang" (selectionChange)="changeLanguage($event.value)">
-        <mat-option value="en">English</mat-option>
-        <mat-option value="ar">العربية</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <button 
+      mat-icon-button 
+      [class.active]="selectedLang === 'en'"
+      (click)="changeLanguage('en')"
+      matTooltip="English"
+      class="lang-button">
+      <mat-icon>language</mat-icon>
+    </button>
+    <button 
+      mat-icon-button 
+      [class.active]="selectedLang === 'ar'"
+      (click)="changeLanguage('ar')"
+      matTooltip="العربية"
+      class="lang-button">
+      <mat-icon>translate</mat-icon>
+    </button>
   </div>
 
   <!-- Main Login Card -->
@@ -16,13 +25,13 @@
     <div @fadeInUp class="login-card">
       <!-- Logo Section -->
       <div class="logo-section">
-        <img src="assets/img/medical/logo.png" alt="HEMS Logo" class="logo">
+          <img src="assets/logo.png" alt="SCMS Logo" class="logo">
       </div>
 
       <!-- Title Section -->
       <div class="title-section">
         <h2 class="login-title">{{ 'LOGIN_FORM' | translate }}</h2>
-        <p class="login-subtitle">{{ 'WELCOME_TO_HEMS' | translate }}</p>
+        <p class="login-subtitle">{{ 'WELCOME_TO_SCMS' | translate }}</p>
       </div>
 
       <!-- Login Form -->

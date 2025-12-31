@@ -46,10 +46,42 @@ namespace API.Hubs
             await base.OnConnectedAsync();
         }
 
-        public override async Task OnDisconnectedAsync(Exception exception)
+        public override async Task OnDisconnectedAsync(Exception? exception)
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, "AllUsers");
             await base.OnDisconnectedAsync(exception);
+        }
+
+        /// <summary>
+        /// Join visitor management group to receive real-time updates
+        /// </summary>
+        public async Task JoinVisitorManagementGroup()
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, "VisitorManagement");
+        }
+
+        /// <summary>
+        /// Leave visitor management group
+        /// </summary>
+        public async Task LeaveVisitorManagementGroup()
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, "VisitorManagement");
+        }
+
+        /// <summary>
+        /// Join employee management group to receive real-time updates
+        /// </summary>
+        public async Task JoinEmployeeManagementGroup()
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, "EmployeeManagement");
+        }
+
+        /// <summary>
+        /// Leave employee management group
+        /// </summary>
+        public async Task LeaveEmployeeManagementGroup()
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, "EmployeeManagement");
         }
     }
 } 

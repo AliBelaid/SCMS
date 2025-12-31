@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -10,10 +10,17 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/assets/services/auth.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private toastr: ToastrService) {}
+  private authService: AuthService | null = null;
+  
+  constructor(
+    private router: Router, 
+    private toastr: ToastrService,
+    private injector: Injector
+  ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -30,7 +37,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           } else if (error.error && error.error.message) {
             // Handle JSON errors
             errorMessage = error.error.message;
-          } else if (error.error.errors) {
+          } else if (error.error && error.error.errors) {
             // Handle validation errors
             const errors = error.error.errors;
             for (const key in errors) {
@@ -41,12 +48,34 @@ export class ErrorInterceptor implements HttpInterceptor {
             return throwError(() => new Error(error.message));
           }
 
-          // Show error using Toastr
-          this.toastr.error(errorMessage, `Error ${error.status}`);
-
-          // Only redirect to login for 401 errors
+          // Handle 401 errors
           if (error.status === 401) {
-            this.router.navigateByUrl('/login');
+            // Lazy load AuthService to avoid circular dependency
+            if (!this.authService) {
+              this.authService = this.injector.get(AuthService);
+            }
+            
+            // Clear invalid auth data
+            if (this.authService) {
+              this.authService.clearAuthData();
+            }
+            
+            // Don't show toast or redirect for initial account check during app initialization
+            // The userInitializerFactory will handle this gracefully
+            const isInitialAccountCheck = request.url.includes('/account') && 
+                                         (error.error?.message?.includes('NameIdentifier') || 
+                                          error.error?.message?.includes('Not authenticated'));
+            
+            if (!isInitialAccountCheck) {
+              // Show error and redirect for other 401 errors
+              this.toastr.error('Session expired. Please login again.', 'Authentication Error');
+              setTimeout(() => {
+                this.router.navigateByUrl('/login');
+              }, 100);
+            }
+          } else {
+            // Show error for non-401 errors
+            this.toastr.error(errorMessage, `Error ${error.status}`);
           }
         }
         return throwError(() => new Error(error.message));

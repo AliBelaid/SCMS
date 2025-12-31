@@ -1,103 +1,349 @@
-<section class="department-form">
-  <header class="page-header">
-    <h1>
-      {{ mode() === 'edit' ? 'تعديل الإدارة' : 'إنشاء إدارة جديدة' }}
-    </h1>
-    <p>قم بإدارة بيانات الإدارة والمواضيع التابعة لها.</p>
-  </header>
-
-  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-    <div class="form-grid">
-      <div class="field">
-        <label for="code">رمز الإدارة</label>
-        <input id="code" type="text" formControlName="code" placeholder="مثال: HR" />
-      </div>
-
-      <div class="field">
-        <label for="nameAr">الاسم بالعربية</label>
-        <input id="nameAr" type="text" formControlName="nameAr" />
-      </div>
-
-      <div class="field">
-        <label for="nameEn">الاسم بالإنجليزية</label>
-        <input id="nameEn" type="text" formControlName="nameEn" />
-      </div>
-
-      <div class="field description">
-        <label for="description">الوصف</label>
-        <textarea id="description" rows="3" formControlName="description"></textarea>
-      </div>
-
-      <div class="field toggle">
-        <label>
-          <input type="checkbox" formControlName="isActive" />
-          الإدارة نشطة
-        </label>
-      </div>
+<div class="department-form-container">
+  <!-- Hero Header -->
+  <div class="form-hero">
+    <div class="hero-content">
+      <mat-icon class="hero-icon">{{ mode() === 'edit' ? 'edit' : 'add_business' }}</mat-icon>
+      <h1 class="hero-title">
+        {{ mode() === 'edit' ? 'تعديل الإدارة' : 'إنشاء إدارة جديدة' }}
+      </h1>
+      <p class="hero-subtitle">
+        {{ mode() === 'edit' ? 'قم بتحديث بيانات الإدارة والمواضيع والمستخدمين' : 'قم بإدخال بيانات الإدارة الجديدة' }}
+      </p>
     </div>
+  </div>
 
-    <section class="subjects">
-      <header>
-        <h2>المواضيع</h2>
-        <button type="button" (click)="addSubject()">إضافة موضوع</button>
-      </header>
+  <mat-card class="stepper-card">
+    <mat-card-content>
+      <mat-stepper [linear]="true" #stepper orientation="horizontal">
+        <!-- Step 1: Basic Information -->
+        <mat-step [stepControl]="basicInfoForm" label="المعلومات الأساسية">
+          <form [formGroup]="basicInfoForm" class="step-form">
+            <div class="section-header">
+              <mat-icon>info</mat-icon>
+              <h2>معلومات الإدارة الأساسية</h2>
+            </div>
 
-      <div
-        class="subject-card"
-        *ngFor="let subject of subjectsArray.controls; index as i"
-        [formGroupName]="i"
-      >
-        <div class="subject-grid">
-          <div class="field">
-            <label>رمز الموضوع</label>
-            <input type="text" formControlName="code" placeholder="مثال: REC" />
-          </div>
-          <div class="field">
-            <label>الاسم بالعربية</label>
-            <input type="text" formControlName="nameAr" />
-          </div>
-          <div class="field">
-            <label>الاسم بالإنجليزية</label>
-            <input type="text" formControlName="nameEn" />
-          </div>
-          <div class="field">
-            <label>رمز الوارد</label>
-            <input type="text" formControlName="incomingPrefix" placeholder="مثال: REC-IN" />
-          </div>
-          <div class="field">
-            <label>رمز الصادر</label>
-            <input type="text" formControlName="outgoingPrefix" placeholder="مثال: REC-OUT" />
-          </div>
-          <div class="field">
-            <label>تاريخ الإنشاء</label>
-            <input type="date" formControlName="createdAt" />
-          </div>
-          <div class="field toggle">
-            <label>
-              <input type="checkbox" formControlName="isActive" />
-              موضوع نشط
-            </label>
-          </div>
-        </div>
-        <button type="button" class="remove" (click)="removeSubject(i)" *ngIf="subjectsArray.length > 1">
-          إزالة الموضوع
-        </button>
-      </div>
-    </section>
+            <div class="form-grid">
+              <mat-form-field appearance="outline">
+                <mat-label>رمز الإدارة</mat-label>
+                <input matInput formControlName="code" placeholder="مثال: HR" />
+                <mat-icon matPrefix>code</mat-icon>
+                <mat-error *ngIf="basicInfoForm.get('code')?.hasError('required')">
+                  رمز الإدارة مطلوب
+                </mat-error>
+                <mat-error *ngIf="basicInfoForm.get('code')?.hasError('minlength')">
+                  يجب أن يكون على الأقل حرفين
+                </mat-error>
+              </mat-form-field>
 
-    <footer class="form-actions">
-      <button type="submit" [disabled]="isSaving()">
-        {{ mode() === 'edit' ? 'تحديث الإدارة' : 'حفظ الإدارة' }}
-      </button>
-      <a
-        routerLink="/app/document-management/dashboard"
-        class="link"
-      >إلغاء</a>
-    </footer>
+              <mat-form-field appearance="outline">
+                <mat-label>الاسم بالعربية</mat-label>
+                <input matInput formControlName="nameAr" placeholder="مثال: الموارد البشرية" />
+                <mat-icon matPrefix>language</mat-icon>
+                <mat-error *ngIf="basicInfoForm.get('nameAr')?.hasError('required')">
+                  الاسم بالعربية مطلوب
+                </mat-error>
+              </mat-form-field>
 
-    <p class="feedback" *ngIf="submissionMessage() as message">
-      {{ message }}
-    </p>
-  </form>
-</section>
+              <mat-form-field appearance="outline">
+                <mat-label>الاسم بالإنجليزية</mat-label>
+                <input matInput formControlName="nameEn" placeholder="Example: Human Resources" dir="ltr" />
+                <mat-icon matPrefix>translate</mat-icon>
+                <mat-error *ngIf="basicInfoForm.get('nameEn')?.hasError('required')">
+                  الاسم بالإنجليزية مطلوب
+                </mat-error>
+              </mat-form-field>
 
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>الوصف</mat-label>
+                <textarea matInput formControlName="description" rows="3" placeholder="وصف الإدارة ومهامها..."></textarea>
+                <mat-icon matPrefix>description</mat-icon>
+              </mat-form-field>
+
+              <div class="checkbox-field full-width">
+                <mat-checkbox formControlName="isActive">
+                  <strong>الإدارة نشطة</strong>
+                  <span class="helper-text">يمكن تعطيل الإدارة مؤقتاً دون حذفها</span>
+                </mat-checkbox>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button mat-raised-button color="primary" matStepperNext>
+                <mat-icon>arrow_forward</mat-icon>
+                التالي: المواضيع
+              </button>
+              <button mat-button (click)="cancel()">
+                <mat-icon>cancel</mat-icon>
+                إلغاء
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 2: Subjects -->
+        <mat-step [stepControl]="subjectsForm" label="المواضيع">
+          <form [formGroup]="subjectsForm" class="step-form">
+            <div class="section-header">
+              <mat-icon>topic</mat-icon>
+              <h2>مواضيع الإدارة</h2>
+              <button mat-mini-fab color="accent" (click)="addSubject()" type="button" class="add-button">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+
+            <div formArrayName="subjects" class="subjects-container">
+              <mat-card *ngFor="let subject of subjectsArray.controls; index as i" class="subject-card" [formGroupName]="i">
+                <mat-card-header>
+                  <mat-card-title>
+                    <mat-icon>topic</mat-icon>
+                    موضوع {{ i + 1 }}
+                  </mat-card-title>
+                  <button mat-icon-button color="warn" (click)="removeSubject(i)" *ngIf="subjectsArray.length > 1" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <div class="form-grid">
+                    <mat-form-field appearance="outline">
+                      <mat-label>رمز الموضوع</mat-label>
+                      <input matInput formControlName="code" placeholder="مثال: REC" />
+                      <mat-icon matPrefix>label</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>الاسم بالعربية</mat-label>
+                      <input matInput formControlName="nameAr" />
+                      <mat-icon matPrefix>language</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>الاسم بالإنجليزية</mat-label>
+                      <input matInput formControlName="nameEn" dir="ltr" />
+                      <mat-icon matPrefix>translate</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>الوصف</mat-label>
+                      <textarea matInput formControlName="description" rows="2"></textarea>
+                      <mat-icon matPrefix>description</mat-icon>
+                    </mat-form-field>
+
+                    <div class="checkbox-field">
+                      <mat-checkbox formControlName="isActive">
+                        الموضوع نشط
+                      </mat-checkbox>
+                    </div>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+
+              <div *ngIf="subjectsArray.length === 0" class="empty-state">
+                <mat-icon>inbox</mat-icon>
+                <p>لا توجد مواضيع بعد</p>
+                <button mat-raised-button color="primary" (click)="addSubject()" type="button">
+                  <mat-icon>add</mat-icon>
+                  إضافة موضوع جديد
+                </button>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button mat-raised-button color="primary" matStepperNext>
+                <mat-icon>arrow_forward</mat-icon>
+                التالي: المستخدمون
+              </button>
+              <button mat-button matStepperPrevious>
+                <mat-icon>arrow_back</mat-icon>
+                السابق
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 3: Users -->
+        <mat-step [stepControl]="usersForm" label="المستخدمون">
+          <form [formGroup]="usersForm" class="step-form">
+            <div class="section-header">
+              <mat-icon>people</mat-icon>
+              <h2>مستخدمو الإدارة</h2>
+              <button mat-mini-fab color="accent" (click)="addUser()" type="button" class="add-button">
+                <mat-icon>person_add</mat-icon>
+              </button>
+            </div>
+
+            <div formArrayName="users" class="users-container">
+              <mat-card *ngFor="let user of usersArray.controls; index as i" class="user-card" [formGroupName]="i">
+                <mat-card-header>
+                  <mat-card-title>
+                    <mat-icon>person</mat-icon>
+                    مستخدم {{ i + 1 }}
+                  </mat-card-title>
+                  <button mat-icon-button color="warn" (click)="removeUser(i)" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <div class="form-grid">
+                    <mat-form-field appearance="outline" *ngIf="mode() === 'create' || !user.get('userId')?.value">
+                      <mat-label>اختر المستخدم</mat-label>
+                      <mat-select formControlName="userId" (selectionChange)="onUserSelected(i, $event.value)">
+                        <mat-option *ngFor="let availUser of availableUsers()" [value]="availUser.id">
+                          {{ availUser.code }} - {{ availUser.email }}
+                        </mat-option>
+                      </mat-select>
+                      <mat-icon matPrefix>person</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" *ngIf="mode() === 'edit' && user.get('userId')?.value">
+                      <mat-label>المستخدم</mat-label>
+                      <input matInput [value]="user.get('userCode')?.value" readonly />
+                      <mat-icon matPrefix>person</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>المنصب</mat-label>
+                      <input matInput formControlName="position" placeholder="مثال: مدير" />
+                      <mat-icon matPrefix>work</mat-icon>
+                    </mat-form-field>
+
+                    <div class="checkbox-field">
+                      <mat-checkbox formControlName="isHead">
+                        <strong>رئيس الإدارة</strong>
+                      </mat-checkbox>
+                    </div>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>ملاحظات</mat-label>
+                      <textarea matInput formControlName="notes" rows="2"></textarea>
+                      <mat-icon matPrefix>note</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+
+              <div *ngIf="usersArray.length === 0" class="empty-state">
+                <mat-icon>people_outline</mat-icon>
+                <p>لا توجد مستخدمون بعد</p>
+                <button mat-raised-button color="primary" (click)="addUser()" type="button">
+                  <mat-icon>person_add</mat-icon>
+                  إضافة مستخدم جديد
+                </button>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button mat-raised-button color="primary" matStepperNext>
+                <mat-icon>check</mat-icon>
+                مراجعة وحفظ
+              </button>
+              <button mat-button matStepperPrevious>
+                <mat-icon>arrow_back</mat-icon>
+                السابق
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 4: Review & Submit -->
+        <mat-step label="المراجعة والحفظ">
+          <div class="review-section">
+            <div class="section-header">
+              <mat-icon>preview</mat-icon>
+              <h2>مراجعة البيانات</h2>
+            </div>
+
+            <!-- Basic Info Summary -->
+            <mat-card class="summary-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>info</mat-icon>
+                  المعلومات الأساسية
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="summary-grid">
+                  <div class="summary-item">
+                    <span class="label">الرمز:</span>
+                    <span class="value">{{ basicInfoForm.get('code')?.value }}</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">الاسم (عربي):</span>
+                    <span class="value">{{ basicInfoForm.get('nameAr')?.value }}</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">الاسم (إنجليزي):</span>
+                    <span class="value">{{ basicInfoForm.get('nameEn')?.value }}</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">الحالة:</span>
+                    <mat-chip [color]="basicInfoForm.get('isActive')?.value ? 'primary' : 'warn'" selected>
+                      {{ basicInfoForm.get('isActive')?.value ? 'نشط' : 'غير نشط' }}
+                    </mat-chip>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <!-- Subjects Summary -->
+            <mat-card class="summary-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>topic</mat-icon>
+                  المواضيع ({{ subjectsArray.length }})
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-chip-set>
+                  <mat-chip *ngFor="let subject of subjectsArray.controls">
+                    {{ subject.get('code')?.value }} - {{ subject.get('nameAr')?.value }}
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+
+            <!-- Users Summary -->
+            <mat-card class="summary-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>people</mat-icon>
+                  المستخدمون ({{ usersArray.length }})
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-chip-set>
+                  <mat-chip *ngFor="let user of usersArray.controls" [color]="user.get('isHead')?.value ? 'accent' : 'default'" selected>
+                    <mat-icon *ngIf="user.get('isHead')?.value">star</mat-icon>
+                    {{ user.get('userCode')?.value || 'مستخدم جديد' }}
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+
+            <div class="step-actions">
+              <button mat-raised-button color="primary" (click)="submit()" [disabled]="isSaving()">
+                <mat-spinner diameter="20" *ngIf="isSaving()" class="button-spinner"></mat-spinner>
+                <mat-icon *ngIf="!isSaving()">save</mat-icon>
+                {{ mode() === 'edit' ? 'تحديث الإدارة' : 'حفظ الإدارة' }}
+              </button>
+              <button mat-button matStepperPrevious [disabled]="isSaving()">
+                <mat-icon>arrow_back</mat-icon>
+                السابق
+              </button>
+            </div>
+
+            <!-- Feedback Message -->
+            <div *ngIf="submissionMessage()" class="feedback-message" 
+                 [class.success]="!submissionMessage()?.includes('خطأ')"
+                 [class.error]="submissionMessage()?.includes('خطأ')">
+              <mat-icon>{{ submissionMessage()?.includes('خطأ') ? 'error' : 'check_circle' }}</mat-icon>
+              <p>{{ submissionMessage() }}</p>
+            </div>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>

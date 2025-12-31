@@ -6,12 +6,21 @@ import { environment } from 'src/environments/environment';
 import {
   Department,
   Subject,
+  DepartmentUser,
+  CreateDepartmentDto,
+  UpdateDepartmentDto,
+  CreateSubjectDto,
+  UpdateSubjectDto,
+  AddDepartmentUserDto,
+  UpdateDepartmentUserDto,
+  DirectoryUser,
   Order,
   OrderHistory,
   UserPermission,
   DepartmentAccess,
   UserException,
   EffectivePermissions,
+  CreateOrderDto,
   GrantUserPermissionDto,
   GrantDepartmentAccessDto,
   AddUserExceptionDto,
@@ -20,13 +29,6 @@ import {
   ArchivedOrder,
   ExpirationWarning,
 } from './department.model';
-
-export type DirectoryUser = {
-  id: number;
-  code: string;
-  email: string;
-  name: string;
-};
 
 @Injectable({
   providedIn: 'root',
@@ -46,11 +48,11 @@ export class DepartmentService {
     return this.http.get<Department>(`${this.baseUrl}/departments/${id}`);
   }
 
-  addDepartment(department: Partial<Department>): Observable<Department> {
+  addDepartment(department: CreateDepartmentDto): Observable<Department> {
     return this.http.post<Department>(`${this.baseUrl}/departments`, department);
   }
 
-  updateDepartment(id: string, department: Partial<Department>): Observable<Department> {
+  updateDepartment(id: string, department: UpdateDepartmentDto): Observable<Department> {
     return this.http.put<Department>(`${this.baseUrl}/departments/${id}`, department);
   }
 
@@ -58,22 +60,66 @@ export class DepartmentService {
     return this.http.delete<boolean>(`${this.baseUrl}/departments/${id}`);
   }
 
-  // ==================== Subjects ====================
+  // ==================== Department Users Management ====================
+
+  addUserToDepartment(departmentId: string, user: AddDepartmentUserDto): Observable<boolean> {
+    return this.http.post<any>(
+      `${this.baseUrl}/departments/${departmentId}/users`,
+      user
+    ).pipe(map(() => true));
+  }
+
+  removeUserFromDepartment(departmentId: string, userId: string): Observable<boolean> {
+    return this.http.delete<any>(
+      `${this.baseUrl}/departments/${departmentId}/users/${userId}`
+    ).pipe(map(() => true));
+  }
+
+  updateDepartmentUser(
+    departmentId: string,
+    userId: string,
+    user: UpdateDepartmentUserDto
+  ): Observable<boolean> {
+    return this.http.put<any>(
+      `${this.baseUrl}/departments/${departmentId}/users/${userId}`,
+      user
+    ).pipe(map(() => true));
+  }
+
+  getAvailableUsersForDepartment(departmentId: string): Observable<DirectoryUser[]> {
+    return this.http.get<DirectoryUser[]>(
+      `${this.baseUrl}/departments/${departmentId}/available-users`
+    );
+  }
+
+  // ==================== Subjects Management ====================
 
   getSubjectsByDepartment(departmentId: string): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.baseUrl}/departments/${departmentId}/subjects`);
   }
 
-  addSubject(subject: Partial<Subject>): Observable<Subject> {
-    return this.http.post<Subject>(`${this.baseUrl}/subjects`, subject);
+  addSubjectToDepartment(departmentId: string, subject: CreateSubjectDto): Observable<boolean> {
+    return this.http.post<any>(
+      `${this.baseUrl}/departments/${departmentId}/subjects`,
+      subject
+    ).pipe(map(() => true));
   }
 
-  updateSubject(id: string, subject: Partial<Subject>): Observable<Subject> {
-    return this.http.put<Subject>(`${this.baseUrl}/subjects/${id}`, subject);
+  updateSubject(
+    departmentId: string,
+    subjectId: string,
+    subject: UpdateSubjectDto
+  ): Observable<boolean> {
+    return this.http.put<any>(
+      `${this.baseUrl}/departments/${departmentId}/subjects/${subjectId}`,
+      subject
+    ).pipe(map(() => true));
   }
 
-  deleteSubject(id: string): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.baseUrl}/subjects/${id}`);
+  deleteSubject(departmentId: string, subjectId: string): Observable<boolean> {
+    return this.http.delete<any>(
+      `${this.baseUrl}/departments/${departmentId}/subjects/${subjectId}`
+    ).pipe(map(() => true));
   }
 
   // ==================== Orders ====================
@@ -83,7 +129,36 @@ export class DepartmentService {
   }
 
   getOrderById(id: string): Observable<Order> {
-    return this.http.get<Order>(`${this.baseUrl}/orders/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/orders/${id}`).pipe(
+      map((response) => {
+        // Map the response to Order interface
+        // The API returns 'permissions' which need to be mapped to UserPermission[]
+        const mappedPermissions: UserPermission[] = (response.permissions || response.userPermissions || []).map((p: any) => ({
+          id: p.id || 0,
+          userId: p.userId,
+          userCode: p.userCode || '',
+          userEmail: p.userEmail || '',
+          canView: p.canView || false,
+          canEdit: p.canEdit || false,
+          canDelete: p.canDelete || false,
+          canShare: p.canShare || false,
+          canDownload: p.canDownload || false,
+          canPrint: p.canPrint || false,
+          canComment: p.canComment || false,
+          canApprove: p.canApprove || false,
+          grantedAt: p.grantedAt ? new Date(p.grantedAt) : new Date(),
+          expiresAt: p.expiresAt ? new Date(p.expiresAt) : undefined,
+          isExpired: p.isExpired || false,
+          grantedByName: p.grantedByName || '',
+        }));
+
+        const order: Order = {
+          ...response,
+          userPermissions: mappedPermissions,
+        };
+        return order;
+      })
+    );
   }
 
   getOrdersByType(type: 'incoming' | 'outgoing'): Observable<Order[]> {
@@ -94,7 +169,7 @@ export class DepartmentService {
     return this.http.get<Order[]>(`${this.baseUrl}/orders/department/${departmentId}`);
   }
 
-  addOrder(order: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>): Observable<Order> {
+  addOrder(order: CreateOrderDto): Observable<Order> {
     return this.http.post<Order>(`${this.baseUrl}/orders`, order);
   }
 
@@ -106,7 +181,7 @@ export class DepartmentService {
     return this.http.delete<boolean>(`${this.baseUrl}/orders/${id}`);
   }
 
-  // ==================== Order History (NEW) ====================
+  // ==================== Order History ====================
 
   getOrderHistory(
     orderId: string,

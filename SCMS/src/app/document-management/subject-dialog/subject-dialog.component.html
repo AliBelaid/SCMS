@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>
+  <mat-icon>{{ isEditMode ? 'edit' : 'add' }}</mat-icon>
+  {{ isEditMode ? 'تعديل الموضوع' : 'إضافة موضوع جديد' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="subjectForm" class="subject-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>الرمز *</mat-label>
+      <input matInput formControlName="code" required />
+      <mat-error *ngIf="subjectForm.get('code')?.hasError('required')">
+        الرمز مطلوب
+      </mat-error>
+      <mat-error *ngIf="subjectForm.get('code')?.hasError('minlength')">
+        يجب أن يكون الرمز على الأقل حرفين
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>الاسم (عربي) *</mat-label>
+      <input matInput formControlName="nameAr" required />
+      <mat-error *ngIf="subjectForm.get('nameAr')?.hasError('required')">
+        الاسم بالعربية مطلوب
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>الاسم (إنجليزي) *</mat-label>
+      <input matInput formControlName="nameEn" required />
+      <mat-error *ngIf="subjectForm.get('nameEn')?.hasError('required')">
+        الاسم بالإنجليزية مطلوب
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>الوصف</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isActive" class="full-width">
+      نشط
+    </mat-checkbox>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">إلغاء</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!subjectForm.valid">
+    <mat-icon>save</mat-icon>
+    حفظ
+  </button>
+</mat-dialog-actions>
+

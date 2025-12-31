@@ -1,0 +1,126 @@
+<div class="user-form-container" style="margin-top: 70px;">
+  <!-- Hero Section -->
+  <div class="user-form-hero">
+    <div class="hero-content">
+      <mat-icon class="hero-logo-icon">{{ mode() === 'create' ? 'person_add' : 'edit' }}</mat-icon>
+      <h1 class="hero-title">
+        <mat-icon>{{ mode() === 'create' ? 'person_add' : 'edit' }}</mat-icon>
+        {{ mode() === 'create' ? 'إضافة مستخدم جديد' : 'تعديل مستخدم' }}
+      </h1>
+    </div>
+  </div>
+
+  <mat-card class="user-form-card">
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <!-- Code -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>رمز المستخدم *</mat-label>
+          <input matInput formControlName="code" placeholder="أدخل رمز المستخدم">
+          <mat-icon matPrefix>badge</mat-icon>
+          <mat-error *ngIf="form.get('code')?.hasError('required')">
+            رمز المستخدم مطلوب
+          </mat-error>
+          <mat-error *ngIf="form.get('code')?.hasError('minlength')">
+            يجب أن يكون رمز المستخدم 3 أحرف على الأقل
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password (required for create, optional for edit) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>كلمة المرور {{ mode() === 'create' ? '*' : '(اختياري للتحديث)' }}</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="أدخل كلمة المرور">
+          <mat-icon matPrefix>lock</mat-icon>
+          <mat-error *ngIf="form.get('password')?.hasError('required')">
+            كلمة المرور مطلوبة
+          </mat-error>
+          <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+            يجب أن تكون كلمة المرور 3 أحرف على الأقل
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Description/Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>الاسم *</mat-label>
+          <input matInput formControlName="description" placeholder="أدخل اسم المستخدم">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="form.get('description')?.hasError('required')">
+            الاسم مطلوب
+          </mat-error>
+          <mat-error *ngIf="form.get('description')?.hasError('minlength')">
+            يجب أن يكون الاسم 3 أحرف على الأقل
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>البريد الإلكتروني</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="example@domain.com">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-error *ngIf="form.get('email')?.hasError('email')">
+            بريد إلكتروني غير صحيح
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Role -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>الدور *</mat-label>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let role of availableRoles" [value]="role">
+              {{ getRoleLabel(role) }} ({{ role }})
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix>admin_panel_settings</mat-icon>
+          <mat-error *ngIf="form.get('role')?.hasError('required')">
+            الدور مطلوب
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Country -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>البلد</mat-label>
+          <input matInput formControlName="country" placeholder="أدخل البلد">
+          <mat-icon matPrefix>public</mat-icon>
+        </mat-form-field>
+
+        <!-- Preferred Language -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>اللغة المفضلة</mat-label>
+          <mat-select formControlName="preferredLanguage">
+            <mat-option value="ar">العربية</mat-option>
+            <mat-option value="en">English</mat-option>
+          </mat-select>
+          <mat-icon matPrefix>language</mat-icon>
+        </mat-form-field>
+
+        <!-- Is Active -->
+        <div class="checkbox-section">
+          <mat-checkbox formControlName="isActive">
+            المستخدم نشط
+          </mat-checkbox>
+        </div>
+
+        <!-- Submission Message -->
+        <div *ngIf="submissionMessage()" class="submission-message" 
+             [class.success]="submissionMessage()?.includes('نجاح')"
+             [class.error]="submissionMessage()?.includes('فشل')">
+          {{ submissionMessage() }}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" type="submit" [disabled]="isSaving()">
+            <mat-spinner *ngIf="isSaving()" diameter="20" class="button-spinner"></mat-spinner>
+            <mat-icon *ngIf="!isSaving()">{{ mode() === 'create' ? 'save' : 'update' }}</mat-icon>
+            {{ mode() === 'create' ? 'إنشاء' : 'تحديث' }}
+          </button>
+          <button mat-button type="button" (click)="cancel()" [disabled]="isSaving()">
+            <mat-icon>cancel</mat-icon>
+            إلغاء
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

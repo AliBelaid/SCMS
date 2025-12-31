@@ -12,6 +12,9 @@ namespace Core.Entities.DocumentManagement
         public int OrderId { get; set; }
         public virtual Order Order { get; set; }
 
+        // Reference to the original document in DocumentViewer
+        public int? DocumentId { get; set; }
+
         [Required]
         [MaxLength(255)]
         public string FileName { get; set; }

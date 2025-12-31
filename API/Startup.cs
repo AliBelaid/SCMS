@@ -18,6 +18,8 @@ using API.Helpers;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Http.Features;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.DataProtection;
+using System.Runtime.InteropServices;
 
 public class Startup
 {
@@ -34,6 +36,13 @@ public class Startup
     {
         // Register IFileProvider early to ensure it's available for all services
         var wwwRootPath = Path.Combine(_environment.ContentRootPath, "wwwroot");
+        
+        // Ensure wwwroot directory exists (important for published apps)
+        if (!Directory.Exists(wwwRootPath))
+        {
+            Directory.CreateDirectory(wwwRootPath);
+        }
+        
         services.AddSingleton<IFileProvider>(new PhysicalFileProvider(wwwRootPath));
 
         services.AddControllers().AddNewtonsoftJson(opt =>
@@ -54,10 +63,12 @@ public class Startup
         services.AddCors(options =>
         {
             options.AddPolicy("AllowAllOrigins",
-                builder => builder.SetIsOriginAllowed(_ => true)
-                                  .AllowAnyMethod()
-                                  .AllowAnyHeader()
-                                  .AllowCredentials());
+                builder => builder
+                    .SetIsOriginAllowed(_ => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    .WithExposedHeaders("*"));
         });
 
         services.AddAutoMapper(typeof(MappingProfiles));
@@ -66,6 +77,26 @@ public class Startup
         services.AddScoped<LogUserActivity>();
         services.AddScoped<LogOrderActivity>();
         services.AddMemoryCache();
+        
+        // Configure Data Protection to use file system with machine-scoped encryption
+        // This prevents decryption errors when keys were created under a different user
+        // Machine-scoped DPAPI works across all user accounts on the same machine
+        var keysPath = Path.Combine(_environment.ContentRootPath, "DataProtection-Keys");
+        if (!Directory.Exists(keysPath))
+        {
+            Directory.CreateDirectory(keysPath);
+        }
+        var dataProtectionBuilder = services.AddDataProtection()
+            .PersistKeysToFileSystem(new DirectoryInfo(keysPath))
+            .SetApplicationName("SCMS")
+            .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
+        
+        // Use machine-scoped DPAPI (works across all users on the same machine)
+        // If running on Linux/other platforms, you may need to use ProtectKeysWithCertificate instead
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            dataProtectionBuilder.ProtectKeysWithDpapi(protectToLocalMachine: true);
+        }
         
         // Add SignalR
         services.AddSignalR();
@@ -173,9 +204,12 @@ public class Startup
             app.UseHsts();
         }        
         app.UseMiddleware<ExceptionMiddleware>();
-        app.UseStatusCodePagesWithReExecute("/errors/{0}");
         
-        app.UseHttpsRedirection();
+        // Only use HTTPS redirection in production
+        if (!env.IsDevelopment())
+        {
+            app.UseHttpsRedirection();
+        }
         
         app.UseStaticFiles(new StaticFileOptions
         {
@@ -190,13 +224,29 @@ public class Startup
         
         app.UseRouting();
         
+        // CORS must be after Routing but before Authentication/Authorization
         app.UseCors("AllowAllOrigins");
         
         app.UseAuthentication();
         app.UseAuthorization();
         
+        // Only re-execute status code pages for non-API routes
+        app.UseStatusCodePages(context =>
+        {
+            var path = context.HttpContext.Request.Path.Value?.ToLowerInvariant() ?? "";
+            if (path.StartsWith("/api/") || path.StartsWith("/swagger") || path.StartsWith("/notificationhub"))
+            {
+                // For API routes, don't re-execute - just return the status code
+                return Task.CompletedTask;
+            }
+            // For other routes, re-execute to /errors/{0}
+            context.HttpContext.Request.Path = $"/errors/{context.HttpContext.Response.StatusCode}";
+            return Task.CompletedTask;
+        });
+        
         app.UseEndpoints(endpoints =>
         {
+            // Map API controllers first (more specific routes)
             endpoints.MapControllers();
             endpoints.MapHub<NotificationHub>("/notificationHub");
         });

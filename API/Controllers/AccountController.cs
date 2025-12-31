@@ -48,13 +48,20 @@ namespace API.Controllers
         {
             try
             {
-                if (loginDto == null)
+                // Validate input
+                if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Code))
                 {
-                    return BadRequest(new ApiResponse(400, "Login data is required"));
+                    return BadRequest(new ApiResponse(400, "User code is required"));
+                }
+
+                if (string.IsNullOrWhiteSpace(loginDto.Password))
+                {
+                    return BadRequest(new ApiResponse(400, "Password is required"));
                 }
 
                 _logger.LogInformation($"Login attempt for code: {loginDto.Code}");
 
+                // Find user by CodeUser
                 var user = await _context.Users
                     .Include(p => p.UserRoles)
                         .ThenInclude(t => t.Role)
@@ -63,28 +70,39 @@ namespace API.Controllers
                 if (user == null)
                 {
                     _logger.LogWarning($"Login failed: User not found for code: {loginDto.Code}");
-                    return Unauthorized(new ApiResponse(401, "Invalid user code"));
+                    return Unauthorized(new ApiResponse(401, "Invalid user code or password"));
                 }
 
                 _logger.LogInformation($"User found: {user.Id} - {user.CodeUser} - IsActive: {user.IsActive}");
 
+                // Check if user is active
                 if (!user.IsActive)
                 {
                     _logger.LogWarning($"Login failed: User {user.CodeUser} is not active");
-                    return Unauthorized(new ApiResponse(401, "User account is not active"));
+                    return Unauthorized(new ApiResponse(401, "Account is disabled"));
                 }
 
-                _logger.LogInformation($"Checking password for user {user.CodeUser} with password length: {loginDto.Password?.Length ?? 0}");
+                // Check password
+                _logger.LogInformation($"Checking password for user {user.CodeUser}");
                 var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
-                _logger.LogInformation($"Password check result for user {user.CodeUser}: {result}");
+                
                 if (!result)
                 {
                     _logger.LogWarning($"Login failed: Invalid password for user {user.CodeUser}");
-                    return Unauthorized(new ApiResponse(401, "Invalid password"));
+                    return Unauthorized(new ApiResponse(401, "Invalid user code or password"));
                 }
 
+                // Get user roles
                 var roleNames = user.UserRoles.Select(r => r.Role.Name).ToList();
 
+                // Generate token
+                var token = await _tokenService.CreateToken(user);
+
+                // Update last active
+                user.LastActive = DateTime.UtcNow;
+                await _userManager.UpdateAsync(user);
+
+                // Return user data
                 var userToReturn = new Core.Dtos.DocumentViewer.UserDto
                 {
                     Id = user.Id,
@@ -93,16 +111,17 @@ namespace API.Controllers
                     Role = roleNames.FirstOrDefault() ?? "Member",
                     IsActive = user.IsActive,
                     LastActive = user.LastActive,
-                    PreferredLanguage = user.PreferredLanguage ?? "ar", // Default to Arabic
-                    Token = await _tokenService.CreateToken(user)
+                    PreferredLanguage = user.PreferredLanguage ?? "ar",
+                    Token = token
                 };
 
+                _logger.LogInformation($"Login successful for user {user.CodeUser}");
                 return Ok(userToReturn);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error during login");
-                return StatusCode(500, new ApiResponse(500, "Internal server error during login"));
+                return StatusCode(500, new ApiResponse(500, "System error. Please try again"));
             }
         }
 

@@ -1,0 +1,67 @@
+.vex-style-libyana {
+  --navigation-background: rgba(127,75,133);
+  --sidenav-background: rgba(127,75,133);
+  --toolbar-background: rgba(127,75,133);
+  --sidenav-color: var(--text-color);
+  --sidenav-item-background-hover: #f2f2f2;
+  --sidenav-item-background-active: #f7f7f7;
+  --sidenav-item-color: var(--text-color);
+  --sidenav-item-color-hover: var(--text-color);
+  --sidenav-item-color-active: var(--text-color);
+  --sidenav-item-dropdown-background: #f7f7f7;
+  --sidenav-item-dropdown-background-hover: #ebebeb;
+  --sidenav-item-dropdown-color-hover: var(--text-color);
+  --sidenav-item-dropdown-background-active: #e6e6e6;
+  --sidenav-item-dropdown-color-active: var(--text-color);
+  --sidenav-item-icon-color-active: rgba(var(--color-primary));
+  --sidenav-toolbar-background: rgba(127,75,133);
+  --sidenav-toolbar-background-rgba: 255, 255, 255;
+  --sidenav-section-divider-color: rgbaa(82, 63, 105, 0.06);
+}
+
+.vex-style-libyana .sidenav {
+  border-right-width: 1px;
+  --tw-border-opacity: 1;
+  border-right-color: rgba(229 231 235 / var(--tw-border-opacity));
+}
+
+.vex-style-libyana .sidenav .vex-sidenav-user .vex-sidenav-user__subtitle, 
+.vex-style-libyana .sidenav .vex-sidenav-user .vex-sidenav-user__dropdown-icon {
+  color: rgba(0 0 0 / 0.5);
+}
+
+.vex-style-libyana .sidenav .vex-sidenav-user:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243 244 246 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(17 24 39 / var(--tw-text-opacity));
+}
+
+.vex-style-libyana .sidenav .vex-sidenav-search {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243 244 246 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(75 85 99 / var(--tw-text-opacity));
+}
+
+.vex-style-libyana .sidenav .vex-sidenav-search:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229 231 235 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(17 24 39 / var(--tw-text-opacity));
+}
+
+.vex-style-libyana .vex-sidenav-user--open {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243 244 246 / var(--tw-bg-opacity));
+}
+//D:\_sys\vx_tamem_v2\vx_tamem_v05302023_v4\vx_tamem_v2\src\@vex\styles\partials\styles
+
+src\@vex\layout\sidenav\sidenav.component.ts
+D:\_sys\vx_tamem_v2\vx_tamem_v05302023_v4\vx_tamem_v2\src\@vex\config\configs.ts
+
+زر عائم 
+D:\_sys\vx_tamem_v2\vx_tamem_v05302023_v4\vx_tamem_v2\src\@vex\components\config-panel\config-panel.component.ts
+
+
+D:\_sys\vx_tamem_v2\vx_tamem_v05302023_v4\vx_tamem_v2\src\app\custom-layout\custom-layout.component.html

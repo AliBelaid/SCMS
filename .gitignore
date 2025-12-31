@@ -7,6 +7,8 @@ API/appsettings.*.json
 # Large files
 Infrastructure/Data/force.txt
 **/force.txt
+*.zip
+scms_*.zip
 
 # Build outputs
 **/bin/

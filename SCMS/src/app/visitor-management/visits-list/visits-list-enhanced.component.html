@@ -1,0 +1,317 @@
+<div class="visits-container" style="margin-top: 70px;">
+    <!-- Hero Section -->
+    <div class="visits-hero">
+      <div class="hero-content">
+        <mat-icon class="hero-logo-icon">people</mat-icon>
+        <h1 class="hero-title">
+          <mat-icon>people</mat-icon>
+          إدارة الزوار
+        </h1>
+        <p class="hero-subtitle">متابعة ومراقبة الزيارات بشكل مباشر</p>
+      </div>
+    </div>
+  
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <mat-card class="stat-card total-visits" (click)="dateFilter = 'all'; applyFilters()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>assessment</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ totalVisits }}</h2>
+            <p class="stat-label">إجمالي الزيارات</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="stat-card ongoing-visits" (click)="selectedStatus = 'ongoing'; applyFilters()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>schedule</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ ongoingVisits }}</h2>
+            <p class="stat-label">زيارات جارية</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="stat-card completed-visits" (click)="selectedStatus = 'completed'; applyFilters()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>check_circle</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ completedToday }}</h2>
+            <p class="stat-label">مكتملة اليوم</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="stat-card avg-duration">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>timer</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ avgDuration }}د</h2>
+            <p class="stat-label">متوسط المدة</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!-- Main Content Card -->
+    <mat-card class="visits-card">
+      <mat-card-header>
+        <mat-card-title class="d-flex align-items-center justify-content-between">
+          <div class="title-section">
+            <mat-icon>{{ (selectedStatus === 'ongoing' || selectedStatus === 'checkedin') ? 'schedule' : 'history' }}</mat-icon>
+            <span>{{ selectedStatus === 'ongoing' ? 'الزيارات الجارية' : 'سجل الزيارات' }}</span>
+            <mat-chip class="count-chip">{{ filteredVisits.length }}</mat-chip>
+          </div>
+  
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" (click)="navigateToCheckin()">
+              <mat-icon>add</mat-icon>
+              تسجيل زائر جديد
+            </button>
+            <button mat-button (click)="exportToExcel()">
+              <mat-icon>download</mat-icon>
+              تصدير
+            </button>
+            <button mat-button (click)="printReport()">
+              <mat-icon>print</mat-icon>
+              طباعة
+            </button>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <!-- Filters Section -->
+        <div class="filters-section">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>بحث</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input
+              matInput
+              [(ngModel)]="searchTerm"
+              (ngModelChange)="applyFilters()"
+              placeholder="ابحث برقم الزيارة، الاسم، الإدارة...">
+            <button
+              mat-icon-button
+              matSuffix
+              *ngIf="searchTerm"
+              (click)="searchTerm = ''; applyFilters()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>الإدارة</mat-label>
+            <mat-select [(ngModel)]="selectedDepartment" (ngModelChange)="applyFilters()">
+              <mat-option [value]="null">الكل</mat-option>
+              <mat-option *ngFor="let dept of departments" [value]="dept.id">
+                {{ dept.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>الحالة</mat-label>
+            <mat-select [(ngModel)]="selectedStatus" (ngModelChange)="loadVisits()">
+              <mat-option value="ongoing">جارية</mat-option>
+              <mat-option value="completed">مكتملة</mat-option>
+              <mat-option value="all">الكل</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-button-toggle-group [(ngModel)]="dateFilter" (ngModelChange)="applyFilters()" class="date-filter">
+            <mat-button-toggle value="today">اليوم</mat-button-toggle>
+            <mat-button-toggle value="week">أسبوع</mat-button-toggle>
+            <mat-button-toggle value="month">شهر</mat-button-toggle>
+            <mat-button-toggle value="all">الكل</mat-button-toggle>
+          </mat-button-toggle-group>
+  
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="clearFilters()"
+            *ngIf="searchTerm || selectedDepartment || dateFilter !== 'today'">
+            <mat-icon>clear</mat-icon>
+            مسح الفلاتر
+          </button>
+        </div>
+  
+        <!-- Loading State -->
+        <div *ngIf="isLoading" class="loading-state">
+          <mat-spinner diameter="60"></mat-spinner>
+          <p>جاري تحميل الزيارات...</p>
+        </div>
+  
+        <!-- Visits Table -->
+        <div *ngIf="!isLoading" class="table-container">
+          <table mat-table [dataSource]="dataSource" matSort class="visits-table">
+            
+            <!-- Visit Number Column -->
+            <ng-container matColumnDef="visitNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>رقم الزيارة</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="visit-number">
+                  <mat-icon class="visit-icon">confirmation_number</mat-icon>
+                  <span>{{ visit.visitNumber }}</span>
+                </div>
+              </td>
+            </ng-container>
+  
+            <!-- Visitor Name Column -->
+            <ng-container matColumnDef="visitorName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>اسم الزائر</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="visitor-cell">
+                  <mat-icon>person</mat-icon>
+                  <span>{{ visit.visitorName }}</span>
+                </div>
+              </td>
+            </ng-container>
+  
+            <!-- Car Plate Column -->
+            <ng-container matColumnDef="carPlate">
+              <th mat-header-cell *matHeaderCellDef>السيارة</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="car-cell" *ngIf="visit.carPlate">
+                  <mat-icon>directions_car</mat-icon>
+                  <span>{{ visit.carPlate }}</span>
+                </div>
+                <span *ngIf="!visit.carPlate" class="no-car">-</span>
+              </td>
+            </ng-container>
+  
+            <!-- Department Column -->
+            <ng-container matColumnDef="department">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>الإدارة</th>
+              <td mat-cell *matCellDef="let visit">
+                <mat-chip class="dept-chip">
+                  <mat-icon>business</mat-icon>
+                  {{ visit.departmentName }}
+                </mat-chip>
+              </td>
+            </ng-container>
+  
+            <!-- Employee Column -->
+            <ng-container matColumnDef="employeeToVisit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>الموظف</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="employee-cell">
+                  <mat-icon>badge</mat-icon>
+                  <span>{{ visit.employeeToVisit }}</span>
+                </div>
+              </td>
+            </ng-container>
+  
+            <!-- Check-In Time Column -->
+            <ng-container matColumnDef="checkInAt">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>وقت الدخول</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="time-cell">
+                  <mat-icon>schedule</mat-icon>
+                  <div class="time-info">
+                    <span class="date">{{ formatDate(visit.checkInAt) }}</span>
+                    <span class="time">{{ formatTime(visit.checkInAt) }}</span>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+  
+            <!-- Duration Column -->
+            <ng-container matColumnDef="duration">
+              <th mat-header-cell *matHeaderCellDef>المدة</th>
+              <td mat-cell *matCellDef="let visit">
+                <mat-chip [color]="visit.status === 'ongoing' ? 'primary' : 'accent'" class="duration-chip">
+                  <mat-icon>timer</mat-icon>
+                  {{ getDuration(visit) }}
+                </mat-chip>
+              </td>
+            </ng-container>
+  
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>الإجراءات</th>
+              <td mat-cell *matCellDef="let visit">
+                <div class="action-buttons">
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    (click)="viewVisit(visit)"
+                    matTooltip="عرض التفاصيل">
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+  
+                  <button
+                    *ngIf="visit.status === 'checkedin' || visit.status === 'ongoing'"
+                    mat-icon-button
+                    color="warn"
+                    (click)="checkout(visit)"
+                    matTooltip="تسجيل خروج">
+                    <mat-icon>logout</mat-icon>
+                  </button>
+  
+                  <button
+                    mat-icon-button
+                    [matMenuTriggerFor]="visitMenu"
+                    matTooltip="المزيد">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+  
+                  <mat-menu #visitMenu="matMenu">
+                    <button mat-menu-item *ngIf="visit.carImageUrl" (click)="viewCarImage(visit)">
+                      <mat-icon>directions_car</mat-icon>
+                      <span>عرض صورة السيارة</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>print</mat-icon>
+                      <span>طباعة بطاقة الزائر</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>history</mat-icon>
+                      <span>سجل الزيارات السابقة</span>
+                    </button>
+                  </mat-menu>
+                </div>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+          </table>
+  
+          <!-- Empty State -->
+          <div *ngIf="filteredVisits.length === 0" class="empty-state">
+            <mat-icon>inbox</mat-icon>
+            <h3>لا توجد زيارات</h3>
+            <p>لم يتم العثور على زيارات تطابق معايير البحث</p>
+            <button mat-raised-button color="primary" (click)="clearFilters()">
+              <mat-icon>clear</mat-icon>
+              مسح الفلاتر
+            </button>
+          </div>
+  
+          <!-- Paginator -->
+          <mat-paginator
+            *ngIf="filteredVisits.length > 0"
+            [pageSizeOptions]="[10, 25, 50, 100]"
+            [pageSize]="25"
+            showFirstLastButtons>
+          </mat-paginator>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Real-time Update Indicator -->
+    <div class="realtime-indicator">
+      <mat-icon class="pulse">wifi</mat-icon>
+      <span>مباشر</span>
+    </div>
+  </div>

@@ -85,10 +85,10 @@
         class="vex-sidenav-user__image flex-none" />
       <div class="vex-sidenav-user__content flex-auto">
         <div class="vex-sidenav-user__title">
-          {{ (currentUser$ | async)?.firstName }} {{ (currentUser$ | async)?.lastName }}
+          {{ (currentUser$ | async)?.code }}
         </div>
         <div class="vex-sidenav-user__subtitle">
-          {{ (currentUser$ | async)?.accountType || (currentUser$ | async)?.roles?.[0] }}
+          {{ (currentUser$ | async)?.accountType || (currentUser$ | async)?.role }}
         </div>
       </div>
       <mat-icon

@@ -38,6 +38,10 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<Member>>> GetUsers([FromQuery]UserParams userParams)
         {
             var user = await _userManager.FindByEmailFromClaimsPrincipal(HttpContext.User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
             userParams.CurrentUserName = user.CodeUser;
             
             var users = await _userRepository.GetMembersAsync(userParams);
@@ -51,6 +55,10 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var userDto = await _userManager.FindByEmailFromClaimsPrincipal(this.User);
+            if (userDto == null)
+            {
+                return Unauthorized();
+            }
             var user = await _userRepository.GetUserByIdAsync(userDto.Id);
 
             var userToSend = _mapper.Map<UserDto>(user);
@@ -71,6 +79,10 @@ namespace API.Controllers
         public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
         {
             var user = await _userManager.FindByEmailFromClaimsPrincipal(HttpContext.User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
             
             _mapper.Map(memberUpdateDto, user);
             _userRepository.Update(user);

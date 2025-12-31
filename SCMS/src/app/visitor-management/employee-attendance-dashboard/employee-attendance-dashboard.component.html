@@ -1,0 +1,280 @@
+<div class="dashboard-container" style="margin-top: 70px;">
+  <!-- Hero Section with Live Time -->
+  <div class="dashboard-hero">
+    <div class="hero-content">
+      <div class="live-time">
+        <h1 class="time">{{ getCurrentTimeFormatted() }}</h1>
+        <p class="date">{{ getCurrentDateFormatted() }}</p>
+      </div>
+      <div class="hero-title">
+        <mat-icon>badge</mat-icon>
+        <h2>لوحة التحكم - حضور الموظفين</h2>
+      </div>
+      <button mat-fab color="accent" class="refresh-button" 
+              (click)="refreshDashboard()"
+              [class.spinning]="isRefreshing"
+              matTooltip="تحديث">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="80"></mat-spinner>
+    <p>جاري تحميل البيانات...</p>
+  </div>
+
+  <div *ngIf="!isLoading" class="dashboard-content">
+    
+    <!-- Filters -->
+    <mat-card class="filters-card">
+      <mat-card-content>
+        <div class="filters-section">
+          <mat-button-toggle-group [(ngModel)]="dateFilter" (change)="onDateFilterChange()" class="date-filter-toggle">
+            <mat-button-toggle value="today">اليوم</mat-button-toggle>
+            <mat-button-toggle value="month">الشهر</mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>الإدارة</mat-label>
+            <mat-select [(ngModel)]="selectedDepartment" (ngModelChange)="onDepartmentChange()">
+              <mat-option [value]="null">الكل</mat-option>
+              <mat-option *ngFor="let dept of departments" [value]="dept.id">
+                {{ dept.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>بحث بالاسم أو الرقم</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()">
+          </mat-form-field>
+
+          <button mat-raised-button color="accent" (click)="exportReport()">
+            <mat-icon>download</mat-icon>
+            تصدير التقرير
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Main Stats Cards -->
+    <div class="stats-grid">
+      <mat-card class="stat-card total-today" (click)="navigateToAttendance()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>today</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.totalToday }}</h2>
+            <p class="stat-label">حضور اليوم</p>
+            <div class="stat-trend">
+              <mat-icon>trending_up</mat-icon>
+              <span>{{ dateFilter === 'today' ? 'حضور اليوم' : 'حضور الشهر' }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card checked-in-now">
+        <mat-card-content>
+          <div class="stat-icon pulse-animation">
+            <mat-icon>login</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.checkedInNow }}</h2>
+            <p class="stat-label">موظفون في العمل الآن</p>
+            <div class="stat-trend live">
+              <mat-icon>wifi</mat-icon>
+              <span>مباشر</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card checked-out-today">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>logout</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.checkedOutToday }}</h2>
+            <p class="stat-label">تم تسجيل الخروج اليوم</p>
+            <div class="stat-trend">
+              <mat-icon>done_all</mat-icon>
+              <span>مكتمل</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card total-month" (click)="dateFilter = 'month'; onDateFilterChange()">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>calendar_month</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ stats.totalMonth }}</h2>
+            <p class="stat-label">حضور الشهر</p>
+            <div class="stat-trend">
+              <mat-icon>calendar_today</mat-icon>
+              <span>هذا الشهر</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+      
+      <!-- Department Distribution -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>business</mat-icon>
+            <span>توزيع الحضور حسب الإدارات</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="department-chart">
+            <div class="department-item" *ngFor="let dept of stats.attendancePerDepartment">
+              <div class="department-label">
+                <span class="dept-name">{{ dept.departmentName }}</span>
+                <span class="dept-count">{{ dept.count }} موظف</span>
+              </div>
+              <div class="dept-progress-container">
+                <div class="dept-progress-bar" 
+                     [style.width.%]="getDepartmentProgress(dept.count)">
+                </div>
+              </div>
+              <span class="dept-percentage">{{ getDepartmentProgress(dept.count).toFixed(1) }}%</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Hourly Timeline -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>timeline</mat-icon>
+            <span>توزيع الحضور خلال اليوم</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="hourly-chart">
+            <div class="hour-item" *ngFor="let hour of hourlyDistribution">
+              <div class="hour-label">{{ hour.hour }}</div>
+              <div class="hour-bar-container">
+                <div class="hour-bar" 
+                     [style.width.%]="getHourBarWidth(hour.count)"
+                     [class.peak-hour]="hour.count > 5">
+                  <span class="hour-count" *ngIf="hour.count > 0">{{ hour.count }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Checked In Now Section -->
+    <mat-card class="checked-in-card">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="title-section">
+            <mat-icon>login</mat-icon>
+            <span>موظفون في العمل الآن</span>
+            <mat-chip class="count-chip">{{ checkedInNow.length }}</mat-chip>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="checked-in-list" *ngIf="checkedInNow.length > 0">
+          <div class="employee-card" *ngFor="let attendance of checkedInNow.slice(0, 12)">
+            <div class="employee-header">
+              <div class="employee-name">
+                <mat-icon>badge</mat-icon>
+                <span>{{ attendance.employeeName }}</span>
+              </div>
+              <mat-chip color="primary" class="status-chip">
+                <mat-icon>login</mat-icon>
+                في العمل
+              </mat-chip>
+            </div>
+            <div class="employee-body">
+              <div class="employee-info">
+                <mat-icon>schedule</mat-icon>
+                <span>دخول: {{ formatDateTime(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime) }}</span>
+              </div>
+              <div class="employee-info" *ngIf="attendance.departmentName">
+                <mat-icon>business</mat-icon>
+                <span>{{ attendance.departmentName }}</span>
+              </div>
+            </div>
+            <div class="employee-footer">
+              <div class="time-info">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ getTimeSince(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="empty-state" *ngIf="checkedInNow.length === 0">
+          <mat-icon>event_busy</mat-icon>
+          <p>لا يوجد موظفين في العمل حالياً</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Recent Attendance Section -->
+    <mat-card class="recent-card">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="title-section">
+            <mat-icon>history</mat-icon>
+            <span>آخر 10 حضور</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="recent-list">
+          <div class="recent-item" *ngFor="let attendance of recentAttendance">
+            <div class="recent-icon" [class.checked-in]="!attendance.checkOutTime" [class.checked-out]="!!attendance.checkOutTime">
+              <mat-icon>{{ attendance.checkOutTime ? 'logout' : 'login' }}</mat-icon>
+            </div>
+            <div class="recent-info">
+              <div class="recent-primary">
+                <span class="employee-name">{{ attendance.employeeName }}</span>
+                <mat-chip [color]="attendance.checkOutTime ? 'accent' : 'primary'" class="status-mini">
+                  {{ attendance.checkOutTime ? 'خرج' : 'في العمل' }}
+                </mat-chip>
+              </div>
+              <div class="recent-secondary">
+                <span class="check-in-time">دخول: {{ formatDateTime(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime) }}</span>
+                <span class="separator" *ngIf="attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime">•</span>
+                <span class="check-out-time" *ngIf="attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime">
+                  خروج: {{ formatDateTime(attendance._checkOutTime || attendance.checkOutTime || attendance.lastCheckOutTime) }}
+                </span>
+              </div>
+            </div>
+            <div class="recent-time">
+              <span>{{ getTimeSince(attendance._checkInTime || attendance.checkInTime || attendance.firstCheckInTime) }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <!-- Real-time Indicator -->
+  <div class="realtime-indicator">
+    <mat-icon class="pulse">wifi</mat-icon>
+    <span>تحديثات مباشرة</span>
+  </div>
+</div>
+

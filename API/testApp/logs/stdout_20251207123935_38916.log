@@ -1,0 +1,127 @@
+info: API.Program[0]
+      Starting application initialization and database seeding...
+info: API.Program[0]
+      Connection string from configuration: True
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      DECLARE @result int;
+      EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+      BEGIN
+          CREATE TABLE [__EFMigrationsHistory] (
+              [MigrationId] nvarchar(150) NOT NULL,
+              [ProductVersion] nvarchar(32) NOT NULL,
+              CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+          );
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      DECLARE @result int;
+      EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: API.Program[0]
+      Identity database migration and seeding completed successfully.
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[61]
+      User profile not available. Using 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ASP.NET\4.0.30319.0\AutoGenKeys\S-1-5-82-2892227210-3549739472-665080510-3785172963-1779350310\DataProtection' as key repository and Windows DPAPI to encrypt keys at rest.
+warn: Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer[0]
+      Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Order history cleanup service starting.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[@__cutoff_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [o].[Id], [o].[Action], [o].[Description], [o].[IpAddress], [o].[NewValue], [o].[Notes], [o].[OldValue], [o].[OrderId], [o].[PerformedAt], [o].[PerformedById], [o].[UserAgent]
+      FROM [OrderHistories] AS [o]
+      WHERE [o].[PerformedAt] < @__cutoff_0
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Completed order history cleanup cycle.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\myApps\SCMS\API\testApp
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - application/json -
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetActiveVisits", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Core.Dtos.VisitorManagement.VisitDto]]] GetActiveVisits(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[Status] = N'ongoing'
+      ORDER BY [v].[CheckInAt] DESC
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetActiveVisits (API) in 126.9653ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - 200 2 application/json;+charset=utf-8 228.2545ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - application/json -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetActiveVisits", controller = "Visits"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Core.Dtos.VisitorManagement.VisitDto]]] GetActiveVisits(System.String) on controller API.Controllers.VisitsController (API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [v].[Id], [v].[CarImageUrl], [v].[CarPlate], [v].[CheckInAt], [v].[CheckOutAt], [v].[CreatedAt], [v].[CreatedByUserId], [v].[CreatedByUserName], [v].[DepartmentId], [v].[DepartmentName], [v].[EmployeeToVisit], [v].[ExpectedDurationHours], [v].[Status], [v].[UpdatedAt], [v].[VisitNumber], [v].[VisitReason], [v].[VisitorId], [v].[VisitorName], [v0].[Id], [v0].[Company], [v0].[CreatedAt], [v0].[FullName], [v0].[IdCardImageUrl], [v0].[IsBlocked], [v0].[MedicalNotes], [v0].[NationalId], [v0].[PersonImageUrl], [v0].[Phone], [v0].[UpdatedAt]
+      FROM [Visits] AS [v]
+      INNER JOIN [Visitors] AS [v0] ON [v].[VisitorId] = [v0].[Id]
+      WHERE [v].[Status] = N'ongoing'
+      ORDER BY [v].[CheckInAt] DESC
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Dtos.VisitorManagement.VisitDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action API.Controllers.VisitsController.GetActiveVisits (API) in 25.5787ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.VisitsController.GetActiveVisits (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://10.17.178.34:5050/api/Visits/active - 200 2 application/json;+charset=utf-8 30.4757ms
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Infrastructure.Services.OrderHistoryCleanupService[0]
+      Order history cleanup service stopping.

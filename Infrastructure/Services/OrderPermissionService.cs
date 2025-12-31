@@ -310,14 +310,20 @@ namespace Infrastructure.Services
                 return false;
             }
 
-            var department = await _context.Departments.FindAsync(dto.DepartmentId);
+            // Parse department ID from string to int
+            if (!int.TryParse(dto.DepartmentId, out int departmentId))
+            {
+                return false;
+            }
+
+            var department = await _context.Departments.FindAsync(departmentId);
             if (department == null)
             {
                 return false;
             }
 
             var access = order.DepartmentAccesses
-                .FirstOrDefault(a => a.DepartmentId == dto.DepartmentId);
+                .FirstOrDefault(a => a.DepartmentId == departmentId);
 
             var (canView, canEdit, canDownload, canShare) = ResolveDepartmentAccessFlags(dto.AccessLevel);
 
@@ -326,7 +332,7 @@ namespace Infrastructure.Services
                 access = new OrderDepartmentAccess
                 {
                     OrderId = orderId,
-                    DepartmentId = dto.DepartmentId,
+                    DepartmentId = departmentId,
                     GrantedById = grantedById,
                     GrantedAt = DateTime.UtcNow,
                     CanView = canView,

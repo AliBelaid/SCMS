@@ -77,18 +77,19 @@ export class NoAuthGuard implements CanActivate {
     }
 
     // Redirect based on highest priority role
+    // Default to document management dashboard
     if (this.authService.hasRole('Admin') || this.authService.hasRole('tpa-admin')) {
-      this.router.navigate(['/app/insurance/tpa-admin/dashboard']);
+      this.router.navigate(['/app/document-management']);
     } else if (this.authService.hasRole('super_admin') || this.authService.hasRole('tpa_admin')) {
-      this.router.navigate(['/app/insurance/tpa-admin/dashboard']);
+      this.router.navigate(['/app/document-management']);
     } else if (this.authService.hasRole('insurance_admin')) {
-      this.router.navigate(['/app/insurance/company/dashboard']);
+      this.router.navigate(['/app/document-management']);
     } else if (this.authService.hasRole('provider_admin') || this.authService.hasRole('provider')) {
-      this.router.navigate(['/app/insurance/provider/dashboard']);
+      this.router.navigate(['/app/document-management']);
     } else if (this.authService.hasRole('subscriber')) {
-      this.router.navigate(['/app/insurance/subscriber/dashboard']);
+      this.router.navigate(['/app/document-management']);
     } else {
-      this.router.navigate(['/app/insurance/dashboard']);
+      this.router.navigate(['/app/document-management']);
     }
   }
 } 

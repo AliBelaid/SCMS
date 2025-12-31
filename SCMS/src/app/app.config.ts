@@ -33,7 +33,7 @@ import { TokenceptorService } from 'src/assets/services/tokenceptor.service';
 import { LoadingInterceptor } from './loading.interceptors';
 import { ErrorInterceptor } from './ErrorInterceptor';
 import { UserService } from './user/user.service';
-import { take, firstValueFrom } from 'rxjs';
+import { take, firstValueFrom, catchError, of } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
  
 
@@ -59,7 +59,21 @@ export function userInitializerFactory(userService: UserService) {
     // This happens in the constructor now
 
     // Then try to load from the API (asynchronous)
-    return firstValueFrom(userService.loadCurrentUser());
+    // Handle 401 errors gracefully - user might not be logged in or token expired
+    return firstValueFrom(
+      userService.loadCurrentUser().pipe(
+        catchError((error) => {
+          // If 401, user is not authenticated - this is OK, don't block app startup
+          if (error.status === 401 || error.status === 0) {
+            console.log('User not authenticated or API unavailable, continuing with stored user data');
+            return of(null);
+          }
+          // For other errors, still return null but log
+          console.error('Error loading user:', error);
+          return of(null);
+        })
+      )
+    );
   };
 }
 

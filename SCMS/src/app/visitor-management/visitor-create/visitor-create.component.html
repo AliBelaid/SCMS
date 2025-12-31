@@ -1,0 +1,164 @@
+<div class="visitor-create-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>person_add</mat-icon>
+        إنشاء ملف زائر جديد
+      </mat-card-title>
+      <mat-card-subtitle>
+        تسجيل زائر متوقع قادم للشركة
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="visitorForm" (ngSubmit)="onSubmit()">
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <h3>المعلومات الشخصية</h3>
+          
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>الاسم الكامل *</mat-label>
+            <input matInput formControlName="fullName" placeholder="أدخل الاسم الكامل">
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error *ngIf="visitorForm.get('fullName')?.hasError('required')">
+              الاسم الكامل مطلوب
+            </mat-error>
+            <mat-error *ngIf="visitorForm.get('fullName')?.hasError('minlength')">
+              الاسم يجب أن يكون 3 أحرف على الأقل
+            </mat-error>
+          </mat-form-field>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>رقم الهوية *</mat-label>
+              <input matInput formControlName="nationalId" placeholder="أدخل رقم الهوية">
+              <mat-icon matPrefix>badge</mat-icon>
+              <mat-error *ngIf="visitorForm.get('nationalId')?.hasError('required')">
+                رقم الهوية مطلوب
+              </mat-error>
+              <mat-error *ngIf="visitorForm.get('nationalId')?.hasError('pattern')">
+                رقم الهوية يجب أن يكون 10-14 رقم
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>رقم الهاتف *</mat-label>
+              <input matInput formControlName="phone" placeholder="أدخل رقم الهاتف">
+              <mat-icon matPrefix>phone</mat-icon>
+              <mat-error *ngIf="visitorForm.get('phone')?.hasError('required')">
+                رقم الهاتف مطلوب
+              </mat-error>
+              <mat-error *ngIf="visitorForm.get('phone')?.hasError('pattern')">
+                رقم الهاتف يجب أن يكون 10-15 رقم
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>الشركة (اختياري)</mat-label>
+            <input matInput formControlName="company" placeholder="أدخل اسم الشركة">
+            <mat-icon matPrefix>business</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Visit Information Section -->
+        <div class="form-section">
+          <h3>معلومات الزيارة المتوقعة</h3>
+          
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>تاريخ الزيارة المتوقع *</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="expectedVisitDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error>تاريخ الزيارة مطلوب</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>وقت الزيارة المتوقع *</mat-label>
+              <input matInput type="time" formControlName="expectedVisitTime">
+              <mat-icon matPrefix>access_time</mat-icon>
+              <mat-error>وقت الزيارة مطلوب</mat-error>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>غرض الزيارة *</mat-label>
+            <textarea matInput formControlName="visitPurpose" rows="3" 
+                      placeholder="اذكر غرض الزيارة"></textarea>
+            <mat-icon matPrefix>description</mat-icon>
+            <mat-error>غرض الزيارة مطلوب</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>ملاحظات (اختياري)</mat-label>
+            <textarea matInput formControlName="notes" rows="2" 
+                      placeholder="أي ملاحظات إضافية"></textarea>
+            <mat-icon matPrefix>note</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Images Section -->
+        <div class="form-section">
+          <h3>الصور</h3>
+          
+          <div class="image-upload-row">
+            <!-- Person Image -->
+            <div class="image-upload-container">
+              <label class="image-upload-label">صورة شخصية</label>
+              <div class="image-preview" [class.has-image]="personImagePreview">
+                <img *ngIf="personImagePreview" [src]="personImagePreview" alt="Person Image">
+                <div *ngIf="!personImagePreview" class="placeholder">
+                  <mat-icon>person</mat-icon>
+                  <span>اختر صورة</span>
+                </div>
+              </div>
+              <input type="file" accept="image/*" (change)="onPersonImageSelected($event)" 
+                     #personImageInput hidden>
+              <button mat-raised-button type="button" color="primary" 
+                      (click)="personImageInput.click()">
+                <mat-icon>upload</mat-icon>
+                رفع صورة
+              </button>
+            </div>
+
+            <!-- ID Card Image -->
+            <div class="image-upload-container">
+              <label class="image-upload-label">صورة بطاقة الهوية</label>
+              <div class="image-preview" [class.has-image]="idCardImagePreview">
+                <img *ngIf="idCardImagePreview" [src]="idCardImagePreview" alt="ID Card Image">
+                <div *ngIf="!idCardImagePreview" class="placeholder">
+                  <mat-icon>badge</mat-icon>
+                  <span>اختر صورة</span>
+                </div>
+              </div>
+              <input type="file" accept="image/*" (change)="onIdCardImageSelected($event)" 
+                     #idCardImageInput hidden>
+              <button mat-raised-button type="button" color="primary" 
+                      (click)="idCardImageInput.click()">
+                <mat-icon>upload</mat-icon>
+                رفع صورة
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" 
+                  [disabled]="isLoading || visitorForm.invalid">
+            <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+            <mat-icon *ngIf="!isLoading">save</mat-icon>
+            <span *ngIf="!isLoading">حفظ</span>
+          </button>
+          
+          <button mat-raised-button type="button" (click)="cancel()" [disabled]="isLoading">
+            <mat-icon>cancel</mat-icon>
+            إلغاء
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
